@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Seng Mitnick</title>
-    <link>http://smk17.top/series/</link>
+    <link>https://smk17.top/series/</link>
     <description>Recent content in Series on Seng Mitnick</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="http://smk17.top/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://smk17.top/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 101</title>
-      <link>http://smk17.top/series/hugo-101/</link>
+      <link>https://smk17.top/series/hugo-101/</link>
       <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://smk17.top/series/hugo-101/</guid>
+      <guid>https://smk17.top/series/hugo-101/</guid>
       <description></description>
     </item>
     
