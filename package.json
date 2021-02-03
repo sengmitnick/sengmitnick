@@ -1,0 +1,23 @@
+{
+  "name": "sengmitnick",
+  "version": "1.0.0",
+  "description": "个人网站",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo -D && gh-pages -d public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sengmitnick/sengmitnick.git"
+  },
+  "author": "sengmitnick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sengmitnick/sengmitnick/issues"
+  },
+  "homepage": "https://github.com/sengmitnick/sengmitnick#readme",
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
