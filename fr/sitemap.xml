@@ -3,58 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/fr/categories/</loc>
+    <loc>http://smk17.top/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/categories/"
+                href="http://smk17.top/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/categories/"
+                href="http://smk17.top/fr/categories/"
                 />
   </url>
   
   <url>
-    <loc>/fr/</loc>
+    <loc>http://smk17.top/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="http://smk17.top/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/"
+                href="http://smk17.top/fr/"
                 />
   </url>
   
   <url>
-    <loc>/fr/series/</loc>
+    <loc>http://smk17.top/fr/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/series/"
+                href="http://smk17.top/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/series/"
+                href="http://smk17.top/fr/series/"
                 />
   </url>
   
   <url>
-    <loc>/fr/tags/</loc>
+    <loc>http://smk17.top/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/"
+                href="http://smk17.top/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/"
+                href="http://smk17.top/fr/tags/"
                 />
   </url>
   
