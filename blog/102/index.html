@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Seng Mitnick]">
+<meta name="description" content=" leancloud的云引擎 LeanEngine 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~
+" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://example.com/blog/102/" />
+
+
+    <title>
+        
+            通过leancloud创建hexo博客并具备后台管理功能 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://example.com/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+    <link rel="manifest" href="https://example.com/site.webmanifest">
+    <link rel="mask-icon" href="https://example.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="通过leancloud创建hexo博客并具备后台管理功能">
+<meta itemprop="description" content="
+leancloud的云引擎 LeanEngine 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~
+">
+<meta itemprop="datePublished" content="2017-07-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-07-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="191">
+<meta itemprop="image" content="https://example.com"/>
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com"/>
+
+<meta name="twitter:title" content="通过leancloud创建hexo博客并具备后台管理功能"/>
+<meta name="twitter:description" content="
+leancloud的云引擎 LeanEngine 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~
+"/>
+
+
+
+
+    <meta property="og:title" content="通过leancloud创建hexo博客并具备后台管理功能" />
+<meta property="og:description" content="
+leancloud的云引擎 LeanEngine 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/blog/102/" />
+<meta property="og:image" content="https://example.com"/>
+<meta property="article:published_time" content="2017-07-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-07-02T00:00:00+00:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2017-07-02 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://example.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://example.com/blog/">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://example.com/blog/102/">通过leancloud创建hexo博客并具备后台管理功能</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <blockquote>
+<p>leancloud的云引擎 <code>LeanEngine</code> 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~</p>
+</blockquote>
+<p>更新：为防止重新部署导致在线上写的文件丢失，添加hexo-qiniu-sync插件，每次插件文件自动更新到七牛云存储</p>
+<h1 id="初始化hexo">初始化hexo</h1>
+<p>通过终端初始化hexo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd hexo
+npm install --save hexo-admin
+hexo server -d
+open http://localhost:4000/admin/
+</code></pre></div><h1 id="初始化leanengine">初始化LeanEngine</h1>
+<p>通过终端初始化LeanEngine,关联到你在(leancloud)[https://leancloud.cn]控制台新建的用来部署hexo的应用（我的就是smk17）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lean switch
+</code></pre></div><h1 id="配置packagejson">配置package.json</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hexo-site&#34;</span>,
+  <span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span>,
+  <span style="color:#e6db74">&#34;private&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#e6db74">&#34;main&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;server.js&#34;</span>,
+  <span style="color:#e6db74">&#34;hexo&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;3.3.7&#34;</span>
+  },
+  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;node server.js&#34;</span>
+  },
+  <span style="color:#e6db74">&#34;dependencies&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;hexo&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^3.2.0&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-admin&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^2.2.1&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-algolia&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^1.1.0&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-archive&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.1.4&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-category&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.1.3&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-index&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.2.0&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-search&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^2.1.1&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-searchdb&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^1.0.7&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-generator-tag&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.2.0&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-qiniu-sync&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^1.4.7&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-renderer-ejs&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.2.0&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-renderer-marked&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.2.10&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-renderer-stylus&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.3.1&#34;</span>,
+    <span style="color:#e6db74">&#34;hexo-server&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^0.2.0&#34;</span>,
+    <span style="color:#e6db74">&#34;leanengine&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;^2.0.4&#34;</span>
+  },
+  <span style="color:#e6db74">&#34;engines&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;node&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;6.x&#34;</span>
+  }
+}
+</code></pre></div><h1 id="创建serverjs文件">创建server.js文件</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#39;use strict&#39;</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">AV</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;leanengine&#39;</span>);
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">exec</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>);
+
+<span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">init</span>({
+  <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">LEANCLOUD_APP_ID</span>,
+  <span style="color:#a6e22e">appKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">LEANCLOUD_APP_KEY</span>,
+  <span style="color:#a6e22e">masterKey</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">LEANCLOUD_APP_MASTER_KEY</span>
+});
+
+<span style="color:#75715e">// 端口一定要从环境变量 `LEANCLOUD_APP_PORT` 中获取。
+</span><span style="color:#75715e">// LeanEngine 运行时会分配端口并赋值到该变量。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">LEANCLOUD_APP_PORT</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">PORT</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">3000</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cli</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hexo server -p &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">cli</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">qiniu</span> <span style="color:#f92672">=</span> {
+	<span style="color:#e6db74">&#34;access_key&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">AccessKey</span>,
+  <span style="color:#e6db74">&#34;secret_key&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">SecretKey</span>
+}
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">exec_qiniu</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo &#39;&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">qiniu</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#39; 1&gt;qn.json &#34;</span>
+<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">exec_qiniu</span>, (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">stdout</span>, <span style="color:#a6e22e">stderr</span>) =&gt; {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`exec error: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+    <span style="color:#66d9ef">return</span>;
+  }
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`stdout: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">stdout</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`stderr: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">stderr</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+  <span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">cli</span>, (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">stdout</span>, <span style="color:#a6e22e">stderr</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`exec error: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+      <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`stdout: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">stdout</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`stderr: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">stderr</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+  });
+});
+</code></pre></div><h1 id="设置自定义环境变量">设置自定义环境变量</h1>
+<p>AccessKey和SecretKey从你的七牛那里获取
+{% qnimg 102/1.png title:设置自定义环境变量 alt:设置自定义环境变量 %}</p>
+<p>PS: 目前发现hexo-qiniu-sync插件没起到相应作用，需研究下如何在hexo下部署云函数并创建定时器时刻更新~</p>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://example.com">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://example.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+
+
+
+    </body>
+</html>
