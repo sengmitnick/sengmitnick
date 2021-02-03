@@ -1,6 +1,6 @@
 baseURL = "http://smk17.top/"
 languageCode = "zh-CN"
-theme = "hello-friend-ng"
+theme = "hello-friend-smk17"
 title = "Seng Mitnick"
 
 PygmentsCodeFences = true
