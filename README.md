@@ -1,4 +1,4 @@
-### Hi there 👋
+### I am a web developer helping make the world a better place through JavaScript.
 
 <!--
 **sengmitnick/sengmitnick** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
