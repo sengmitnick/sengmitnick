@@ -3,80 +3,80 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://smk17.top/blog/102/</loc>
+    <loc>/blog/102/</loc>
     <lastmod>2017-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://smk17.top/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2017-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://smk17.top/series/hugo-101/</loc>
+    <loc>/series/hugo-101/</loc>
     <lastmod>2017-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://smk17.top/</loc>
-    <lastmod>2017-07-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://smk17.top/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smk17.top/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://smk17.top/series/</loc>
+    <loc>/</loc>
     <lastmod>2017-07-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://smk17.top/fr/series/"
+                href="/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://smk17.top/series/"
+                href="/"
                 />
   </url>
   
   <url>
-    <loc>https://smk17.top/about/</loc>
+    <loc>/series/</loc>
+    <lastmod>2017-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://smk17.top/categories/</loc>
+    <loc>/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://smk17.top/fr/categories/"
+                href="/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://smk17.top/categories/"
+                href="/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://smk17.top/tags/</loc>
+    <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://smk17.top/fr/tags/"
+                href="/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://smk17.top/tags/"
+                href="/tags/"
                 />
   </url>
   
