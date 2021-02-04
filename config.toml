@@ -1,4 +1,4 @@
-baseURL = "http://smk17.top/"
+baseURL = "/"
 languageCode = "zh-CN"
 theme = "hello-friend-smk17"
 title = "Seng Mitnick"
@@ -38,6 +38,7 @@ enableRobotsTXT = true
 
 [author]
 name = "Seng Mitnick"
+beian = "粤ICP备15007727号-1"
 
 [blackfriday]
 hrefTargetBlank = true
