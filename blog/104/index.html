@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Seng Mitnick]">
+<meta name="description" content=" 不多说废话，这里基于 fooleap 的 disqus-php-api 对Hexo中的NexT主题进行兼容。
+" />
+<meta name="keywords" content=", hexo, disqus" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="/blog/104/" />
+
+
+    <title>
+        
+            基于disqus-php-api在Hexo博客中使用Disqus :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="基于disqus-php-api在Hexo博客中使用Disqus">
+<meta itemprop="description" content="
+不多说废话，这里基于 fooleap 的 disqus-php-api 对Hexo中的NexT主题进行兼容。
+">
+<meta itemprop="datePublished" content="2017-07-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-06T18:03:56+08:00" />
+<meta itemprop="wordCount" content="395">
+<meta itemprop="image" content="/"/>
+
+
+
+<meta itemprop="keywords" content="hexo,disqus," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="基于disqus-php-api在Hexo博客中使用Disqus"/>
+<meta name="twitter:description" content="
+不多说废话，这里基于 fooleap 的 disqus-php-api 对Hexo中的NexT主题进行兼容。
+"/>
+
+
+
+
+    <meta property="og:title" content="基于disqus-php-api在Hexo博客中使用Disqus" />
+<meta property="og:description" content="
+不多说废话，这里基于 fooleap 的 disqus-php-api 对Hexo中的NexT主题进行兼容。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/104/" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2017-07-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-06T18:03:56+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2017-07-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/blog/">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/blog/104/">基于disqus-php-api在Hexo博客中使用Disqus</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <blockquote>
+<p>不多说废话，这里基于 <a href="https://fooleap.org">fooleap</a> 的 <a href="https://github.com/fooleap/disqus-php-api">disqus-php-api</a> 对Hexo中的NexT主题进行兼容。</p>
+</blockquote>
+<h1 id="更新">更新</h1>
+<h2 id="修复-同一篇文章url不同都需要创建thread-的-bug">修复 <code>同一篇文章url不同都需要创建Thread</code> 的 bug</h2>
+<p>问题描述： 就用我这篇文章的链接做例子吧～ 对于链接 <code>http://smk17.cn/posts/104/</code> 、 <code>http://smk17.cn/posts/104/index.html</code> 、<code>http://smk17.cn/posts/104/?xxx</code> 、 <code>http://smk17.cn/posts/104/index.html?xxx</code> ,如果在 <code>http://smk17.cn/posts/104/</code> 创建了Thread在打开其他四个依然要你创建Thread的。</p>
+<p>修复方案：
+如果你已经阅读了本文，那么应该知道 <code>disqusapi.swig</code> 这个文件，修复方法就是修改改文件：
+定位到该文件创建实例的位置，添加url参数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">disq</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iDisqus</span>(<span style="color:#e6db74">&#39;comments&#39;</span>, {
+    <span style="color:#a6e22e">forum</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ theme.disqusapi.forum }}&#39;</span>,
+    <span style="color:#a6e22e">site</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ theme.disqusapi.site }}&#39;</span>,
+    <span style="color:#a6e22e">api</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ theme.disqusapi.api }}&#39;</span>,
+    <span style="color:#a6e22e">mode</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">disqusapi</span>.<span style="color:#a6e22e">mode</span> }},
+    <span style="color:#a6e22e">badge</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ theme.disqusapi.badge }}&#39;</span>,
+    <span style="color:#a6e22e">timeout</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">disqusapi</span>.<span style="color:#a6e22e">timeout</span> }},
+    <span style="color:#a6e22e">init</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">pathname</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;index.html&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>),
+    <span style="color:#a6e22e">emoji_list</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">emojiList</span>
+});
+</code></pre></div><p>PS： url参数是比较新版本才有的，如果你添加了改参数后bug没修复，那你需要更新一下了。</p>
+<h2 id="修复-no-access-control-allow-origin-header-is-present-on-the-requested-resource">修复 <code>No 'Access-Control-Allow-Origin' header is present on the requested resource.</code></h2>
+<p>问题描述： 在使用smk17.cn这个域名访问时，disqus的加载完全没问题，但是当我用www.smk17.cn或者类似于cdn.smk17.cn的域名访问时就不行了，会一直加载（如图）：</p>
+<p><img src="/img/104/2.gif" alt="bug界面效果"></p>
+<p>在浏览器打开调试窗口的 Console 可以看到是因为 请求资源上不存在“Access-Control-Allow-Origin”标头(如图)：</p>
+<p><img src="/img/104/1.png" alt="原因"></p>
+<p>修复方案：</p>
+<p>在这里，我们就需要修改服务端的代码，要修改的文件路径为：<code>your-disqus-php-path/init.php</code></p>
+<p>找到 <code>init.php</code> 文件中设置 <code>Access-Control-Allow-Origin</code> 部分：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">Emojione</span>;
+<span style="color:#66d9ef">require_once</span>(<span style="color:#e6db74">&#39;config.php&#39;</span>);
+<span style="color:#66d9ef">require_once</span>(<span style="color:#e6db74">&#39;emojione/autoload.php&#39;</span>);
+<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Content-type:text/json&#39;</span>);
+$origin <span style="color:#f92672">=</span> <span style="color:#a6e22e">isset</span>($_SERVER[<span style="color:#e6db74">&#39;HTTP_ORIGIN&#39;</span>])<span style="color:#f92672">?</span> $_SERVER[<span style="color:#e6db74">&#39;HTTP_ORIGIN&#39;</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>;  
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">preg_match</span>(<span style="color:#e6db74">&#39;(localhost|127\.0\.0\.1|&#39;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DISQUS_WEBSITE</span><span style="color:#f92672">.</span><span style="color:#e6db74">&#39;)&#39;</span>, $origin)){
+    <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Origin: &#39;</span><span style="color:#f92672">.</span>$origin);
+}
+$client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Client</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Ruleset</span>());
+</code></pre></div><p>删除原本设置 <code>Access-Control-Allow-Origin</code> 的代码，替换以下的代码：
+(其中，变量 <code>allow_origin</code> 是你要允许可以调用你后端的域名网址)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">namespace</span> <span style="color:#a6e22e">Emojione</span>;
+<span style="color:#66d9ef">require_once</span>(<span style="color:#e6db74">&#39;config.php&#39;</span>);
+<span style="color:#66d9ef">require_once</span>(<span style="color:#e6db74">&#39;emojione/autoload.php&#39;</span>);
+<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Content-type:text/json&#39;</span>);
+<span style="color:#75715e">//跨域访问的时候才会存在此字段  
+</span><span style="color:#75715e"></span>$origin <span style="color:#f92672">=</span> <span style="color:#a6e22e">isset</span>($_SERVER[<span style="color:#e6db74">&#39;HTTP_ORIGIN&#39;</span>]) <span style="color:#f92672">?</span> $_SERVER[<span style="color:#e6db74">&#39;HTTP_ORIGIN&#39;</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>;    
+     
+$allow_origin <span style="color:#f92672">=</span> <span style="color:#66d9ef">array</span>(    
+    <span style="color:#e6db74">&#39;http://smk17.cn&#39;</span>,
+    <span style="color:#e6db74">&#39;http://www.smk17.cn&#39;</span>
+);    
+     
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">in_array</span>($origin, $allow_origin)){    
+    <span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Origin:&#39;</span><span style="color:#f92672">.</span>$origin);     
+}
+$client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Client</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Ruleset</span>());
+</code></pre></div><h1 id="搭建评论系统后端">搭建评论系统后端</h1>
+<p>在这里我使用 <code>Hostker</code> 作为后端服务器，并且为了省钱，是跟本博客放在一起的,如果看过 <a href="/blog/99">Hostker+Hexo+TravisCI构建自动化</a> <code>博客就知道我的博客搭建过程，Hostker</code> 是只支持 <code>php</code> 和静态网站，并且<code>PHP</code>是只能通过 <code>git</code> 上传才可以使用的，不过他价格非常便宜，在没什么流量的情况下只需要一天3分钱。（以下基于 <code>Hostker</code> 操作）</p>
+<h2 id="获取-disqus-php-api">获取 <code>disqus-php-api</code></h2>
+<p>输入以下命令行获取 <code>disqus-php-api</code> ：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/fooleap/disqus-php-api
+</code></pre></div><h2 id="移动并重命名">移动并重命名</h2>
+<p>然后把<code>disqus-php</code>文件夹移动到<code>smk17</code>(你在本地的网站目录)下并重命名为<code>disqus</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mv disqus-php /path/to/smk17/disqus
+</code></pre></div><h2 id="修改-configphp">修改 config.php</h2>
+<p>修改 <code>config.php</code> 的 <code>Disqus</code> 设置 那一块（以下是我网站的配置）；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_PUBKEY&#39;</span>, <span style="color:#e6db74">&#39;E8Uh5l5fHZ6gD8U3KycjAIAk46f68Zw7C6eW8WSjZvCLXebZ7p0r1yrYDrLilk2F&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_USERNAME&#39;</span>, <span style="color:#e6db74">&#39;your-blog&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_EMAIL&#39;</span>, <span style="color:#e6db74">&#39;your-email@163.com&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_PASSWORD&#39;</span>, <span style="color:#e6db74">&#39;your-password&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_WEBSITE&#39;</span>, <span style="color:#e6db74">&#39;http://your-website.cn&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_SHORTNAME&#39;</span>, <span style="color:#e6db74">&#39;your-shortname&#39;</span>);
+<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;DISQUS_APPROVED&#39;</span>, <span style="color:#66d9ef">true</span>);
+</code></pre></div><p>PS: 注意 <code>DISQUS_WEBSITE</code> 是你的网站域名，如：<code>http://smk17.cn</code>，之前我填写为<code>http://smk17.cn/</code>,就是因为多了个 <code>/</code>, 导致一直处于 创建 Thread 的情况。</p>
+<h2 id="上传到服务器">上传到服务器</h2>
+<p>修改完成后就可以上传到服务器了：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add --all .
+git commit -m <span style="color:#e6db74">&#34;updata website&#34;</span>
+git push -u origin master
+</code></pre></div><h1 id="前端兼容next主题">前端，兼容nexT主题</h1>
+<h2 id="修改-next-配置文件">修改 Next 配置文件</h2>
+<p>首先需要在 Next 的配置文件中添加 disqus 的相关参数，配置文件路径为：<code>your-blog-path/themes/next/_config.yml</code></p>
+<p>找到配置文件中评论模块部分：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># Swiftype Search API Key</span>
+<span style="color:#75715e">#swiftype_key:</span>
+<span style="color:#75715e"># Baidu Analytics ID</span>
+<span style="color:#75715e">#baidu_analytics:</span>
+<span style="color:#75715e"># Duoshuo ShortName</span>
+<span style="color:#75715e">#duoshuo_shortname:</span>
+<span style="color:#75715e"># Disqus</span>
+<span style="color:#f92672">disqus</span>:
+  <span style="color:#f92672">enable</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">shortname</span>: <span style="color:#ae81ff">smk17</span>
+  <span style="color:#f92672">count</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><p>在后面添加下面的代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">disqusapi</span>:
+  <span style="color:#f92672">enable</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">forum</span>: <span style="color:#e6db74">&#39;smk17&#39;</span>
+  <span style="color:#f92672">site</span>: <span style="color:#e6db74">&#39;http://smk17.cn&#39;</span>
+  <span style="color:#f92672">api</span>: <span style="color:#e6db74">&#39;http://smk17.cn/disqus/api&#39;</span>
+  <span style="color:#f92672">mode</span>: <span style="color:#ae81ff">2</span>
+  <span style="color:#f92672">badge</span>: <span style="color:#e6db74">&#39;博主&#39;</span>
+  <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">3000</span>
+</code></pre></div><p>现在就可以通过修改配置文件轻松的打开关闭</p>
+<h2 id="添加-disqusapi-模块">添加 disqusapi 模块</h2>
+<p>Next 中的评论模块都存在下面的路径中： <code>your-blog-path/themes/next/layout/_third-party/comments/</code></p>
+<p>在其中新建名为 <code>disqusapi.swig</code> 的文件，内容为：</p>
+<pre><code class="language-swig" data-lang="swig">{% if theme.disqusapi.enable %}
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/disqus/dist/iDisqus.min.css&quot; /&gt;
+    &lt;script src=&quot;/disqus/dist/iDisqus.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var emojiList = [{
+            code:'smile',
+            title:'笑脸',
+            unicode:'1f604'
+        },{
+            code:'mask',
+            title:'生病',
+            unicode:'1f637'
+        },{
+            code:'joy',
+            title:'破涕为笑',
+            unicode:'1f602'
+        },{
+            code:'stuck_out_tongue_closed_eyes',
+            title:'吐舌',
+            unicode:'1f61d'
+        },{
+            code:'flushed',
+            title:'脸红',
+            unicode:'1f633'
+        },{
+            code:'scream',
+            title:'恐惧',
+            unicode:'1f631'
+        },{
+            code:'pensive',
+            title:'失望',
+            unicode:'1f614'
+        },{
+            code:'unamused',
+            title:'无语',
+            unicode:'1f612'
+        },{
+            code:'grin',
+            title:'露齿笑',
+            unicode:'1f601'
+        },{
+            code:'heart_eyes',
+            title:'色',
+            unicode:'1f60d'
+        },{
+            code:'sweat',
+            title:'汗',
+            unicode:'1f613'
+        },{
+            code:'smirk',
+            title:'得意',
+            unicode:'1f60f'
+        }]; 
+        var disq = new iDisqus('comments', {
+            forum: '{{ theme.disqusapi.forum }}',
+            site: '{{ theme.disqusapi.site }}',
+            api: '{{ theme.disqusapi.api }}',
+            mode: {{ theme.disqusapi.mode }},
+            badge: '{{ theme.disqusapi.badge }}',
+            timeout: {{ theme.disqusapi.timeout }},
+            init: true,
+            emoji_list: emojiList
+        });
+        disq.count();
+    &lt;/script&gt;
+{% endif %}
+</code></pre><p>添加引用
+在同一目录下的 <code>index.swig</code> 中添加：</p>
+<pre><code class="language-swig" data-lang="swig">{% include 'disqusapi.swig' %}
+</code></pre><p>现在，重新生成发布博客， <code>Disqus</code> 评论插件就出现在文章后面了。
+不过每篇文章你可能需要创建 <code>Thread</code> 。不过如果你可以科学上网的话，<code>mode</code>选择1在加载原生<code>Disqus</code>评论系统就会为你自动创建了。</p>
+<p><strong>&mdash;END</strong></p>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="/tags/hexo/">hexo</a></span>
+        <span class="tag"><a href="/tags/disqus/">disqus</a></span>
+        
+    </p>
+
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="/categories/technology/">technology</a></span>
+        
+    </p>
+
+			    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg><a href="https://github.com/sengmitnick/sengmitnick/commit/88e667666fd0162f24969cd58f9e856217507541" target="_blank" rel="noopener">88e6676</a> @ 2021-02-06</p>
+  		</div>
+        
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+
+
+
+    </body>
+</html>

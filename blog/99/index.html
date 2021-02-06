@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Seng Mitnick]">
+<meta name="description" content=" 本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 travis-ci 来自动git到Hostker上面，接下来就开工了…
+" />
+<meta name="keywords" content=", Hostker, Hexo, TravisCI" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="/blog/99/" />
+
+
+    <title>
+        
+            Hostker&#43;Hexo&#43;TravisCI构建自动化博客 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="Hostker&#43;Hexo&#43;TravisCI构建自动化博客">
+<meta itemprop="description" content="
+本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 travis-ci 来自动git到Hostker上面，接下来就开工了…
+">
+<meta itemprop="datePublished" content="2017-06-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-06T18:04:09+08:00" />
+<meta itemprop="wordCount" content="133">
+<meta itemprop="image" content="/"/>
+
+
+
+<meta itemprop="keywords" content="Hostker,Hexo,TravisCI," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Hostker&#43;Hexo&#43;TravisCI构建自动化博客"/>
+<meta name="twitter:description" content="
+本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 travis-ci 来自动git到Hostker上面，接下来就开工了…
+"/>
+
+
+
+
+    <meta property="og:title" content="Hostker&#43;Hexo&#43;TravisCI构建自动化博客" />
+<meta property="og:description" content="
+本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 travis-ci 来自动git到Hostker上面，接下来就开工了…
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/99/" />
+<meta property="og:image" content="/"/>
+<meta property="article:published_time" content="2017-06-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-06T18:04:09+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2017-06-12 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/blog/">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/blog/99/">Hostker+Hexo+TravisCI构建自动化博客</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <blockquote>
+<p>本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 <a href="https://travis-ci.org/">travis-ci</a> 来自动git到Hostker上面，接下来就开工了…</p>
+</blockquote>
+<h1 id="hostker">Hostker</h1>
+<p>​	Hostker是<a href="https://www.90.cx/">九零创新实验室</a>做的服务器，我2012在他们弄了Hostker就开始用了，历经这么多年现在貌似只能是老用户可以用了，反正现在我是找不到注册入口了&hellip;</p>
+<p>​	所以如果你是Hostker的老用户也可以接下去看&hellip;</p>
+<p>​	在 <code>我的应用列表</code> 新建应用，成功后如下：<img src="/img/99/1.png" alt="应用详细资料"></p>
+<h1 id="travis-ci">Travis CI</h1>
+<p>​	使用 github 帐号登录 <a href="https://travis-ci.org/">https://travis-ci.org/</a>, 将博客项目（<strong>你的博客.github.io</strong>）开启，然后在项目下新建<code>.travis.yml</code> 配置文件，当 push 时 travis 自动读取这个配置文件来完成 hexo 的 generate 和 Push到Hostker应用上面，但是在Travis下不能输入任何字符，所以我们需要在Git地址的 <code>URL</code> 中包含用户名和密码，不过我们不可能把Git地址的 <code>URL</code> 直接放在<code>.travis.yml</code> 配置文件里面，那样任何人都可以有权限往你的Hostker应用提交代码，这是不安全的。</p>
+<p>​	不过我们可以在Travis下对应我们博客项目的setting界面设置对应的Environment Variables，然后在<code>.travis.yml</code> 配置文件使用该参数，那别人就看不到了。</p>
+<p><img src="/img/99/2.png" alt="2.png"></p>
+<p>完整的.travis.yml 配置:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">language</span>: <span style="color:#ae81ff">node_js</span>
+<span style="color:#f92672">node_js</span>: <span style="color:#ae81ff">stable</span>
+<span style="color:#f92672">before_install</span>:
+- <span style="color:#ae81ff">git config --global user.name &#34;sengmitnick&#34;</span>
+- <span style="color:#ae81ff">git config --global user.email &#34;sengmitnick@163.com&#34;</span>
+<span style="color:#f92672">install</span>:
+- <span style="color:#ae81ff">npm install hexo -g</span>
+- <span style="color:#ae81ff">npm install hexo-deployer-git --save</span>
+- <span style="color:#ae81ff">npm install</span>
+<span style="color:#f92672">script</span>:
+- <span style="color:#ae81ff">hexo clean</span>
+- <span style="color:#ae81ff">git clone ${GH_REF} public</span>
+- <span style="color:#ae81ff">cd ./public</span>
+- <span style="color:#ae81ff">rm -fr !(.git)</span>
+- <span style="color:#ae81ff">cd ../</span>
+- <span style="color:#ae81ff">hexo g</span>
+<span style="color:#f92672">after_script</span>:
+- <span style="color:#ae81ff">cd ./public</span>
+- <span style="color:#ae81ff">git add --all .</span>
+- <span style="color:#ae81ff">git commit -m &#34;updata website&#34;</span>
+- <span style="color:#ae81ff">git push -u origin master</span>
+<span style="color:#f92672">branches</span>:
+  <span style="color:#f92672">only</span>:
+  - <span style="color:#ae81ff">blog-source</span>
+</code></pre></div><h1 id="参考">参考</h1>
+<p><a href="https://uedsky.com/2016-06/travis-deploy/">Hexo 博客 travis-ci 自动部署到VPS</a></p>
+<p><a href="http://blog.csdn.net/u012373815/article/details/53574002">hexo＋Travis-ci＋github构建自动化博客</a></p>
+<p><a href="https://zespia.tw/blog/2015/01/21/continuous-deployment-to-github-with-travis/">用 Travis CI 自動部署網站到 GitHub</a></p>
+<p><strong>&mdash;END</strong></p>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="/tags/hostker/">Hostker</a></span>
+        <span class="tag"><a href="/tags/hexo/">Hexo</a></span>
+        <span class="tag"><a href="/tags/travisci/">TravisCI</a></span>
+        
+    </p>
+
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="/categories/technology/">technology</a></span>
+        
+    </p>
+
+			    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg><a href="https://github.com/sengmitnick/sengmitnick/commit/58c0293d030b5179e968750ef17323020801d348" target="_blank" rel="noopener">58c0293</a> @ 2021-02-06</p>
+  		</div>
+        
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+
+
+
+    </body>
+</html>
