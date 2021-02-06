@@ -4,7 +4,8 @@
   "description": "个人网站",
   "main": "index.js",
   "scripts": {
-    "dev": "hugo server -D",
+    "new": "hugo new",
+    "dev": "hugo server -D --bind 0.0.0.0 --port 8383 --baseURL http://smk17.top:8383",
     "build": "hugo -D && gh-pages -d public"
   },
   "repository": {
