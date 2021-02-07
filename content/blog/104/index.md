@@ -5,6 +5,7 @@ linktitle: '104'
 date: 2017-07-16
 categories: [technology]
 tags: [hexo, disqus]
+comments: true
 weight: 10
 ---
 
@@ -39,11 +40,11 @@ PS： url参数是比较新版本才有的，如果你添加了改参数后bug�
 ## 修复 `No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 问题描述： 在使用smk17.cn这个域名访问时，disqus的加载完全没问题，但是当我用www.smk17.cn或者类似于cdn.smk17.cn的域名访问时就不行了，会一直加载（如图）：
 
-![bug界面效果](/img/104/2.gif)
+{{<img name="2.gif" alt="bug界面效果" caption="bug界面效果" >}}
 
 在浏览器打开调试窗口的 Console 可以看到是因为 请求资源上不存在“Access-Control-Allow-Origin”标头(如图)：
 
-![原因](/img/104/1.png)
+{{<img name="1.png" alt="原因" caption="原因" >}}
 
 
 修复方案：
