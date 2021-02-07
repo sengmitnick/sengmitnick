@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "zh-CN"
+languageCode = "en-us"
 theme = "hello-friend-smk17"
 title = "Seng Mitnick"
 
@@ -10,7 +10,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 paginate = 10 
 rssLimit = 10 # Maximum number of items in the RSS feed.
 
-# googleAnalytics = ""
+googleAnalytics = "G-J4P4N74ZN2"
 disqusShortname = "smk17"
 
 archetypeDir = "archetypes"
@@ -134,11 +134,6 @@ logoText = "$ cd /home/"
 #   alt      = "Portrait"
 #   maxWidth = "50px"
 
-# Social icons
-# [[params.social]]
-# name = "twitter"
-# url = "https://twitter.com/sengmitnick"
-
 # [[params.social]]
 # name = "email"
 # url = "mailto:sengmitnick@163.com"
@@ -150,6 +145,15 @@ url = "https://github.com/sengmitnick"
 [[params.social]]
 name = "instagram"
 url = "https://www.instagram.com/sengmitnick"
+
+[[params.social]]
+name = "blog"
+url = "/blog/"
+
+# Social icons
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/sengmitnick"
 
 # [[params.social]]
 # name = "leetcode"
@@ -184,7 +188,7 @@ weight = 2
 # name = "About"
 # url = "about/"
 
-[[menu.main]]
-identifier = "Blog"
-name = "Blog"
-url = "blog/"
+# [[menu.main]]
+# identifier = "Blog"
+# name = "Blog"
+# url = "blog/"
