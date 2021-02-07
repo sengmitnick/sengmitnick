@@ -5,6 +5,7 @@ categories: [technology]
 date: 2017-06-12
 linktitle: '99'
 tags: [ Hostker , Hexo , TravisCI ]
+comments: true
 ---
 
 > 本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 [travis-ci](https://travis-ci.org/) 来自动git到Hostker上面，接下来就开工了…
