@@ -17,7 +17,8 @@ comments: true
 
 ​	所以如果你是Hostker的老用户也可以接下去看...
 
-​	在 `我的应用列表` 新建应用，成功后如下：![应用详细资料](/img/99/1.png)
+​	在 `我的应用列表` 新建应用，成功后如下：
+{{<img name="1.png" alt="应用详细资料" caption="应用详细资料" >}}
 
 # Travis CI
 
@@ -25,7 +26,7 @@ comments: true
 
 ​	不过我们可以在Travis下对应我们博客项目的setting界面设置对应的Environment Variables，然后在`.travis.yml` 配置文件使用该参数，那别人就看不到了。
 
-![2.png](/img/99/2.png)
+{{<img name="2.png" alt="Travis Setting界面" caption="Travis Setting界面" >}}
 
 完整的.travis.yml 配置:
 
