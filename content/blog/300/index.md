@@ -5,7 +5,7 @@ linktitle: "300"
 date: 2021-02-09T19:49:16+08:00
 categories: [notes]
 comments: true
-toc: true
+toc: false
 weight: 1
 ---
 
