@@ -1,5 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
+defaultContentLanguage = "zh-cn"
+
 theme = "hello-friend-smk17"
 title = "Seng Mitnick"
 
@@ -53,7 +55,7 @@ tag = "tags"
 dateform = "Jan 2, 2006"
 dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02 15:04"
-dateformShort = "Jan 2"
+dateformShort = "01-02"
 
 # Metadata mostly used in document's head
 # 
@@ -177,7 +179,7 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
 subtitle = ""
 weight = 1
 
-[languages.fr]
+[languages.zh-cn]
 copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 subtitle = ""
 weight = 2
