@@ -6,6 +6,7 @@ date: 2017-07-16
 categories: [technology]
 tags: [hexo, disqus]
 comments: true
+toc: true
 weight: 10
 ---
 
