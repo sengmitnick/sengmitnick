@@ -19,6 +19,6 @@ toc: false
 
 虽然还不是很完美，但也可基本使用了。后续慢慢迭代吧:)
 
-# 参考资料
+## 参考资料
 - [添加一键返回顶部功能](https://chowray.netlify.app/posts/it%E5%B0%8F%E8%AE%B0/2021-01-06-%E4%B8%80%E9%94%AE%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8/)
 - [5种回到顶部的写法从实现到增强](https://www.cnblogs.com/xiaohuochai/p/5836179.html)
