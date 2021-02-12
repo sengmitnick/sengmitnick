@@ -10,13 +10,13 @@ toc: true
 weight: 10
 ---
 
-> 不多说废话，这里基于 [fooleap](https://fooleap.org) 的 [disqus-php-api](https://github.com/fooleap/disqus-php-api) 对Hexo中的NexT主题进行兼容。
+> 废话少说，这里基于 [fooleap](https://fooleap.org) 的 [disqus-php-api](https://github.com/fooleap/disqus-php-api) 对Hexo中的NexT主题进行兼容。
 
 <!--more-->
 
-# 更新
+## 更新
 
-## 修复 `同一篇文章url不同都需要创建Thread` 的 bug
+### 修复 `同一篇文章url不同都需要创建Thread` 的 bug
 问题描述： 就用我这篇文章的链接做例子吧～ 对于链接 `http://smk17.cn/posts/104/` 、 `http://smk17.cn/posts/104/index.html` 、`http://smk17.cn/posts/104/?xxx` 、 `http://smk17.cn/posts/104/index.html?xxx` ,如果在 `http://smk17.cn/posts/104/` 创建了Thread在打开其他四个依然要你创建Thread的。
 
 修复方案：
@@ -38,7 +38,7 @@ var disq = new iDisqus('comments', {
 ```
 PS： url参数是比较新版本才有的，如果你添加了改参数后bug没修复，那你需要更新一下了。
 
-## 修复 `No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+### 修复 `No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 问题描述： 在使用smk17.cn这个域名访问时，disqus的加载完全没问题，但是当我用www.smk17.cn或者类似于cdn.smk17.cn的域名访问时就不行了，会一直加载（如图）：
 
 {{<img name="2.gif" alt="bug界面效果" caption="bug界面效果" >}}
@@ -88,11 +88,11 @@ if(in_array($origin, $allow_origin)){
 $client = new Client(new Ruleset());
 ```
 
-# 搭建评论系统后端
+## 搭建评论系统后端
 
 在这里我使用 `Hostker` 作为后端服务器，并且为了省钱，是跟本博客放在一起的,如果看过 [Hostker+Hexo+TravisCI构建自动化](/blog/99) `博客就知道我的博客搭建过程，Hostker` 是只支持 `php` 和静态网站，并且`PHP`是只能通过 `git` 上传才可以使用的，不过他价格非常便宜，在没什么流量的情况下只需要一天3分钱。（以下基于 `Hostker` 操作）
 
-## 获取 `disqus-php-api`
+### 获取 `disqus-php-api`
 
 输入以下命令行获取 `disqus-php-api` ：
 
@@ -100,7 +100,7 @@ $client = new Client(new Ruleset());
 git clone https://github.com/fooleap/disqus-php-api
 ```
 
-## 移动并重命名
+### 移动并重命名
 
 然后把`disqus-php`文件夹移动到`smk17`(你在本地的网站目录)下并重命名为`disqus`
 
@@ -108,7 +108,7 @@ git clone https://github.com/fooleap/disqus-php-api
 mv disqus-php /path/to/smk17/disqus
 ```
 
-## 修改 config.php
+### 修改 config.php
 
 修改 `config.php` 的 `Disqus` 设置 那一块（以下是我网站的配置）；
 
@@ -123,7 +123,7 @@ define('DISQUS_APPROVED', true);
 ```
 PS: 注意 `DISQUS_WEBSITE` 是你的网站域名，如：`http://smk17.cn`，之前我填写为`http://smk17.cn/`,就是因为多了个 `/`, 导致一直处于 创建 Thread 的情况。
 
-## 上传到服务器
+### 上传到服务器
 
 修改完成后就可以上传到服务器了：
 
@@ -133,9 +133,9 @@ git commit -m "updata website"
 git push -u origin master
 ```
 
-# 前端，兼容nexT主题
+## 前端，兼容nexT主题
 
-## 修改 Next 配置文件
+### 修改 Next 配置文件
 首先需要在 Next 的配置文件中添加 disqus 的相关参数，配置文件路径为：`your-blog-path/themes/next/_config.yml`
 
 找到配置文件中评论模块部分：
@@ -169,7 +169,7 @@ disqusapi:
 
 现在就可以通过修改配置文件轻松的打开关闭
 
-## 添加 disqusapi 模块
+### 添加 disqusapi 模块
 
 Next 中的评论模块都存在下面的路径中： `your-blog-path/themes/next/layout/_third-party/comments/`
 
