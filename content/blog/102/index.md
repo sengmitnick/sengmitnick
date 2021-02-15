@@ -115,7 +115,7 @@ exec(exec_qiniu, (error, stdout, stderr) => {
 ## 设置自定义环境变量
 
 AccessKey和SecretKey从你的七牛那里获取
-{% qnimg 102/1.png title:设置自定义环境变量 alt:设置自定义环境变量 %}
+{{<img name="1.png" caption="设置自定义环境变量" alt="设置自定义环境变量">}}
 
 PS: 目前发现hexo-qiniu-sync插件没起到相应作用，需研究下如何在hexo下部署云函数并创建定时器时刻更新~
 
