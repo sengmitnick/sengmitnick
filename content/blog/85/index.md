@@ -1,12 +1,12 @@
 ---
-title: 〖转载〗DoNet下使用Chart，代码设置并具备放大功能
+mark: reprint
+title: DoNet下使用Chart，代码设置并具备放大功能
 categories: [technology]
 date: 2016-10-12 14:51:29
 tags: [DoNet,Chart]
 author: {name: Seng Mitnick}
 linktitle: "85"
 comments: true
-toc: true
 ---
 > 直接拖到Chart控件到你需要显示的地方，然后把控件名字改成chart即可。
 
@@ -15,9 +15,9 @@ toc: true
 
   本文示例最终效果：
 <!--more-->
-{% qnimg 85/1.jpg title:图1 alt:图1 %}
-{% qnimg 85/2.jpg title:图2 alt:图2 %}
-{% qnimg 85/3.jpg title:图3 alt:图3 %}
+{{<img name="1.jpg" caption="图1" alt="图1">}}
+{{<img name="2.jpg" caption="图2" alt="图2">}}
+{{<img name="3.jpg" caption="图3" alt="图3">}}
 
 直接上代码：
 # 初始化
@@ -279,3 +279,5 @@ private void InitializeChart()
     }
 }
 ```
+
+**END……**
