@@ -28,7 +28,7 @@ toc: false
 于是就决定去增城白水寨一游啦
 
 
-{{<img name="01.jpg" caption="初到白水寨" alt="初到白水寨 " full="true">}}
+{{<img name="01.jpg" caption="初到白水寨" alt="初到白水寨" full="true">}}
 
 初到白水寨
 
