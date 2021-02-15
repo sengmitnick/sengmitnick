@@ -1,5 +1,6 @@
 ---
-title: 〖原创〗微信小程序--蓝牙通讯
+mark: original
+title: 微信小程序--蓝牙通讯
 categories: [technology]
 date: 2017-06-09 17:22:47
 tags: [微信小程序]
@@ -12,20 +13,21 @@ toc: true
 > 微信小程序可以使用蓝牙进行通讯啦~
 > 在这里记录下使用微信小程序开发我司的小程序
 
-# 体验
+## 体验
 基于微信小程序--蓝牙通讯的小程序->cdm21智能家居已发布，可扫一扫下面小程序码进行体验
 
-{% qnimg 98.jpg title:cdm21智能家居 alt:cdm21智能家居 normal:yes %}<!--more-->
+{{<img name="98.jpg" caption="cdm21智能家居" alt="cdm21智能家居" normal="true">}}
+<!--more-->
 
-# 源码
+## 源码
 点击[这里](https://github.com/smk17/cdm21Smart)查看源码
 
-#  硬件设备
+##  硬件设备
 该小程序使用的蓝牙模块是[汇承HC-08蓝牙模块4.0](https://item.taobao.com/item.htm?spm=1002.81.5.1.MQqNI0&id=36426439097&item_id=36426439097),配置里除了改了名字其它不变。
 
 
 
-#  搜索蓝牙设备
+##  搜索蓝牙设备
 
 根据[微信小程序官方API](https://mp.weixin.qq.com/debug/wxadoc/dev/api/bluetooth.html)编程，搜索蓝牙设备选择并连接对应设备：（该代码段位于add_device.js的scan函数）
 
@@ -65,7 +67,7 @@ wx.startBluetoothDevicesDiscovery({
 })
 ~~~
 
-# 连接设备并通讯
+## 连接设备并通讯
 
 PS: 在小程序端接受到蓝牙设备的数据类型为ArrayBuffer类型，在小程序IDE打印显示为ArrayBuffer，显示不出具体数据，需要使用以下函数转成字符串(当初还一直以为没有接受到数据呢~~)
 
@@ -146,9 +148,8 @@ function select_characteristics(deviceId, services) {
 };
 ~~~
 
-#  总结
+##  总结
 
 微信小程序的蓝牙通讯基本过程就如此了。。。
 
-
-
+**END……**
