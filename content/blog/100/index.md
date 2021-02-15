@@ -1,5 +1,6 @@
 ---
-title: 〖原创〗微信小程序--简易顶部Toast
+mark: original
+title: 微信小程序--简易顶部Toast
 categories: [technology]
 date: 2017-06-30 11:05:23
 tags: [微信小程序, Toast]
@@ -14,11 +15,11 @@ toc: true
 
 demo地址：[https://github.com/smk17/wxToast](https://github.com/smk17/wxToast)
 
-# 效果图
+## 效果图
 
-{% qnimg 100.gif title:demo alt:demo normal:yes %}
+{{<img name="100.gif" caption="demo" alt="demo" normal="true">}}
 
-# 添加样式
+## 添加样式
 
 在app.wxss添加我们要自定义的toast样式
 
@@ -35,7 +36,7 @@ demo地址：[https://github.com/smk17/wxToast](https://github.com/smk17/wxToast
 	transition: opacity 0.5s ease-out;  
 }
 ~~~
-# 添加View
+## 添加View
 
 在需要toast的wxml文件添加id为toast的view标签
 
@@ -43,7 +44,7 @@ demo地址：[https://github.com/smk17/wxToast](https://github.com/smk17/wxToast
 <view id="toast" style="opacity: {{opacity}};">{{message}}</view>
 ~~~
 
-# 添加事件
+## 添加事件
 
 在wxml文件对应的js文件里面添加对应的事件并设置默认数据
 
@@ -70,6 +71,8 @@ drawToast(message){
 },
 ~~~
 
-# 总结
+## 总结
 
 其实这就是一个简单的Toast提示~~~
+
+**END……**
