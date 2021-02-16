@@ -4,7 +4,7 @@ title: ReactNative项目名称修改
 categories: [technology]
 date: 2017-01-05 09:59:32
 tags: [ ReactNative ]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "95"
 comments: true
 toc: true

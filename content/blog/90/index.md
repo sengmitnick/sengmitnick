@@ -4,7 +4,7 @@ title: 使用leancloud做微信小程序后端
 categories: [technology]
 date: 2016-11-05 21:04:39
 tags: [leancloud, 微信小程序]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "90"
 comments: true
 ---

@@ -4,7 +4,7 @@ title: 微信小程序--通过leancloud做后台发送模板消息
 categories: [technology]
 date: 2017-07-02 16:18:15
 tags: [微信小程序, leancloud, 模板消息]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "101"
 comments: true
 toc: true

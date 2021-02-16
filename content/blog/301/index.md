@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 title: "2020 年度总结"
 linktitle: "301"
 date: 2021-02-10T19:00:00+08:00

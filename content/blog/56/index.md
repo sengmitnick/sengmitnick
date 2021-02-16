@@ -4,7 +4,7 @@ title: 基于SHT3x传感器开发的C51程序
 date: 2014-08-29 12:28:29
 categories: [technology]
 tags: []
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "56"
 comments: true
 toc: false

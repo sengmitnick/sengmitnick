@@ -4,7 +4,7 @@ title: 给Hexo添加文章置顶功能
 categories: [technology]
 date: 2016-10-21 16:25:37
 tags: [Hexo,置顶]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "89"
 comments: true
 ---

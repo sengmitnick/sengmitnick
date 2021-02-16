@@ -4,7 +4,7 @@ title: hexo本地环境的迁移与备份
 categories: [technology]
 date: 2017-06-09 15:20:12
 tags: [hexo,备份]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "97"
 comments: true
 toc: true

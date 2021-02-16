@@ -3,7 +3,7 @@ title: 走遍广州之宜家家居与千味刷
 date: 2014-04-02 10:50:38
 categories: [碎事]
 tags: [走遍广州,聚会]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "26"
 comments: true
 toc: false

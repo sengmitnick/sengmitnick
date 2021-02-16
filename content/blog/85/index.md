@@ -4,7 +4,7 @@ title: DoNet下使用Chart，代码设置并具备放大功能
 categories: [technology]
 date: 2016-10-12 14:51:29
 tags: [DoNet,Chart]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "85"
 comments: true
 ---

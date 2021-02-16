@@ -3,7 +3,7 @@ title: windows server 2008 R2 安装后的配置总结
 categories: [technology]
 tags: [windows, 服务器, 系统, 配置, 优化, 总结]
 date: 2014-02-02 06:02:43
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "2"
 comments: true
 toc: true

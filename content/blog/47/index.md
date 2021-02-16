@@ -4,7 +4,7 @@ title: WIN2003+IIS6+PHP5.3.8的安装配置
 date: 2014-05-28 07:28:52
 categories: [technology]
 tags: [windows,配置,PHP,IIS]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "47"
 comments: true
 toc: true

@@ -4,7 +4,7 @@ cover: /blog/3/09.jpg
 date: 2013-05-01 15:01:31
 categories: [游记]
 tags: [走遍广州]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "3"
 comments: true
 toc: false

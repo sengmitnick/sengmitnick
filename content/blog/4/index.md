@@ -4,7 +4,7 @@ cover: /blog/4/1.jpg
 date: 2013-12-07 09:07:43
 categories: [游记]
 tags: [东莞]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "4"
 comments: true
 toc: false

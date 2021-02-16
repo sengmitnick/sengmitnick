@@ -3,7 +3,7 @@ title: 〖原创〗DoNet下大数据量导出到Excel
 date: 2016-10-12 12:16:00
 categories: [technology]
 tags: [DoNet,Excel]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "84"
 comments: true
 toc: true

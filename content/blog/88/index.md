@@ -3,7 +3,7 @@ title: React Native使用各种坑
 categories: [technology]
 date: 2016-10-21 13:05:53
 tags: [ReactNative]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "88"
 comments: true
 toc: true

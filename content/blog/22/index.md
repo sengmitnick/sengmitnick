@@ -4,7 +4,7 @@ title: MySQL使用过程中遇到问题总结
 date: 2014-03-22 10:40:04
 categories: [technology]
 tags: [总结,MySql]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "22"
 comments: true
 toc: true

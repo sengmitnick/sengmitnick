@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 title: "基于disqus-php-api在Hexo博客中使用Disqus"
 linktitle: '104'
 date: 2017-07-16

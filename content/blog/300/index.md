@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 title: "时隔三年，我又回来了～"
 linktitle: "300"
 date: 2021-02-09T19:49:16+08:00

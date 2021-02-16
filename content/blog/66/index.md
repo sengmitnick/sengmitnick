@@ -4,7 +4,7 @@ title: Windows利用vnc viewer远程连接MacOS
 categories: [technology]
 date: 2016-10-31 18:00:56
 tags: [Windows, MacOS]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "66"
 comments: true
 toc: true

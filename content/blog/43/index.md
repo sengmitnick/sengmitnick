@@ -4,7 +4,7 @@ title: Win2003打开网页时老是提示“添加网址到信任站点”的设
 date: 2014-05-27 03:35:55
 categories: [technology]
 tags: [windows,配置]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "43"
 comments: true
 toc: false

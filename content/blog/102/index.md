@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 date: 2017-07-02
 linktitle: '102'
 categories: [technology]

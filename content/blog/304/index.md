@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 title: "Hugo下添加 Back Top 功能"
 linktitle: "304"
 date: 2021-02-10T12:28:23+08:00

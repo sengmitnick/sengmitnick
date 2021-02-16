@@ -4,7 +4,7 @@ title: 微信小程序--切换城市demo
 categories: [作品]
 date: 2017-01-21 14:25:51
 tags: [微信小程序]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "96"
 comments: true
 toc: true

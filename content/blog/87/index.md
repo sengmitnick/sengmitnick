@@ -4,7 +4,7 @@ title: 温湿度测试软件
 categories: [作品]
 date: 2016-10-20 16:55:51
 tags: [DoNet]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "87"
 comments: true
 toc: true

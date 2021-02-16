@@ -1,5 +1,5 @@
 ---
-author: {name: Seng Mitnick}
+author: SengMitnick
 title: Hostker+Hexo+TravisCI构建自动化博客
 categories: [technology]
 date: 2017-06-12

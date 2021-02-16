@@ -4,7 +4,7 @@ title: 微信小程序--蓝牙通讯
 categories: [technology]
 date: 2017-06-09 17:22:47
 tags: [微信小程序]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "98"
 comments: true
 toc: true

@@ -4,7 +4,7 @@ title: 微信小程序--简易顶部Toast
 categories: [technology]
 date: 2017-06-30 11:05:23
 tags: [微信小程序, Toast]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "100"
 comments: true
 toc: true

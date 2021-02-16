@@ -4,7 +4,7 @@ title: 误删磁盘分区或分区莫名丢失后完美数据恢复方案
 date: 2014-03-22 10:37:40
 categories: [technology]
 tags: [数据恢复]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "21"
 comments: true
 toc: true

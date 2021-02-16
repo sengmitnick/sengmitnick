@@ -3,7 +3,7 @@ title: 超简单的数码相框制作
 date: 2014-02-15 09:14:23
 categories: [technology]
 tags: [嵌入式,龙芯培训,QT,项目]
-author: {name: Seng Mitnick}
+author: SengMitnick
 linktitle: "5"
 comments: true
 toc: true
