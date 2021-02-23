@@ -2,6 +2,7 @@
 mark: original
 title: 微信小程序--通过leancloud做后台发送模板消息
 cover: /images/cover/02.jpg
+images: [/images/cover/02.jpg]
 categories: [technology]
 date: 2017-07-02 16:18:15
 tags: [微信小程序, leancloud, 模板消息]
