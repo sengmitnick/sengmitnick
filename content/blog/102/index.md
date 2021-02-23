@@ -5,6 +5,7 @@ linktitle: '102'
 categories: [technology]
 tags: [hexo, leancloud]
 cover: /images/cover/02.jpg
+images: [/images/cover/02.jpg]
 title: 通过leancloud创建hexo博客并具备后台管理功能
 comments: true
 toc: true
