@@ -2,6 +2,7 @@
 author: SengMitnick
 title: "Hugo下添加 Back Top 功能"
 linktitle: "304"
+cover: /images/cover/02.jpg
 date: 2021-02-10T12:28:23+08:00
 categories: [technology]
 tags: [Hugo]
