@@ -2,6 +2,7 @@
 author: SengMitnick
 title: "根据 swagger 文档生成 typescript 客户端调用代码"
 linktitle: "306"
+cover: /images/cover/03.jpg
 date: 2020-12-16T15:59:47+08:00
 categories: [technology]
 tags: [swagger,typescript]
