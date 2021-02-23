@@ -2,6 +2,7 @@
 author: SengMitnick
 title: "2020 年度总结"
 linktitle: "301"
+cover: /images/cover/02.jpg
 date: 2021-02-10T19:00:00+08:00
 categories: [notes]
 tags: [summary]
