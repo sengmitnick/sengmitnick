@@ -3,6 +3,7 @@ author: SengMitnick
 title: "打造专属自己的CloudIDE"
 linktitle: "308"
 cover: /images/cover/02.jpg
+images: [/images/cover/02.jpg]
 date: 2021-02-22T21:09:48+08:00
 categories: [technology]
 tags: [vscode, ide]
