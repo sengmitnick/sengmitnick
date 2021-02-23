@@ -1,6 +1,7 @@
 ---
 mark: original
 title: 微信小程序--简易顶部Toast
+cover: /images/cover/02.jpg
 categories: [technology]
 date: 2017-06-30 11:05:23
 tags: [微信小程序, Toast]
