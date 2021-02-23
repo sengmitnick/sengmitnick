@@ -2,6 +2,7 @@
 author: SengMitnick
 title: Hostker+Hexo+TravisCI构建自动化博客
 cover: /images/cover/02.jpg
+images: [/images/cover/02.jpg]
 categories: [technology]
 date: 2017-06-12
 linktitle: '99'
