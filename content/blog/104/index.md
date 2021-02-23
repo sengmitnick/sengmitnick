@@ -3,6 +3,7 @@ author: SengMitnick
 title: "基于disqus-php-api在Hexo博客中使用Disqus"
 linktitle: '104'
 cover: /images/cover/02.jpg
+images: [/images/cover/02.jpg]
 date: 2017-07-16
 categories: [technology]
 tags: [hexo, disqus]
