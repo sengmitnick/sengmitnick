@@ -24,7 +24,7 @@ curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
 
 ### 安装zsh和oh-my-zsh
 
-参考[《 Ubuntu下安装zsh和oh-my-zsh 》](/305/)
+参考[《 Ubuntu下安装zsh和oh-my-zsh 》](/blog/305/)
 
 ## 改造
 
