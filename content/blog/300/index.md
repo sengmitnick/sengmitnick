@@ -2,7 +2,8 @@
 author: SengMitnick
 title: "时隔三年，我又回来了～"
 linktitle: "300"
-date: 2021-02-09T19:49:16+08:00
+cover: /images/cover/03.jpg
+date: 2020-12-09T19:49:16+08:00
 categories: [notes]
 comments: true
 toc: false
