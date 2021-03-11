@@ -38,7 +38,7 @@ $ sudo passwd root
 
 ## 更改 WSL 默认登陆账号
 
-> 此处默认子系统为 Ubuntu 20.04，如果你是其他 Linux 子系统可做参考~
+> 此处默认子系统为 Ubuntu 20.04，如果你是其他 Linux 子系统可做参考进行类比~
 
 在开始按钮右键，在弹出菜单中打开 Power shell，执行下面命令，查看已安装的 Linux 子系统：
 
@@ -57,6 +57,8 @@ Power shell 设置 WSL Ubuntu 默认登陆用户，下面命令中 username 替�
 ```bash
 ubuntu2004.exe config --default-user username
 ```
+
+PS: 这里我主要设置默认登陆用户为 root 。
 
 Power shell 执行下面命令，可查看 Ubuntu 命令的帮助信息：
 
