@@ -2,6 +2,7 @@
 title: "COMMUNITY GUIDELINES"
 linktitle: 'guidelines'
 date: 2021-02-07T22:08:40+08:00
+comments: false
 ---
 
 Welcome to Seng Mitnick Blogs. We try our best to make sure that the discussions on our articles are the troll, spam and abuse free but we’re not omnipresent. The comment section can be a great place for interaction with readers, writers and even for spawning stimulating conversation – it can be a great place for all of us! To ensure that you have a good time over here at SENGMITNICK, please make sure to stick to the following guidelines:
