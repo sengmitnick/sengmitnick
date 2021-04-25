@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>作品 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/categories/%E4%BD%9C%E5%93%81/</link>
+    <description>Recent content in 作品 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 21 Jan 2017 14:25:51 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/%E4%BD%9C%E5%93%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序--切换城市demo</title>
+      <link>https://sengmitnick.com/blog/96/</link>
+      <pubDate>Sat, 21 Jan 2017 14:25:51 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/96/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;城市切换是大多数app的必备功能，下面是一个基于微信小程序开发的demo。该demo继承于&lt;a href=&#34;http://www.wxapp-union.com/thread-1644-1-1.html&#34;&gt;微信小程序实用组件：城市切换&lt;/a&gt;，更换了里面内置的数据源（因为使用后发现好几个城市没有，居然连上海都没有也是醉了），添加搜索功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;下载源码&#34;&gt;下载源码&lt;/h2&gt;
+&lt;p&gt;本文章示例可以通过以下命令下载：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>html5小游戏--星球大战</title>
+      <link>https://sengmitnick.com/blog/94/</link>
+      <pubDate>Tue, 20 Dec 2016 15:15:38 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/94/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;通过html5，canvas，JavaScript编写一个小游戏
+简单设计：初始界面只有四个星球，一飞碟围着第一个星球旋转，当点击该星球时，飞碟以所在位置与星球球心连成的直线路径以匀速发射，直到碰到第二个星球后，停止并依附第二个星球旋转，反之则游戏结束，以此类推，直到飞碟以第四个星球旋转则游戏胜利并结束。
+进阶设计：以简单设计为基础，不断有新的星球出现，并且每成功碰到下一个星球记一次份，设置计分系统和通关目标。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>环形缓冲区及多线程</title>
+      <link>https://sengmitnick.com/blog/93/</link>
+      <pubDate>Thu, 15 Dec 2016 20:09:28 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/93/</guid>
+      <description>&lt;p&gt;使用经典的生产者-消费者问题做例子。创建三个生产者线程（P1,P2,P3）和一个消费者线程（C1），生产者和消费者线程共享一个长度为2kb的环型公共缓冲区，生产者向缓冲区写入消息，消费者从缓冲区中取走消息显示到屏幕。只要缓冲区未满，生产者可将消息送入缓冲区；只要缓冲区未空，消费者可从缓冲区取走一个消息。
+每个生产者每隔2s生产一个消息加入缓冲区，并把消息产生时间和内容记录在一个文本中。P1每次生产的数据为26个大写字母，P2每次生产的数据为26个小字母，P3每次生产的数据为10个阿拉伯数字。
+消费者C1每隔3s读取缓冲区中的一个消息并将消息内容显示到屏幕上。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>温湿度测试软件</title>
+      <link>https://sengmitnick.com/blog/87/</link>
+      <pubDate>Thu, 20 Oct 2016 16:55:51 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/87/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;之前公司要求的温湿度模块终于出来了，但是一个个测试太麻烦，于是和另一个同事一起做了这个“温湿度测试软件”，他负责开发终端我负责数据显示与处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;目前最终版效果如下：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

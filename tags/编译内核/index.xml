@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编译内核 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/</link>
+    <description>Recent content in 编译内核 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 27 Feb 2014 10:00:24 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对编译烧写Linux内核(MIPS )过程中及成功后却出现问题的问题总结</title>
+      <link>https://sengmitnick.com/blog/10/</link>
+      <pubDate>Thu, 27 Feb 2014 10:00:24 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/10/</guid>
+      <description>&lt;div class=&#34;note default&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;系统: Kubuntu14.04&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc: gcc version 4.3.0 (GCC)&lt;/li&gt;
+&lt;li&gt;MIPS内核版本: linux 3.0.0+&lt;/li&gt;
+&lt;li&gt;开发板: loongson 1B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

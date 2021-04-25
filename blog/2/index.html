@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content=" 这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。
+ 如何把它变成熟悉的win7界面  对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。
+" />
+<meta name="keywords" content=", windows, 服务器, 系统, 配置, 优化, 总结" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/2/" />
+
+
+    <title>
+        
+            windows server 2008 R2 安装后的配置总结 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="windows server 2008 R2 安装后的配置总结">
+<meta itemprop="description" content="
+这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。
+
+如何把它变成熟悉的win7界面
+
+对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。
+">
+<meta itemprop="datePublished" content="2014-02-02T06:02:43+00:00" />
+<meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
+<meta itemprop="wordCount" content="168">
+<meta itemprop="image" content="https://sengmitnick.com/"/>
+
+
+
+<meta itemprop="keywords" content="windows,服务器,系统,配置,优化,总结," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/"/>
+
+<meta name="twitter:title" content="windows server 2008 R2 安装后的配置总结"/>
+<meta name="twitter:description" content="
+这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。
+
+如何把它变成熟悉的win7界面
+
+对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。
+"/>
+
+
+
+
+    <meta property="og:title" content="windows server 2008 R2 安装后的配置总结" />
+<meta property="og:description" content="
+这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。
+
+如何把它变成熟悉的win7界面
+
+对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/2/" />
+<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="article:published_time" content="2014-02-02T06:02:43+00:00" />
+<meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2014-02-02 06:02:43 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        1分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/2/">windows server 2008 R2 安装后的配置总结</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">目录</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#如何把它变成熟悉的win7界面">如何把它变成熟悉的win7界面</a></li>
+    <li><a href="#设置浏览网页时不会弹出窗口">设置浏览网页时不会弹出窗口</a></li>
+    <li><a href="#让系统自动登陆">让系统自动登陆</a></li>
+    <li><a href="#对系统进行一系列的优化">对系统进行一系列的优化</a>
+      <ul>
+        <li><a href="#让程序运行更流畅">让程序运行更流畅</a></li>
+        <li><a href="#让网络登录更流畅">让网络登录更流畅</a></li>
+        <li><a href="#让系统启动更流畅">让系统启动更流畅</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他配置">其他配置</a>
+      <ul>
+        <li><a href="#如何取消每次开机的默认共享">如何取消每次开机的默认共享？</a></li>
+        <li><a href="#如何启用摄像机摄像头或者扫描仪等设备">如何启用摄像机，摄像头或者扫描仪等设备？</a></li>
+        <li><a href="#如何打开显卡的硬件加速">如何打开显卡的硬件加速？</a></li>
+        <li><a href="#开启icf后局域网内机器如何实现互访">开启ICF后局域网内机器如何实现互访？</a></li>
+        <li><a href="#为何无法实现局域网互访">为何无法实现局域网互访？</a></li>
+        <li><a href="#如何设置ie浏览器代理">如何设置IE浏览器代理？</a></li>
+        <li><a href="#某些应用程序无法运行该如何处理">某些应用程序无法运行，该如何处理？</a></li>
+        <li><a href="#如何关闭休眠功能">如何关闭休眠功能？</a></li>
+        <li><a href="#如何彻底删除休眠文件">如何彻底删除休眠文件？</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      <div class="post-content">
+        <blockquote>
+<p>这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。</p>
+</blockquote>
+<h2 id="如何把它变成熟悉的win7界面">如何把它变成熟悉的win7界面</h2>
+<blockquote>
+<p>对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。</p>
+</blockquote>
+<p>1,、打开 <code>服务管理器</code> ，在主界面找到 <code>功能摘要</code> ，点击添加功能，在弹出的窗体中找到 <code>桌面体验</code> 这一项，打上勾，按下一步，连续按几下，最后会提示要重启，重启后，在桌面右击，熟悉的 <code>个性化</code> 出来啦！！！
+2、开启THEMES服务：运行－services.msc －找到Themes服务项，默认是禁用，改为自动。
+<code>PS：AREO透明效果得显卡支持才会有相应的颜色方案。 同时开启图片预览功能 </code>
+3、桌面右键→个性化→主题→选择相应的win7主题。</p>
+<h2 id="设置浏览网页时不会弹出窗口">设置浏览网页时不会弹出窗口</h2>
+<blockquote>
+<p>刚刚安装好win2008，用IE进行浏览网站，每打开一个网站，都会弹出一个窗口，这非常让我懊火，如果让这个窗口在我们浏览网页时不会弹出呢？</p>
+</blockquote>
+<p>打开 <code>服务管理器</code> ，在主界面找到 <code>安全信息</code> ，点击 <code>配置IE ESC</code> ，在弹出的窗体中把管理员和用户都选择禁用，这样，讨厌的窗口就不会再出现咯！！！</p>
+<h2 id="让系统自动登陆">让系统自动登陆</h2>
+<blockquote>
+<p>平时开电脑时，电脑都是自动登陆的，即使设置密码登陆，系统也不会说什么密码强度之类的，登陆时也不需要热启（即CTRL+ALT+DEL），那么，如何让系统自动登陆呢？</p>
+</blockquote>
+<p>1、首先关闭UAC：打开 <code>控制面板</code> ，在主界面找到 <code>用户帐户</code> ，点击 <code>更改用户账户控制设置</code> ，把其调为从不通知。
+2、更改密码使用期限与复杂性要求：打开 <code>控制面板</code> ，在主界面找到 <code>管理工具</code> ，点击，在弹出的窗口里找到 <code>本地安全策略</code> ，在弹出的窗口里再找到 <code>账户策略</code> ，再找到 <code>密码策略</code> ，打开，把 <code>密码必须符合复杂性要求</code> 禁用,把 <code>密码最长使用期限</code> 设置为0。
+3、取消开机按 CTRL+ALT+DEL登陆：打开控制面板，在主界面找到 <code>管理工具</code> ，点击，在弹出的窗口里找到 <code>本地安全策略</code> ，在弹出的窗口里再找到 <code>本地策略</code> → <code>安全选项</code> → <code>交互式登陆：无须按CTRL+ALT+DEL</code> →启用。
+4、按win+R，输入 <code>rundll32 netplwiz.dll,UsersRunDll</code> 命令打开帐户窗口，先选中要自动登陆的账户，去选 <code>要使用本机，用户必须输入用户名密码</code> 复选框，输入该帐户的 密码即可让该用户自动登陆咯。
+四、win2008关机特麻烦，每次关机都要选择关机理由，烦死了，那么如何取消关机时出现的关机理由选择项？
+按win+R，输入 <code>gpedit.msc</code> ，在打开的窗口里找到 <code>计算机配置</code> ，点击，再点击 <code>管理模板</code> → <code>系统</code> → <code>显示“关闭事件跟踪程序”</code> →禁用.</p>
+<h2 id="对系统进行一系列的优化">对系统进行一系列的优化</h2>
+<blockquote>
+<p>我在安装了win2008后，发现开机关机都好慢，为此，就要对系统进行一系列的优化咯，以下是我怕的一些优化设置：</p>
+</blockquote>
+<h3 id="让程序运行更流畅">让程序运行更流畅</h3>
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/2/1.jpg" target="_blank">
+      <img src="https://sengmitnick.com/blog/2/1.jpg" alt="让网络登录更流畅"/>
+      <figcaption><p>让程序运行更流畅</p></figcaption>
+    </a>
+    
+  </figure>
+
+<h3 id="让网络登录更流畅">让网络登录更流畅</h3>
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/2/11.jpg" target="_blank">
+      <img src="https://sengmitnick.com/blog/2/11.jpg" alt="让网络登录更流畅"/>
+      <figcaption><p>让网络登录更流畅</p></figcaption>
+    </a>
+    
+  </figure>
+
+<h3 id="让系统启动更流畅">让系统启动更流畅</h3>
+<p>
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/2/12.jpg" target="_blank">
+      <img src="https://sengmitnick.com/blog/2/12.jpg" alt="让系统启动更流畅-1"/>
+      <figcaption><p>让系统启动更流畅-1</p></figcaption>
+    </a>
+    
+  </figure>
+
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/2/13.jpg" target="_blank">
+      <img src="https://sengmitnick.com/blog/2/13.jpg" alt="让系统启动更流畅-2"/>
+      <figcaption><p>让系统启动更流畅-2</p></figcaption>
+    </a>
+    
+  </figure>
+</p>
+<h4 id="提高win2008系统关机速度">提高Win2008系统关机速度</h4>
+<p>定位注册表到 HKEY_CURRENT_USER\Control Panel\Desktop ，设置键值 WaitToKillAppTimeout 为1</p>
+<h4 id="加快win2008菜单显示速度">加快Win2008菜单显示速度</h4>
+<p>定位注册表到 HKEY_CURRENT_USER\Control Panel\Desktop ，设置键值 MenuShowDelay 为 1</p>
+<h4 id="自动释放dll占用内存">自动释放Dll占用内存</h4>
+<p>定位注册表到 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer ，设置键值 AlwaysUnloadDLL 为1</p>
+<h4 id="加速关闭没有响应的程序">加速关闭没有响应的程序</h4>
+<p>定位注册表到 HKEY_CURRENT_USER\Control Panel\Desktop ，设置键值 AutoEndTasks 为1</p>
+<h2 id="其他配置">其他配置</h2>
+<blockquote>
+<p>好了，基本就是这些了，下面就是一些在网上找到的其他配置了，那些我没有去弄：</p>
+</blockquote>
+<h3 id="如何取消每次开机的默认共享">如何取消每次开机的默认共享？</h3>
+<p>将下列内容导入注册表，重启即可(前提是要关闭UAC)。
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Lanmanserver\Parameters]
+“AutoShareServer”=dword:00000000</p>
+<h3 id="如何启用摄像机摄像头或者扫描仪等设备">如何启用摄像机，摄像头或者扫描仪等设备？</h3>
+<p>启动Windows Image Acquisition (WIA) 服务，并设置启动类型为自动。
+PS：这个，我不需要，呵呵。。。</p>
+<h3 id="如何打开显卡的硬件加速">如何打开显卡的硬件加速？</h3>
+<p>桌面右键→个性化→显示设置→高级设置→疑难解答→更该设置→硬件加速→完全。然后运行dxdiag，打开显示选项卡，会发现DirectX功能已经全部启用了。
+PS：哈，我的显卡不支持啦。</p>
+<h3 id="开启icf后局域网内机器如何实现互访">开启ICF后局域网内机器如何实现互访？</h3>
+<p>控制面板→Windows防火墙→取消阻止所有传入连接，并在“例外”中选中“文件和打印机共享”。</p>
+<h3 id="为何无法实现局域网互访">为何无法实现局域网互访？</h3>
+<p>从以下几个方面入手：
+本地连接→右键属性→取消Internet协议版本6，缩短验证时间。
+检查各机器所属工作组名称是否一致。
+检查机器IP是否在同一网段，如192.168.1.X。
+将网络和共享中心→网络连接→自定义→位置类型设置为专用，降低保护。
+将网络和共享中心→共享和发现→网络发现启用，文件共享启用，密码保护的共享关闭。</p>
+<h3 id="如何设置ie浏览器代理">如何设置IE浏览器代理？</h3>
+<p>打开IE工具栏的Internet选项→连接→拨号和虚拟专用网络设置中选中您的拨号连接→设置，在“设置”页面中，选中“对此连接使用代理服务器”然后在“地址”栏中填上代理 服务器地址和端口，单击“确定”。</p>
+<h3 id="某些应用程序无法运行该如何处理">某些应用程序无法运行，该如何处理？</h3>
+<p>尝试更改数据执行保护设置，控制面板→系统→高级系统设置→高级→性能→设置→数据执行保护→为除下列选定程序之外的所有程序和服务启用DEP，添加该应用程序。</p>
+<h3 id="如何关闭休眠功能">如何关闭休眠功能？</h3>
+<p>桌面右键→个性化→屏幕保护程序→更改电源设置→更改计算机的睡眠时间→使计算机进入睡眠状态设为从不。</p>
+<h3 id="如何彻底删除休眠文件">如何彻底删除休眠文件？</h3>
+<p>系统盘右键→属性→常规→磁盘清理→选中休眠文件清理器→确定。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://www.smn.cn:81/showtopic-48.aspx">http://www.smn.cn:81/showtopic-48.aspx</a>
+<a href="http://freemanluo.blog.51cto.com/636588/335019">http://freemanluo.blog.51cto.com/636588/335019</a></p>
+<p>……END</p>
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/tags/windows/">windows</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E7%B3%BB%E7%BB%9F/">系统</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E9%85%8D%E7%BD%AE/">配置</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E4%BC%98%E5%8C%96/">优化</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E6%80%BB%E7%BB%93/">总结</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        168字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2014-02-02 14:02
+        
+
+         
+          
+            
+              (最后修改: 2021-02-16 15:54)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/a0d945957440086824e36315ec2a4527aa59de46" target="_blank" rel="noopener">a0d9459</a>
+          @ 2021-02-16
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f&amp;text=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;caption=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f;description=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f&amp;title=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;summary=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f&amp;resubmit=true&amp;title=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f;title=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93%20https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f&amp;t=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=windows%20server%202008%20R2%20%e5%ae%89%e8%a3%85%e5%90%8e%e7%9a%84%e9%85%8d%e7%bd%ae%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f2%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/5/">
+                <span class="button__icon">←</span>
+                <span class="button__text">超简单的数码相框制作</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/4/">
+                <span class="button__text">东莞松山湖一游</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383" || window.location.host ==  "smk17.gitee.io")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

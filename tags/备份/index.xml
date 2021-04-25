@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>备份 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E5%A4%87%E4%BB%BD/</link>
+    <description>Recent content in 备份 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 09 Jun 2017 15:20:12 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E5%A4%87%E4%BB%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hexo本地环境的迁移与备份</title>
+      <link>https://sengmitnick.com/blog/97/</link>
+      <pubDate>Fri, 09 Jun 2017 15:20:12 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/97/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这里记录本博客本地环境的迁移过程，有时候系统换了，hexo配置出问题解决不了肿么办？就如同Windows出问题又不知道怎么解决平时都是重装系统一样，重新init一个hexo就好了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里我推荐使用微软的OneDrive进行对hexo本地环境的时刻备份。。。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

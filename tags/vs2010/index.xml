@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vs2010 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/vs2010/</link>
+    <description>Recent content in vs2010 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 22 Dec 2015 13:34:27 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/vs2010/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vs2010编译报错，未能将obj/..复制到bin/..,bin/...文件正被另一进程时候用</title>
+      <link>https://sengmitnick.com/blog/79/</link>
+      <pubDate>Tue, 22 Dec 2015 13:34:27 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/79/</guid>
+      <description>&lt;p&gt;买了小白后安装win10后，安装vs2010后导入原先的项目突然报错（原先的项目调试运行是没问题的）
+错误 12 未能将“obj\Debug*&lt;em&gt;.exe”复制到“bin*&lt;/em&gt;.exe”。超出了重试计数 10。失败。
+错误 13 无法将文件“obj\Debug*&lt;em&gt;.exe”复制到“bin*&lt;/em&gt;.exe”。文件“bin**.exe”正由另一进程使用，因此该进程无法访问此文件。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

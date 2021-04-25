@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/excel/</link>
+    <description>Recent content in Excel on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Oct 2016 12:16:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>〖原创〗DoNet下大数据量导出到Excel</title>
+      <link>https://sengmitnick.com/blog/84/</link>
+      <pubDate>Wed, 12 Oct 2016 12:16:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/84/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;几十万级数据导出Excel代码，及简单使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文示例DEMO已上传到GitHub，点击&lt;a href=&#34;https://github.com/smk17/ExportToExcelText&#34;&gt;这里&lt;/a&gt;即可访问。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

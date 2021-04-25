@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/typescript/</link>
+    <description>Recent content in typescript on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 16 Dec 2020 15:59:47 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>根据 swagger 文档生成 typescript 客户端调用代码</title>
+      <link>https://sengmitnick.com/blog/306/</link>
+      <pubDate>Wed, 16 Dec 2020 15:59:47 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/306/</guid>
+      <description>新公司后端API文档基于swagger打造，于是在项目开发过程中萌生了通过nodejs生成typescript接口函数的想法。
+ 在GitHub、npm和gitee找了一下，发现nswag-ts基本满足需求。
+安装 yarn add -D nswagger-ts 在 package.json 的 scripts 节点增加 2 个执行命令
+{ &amp;#34;scripts&amp;#34;: { &amp;#34;nswag:init&amp;#34;: &amp;#34;nswag init&amp;#34;, &amp;#34;nswag:run&amp;#34;: &amp;#34;nswag run&amp;#34;, } }  执行：yarn nswag-init 初始化项目 初始化完成后会在项目根目录创建文件夹 nswag,里面放置了配置文件及代码模板  以下是我的配置文件,支持多个模块生成。
+var _ = require(&amp;#39;lodash&amp;#39;); const SwaggerUrlBase = &amp;#39;https://demo.com/api/%s/v2/api-docs&amp;#39;; const Apis = [&amp;#39;contents&amp;#39;, &amp;#39;material&amp;#39;, &amp;#39;customer&amp;#39;, &amp;#39;community&amp;#39;, &amp;#39;push&amp;#39;, &amp;#39;user&amp;#39;, &amp;#39;platform&amp;#39;] .map(tagName =&amp;gt; { return { SwaggerUrl: SwaggerUrlBase.replace(&amp;#39;%s&amp;#39;, tagName), ApiName: tagName.charAt(0).toUpperCase() + tagName.slice(1), }; }) .map(({ SwaggerUrl, ApiName }) =&amp;gt; ({ SwaggerUrl, // 接口文档地址（必填）  ApiBase: &amp;#39;/api&amp;#39;, // 接口根节点（必填）  ApiName, // 接口名称（必填）  // // OutPath: &amp;#39;&amp;#39;, // 输出目录（默认：项目根/src/api/{ApiName}）  // // TplPath: &amp;#39;&amp;#39;, // 模板路径（默认：内部默认模板，也可以copy 到项目中进行修改，然后指定用项目中模板）  // // Mock: false, // 是否启用模拟数据 （默认：false）  // // FormatMock: null, // 接管模拟数据格式化  FormatControllerName: function(name) { // 格式化模块名称（默认：接口名称+Api）  return name .</description>
+    </item>
+    
+  </channel>
+</rss>

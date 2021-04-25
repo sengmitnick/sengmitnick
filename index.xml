@@ -2,52 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Seng Mitnick</title>
-    <link>/</link>
+    <link>https://sengmitnick.com/</link>
     <description>Recent content on Seng Mitnick</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 16 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Mar 2021 13:55:43 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>时隔三年，我又回来了～</title>
+      <link>https://sengmitnick.com/blog/300/</link>
+      <pubDate>Wed, 09 Dec 2020 19:49:16 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/300/</guid>
+      <description>&lt;p&gt;三年前，因为个人惰性及仕途上的决择，原网站&lt;a href=&#34;http://web.archive.org/web/20190327223210/http://smk17.cn/&#34;&gt;smk17.cn&lt;/a&gt;基本出于停更状态，后又因为忘记给其续费导致被别人抢注了，后悔万分呀～&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2020 年度总结</title>
+      <link>https://sengmitnick.com/blog/301/</link>
+      <pubDate>Wed, 10 Feb 2021 19:00:00 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/301/</guid>
+      <description>2020可真是多灾多难的一年啊！祸福倚伏，故此有了一些思考，也想通了一些事情，故有此次总结～
+ 概要 读书+工作多年，一直也没真正的总结过，之前虽然也有一些想法和一些行动，但还是停留在思想上，行动总是半途而废～
+这一次算是对大学+工作多年的一个总结吧，下面是概要流程图～  9年大事记|2020总结
+   我是谁 我一直觉得我比大多数迷茫的人好运多了，因为我好像一直都很明确我要做什么，但是回顾这9年，发现我又不如大部分人，甚至比那些循规蹈矩的人混得还差。
+所以我在想问题出在哪？或许就是因为我喜欢捣腾却又容易半途而废的缘故吧！问题找到，那么离解决问题就不远了，所以今年我更折腾了，只为一个稳定而坚恒的环境～
+人生第一次选择 高考失利，有限选择里选了计算机应用技术(嵌入式) 人总归要为自己的行为抉择买单，中考失利心态崩了，于是高中不再做书呆子，天天玩乐，到最后才开始冲刺却已晚，最后只能上个大专，选了我觉得符合我的**计算机应用技术(嵌入式)**专业。
+不过我一直不知道自己适合往哪一块发展，所以在大一，加入电子协会，并于大二自学计算机其他方向，最后权衡之下决定走嵌入式工程师，也是我好喜折腾的原初显露吧～
+人生第二次选择 第二次的抉择，是一个长期经验导向并在最后才决定的结果，所以这里会稍微唠叨一下～
+自己在大二暑假期间打造了一套简单的CMS系统，最后直接作为毕业设计作品了 第一次有了技术宅的感觉了，虽然之前也偶尔有过，但这确实是我第一次因为自己想做一个东西而忘情投入最长的一次了。
+因为之前被朋友带起的博客风，又因为自己专业与兴趣，自己尝试了各个博客系统，还GET到wordpress这一类CMS系统，最后产生了自己也搞一个类似的念头，然后就一发不可收拾，于是在暑假期间宅家里胡捣了一番，终于做了一个简陋版，大大的满足和成就感，特别是后面作为毕业设计得到大家一致认可的feel，我觉得我选对了～
+但是那时候对于前端、后端、嵌入式之间还没有很清晰的分辨，所以在选择工作上还是倾向于本专业（嵌入式）。
+龙芯培训考核项目，主导并涉及web前端界面和后端API的设计与实现 人生的第一份工作，是一家传统转型IT的企业，有种拿着工资创业的感觉，一开始大家的工作都是差不多，焊板子、烧写程序，调试代码，和最重要的码程序了。
+后来，部门想搞一套智能家居中控系统，此时，大家就开始有分工了，因为我之前搞过web相关，所以在整体上，我把控整个项目，并负责其APP端和后端的开发。
+经过这一次的项目，我越发觉得我更喜欢做APP一类的前端工作，但是因为目前工作尚可也就没多想～
+多灾多难的本命年，决定新工作，新环境，新职业 2016，本命年，患病分手失业统统发生，憔悴但还是要生存，当时给一个朋友公司做前端兼职，失业后也就加入了这家公司。后，该司基于各方面的考虑打算迁往武汉，当时我也无心重找工作和折腾，也不想待广深，于是便一同去之～
+2020 日志： 立足于当下，未来可期 公司前端业务平台趋于稳定 经过长达一年的探索，一年时间的打磨，在2019年末，公司的平台基本稳定，后面的工作无非就是改改bug和新功能开发，内核不变。于是有了更多时间去学习，探索新事物和新的视野。
+疫情在家，线上办公，自律生活 庆幸于提早的放假，而不必留于武汉过年，也因为疫情的原因，公司开启了长达4个月的线上办公，而我因在家线上办公，于是在时间上有了更多的把控权，开始了自己的生活作息规律。
+回汉工作4个月后，决然退出 回汉后，原有环境变化，导致已有的自律生活不复存在，一直想重新恢复却有难度，算是环境+个人因素了。
+而随着工作的舒适度递增，还有公司工作氛围的消极化、掌权人的变更等一系列的变化，便逐渐有了离开的心思。后又有新的合作，于是决然离去，但是新的机会不到个月就泡汤了，于是一个人重回广东，思考往后该怎么走～
+第二次分手，重新找工作 原打算乘着失业期间梳理现有资源与规划未来，但突如其来的失恋，导致无心于此，便先重新招工作，等待合适机会了～
+新工作，自律生活重启，未来可期 新的工作，一开始人还是蛮颓废的，除了上班平时就玩游戏，后来慢慢因为工作的规律化，把自律生活重新提前，渐渐习惯与5点起床，做饭、洗漱、运动和冥想，而早起自律带来精神面貌的改变是明显的，一开始周六周末不上班就去图书馆（因为一开始在宿舍根本无法安心作业），后面也可以在宿舍作业了。
+当自律生活慢慢形成习惯，就有了新的规划了～
+再次失业，却不再茫然 临近年底放假，却被通知公司解散，但经不起我的一丝波澜。让我们立足当下，未来可期～
+2021 目标与期许 上面说到的新规划，就放到2021实现啦～
+ 个人站点的重新出发与更新 塑造后期自由职业或第二副业的基建（或曰：工作时间自由前期筹备） 打造自己的页面搭建平台 学习理财，积攒本金，积累经验 每个月最少外出玩乐两次  最后附上喜马拉雅|年度收听报告的截图：  喜马拉雅|年度收听报告
+   凡是过往即为序章
+立足当下未来可期💪
+&amp;mdash;END</description>
+    </item>
+    
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
-      <link>/blog/104/</link>
+      <link>https://sengmitnick.com/blog/104/</link>
       <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/104/</guid>
+      <guid>https://sengmitnick.com/blog/104/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;不多说废话，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
+&lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
     
     <item>
-      <title>通过leancloud创建hexo博客并具备后台管理功能</title>
-      <link>/blog/102/</link>
-      <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
+      <title>什么时候使用 useMemo 和 useCallback</title>
+      <link>https://sengmitnick.com/blog/320/</link>
+      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
       
-      <guid>/blog/102/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;leancloud的云引擎 &lt;code&gt;LeanEngine&lt;/code&gt; 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <guid>https://sengmitnick.com/blog/320/</guid>
+      <description> 前阵子，在帮同事查看一个 Bug 时，发现用的一个组件里面，在调用事件里面使用值一直不生效，最后发现是 改组件渲染部分用了 useMemo 所致。
+ 演示  参考  【译】什么时候使用 useMemo 和 useCallback When to useMemo and useCallback  </description>
     </item>
     
     <item>
-      <title>Hostker&#43;Hexo&#43;TravisCI构建自动化博客</title>
-      <link>/blog/99/</link>
-      <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
+      <title>WSL 使用指北</title>
+      <link>https://sengmitnick.com/blog/313/</link>
+      <pubDate>Thu, 11 Mar 2021 11:26:49 +0800</pubDate>
       
-      <guid>/blog/99/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 &lt;a href=&#34;https://travis-ci.org/&#34;&gt;travis-ci&lt;/a&gt; 来自动git到Hostker上面，接下来就开工了…&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <guid>https://sengmitnick.com/blog/313/</guid>
+      <description>什么是 WSL  WSL - Windows Subsystem for Linux The Windows Subsystem for Linux lets developers run Linux environments &amp;ndash; including most command-line tools, utilities, and applications &amp;ndash; directly on Windows, unmodified, without the overhead of a virtual machine.
+ Linux 的 Windows 子系统让开发人员无需虚拟机就可以直接在 Windows 上运行 Linux 环境，包括大多数命令行工具、程序和应用。
+使用 WSL 的好处是：
+与在虚拟机下使用 Linux 相比，WSL 更加流畅； WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便； 剪贴板互通，可以直接在 Windows 下其它地方复制文本内容，粘贴到 WSL；
+开启 WSL 在 控制面板&amp;ndash;&amp;gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。</description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      <title>dependencies和devDependencies的区别</title>
+      <link>https://sengmitnick.com/blog/312/</link>
+      <pubDate>Wed, 10 Mar 2021 16:28:36 +0800</pubDate>
       
-      <guid>/about/</guid>
-      <description></description>
+      <guid>https://sengmitnick.com/blog/312/</guid>
+      <description>当我们项目需要下载一个模块的时候，我们安装npm包（在项目目录下面npm install module_name）的时候，很多时候我们会在后面加上–save-dev 或 –save。这两个参数代表什么呢？
+初识 相信很多人都会回答：
+npm install module-name -save 自动把模块和版本号添加到dependencies部分 npm install module-name -save-dev 自动把模块和版本号添加到devdependencies部分
+dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开发环境。 网上也可以查到很多资料，大概回答意思是，我们搭建一个webpack+react+es6的项目，像webpack babel这种负责打包编译的，我们就应该装在开发环境，像react之类的装在生产环境。 可是为什么呢？ 我们不能告诉我们这样做，我们就只这样做，我们要知之其所以然呀。 恩。我试着吧react放进了dependencies，打包出来的文件依然可以运行，并没有什么问题。 why ？？？难道文档只是建议而已吗？？？
+实质区别 如果我们只是单纯的做项目，那么我们可简单地认为生产环境和开发环境做为一种友善的提示，实质没有什么区别；但是，如果在发布npm包的时候，两种环境安装方式是有很大区别的！！！
+假设有以下两个模块： 模块A
+ devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  </description>
+    </item>
+    
+    <item>
+      <title>打造专属自己的CloudIDE</title>
+      <link>https://sengmitnick.com/blog/308/</link>
+      <pubDate>Mon, 22 Feb 2021 21:09:48 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/308/</guid>
+      <description>前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重+充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad+code-server发现效果不是很完美，于是再三选择用google pixel slate+code-server。于是就有了这篇文章。
+安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
+upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &amp;#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&amp;#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu下安装zsh和oh-my-zsh</title>
+      <link>https://sengmitnick.com/blog/305/</link>
+      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/305/</guid>
+      <description>前言 网上教程一堆，为什么我还要写一篇？ 其实按照步骤及其简单，就两句命令行。但是，我之前在新的MacOS安装，并配置了一些插件，以达到我之前的小白下的模式，发现总感觉差了点。逐有了这一篇教程，主要还是备份下在新的系统下安装了什么插件～
+安装 官方安装文档教程：
+ Installing ZSH Install oh-my-zsh now  我在Ubuntu下执行以下命令：
+apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 安装并配置ohmyz插件 安装zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 配置文件.zshrc如下：
+# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34; # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
+    </item>
+    
+    <item>
+      <title>Hugo下添加 Back Top 功能</title>
+      <link>https://sengmitnick.com/blog/304/</link>
+      <pubDate>Wed, 10 Feb 2021 12:28:23 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/304/</guid>
+      <description> 在给文章设置了Hugo默认的TOC功能后，发现如果文章过长，每次返回顶部抵达段落的过程太麻烦，虽然在我的Google Pixel Slate下通过gg即可快速回到顶部，但是我还是觉得有必要给我站点添加 Back Top 的功能
+ 在动手之前，也可考虑其必要性，在这里大家有过一定程度的讨论，也是看了这里我才知道还可以通过gg可快速回到顶部:)
+目前功能实现的代码可直接参考：9e6ba0c
+虽然还不是很完美，但也可基本使用了。后续慢慢迭代吧:)
+参考资料  添加一键返回顶部功能 5种回到顶部的写法从实现到增强  </description>
+    </item>
+    
+    <item>
+      <title>COMMUNITY GUIDELINES</title>
+      <link>https://sengmitnick.com/guidelines/</link>
+      <pubDate>Sun, 07 Feb 2021 22:08:40 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/guidelines/</guid>
+      <description>Welcome to Seng Mitnick Blogs. We try our best to make sure that the discussions on our articles are the troll, spam and abuse free but we’re not omnipresent. The comment section can be a great place for interaction with readers, writers and even for spawning stimulating conversation – it can be a great place for all of us! To ensure that you have a good time over here at SENGMITNICK, please make sure to stick to the following guidelines:</description>
     </item>
     
   </channel>

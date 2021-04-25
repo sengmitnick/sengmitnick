@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>环形缓冲区 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA/</link>
+    <description>Recent content in 环形缓冲区 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 15 Dec 2016 20:09:28 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>环形缓冲区及多线程</title>
+      <link>https://sengmitnick.com/blog/93/</link>
+      <pubDate>Thu, 15 Dec 2016 20:09:28 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/93/</guid>
+      <description>&lt;p&gt;使用经典的生产者-消费者问题做例子。创建三个生产者线程（P1,P2,P3）和一个消费者线程（C1），生产者和消费者线程共享一个长度为2kb的环型公共缓冲区，生产者向缓冲区写入消息，消费者从缓冲区中取走消息显示到屏幕。只要缓冲区未满，生产者可将消息送入缓冲区；只要缓冲区未空，消费者可从缓冲区取走一个消息。
+每个生产者每隔2s生产一个消息加入缓冲区，并把消息产生时间和内容记录在一个文本中。P1每次生产的数据为26个大写字母，P2每次生产的数据为26个小字母，P3每次生产的数据为10个阿拉伯数字。
+消费者C1每隔3s读取缓冲区中的一个消息并将消息内容显示到屏幕上。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

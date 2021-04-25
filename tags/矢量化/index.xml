@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>矢量化 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E7%9F%A2%E9%87%8F%E5%8C%96/</link>
+    <description>Recent content in 矢量化 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 02 Apr 2016 05:21:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E7%9F%A2%E9%87%8F%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MAC下把PNG、JPG等图片矢量化</title>
+      <link>https://sengmitnick.com/blog/83/</link>
+      <pubDate>Sat, 02 Apr 2016 05:21:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/83/</guid>
+      <description>&lt;p&gt;最近，开始慢慢从Eclipse转到Android Studio，而在其中我就打算新的APP里面的图标全部使用矢量图（AS新建项目默认兼容包支持vector），那么，就会涉及到一个问题，以前使用的图片多数都是PNG格式，而现在则需要改成SVG然后弄到AS上面。&lt;/p&gt;
+&lt;p&gt;一开始，在线有PNG转SVG的，传送门：&lt;a href=&#34;http://cn.office-converter.com/Online-Image-Converter&#34;&gt;http://cn.office-converter.com/Online-Image-Converter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;但是，在线上传是需要时间的，所以后来又研究怎么本地转换，经过多次尝试，终于找到解决方案了。&lt;/p&gt;
+&lt;p&gt;在这里，就需要一个命令行工具了，下载传送门：&lt;a href=&#34;http://potrace.sourceforge.net&#34;&gt;http://potrace.sourceforge.net&lt;/a&gt; ；&lt;/p&gt;
+&lt;p&gt;有在MAC上面安卓了brew的可以执行下面命令行安装即可：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

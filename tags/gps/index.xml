@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GPS on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/gps/</link>
+    <description>Recent content in GPS on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 02 Apr 2014 10:49:30 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/gps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>〖原创〗无聊搞搞GPS之解析NMEA0183 协议</title>
+      <link>https://sengmitnick.com/blog/25/</link>
+      <pubDate>Wed, 02 Apr 2014 10:49:30 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/25/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;系统：debian7.4&lt;/li&gt;
+&lt;li&gt;GPS模块：美国SIRF3 SIRF三代&lt;/li&gt;
+&lt;li&gt;编译器：gcc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;恩,近排买了个GPS模块,就用它来定定位啦！(我买的GPS模块地址：&lt;a href=&#34;http://item.taobao.com/item.htm?spm=a1z09.5.0.0.WQseGD&amp;amp;id=6267607210&#34;&gt;http://item.taobao.com/item.htm?spm=a1z09.5.0.0.WQseGD&amp;amp;id=6267607210&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;该模块呢，芯片是SIRF3，输出是标准NMEA0183协议数据，接口是PL2303 。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

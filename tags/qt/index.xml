@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QT on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/qt/</link>
+    <description>Recent content in QT on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 25 Feb 2014 09:33:57 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/qt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qt下使用QtSql连接sqlite3所遇到的问题</title>
+      <link>https://sengmitnick.com/blog/7/</link>
+      <pubDate>Tue, 25 Feb 2014 09:33:57 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/7/</guid>
+      <description>&lt;div class=&#34;note danger&#34;&gt;
+    开发环境：Qt Creator 2.8.1Based on Qt 5.0.2 (GCC 4.8.2, 32 bit)
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>QT课程总结</title>
+      <link>https://sengmitnick.com/blog/6/</link>
+      <pubDate>Mon, 17 Feb 2014 09:25:50 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/6/</guid>
+      <description>&lt;h2 id=&#34;搭建qt开发环境其中包括本地桌面版qt编译嵌入式qt图形库的编译&#34;&gt;搭建QT开发环境，其中包括本地(桌面版)qt编译，嵌入式QT图形库的编译&lt;/h2&gt;
+&lt;h3 id=&#34;遇到问题&#34;&gt;遇到问题：&lt;/h3&gt;
+&lt;p&gt;（1）配置时报错：“tslib functionly test fail!” 。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>超简单的数码相框制作</title>
+      <link>https://sengmitnick.com/blog/5/</link>
+      <pubDate>Sat, 15 Feb 2014 09:14:23 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/5/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;项目名称：数码相框（简单）&lt;/li&gt;
+&lt;li&gt;项目分类：嵌入式应用开发&lt;/li&gt;
+&lt;li&gt;PC机系统环境：ubuntu10.04&lt;/li&gt;
+&lt;li&gt;PC机Qt版本：QMake version 2.01a Using Qt version 4.5.3 Qt Creator 1.2.0 based on Qt 4.5.2&lt;/li&gt;
+&lt;li&gt;开发板：loongson 1B&lt;/li&gt;
+&lt;li&gt;开发板系统环境：嵌入式Linux&lt;/li&gt;
+&lt;li&gt;开发板Qt版本：QMake version 2.01a Using Qt version 4.5.3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

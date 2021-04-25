@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>share on Seng Mitnick</title>
+    <link>https://sengmitnick.com/categories/share/</link>
+    <description>Recent content in share on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 10 Aug 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/share/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>程序员的进击</title>
+      <link>https://sengmitnick.com/blog/107/</link>
+      <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/107/</guid>
+      <description> 面向对象 方向的一些书籍推荐,仅供参考。
+ 设计模式  设计模式(head first设计模式) (入门) 设计原本:计算机科学巨匠Frederick P.Brooks的反思 (经典) 设计模式：可复用面向对象软件的基础 (深入)  模型方面  领域驱动设计 (偏理论) 实现领域驱动设计 (比较贴近实践) 企业应用架构模式 (经典必备书籍)  架构设计  软件架构设计（第2版） ——程序员向架构师转型必备  其它  金字塔原理 重构-改善既有代码的设计 王阳明心法  时间轴    阶段 设计模式 模型方面 架构设计 其它     1 - - - 金字塔原理   2 - - - 重构 改善既有代码的设计   3 head first设计模式 - - -   4 设计原本 领域驱动设计 - -   5 设计模式 实现领域驱动设计 - -   6 - 企业应用架构模式 - -   7 - - 软件架构设计 -    </description>
+    </item>
+    
+  </channel>
+</rss>

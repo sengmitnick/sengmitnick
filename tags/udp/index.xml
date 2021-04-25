@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UDP on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/udp/</link>
+    <description>Recent content in UDP on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 26 Nov 2014 15:53:46 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UDP服务器接收超时处理事件</title>
+      <link>https://sengmitnick.com/blog/59/</link>
+      <pubDate>Wed, 26 Nov 2014 15:53:46 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/59/</guid>
+      <description>&lt;p&gt;近段时间，因项目需求，需要在ubuntu下用到UDP服务器接收数据并处理。&lt;/p&gt;
+&lt;p&gt;其中，接收到数据的时候处理一个事件，而长时间没接收到数据时有处理另一个事件。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

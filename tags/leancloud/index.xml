@@ -2,21 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leancloud on Seng Mitnick</title>
-    <link>/tags/leancloud/</link>
+    <link>https://sengmitnick.com/tags/leancloud/</link>
     <description>Recent content in leancloud on Seng Mitnick</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/leancloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2017 16:18:15 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/leancloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序--通过leancloud做后台发送模板消息</title>
+      <link>https://sengmitnick.com/blog/101/</link>
+      <pubDate>Sun, 02 Jul 2017 16:18:15 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/101/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先，所有操作根据官方文档&lt;a href=&#34;https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html&#34;&gt;https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html&lt;/a&gt;进行，本文章只介绍如何使用leancloud获取 &lt;code&gt;access_token&lt;/code&gt; 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>通过leancloud创建hexo博客并具备后台管理功能</title>
-      <link>/blog/102/</link>
+      <link>https://sengmitnick.com/blog/102/</link>
       <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/102/</guid>
+      <guid>https://sengmitnick.com/blog/102/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;leancloud的云引擎 &lt;code&gt;LeanEngine&lt;/code&gt; 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用leancloud做微信小程序后端</title>
+      <link>https://sengmitnick.com/blog/90/</link>
+      <pubDate>Sat, 05 Nov 2016 21:04:39 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/90/</guid>
+      <description>&lt;p&gt;微信小程序公测后，就立刻尝试了，使用APPID的项目，在进行网络请求就有了域名限制了~&lt;/p&gt;
+&lt;p&gt;具体的使用方法直接看(leancloud官方文档)[https://leancloud.cn/docs/weapp.html]&lt;/p&gt;
+&lt;p&gt;这里说的，就是微信小程序后端域名设置不当会出现的错误，该错误如下：&lt;/p&gt;</description>
     </item>
     
   </channel>

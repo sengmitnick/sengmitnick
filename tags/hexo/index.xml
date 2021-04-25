@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hexo on Seng Mitnick</title>
-    <link>/tags/hexo/</link>
+    <link>https://sengmitnick.com/tags/hexo/</link>
     <description>Recent content in hexo on Seng Mitnick</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 16 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
-      <link>/blog/104/</link>
+      <link>https://sengmitnick.com/blog/104/</link>
       <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/104/</guid>
+      <guid>https://sengmitnick.com/blog/104/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;不多说废话，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
+&lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
     </item>
     
     <item>
       <title>通过leancloud创建hexo博客并具备后台管理功能</title>
-      <link>/blog/102/</link>
+      <link>https://sengmitnick.com/blog/102/</link>
       <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/102/</guid>
+      <guid>https://sengmitnick.com/blog/102/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;leancloud的云引擎 &lt;code&gt;LeanEngine&lt;/code&gt; 可以部署网站，那么通过LeanEngine当然也可以部署hexo了，况且有hexo-admin插件，可以在部署完成后通过后台进行管理，完全适合不会使用命令行的人使用了~&lt;/p&gt;
 &lt;/blockquote&gt;</description>
@@ -32,13 +32,51 @@
     
     <item>
       <title>Hostker&#43;Hexo&#43;TravisCI构建自动化博客</title>
-      <link>/blog/99/</link>
+      <link>https://sengmitnick.com/blog/99/</link>
       <pubDate>Mon, 12 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/99/</guid>
+      <guid>https://sengmitnick.com/blog/99/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本博客是放在Hostker服务器的（国内访问GitHub的速度实在不敢恭维），Hostker的应用只支持git和ftp，而且他的git有点怪，每次都要clone然后再push上去才不会出现奇怪的东西，所以是用不了Hexo deploy了，所以想到 push 后通过 &lt;a href=&#34;https://travis-ci.org/&#34;&gt;travis-ci&lt;/a&gt; 来自动git到Hostker上面，接下来就开工了…&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>hexo本地环境的迁移与备份</title>
+      <link>https://sengmitnick.com/blog/97/</link>
+      <pubDate>Fri, 09 Jun 2017 15:20:12 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/97/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这里记录本博客本地环境的迁移过程，有时候系统换了，hexo配置出问题解决不了肿么办？就如同Windows出问题又不知道怎么解决平时都是重装系统一样，重新init一个hexo就好了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里我推荐使用微软的OneDrive进行对hexo本地环境的时刻备份。。。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>给Hexo添加文章置顶功能</title>
+      <link>https://sengmitnick.com/blog/89/</link>
+      <pubDate>Fri, 21 Oct 2016 16:25:37 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/89/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;博客里面总改有些文章要置顶的~~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文章参考了&lt;a href=&#34;http://www.yuedongxu.cn/wod/&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用以下代码替换掉你Hexo博客目录下 &lt;code&gt;node_modules/hexo-generator-index/lib/generator.js&lt;/code&gt; 里的代码:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>typecho数据迁移到Hexo</title>
+      <link>https://sengmitnick.com/blog/86/</link>
+      <pubDate>Sat, 15 Oct 2016 10:46:25 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/86/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;花了些许功夫成功用上Hexo做博客了，就寻思着把之前在typecho博客的文章迁移过来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在github上面找到了这个兄弟写得&lt;a href=&#34;https://github.com/zhourongyu/Typecho2Hexo&#34; title=&#34;Typecho2Hexo&#34;&gt;Typecho2Hexo Python版小工具&lt;/a&gt;,把他Fork到我的GitHub，修改成可以在我系统上用的版本。新版本在&lt;a href=&#34;https://github.com/sengmitnick/Typecho2Hexo&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
   </channel>

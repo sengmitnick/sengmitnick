@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/react/</link>
+    <description>Recent content in react on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 21 Mar 2021 13:55:43 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>什么时候使用 useMemo 和 useCallback</title>
+      <link>https://sengmitnick.com/blog/320/</link>
+      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/320/</guid>
+      <description> 前阵子，在帮同事查看一个 Bug 时，发现用的一个组件里面，在调用事件里面使用值一直不生效，最后发现是 改组件渲染部分用了 useMemo 所致。
+ 演示  参考  【译】什么时候使用 useMemo 和 useCallback When to useMemo and useCallback  </description>
+    </item>
+    
+  </channel>
+</rss>

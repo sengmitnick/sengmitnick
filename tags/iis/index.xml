@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IIS on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/iis/</link>
+    <description>Recent content in IIS on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 28 May 2014 07:28:52 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/iis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WIN2003&#43;IIS6&#43;PHP5.3.8的安装配置</title>
+      <link>https://sengmitnick.com/blog/47/</link>
+      <pubDate>Wed, 28 May 2014 07:28:52 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/47/</guid>
+      <description>&lt;h2 id=&#34;安装好iis&#34;&gt;安装好IIS&lt;/h2&gt;
+&lt;h3 id=&#34;安装internet信息服务iis&#34;&gt;安装Internet信息服务（IIS）&lt;/h3&gt;
+&lt;p&gt;打开“控制面板”，然后单击启动 “添加/删除程序”， 在弹出的对话框中选择 “添加/删除Windows组件”，在Windows组件向导对话框中选中“Internet信息服务（IIS）”，然后单击“下一步”，按向导指示，完成对IIS的安装。
+
+
+
+  &lt;figure&gt;
+    &lt;a href=&#34;https://sengmitnick.com/blog/47/01.jpg&#34; target=&#34;_blank&#34;&gt;
+      &lt;img src=&#34;https://sengmitnick.com/blog/47/01.jpg&#34; alt=&#34;图1—windows组件向导1&#34;/&gt;
+      &lt;figcaption&gt;&lt;p&gt;图1—windows组件向导1&lt;/p&gt;&lt;/figcaption&gt;
+    &lt;/a&gt;
+    
+  &lt;/figure&gt;
+
+
+
+
+  &lt;figure&gt;
+    &lt;a href=&#34;https://sengmitnick.com/blog/47/02.jpg&#34; target=&#34;_blank&#34;&gt;
+      &lt;img src=&#34;https://sengmitnick.com/blog/47/02.jpg&#34; alt=&#34;图2—windows组件向导2&#34;/&gt;
+      &lt;figcaption&gt;&lt;p&gt;图2—windows组件向导2&lt;/p&gt;&lt;/figcaption&gt;
+    &lt;/a&gt;
+    
+  &lt;/figure&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

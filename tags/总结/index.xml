@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总结 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 总结 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 31 Mar 2014 10:47:29 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript脚本语言使用笔录</title>
+      <link>https://sengmitnick.com/blog/24/</link>
+      <pubDate>Mon, 31 Mar 2014 10:47:29 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/24/</guid>
+      <description>&lt;p&gt;js键盘事件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;//这个就是键盘触发的函数
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SubmitOrHidden&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;evt&lt;/span&gt;){
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;evt&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; window.&lt;span style=&#34;color:#a6e22e&#34;&gt;event&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;evt&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;evt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;keyCode&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;){&lt;span style=&#34;color:#75715e&#34;&gt;//如果取到的键值是回车
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;//do something        
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+        &lt;span style=&#34;color:#75715e&#34;&gt;//其他键  dosomething
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    }
+
+}
+window.document.&lt;span style=&#34;color:#a6e22e&#34;&gt;onkeydown&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;SubmitOrHidden&lt;/span&gt;;&lt;span style=&#34;color:#75715e&#34;&gt;//当有键按下时执行函数
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL使用过程中遇到问题总结</title>
+      <link>https://sengmitnick.com/blog/22/</link>
+      <pubDate>Sat, 22 Mar 2014 10:40:04 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/22/</guid>
+      <description>&lt;h2 id=&#34;access-denied-for-user&#34;&gt;Access denied for user&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;用phpmyadmin连接mysql时遇到了以下的提示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#1045 - Access denied for user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; (using password: NO)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解决方法：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>对个人在使用不同ubuntu版本过程中所遇到的问题总结</title>
+      <link>https://sengmitnick.com/blog/11/</link>
+      <pubDate>Sat, 08 Mar 2014 10:15:18 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/11/</guid>
+      <description>&lt;h2 id=&#34;无法获得锁-varlibdpkglock-&#34;&gt;无法获得锁 /var/lib/dpkg/lock &amp;hellip;&lt;/h2&gt;
+&lt;p&gt;具体报错如下：&lt;/p&gt;
+&lt;div class=&#34;note danger&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)&lt;/li&gt;
+&lt;li&gt;E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;产生原因：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当在使用apt－get安装或者其他操作时，还木有操作完成就直接关闭终端，从而导致关闭了终端，apt－get进程却没有结束。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法1：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;终端输入:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps  -aux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;列出进程。找到含有apt-get的进程，直接 &lt;code&gt;sudo kill PID&lt;/code&gt; 。解决。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>对编译烧写Linux内核(MIPS )过程中及成功后却出现问题的问题总结</title>
+      <link>https://sengmitnick.com/blog/10/</link>
+      <pubDate>Thu, 27 Feb 2014 10:00:24 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/10/</guid>
+      <description>&lt;div class=&#34;note default&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;系统: Kubuntu14.04&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc: gcc version 4.3.0 (GCC)&lt;/li&gt;
+&lt;li&gt;MIPS内核版本: linux 3.0.0+&lt;/li&gt;
+&lt;li&gt;开发板: loongson 1B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>windows server 2008 R2 安装后的配置总结</title>
+      <link>https://sengmitnick.com/blog/2/</link>
+      <pubDate>Sun, 02 Feb 2014 06:02:43 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;如何把它变成熟悉的win7界面&#34;&gt;如何把它变成熟悉的win7界面&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

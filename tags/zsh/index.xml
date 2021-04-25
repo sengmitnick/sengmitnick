@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zsh on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/zsh/</link>
+    <description>Recent content in zsh on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 16 Feb 2021 12:03:26 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu下安装zsh和oh-my-zsh</title>
+      <link>https://sengmitnick.com/blog/305/</link>
+      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/305/</guid>
+      <description>前言 网上教程一堆，为什么我还要写一篇？ 其实按照步骤及其简单，就两句命令行。但是，我之前在新的MacOS安装，并配置了一些插件，以达到我之前的小白下的模式，发现总感觉差了点。逐有了这一篇教程，主要还是备份下在新的系统下安装了什么插件～
+安装 官方安装文档教程：
+ Installing ZSH Install oh-my-zsh now  我在Ubuntu下执行以下命令：
+apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 安装并配置ohmyz插件 安装zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 配置文件.zshrc如下：
+# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34; # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

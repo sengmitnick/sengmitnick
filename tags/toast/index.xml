@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Toast on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/toast/</link>
+    <description>Recent content in Toast on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 30 Jun 2017 11:05:23 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/toast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序--简易顶部Toast</title>
+      <link>https://sengmitnick.com/blog/100/</link>
+      <pubDate>Fri, 30 Jun 2017 11:05:23 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/100/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;目前微信小程序官方的交互反馈API的提示框什么的都达不到我想要的简易效果，就自己简单写了一个。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

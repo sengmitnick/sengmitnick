@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/hugo/</link>
+    <description>Recent content in Hugo on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 10 Feb 2021 12:28:23 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo下添加 Back Top 功能</title>
+      <link>https://sengmitnick.com/blog/304/</link>
+      <pubDate>Wed, 10 Feb 2021 12:28:23 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/304/</guid>
+      <description> 在给文章设置了Hugo默认的TOC功能后，发现如果文章过长，每次返回顶部抵达段落的过程太麻烦，虽然在我的Google Pixel Slate下通过gg即可快速回到顶部，但是我还是觉得有必要给我站点添加 Back Top 的功能
+ 在动手之前，也可考虑其必要性，在这里大家有过一定程度的讨论，也是看了这里我才知道还可以通过gg可快速回到顶部:)
+目前功能实现的代码可直接参考：9e6ba0c
+虽然还不是很完美，但也可基本使用了。后续慢慢迭代吧:)
+参考资料  添加一键返回顶部功能 5种回到顶部的写法从实现到增强  </description>
+    </item>
+    
+  </channel>
+</rss>

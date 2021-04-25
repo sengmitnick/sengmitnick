@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ticwatch on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/ticwatch/</link>
+    <description>Recent content in ticwatch on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 26 Feb 2016 14:16:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/ticwatch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ticwatch手表版本更新一直提示“网络出错，请重试”</title>
+      <link>https://sengmitnick.com/blog/82/</link>
+      <pubDate>Fri, 26 Feb 2016 14:16:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/82/</guid>
+      <description>&lt;p&gt;先按照这里&lt;a href=&#34;http://tieba.baidu.com/p/3958584181&#34;&gt;http://tieba.baidu.com/p/3958584181&lt;/a&gt;把手表连接到有网络的WiFi&lt;/p&gt;
+&lt;p&gt;然后断开手表与手机的蓝牙连接&lt;/p&gt;
+&lt;p&gt;现在，你再版本更新就可以了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

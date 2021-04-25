@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content="首先简单普及一下 platform：
+Linux platform driver 机制和传统的 device_driver 机制相比，一个十分明显的优势在于 platform 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。
+这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。 platform_device 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 controller 仍然需要通过 platform bus 来管理。
+在 Linux 2.6 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。 在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。
+一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。
+基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 platform_driver。
+所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。
+ platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。
+" />
+<meta name="keywords" content=", 嵌入式, 龙芯培训, Linux驱动" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/19/" />
+
+
+    <title>
+        
+            初步学习linux内核模块和设备驱动程序之platform :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="初步学习linux内核模块和设备驱动程序之platform">
+<meta itemprop="description" content="首先简单普及一下 platform：
+
+    Linux platform driver 机制和传统的 device_driver 机制相比，一个十分明显的优势在于 platform 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。
+这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。   platform_device 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 controller 仍然需要通过 platform bus 来管理。
+在 Linux 2.6 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。
+在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。
+一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。
+基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 platform_driver。
+所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。
+
+
+platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。">
+<meta itemprop="datePublished" content="2014-03-05T10:30:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
+<meta itemprop="wordCount" content="305">
+<meta itemprop="image" content="https://sengmitnick.com/"/>
+
+
+
+<meta itemprop="keywords" content="嵌入式,龙芯培训,Linux驱动," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/"/>
+
+<meta name="twitter:title" content="初步学习linux内核模块和设备驱动程序之platform"/>
+<meta name="twitter:description" content="首先简单普及一下 platform：
+
+    Linux platform driver 机制和传统的 device_driver 机制相比，一个十分明显的优势在于 platform 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。
+这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。   platform_device 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 controller 仍然需要通过 platform bus 来管理。
+在 Linux 2.6 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。
+在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。
+一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。
+基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 platform_driver。
+所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。
+
+
+platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。"/>
+
+
+
+
+    <meta property="og:title" content="初步学习linux内核模块和设备驱动程序之platform" />
+<meta property="og:description" content="首先简单普及一下 platform：
+
+    Linux platform driver 机制和传统的 device_driver 机制相比，一个十分明显的优势在于 platform 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。
+这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。   platform_device 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 controller 仍然需要通过 platform bus 来管理。
+在 Linux 2.6 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。
+在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。
+一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。
+基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 platform_driver。
+所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。
+
+
+platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/19/" />
+<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="article:published_time" content="2014-03-05T10:30:00+00:00" />
+<meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2014-03-05 10:30:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/19/">初步学习linux内核模块和设备驱动程序之platform</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p>首先简单普及一下 <code>platform</code>：</p>
+<div class="note info">
+    <p><strong>Linux platform driver</strong> 机制和传统的 <strong>device_driver</strong> 机制相比，一个十分明显的优势在于 <code>platform</code> 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。</p>
+<p>这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。   <code>platform_device</code> 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 <code>controller</code> 仍然需要通过 <code>platform bus</code> 来管理。</p>
+<p>在 <code>Linux 2.6</code> 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。
+在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。</p>
+<p>一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。</p>
+<p>基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 <code>platform_driver</code>。</p>
+<p>所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。</p>
+
+</div>
+<p>platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device</span> {
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span>  <span style="color:#f92672">*</span> name;  <span style="color:#75715e">/* 设备名 */</span>
+    <span style="color:#66d9ef">int</span>     id;
+    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">device</span>   dev;
+    u32     num_resources;  <span style="color:#75715e">/* 设备所使用各类资源数量 */</span>
+    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">resource</span> <span style="color:#f92672">*</span> resource;        <span style="color:#75715e">/* 资源 */</span>
+
+    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device_id</span> <span style="color:#f92672">*</span>id_entry;
+
+    <span style="color:#75715e">/* MFD cell pointer */</span>
+    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">mfd_cell</span> <span style="color:#f92672">*</span>mfd_cell;
+
+    <span style="color:#75715e">/* arch specific additions */</span>
+    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">pdev_archdata</span>    archdata;
+};
+</code></pre></div><p>结构体用来描述设备的名称、资源信息等.</p>
+<p>而对resource的定义在 <strong>include/linux/ioport.h</strong> 下 ：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">resource</span> {
+    resource_size_t start;    <span style="color:#75715e">//定义资源的起始地址
+</span><span style="color:#75715e"></span>    resource_size_t end;    <span style="color:#75715e">//定义资源的结束地址
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>name;    <span style="color:#75715e">//定义资源的名称
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> flags;    <span style="color:#75715e">//定义资源的类型，比如MEM，IO，IRQ，DMA类型
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">resource</span> <span style="color:#f92672">*</span>parent, <span style="color:#f92672">*</span>sibling, <span style="color:#f92672">*</span>child;
+};
+</code></pre></div><p>这个结构表示设备所拥有的资源，即I/O端口、I/O映射内存、中断及DMA等。这里的地址指的是物理地址。</p>
+<div class="note info">
+    start、end和flags这3个字段，分别标明资源的开始值、结束值和类型，flags可以为IORESOURCE_IO、 IORESOURCE_MEM、IORESOURCE_IRQ、IORESOURCE_DMA等。start、end的含义会随着flags而变更，如当 flags为IORESOURCE_MEM时，start、end分别表示该platform_device占据的内存的开始地址和结束地址；当 flags为IORESOURCE_IRQ时，start、end分别表示该platform_device使用的中断号的开始值和结束值，如果只使用了 1个中断号，开始和结束值相同。对于同种类型的资源而言，可以有多份，譬如说某设备占据了2个内存区域，则可以定义2个IORESOURCE_MEM资源。
+</div>
+<p>对resource的定义也通常在BSP的板文件中进行，而在具体的设备驱动中透过platform_get_resource()这样的API来获取，此API的原型为：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">resource</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">platform_get_resource</span>(<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device</span> <span style="color:#f92672">*</span>, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>);
+</code></pre></div><p><strong>设备注册：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//drivers/base/platform.c
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">platform_device_register</span>(<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device</span> <span style="color:#f92672">*</span>pdev)
+{
+        device_initialize(<span style="color:#f92672">&amp;</span>pdev<span style="color:#f92672">-&gt;</span>dev);
+        <span style="color:#66d9ef">return</span> platform_device_add(pdev);
+}
+</code></pre></div><div class="note info">
+    另外一种机制就是动态申请platform_device_alloc一个platform_device设备，然后通过platform_device_add_resources及platform_device_add_data等添加相关资源和属性。  <br>
+Platform device是一种device自己是不会做事情的，要有人为它做事情，那就是platform driver。platform driver遵循linux系统的driver model。对于device的discovery/enumerate都不是driver自己完成的而是由由系统的driver注册机制完成。driver编写人员只要将注册必须的数据结构初始化并调用注册driver的kernel API就可以了。
+</div>
+<p>现在，我们就通过一个小小的程序来进一步认识吧：</p>
+<div class="note info">
+    <ul>
+<li>实验开发板：loongson1B linux</li>
+<li>内核版本：3.0 mipsel-linux-gcc版本：4.3.0</li>
+<li>实验内容：利用platform编写一模块，手动加载这个模块时，板上的led灯亮。</li>
+</ul>
+
+</div>
+<p>代码实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">/*************************************************************************
+</span><span style="color:#75715e">    &gt; File Name: led.c
+</span><span style="color:#75715e">    &gt; Author: sengmitnick
+</span><span style="color:#75715e">    &gt; Mail: sengmitnick@163.com
+</span><span style="color:#75715e">    &gt; Note: 利用platform写模块 ，LED驱动设备程序
+</span><span style="color:#75715e">    &gt; Created Time: 2014年03月05日 星期三 16时14分30秒
+</span><span style="color:#75715e"> ************************************************************************/</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/init.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/module.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/kernel.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/fs.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;asm/uaccess.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/device.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/ioctl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/vmalloc.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/slab.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/ctype.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/fcntl.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/cdev.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;linux/platform_device.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*该头文件乃我为了方便使用所写，
+</span><span style="color:#75715e">* 里面包含了开发板上所有寄存器的虚地址
+</span><span style="color:#75715e">*/</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;../ls1b_base.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+MODULE_AUTHOR(<span style="color:#e6db74">&#34;sengmitnick sengmitnick@163.com&#34;</span>);
+MODULE_DESCRIPTION(<span style="color:#e6db74">&#34;LED driver for the ls1b.&#34;</span>);
+MODULE_LICENSE(<span style="color:#e6db74">&#34;Dual BSD/GPL&#34;</span>);
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device</span> led_test_device <span style="color:#f92672">=</span>
+{
+    .name           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;led_test&#34;</span>,
+    .id             <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,
+
+};
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">led_test_probe</span>(<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_device</span> <span style="color:#f92672">*</span>pdev)
+{<span style="color:#75715e">//GPIO_LED_NUMBER为控制led的gpio号，这里一共4个led灯
+</span><span style="color:#75715e"></span>    GPIOCFG1  <span style="color:#f92672">|=</span>  ( <span style="color:#ae81ff">0b1111</span> <span style="color:#f92672">&lt;&lt;</span> ( GPIO_LED_NUMBER <span style="color:#f92672">-</span><span style="color:#ae81ff">32</span> ) ) ;
+    GPIOOE1 <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">=</span>  <span style="color:#f92672">~</span>( <span style="color:#ae81ff">0b1111</span> <span style="color:#f92672">&lt;&lt;</span> ( GPIO_LED_NUMBER <span style="color:#f92672">-</span><span style="color:#ae81ff">32</span> ) ) ;
+    GPIOOUT1 <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">=</span> <span style="color:#f92672">~</span>( <span style="color:#ae81ff">0b1111</span> <span style="color:#f92672">&lt;&lt;</span> ( GPIO_LED_NUMBER <span style="color:#f92672">-</span><span style="color:#ae81ff">32</span> ) );  
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">platform_driver</span> led_test_driver <span style="color:#f92672">=</span>
+{
+    .driver <span style="color:#f92672">=</span> {
+        .name<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;led_test&#34;</span>,
+        .owner<span style="color:#f92672">=</span> THIS_MODULE,
+
+    },
+    .probe<span style="color:#f92672">=</span> led_test_probe,
+    <span style="color:#75715e">//.remove= sb2f_audio_remove,
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//.suspend= ls1x_suspend,
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//.resume= ls1x_resume,
+</span><span style="color:#75715e"></span>
+};
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> __init <span style="color:#a6e22e">led_init</span>(<span style="color:#66d9ef">void</span>)
+{
+    <span style="color:#66d9ef">int</span> ret;
+    ret <span style="color:#f92672">=</span> platform_device_register(<span style="color:#f92672">&amp;</span>amp;led_test_device);
+    <span style="color:#75715e">//if (ret 1= 0)
+</span><span style="color:#75715e"></span>    ret <span style="color:#f92672">=</span> platform_driver_register(<span style="color:#f92672">&amp;</span>amp;led_test_driver);
+
+    <span style="color:#66d9ef">return</span> ret;
+}
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> __exit <span style="color:#a6e22e">led_exit</span>(<span style="color:#66d9ef">void</span>)
+{
+    platform_device_unregister(<span style="color:#f92672">&amp;</span>amp;led_test_device);
+    platform_driver_unregister(<span style="color:#f92672">&amp;</span>amp;led_test_driver);
+}
+
+module_init(led_init);
+module_exit(led_exit);
+</code></pre></div><p><strong>END……</strong></p>
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E9%BE%99%E8%8A%AF%E5%9F%B9%E8%AE%AD/">龙芯培训</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/linux%E9%A9%B1%E5%8A%A8/">Linux驱动</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        305字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2014-03-05 18:30
+        
+
+         
+          
+            
+              (最后修改: 2021-02-16 15:54)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/a0d945957440086824e36315ec2a4527aa59de46" target="_blank" rel="noopener">a0d9459</a>
+          @ 2021-02-16
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f&amp;text=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;caption=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f;description=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f&amp;title=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;summary=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f&amp;resubmit=true&amp;title=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f;title=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform%20https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f&amp;t=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%88%9d%e6%ad%a5%e5%ad%a6%e4%b9%a0linux%e5%86%85%e6%a0%b8%e6%a8%a1%e5%9d%97%e5%92%8c%e8%ae%be%e5%a4%87%e9%a9%b1%e5%8a%a8%e7%a8%8b%e5%ba%8f%e4%b9%8bplatform&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f19%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/11/">
+                <span class="button__icon">←</span>
+                <span class="button__text">对个人在使用不同ubuntu版本过程中所遇到的问题总结</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/18/">
+                <span class="button__text">初步学习linux内核模块和设备驱动程序之红外遥控接收器中断处理程序</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383" || window.location.host ==  "smk17.gitee.io")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

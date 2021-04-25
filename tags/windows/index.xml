@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/windows/</link>
+    <description>Recent content in windows on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 31 Oct 2016 18:00:56 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows利用vnc viewer远程连接MacOS</title>
+      <link>https://sengmitnick.com/blog/66/</link>
+      <pubDate>Mon, 31 Oct 2016 18:00:56 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/66/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;作为一个喜欢一个屏幕一部电脑就可以干所有事情的童孩，在使用了大半年Mac OS后又因各种原因逼迫用会windows并且最后导致经常在两个系统之间不停切换，这期间在Mac OS使用Parallels Desktop 来使用windows或者在windows使用vmware来使用Mac OS都不能让我满意，最后就想到使用远程桌面来使用，以下是教程。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>WIN2003&#43;IIS6&#43;PHP5.3.8的安装配置</title>
+      <link>https://sengmitnick.com/blog/47/</link>
+      <pubDate>Wed, 28 May 2014 07:28:52 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/47/</guid>
+      <description>&lt;h2 id=&#34;安装好iis&#34;&gt;安装好IIS&lt;/h2&gt;
+&lt;h3 id=&#34;安装internet信息服务iis&#34;&gt;安装Internet信息服务（IIS）&lt;/h3&gt;
+&lt;p&gt;打开“控制面板”，然后单击启动 “添加/删除程序”， 在弹出的对话框中选择 “添加/删除Windows组件”，在Windows组件向导对话框中选中“Internet信息服务（IIS）”，然后单击“下一步”，按向导指示，完成对IIS的安装。
+
+
+
+  &lt;figure&gt;
+    &lt;a href=&#34;https://sengmitnick.com/blog/47/01.jpg&#34; target=&#34;_blank&#34;&gt;
+      &lt;img src=&#34;https://sengmitnick.com/blog/47/01.jpg&#34; alt=&#34;图1—windows组件向导1&#34;/&gt;
+      &lt;figcaption&gt;&lt;p&gt;图1—windows组件向导1&lt;/p&gt;&lt;/figcaption&gt;
+    &lt;/a&gt;
+    
+  &lt;/figure&gt;
+
+
+
+
+  &lt;figure&gt;
+    &lt;a href=&#34;https://sengmitnick.com/blog/47/02.jpg&#34; target=&#34;_blank&#34;&gt;
+      &lt;img src=&#34;https://sengmitnick.com/blog/47/02.jpg&#34; alt=&#34;图2—windows组件向导2&#34;/&gt;
+      &lt;figcaption&gt;&lt;p&gt;图2—windows组件向导2&lt;/p&gt;&lt;/figcaption&gt;
+    &lt;/a&gt;
+    
+  &lt;/figure&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Win2003打开网页时老是提示“添加网址到信任站点”的设置</title>
+      <link>https://sengmitnick.com/blog/43/</link>
+      <pubDate>Tue, 27 May 2014 03:35:55 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/43/</guid>
+      <description>&lt;p&gt;在WIN2003系统中，我们打开网页，或打开网站，或浏览网页时，老是跳出一个窗口提示“添加网址到信任站点”，“网页老是提示添加信任”或“2003每打开一次网页都要加入受信任站点”或“win2003 提示信任站点”或“打开网页提示把此网页加入可信站点怎么处理”或“win2003 打开网页提示”等等描述都是对这个问题的反应。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>windows server 2008 R2 安装后的配置总结</title>
+      <link>https://sengmitnick.com/blog/2/</link>
+      <pubDate>Sun, 02 Feb 2014 06:02:43 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这篇文章是我在安装好windows server 2008 R2系统后，对如何配置才能更好适合个人使用的一些总结，希望对大家有点用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;如何把它变成熟悉的win7界面&#34;&gt;如何把它变成熟悉的win7界面&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于我来说，看惯了win7的界面，对windows server 2008 R2的那个单调界面非常不爽，于是，进行对win2008进行了一系列的配置，终于把它变成熟悉的win7界面。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

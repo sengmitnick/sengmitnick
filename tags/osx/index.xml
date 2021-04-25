@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSX on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/osx/</link>
+    <description>Recent content in OSX on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 24 Dec 2015 13:13:27 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parallels Desktop的安装和使用心得</title>
+      <link>https://sengmitnick.com/blog/80/</link>
+      <pubDate>Thu, 24 Dec 2015 13:13:27 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/80/</guid>
+      <description>&lt;p&gt;买了MacBook Air后，想了想还是在电脑装个虚拟机的好，然而我已经使用BootCamp装了Win10，在度娘的查询下，毅然选择了Parallels Desktop这一款。&lt;/p&gt;
+&lt;p&gt;对于身为天朝的百姓，怎么可能使用正版呢？况且网上也说正版的态度不好云云的，就更加让俺要用破解版了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

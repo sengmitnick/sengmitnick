@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ReactNative on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/reactnative/</link>
+    <description>Recent content in ReactNative on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 05 Jan 2017 09:59:32 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/reactnative/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ReactNative项目名称修改</title>
+      <link>https://sengmitnick.com/blog/95/</link>
+      <pubDate>Thu, 05 Jan 2017 09:59:32 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/95/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;react-init 初始化项目耗时太长，可以在已经初始化完成的项目基础上复制一份进行修改。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先初始化一个项目&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;react-native init AwesomeProject
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;初始化完成的项目为 &lt;strong&gt;AwesomeProject&lt;/strong&gt; 将之修改为 &lt;strong&gt;FightTravel&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>给React Native程序添加启动页</title>
+      <link>https://sengmitnick.com/blog/92/</link>
+      <pubDate>Fri, 18 Nov 2016 09:58:14 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/92/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;一个APP最先应该有个启动页，这里简单介绍如何创建一个启动页~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;下载源码&#34;&gt;下载源码&lt;/h2&gt;
+&lt;p&gt;本文章示例可以通过以下命令下载：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Native使用各种坑</title>
+      <link>https://sengmitnick.com/blog/88/</link>
+      <pubDate>Fri, 21 Oct 2016 13:05:53 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/88/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;正式开始学习React Native,其中遇到的各种坑将汇总于此~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;问题反馈&#34;&gt;问题反馈&lt;/h2&gt;
+&lt;h3 id=&#34;1出现comandroidddmlibinstallexception&#34;&gt;1.出现“com.android.ddmlib.InstallException:&lt;/h3&gt;
+&lt;p&gt;Failed to establish session react-native”，详情如下：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

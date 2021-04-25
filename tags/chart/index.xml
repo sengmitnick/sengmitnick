@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chart on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/chart/</link>
+    <description>Recent content in Chart on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Oct 2016 14:51:29 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/chart/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DoNet下使用Chart，代码设置并具备放大功能</title>
+      <link>https://sengmitnick.com/blog/85/</link>
+      <pubDate>Wed, 12 Oct 2016 14:51:29 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/85/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;直接拖到Chart控件到你需要显示的地方，然后把控件名字改成chart即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文示例DEMO已上传到GitHub，点击&lt;a href=&#34;https://github.com/smk17/ChartText&#34;&gt;这里&lt;/a&gt;即可访问。&lt;/p&gt;
+&lt;p&gt;本文示例最终效果：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>龙芯培训 on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/%E9%BE%99%E8%8A%AF%E5%9F%B9%E8%AE%AD/</link>
+    <description>Recent content in 龙芯培训 on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 05 Mar 2014 10:30:00 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/%E9%BE%99%E8%8A%AF%E5%9F%B9%E8%AE%AD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之platform</title>
+      <link>https://sengmitnick.com/blog/19/</link>
+      <pubDate>Wed, 05 Mar 2014 10:30:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/19/</guid>
+      <description>&lt;p&gt;首先简单普及一下 &lt;code&gt;platform&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;note info&#34;&gt;
+    &lt;p&gt;&lt;strong&gt;Linux platform driver&lt;/strong&gt; 机制和传统的 &lt;strong&gt;device_driver&lt;/strong&gt; 机制相比，一个十分明显的优势在于 &lt;code&gt;platform&lt;/code&gt; 机制将本身的资源注册进内核，由内核统一管理，在驱动程序中使用这些资源时通过platform_device提供的标准接口进行申请并使用。&lt;/p&gt;
+&lt;p&gt;这样提高了驱动和资源管理的独立性，并且拥有较好的可移植性和安全性。   &lt;code&gt;platform_device&lt;/code&gt; 最大的特定是CPU直接寻址设备的寄存器空间，即使对于其他总线设备，设备本身的寄存器无法通过CPU总线访问，但总线的 &lt;code&gt;controller&lt;/code&gt; 仍然需要通过 &lt;code&gt;platform bus&lt;/code&gt; 来管理。&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;Linux 2.6&lt;/code&gt; 的设备驱动模型中，关心总线、设备和驱动这3个实体，总线将设备和驱动绑定。
+在系统每注册一个设备的时候，会寻找与之匹配的驱动；相反的，在系统每注册一个驱动的时候，会寻找与之匹配的设备，而匹配由总线完成。&lt;/p&gt;
+&lt;p&gt;一个现实的Linux设备和驱动通常都需要挂接在一种总线上，对于本身依附于PCI、USB、I2C、SPI等的设备而言，这自然不是问题，但是在嵌入式系统里面，SoC系统中集成的独立的外设控制器、挂接在SoC内存空间的外设等确不依附于此类总线。&lt;/p&gt;
+&lt;p&gt;基于这一背景，Linux发明了一种虚拟的总线，称为platform总线，相应的设备称为platform_device，而驱动成为 &lt;code&gt;platform_driver&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;所谓的platform_device并不是与字符设备、块设备和网络设备并列的概念，而是Linux系统提供的一种附加手段，例如，在龙芯1B处理器中，把内部集成的I2C、RTC、SPI、LCD、看门狗等控制器都归纳为platform_device，而它们本身就是字符设备。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;p&gt;platform_device结构体的定义可以在内核源代码根目录下include/linux/platform_device.h的这个头文件里查看。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之红外遥控接收器中断处理程序</title>
+      <link>https://sengmitnick.com/blog/18/</link>
+      <pubDate>Tue, 04 Mar 2014 10:29:30 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/18/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;实验开发板：loongson1B&lt;/li&gt;
+&lt;li&gt;linux内核版本：3.0&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc版本：4.3.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;结合LED实验和简单中断实验的原理，编写红外遥控接收器中断处理程序。&lt;/p&gt;
+&lt;p&gt;实验要求：加载模块后，发射红外线给板上的红外遥控接收器，屏幕就会打印相应的字符。&lt;/p&gt;
+&lt;p&gt;代码实现如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之简单中断处理程序</title>
+      <link>https://sengmitnick.com/blog/17/</link>
+      <pubDate>Mon, 03 Mar 2014 10:27:05 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/17/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;实验开发板：loongson1B&lt;/li&gt;
+&lt;li&gt;linux内核版本：3.0&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc版本：4.3.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;学习编写中断处理程序，通过一个简单中断处理程序加深认识。&lt;/p&gt;
+&lt;p&gt;代码如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之led灯驱动程序</title>
+      <link>https://sengmitnick.com/blog/16/</link>
+      <pubDate>Mon, 03 Mar 2014 10:25:42 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/16/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;实验开发板：loongson1B&lt;/li&gt;
+&lt;li&gt;linux内核版本：3.0&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc版本：4.3.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;基于hello进阶程序进一步改写，编写led灯驱动程序。&lt;/p&gt;
+&lt;p&gt;实验要求：实现led灯驱动程序，在应用程序里直接控制LED的开关和读取状态控制&lt;/p&gt;
+&lt;p&gt;代码实现如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之hello word程序进阶学习</title>
+      <link>https://sengmitnick.com/blog/12/</link>
+      <pubDate>Mon, 03 Mar 2014 10:17:30 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/12/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;实验开发板：loongson1B&lt;/li&gt;
+&lt;li&gt;linux内核版本：3.0&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc版本：4.3.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;进一步修改hello.c&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>对编译烧写Linux内核(MIPS )过程中及成功后却出现问题的问题总结</title>
+      <link>https://sengmitnick.com/blog/10/</link>
+      <pubDate>Thu, 27 Feb 2014 10:00:24 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/10/</guid>
+      <description>&lt;div class=&#34;note default&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;系统: Kubuntu14.04&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc: gcc version 4.3.0 (GCC)&lt;/li&gt;
+&lt;li&gt;MIPS内核版本: linux 3.0.0+&lt;/li&gt;
+&lt;li&gt;开发板: loongson 1B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>初步学习linux内核模块和设备驱动程序之hello word程序</title>
+      <link>https://sengmitnick.com/blog/8/</link>
+      <pubDate>Wed, 26 Feb 2014 09:39:44 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/8/</guid>
+      <description>&lt;div class=&#34;note default&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;实验开发板：loongson1B&lt;/li&gt;
+&lt;li&gt;linux内核版本：3.0&lt;/li&gt;
+&lt;li&gt;mipsel-linux-gcc版本：4.3.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;编写 &lt;code&gt;hello.c&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Qt下使用QtSql连接sqlite3所遇到的问题</title>
+      <link>https://sengmitnick.com/blog/7/</link>
+      <pubDate>Tue, 25 Feb 2014 09:33:57 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/7/</guid>
+      <description>&lt;div class=&#34;note danger&#34;&gt;
+    开发环境：Qt Creator 2.8.1Based on Qt 5.0.2 (GCC 4.8.2, 32 bit)
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>QT课程总结</title>
+      <link>https://sengmitnick.com/blog/6/</link>
+      <pubDate>Mon, 17 Feb 2014 09:25:50 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/6/</guid>
+      <description>&lt;h2 id=&#34;搭建qt开发环境其中包括本地桌面版qt编译嵌入式qt图形库的编译&#34;&gt;搭建QT开发环境，其中包括本地(桌面版)qt编译，嵌入式QT图形库的编译&lt;/h2&gt;
+&lt;h3 id=&#34;遇到问题&#34;&gt;遇到问题：&lt;/h3&gt;
+&lt;p&gt;（1）配置时报错：“tslib functionly test fail!” 。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>超简单的数码相框制作</title>
+      <link>https://sengmitnick.com/blog/5/</link>
+      <pubDate>Sat, 15 Feb 2014 09:14:23 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/5/</guid>
+      <description>&lt;div class=&#34;note info&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;项目名称：数码相框（简单）&lt;/li&gt;
+&lt;li&gt;项目分类：嵌入式应用开发&lt;/li&gt;
+&lt;li&gt;PC机系统环境：ubuntu10.04&lt;/li&gt;
+&lt;li&gt;PC机Qt版本：QMake version 2.01a Using Qt version 4.5.3 Qt Creator 1.2.0 based on Qt 4.5.2&lt;/li&gt;
+&lt;li&gt;开发板：loongson 1B&lt;/li&gt;
+&lt;li&gt;开发板系统环境：嵌入式Linux&lt;/li&gt;
+&lt;li&gt;开发板Qt版本：QMake version 2.01a Using Qt version 4.5.3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

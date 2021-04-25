@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content="js键盘事件：
+&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; //这个就是键盘触发的函数 var SubmitOrHidden = function(evt){ evt = window.event || evt; if(evt.keyCode == 13){//如果取到的键值是回车  //do something  }else{ //其他键 dosomething  } } window.document.onkeydown=SubmitOrHidden;//当有键按下时执行函数 &amp;lt;/script&amp;gt; " />
+<meta name="keywords" content=", 总结, JavaScript" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/24/" />
+
+
+    <title>
+        
+            JavaScript脚本语言使用笔录 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="JavaScript脚本语言使用笔录">
+<meta itemprop="description" content="js键盘事件：
+&lt;script type=&#34;text/javascript&#34;&gt;
+//这个就是键盘触发的函数
+var SubmitOrHidden = function(evt){
+    evt = window.event || evt;
+    if(evt.keyCode == 13){//如果取到的键值是回车
+          //do something        
+     }else{
+        //其他键  dosomething
+    }
+
+}
+window.document.onkeydown=SubmitOrHidden;//当有键按下时执行函数
+&lt;/script&gt;
+">
+<meta itemprop="datePublished" content="2014-03-31T10:47:29+00:00" />
+<meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
+<meta itemprop="wordCount" content="89">
+<meta itemprop="image" content="https://sengmitnick.com/"/>
+
+
+
+<meta itemprop="keywords" content="总结,JavaScript," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/"/>
+
+<meta name="twitter:title" content="JavaScript脚本语言使用笔录"/>
+<meta name="twitter:description" content="js键盘事件：
+&lt;script type=&#34;text/javascript&#34;&gt;
+//这个就是键盘触发的函数
+var SubmitOrHidden = function(evt){
+    evt = window.event || evt;
+    if(evt.keyCode == 13){//如果取到的键值是回车
+          //do something        
+     }else{
+        //其他键  dosomething
+    }
+
+}
+window.document.onkeydown=SubmitOrHidden;//当有键按下时执行函数
+&lt;/script&gt;
+"/>
+
+
+
+
+    <meta property="og:title" content="JavaScript脚本语言使用笔录" />
+<meta property="og:description" content="js键盘事件：
+&lt;script type=&#34;text/javascript&#34;&gt;
+//这个就是键盘触发的函数
+var SubmitOrHidden = function(evt){
+    evt = window.event || evt;
+    if(evt.keyCode == 13){//如果取到的键值是回车
+          //do something        
+     }else{
+        //其他键  dosomething
+    }
+
+}
+window.document.onkeydown=SubmitOrHidden;//当有键按下时执行函数
+&lt;/script&gt;
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/24/" />
+<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="article:published_time" content="2014-03-31T10:47:29+00:00" />
+<meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2014-03-31 10:47:29 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        1分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/24/">JavaScript脚本语言使用笔录</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p>js键盘事件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#75715e">//这个就是键盘触发的函数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">SubmitOrHidden</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>){
+    <span style="color:#a6e22e">evt</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">event</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">evt</span>;
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">keyCode</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">13</span>){<span style="color:#75715e">//如果取到的键值是回车
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//do something        
+</span><span style="color:#75715e"></span>     }<span style="color:#66d9ef">else</span>{
+        <span style="color:#75715e">//其他键  dosomething
+</span><span style="color:#75715e"></span>    }
+
+}
+window.document.<span style="color:#a6e22e">onkeydown</span><span style="color:#f92672">=</span><span style="color:#a6e22e">SubmitOrHidden</span>;<span style="color:#75715e">//当有键按下时执行函数
+</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div><p>附常用功能键:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">常数</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">vbKeyBack</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">BACKSPACE 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyTab</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">TAB 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyReturn</td>
+<td style="text-align:left">13</td>
+<td style="text-align:left">ENTER 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyShift</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">SHIFT 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyControl</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">CTRL 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyCapital</td>
+<td style="text-align:left">20</td>
+<td style="text-align:left">CAPS LOCK 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyEscape</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">ESC 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeySpace</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">SPACEBAR 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyPageUp</td>
+<td style="text-align:left">33</td>
+<td style="text-align:left">PAGEUP 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyPageDown</td>
+<td style="text-align:left">34</td>
+<td style="text-align:left">PAGEDOWN 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyEnd</td>
+<td style="text-align:left">35</td>
+<td style="text-align:left">END 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyPrint</td>
+<td style="text-align:left">42</td>
+<td style="text-align:left">PRINT SCREEN 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyDelete</td>
+<td style="text-align:left">46</td>
+<td style="text-align:left">DEL 键</td>
+</tr>
+<tr>
+<td style="text-align:left">vbKeyNumlock</td>
+<td style="text-align:left">144</td>
+<td style="text-align:left">NUM LOCK 键</td>
+</tr>
+</tbody>
+</table>
+<p><strong>END……</strong></p>
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E6%80%BB%E7%BB%93/">总结</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/javascript/">JavaScript</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        89字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2014-03-31 18:47
+        
+
+         
+          
+            
+              (最后修改: 2021-02-16 15:54)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/a0d945957440086824e36315ec2a4527aa59de46" target="_blank" rel="noopener">a0d9459</a>
+          @ 2021-02-16
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f&amp;text=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;caption=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f;description=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f&amp;title=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;summary=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f&amp;resubmit=true&amp;title=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f;title=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95%20https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f&amp;t=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=JavaScript%e8%84%9a%e6%9c%ac%e8%af%ad%e8%a8%80%e4%bd%bf%e7%94%a8%e7%ac%94%e5%bd%95&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f24%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/25/">
+                <span class="button__icon">←</span>
+                <span class="button__text">〖原创〗无聊搞搞GPS之解析NMEA0183 协议</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/22/">
+                <span class="button__text">MySQL使用过程中遇到问题总结</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383" || window.location.host ==  "smk17.gitee.io")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

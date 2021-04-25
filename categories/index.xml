@@ -2,18 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Seng Mitnick</title>
-    <link>/categories/</link>
+    <link>https://sengmitnick.com/categories/</link>
     <description>Recent content in Categories on Seng Mitnick</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 16 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Mar 2021 13:55:43 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>technology</title>
-      <link>/categories/technology/</link>
-      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      <link>https://sengmitnick.com/categories/technology/</link>
+      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
       
-      <guid>/categories/technology/</guid>
+      <guid>https://sengmitnick.com/categories/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notes</title>
+      <link>https://sengmitnick.com/categories/notes/</link>
+      <pubDate>Wed, 10 Feb 2021 19:00:00 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>share</title>
+      <link>https://sengmitnick.com/categories/share/</link>
+      <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/share/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>作品</title>
+      <link>https://sengmitnick.com/categories/%E4%BD%9C%E5%93%81/</link>
+      <pubDate>Sat, 21 Jan 2017 14:25:51 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/%E4%BD%9C%E5%93%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>游戏</title>
+      <link>https://sengmitnick.com/categories/%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Mon, 01 Dec 2014 02:26:49 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/%E6%B8%B8%E6%88%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>碎事</title>
+      <link>https://sengmitnick.com/categories/%E7%A2%8E%E4%BA%8B/</link>
+      <pubDate>Wed, 02 Apr 2014 10:50:38 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/%E7%A2%8E%E4%BA%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>游记</title>
+      <link>https://sengmitnick.com/categories/%E6%B8%B8%E8%AE%B0/</link>
+      <pubDate>Sat, 07 Dec 2013 09:07:43 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/categories/%E6%B8%B8%E8%AE%B0/</guid>
       <description></description>
     </item>
     

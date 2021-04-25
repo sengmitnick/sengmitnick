@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content=" 利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息
+ 首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。
+" />
+<meta name="keywords" content=", 微信小程序, leancloud, 模板消息" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/101/" />
+
+
+    <title>
+        
+            微信小程序--通过leancloud做后台发送模板消息 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="微信小程序--通过leancloud做后台发送模板消息">
+<meta itemprop="description" content="
+利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息
+
+首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。">
+<meta itemprop="datePublished" content="2017-07-02T16:18:15+00:00" />
+<meta itemprop="dateModified" content="2021-02-23T22:57:38+08:00" />
+<meta itemprop="wordCount" content="367">
+<meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
+
+
+
+<meta itemprop="keywords" content="微信小程序,leancloud,模板消息," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
+
+<meta name="twitter:title" content="微信小程序--通过leancloud做后台发送模板消息"/>
+<meta name="twitter:description" content="
+利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息
+
+首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。"/>
+
+
+
+
+    <meta property="og:title" content="微信小程序--通过leancloud做后台发送模板消息" />
+<meta property="og:description" content="
+利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息
+
+首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/101/" />
+<meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
+<meta property="article:published_time" content="2017-07-02T16:18:15+00:00" />
+<meta property="article:modified_time" content="2021-02-23T22:57:38+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2017-07-02 16:18:15 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/101/">微信小程序&ndash;通过leancloud做后台发送模板消息</a>
+      </h1>
+
+      
+
+      
+        <figure class="post-cover">
+          <img src="https://sengmitnick.com/images/cover/02.jpg" alt="微信小程序--通过leancloud做后台发送模板消息" />
+          
+          
+        </figure>
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">目录</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#在小程序中使用leancloud">在小程序中使用LeanCloud</a></li>
+    <li><a href="#部署云引擎-leanengine">部署云引擎 LeanEngine</a></li>
+    <li><a href="#设置云函数获取-access_token">设置云函数获取 <code>access_token</code></a></li>
+    <li><a href="#设置定时器定时更新-access_token">设置定时器定时更新 <code>access_token</code></a></li>
+    <li><a href="#发送模板消息">发送模板消息</a>
+      <ul>
+        <li><a href="#创建云函数postnotification">创建云函数postNotification</a></li>
+        <li><a href="#在微信小程序上调用云函数postnotification">在微信小程序上调用云函数postNotification</a></li>
+      </ul>
+    </li>
+    <li><a href="#后记">后记</a></li>
+    <li><a href="#源码">源码</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      <div class="post-content">
+        <blockquote>
+<p>利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息</p>
+</blockquote>
+<p>首先，所有操作根据官方文档<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html">https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html</a>进行，本文章只介绍如何使用leancloud获取 <code>access_token</code> 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。</p>
+<h2 id="在小程序中使用leancloud">在小程序中使用LeanCloud</h2>
+<p>首先按照《<a href="https://leancloud.cn/docs/weapp.html">在微信小程序中使用 LeanCloud</a>》这遍文章说的给小程序用上LeanCloud；
+在这里我用我目前开发的小程序<a href="https://github.com/smk17/FightTravel">FightTravel</a>进行解说。</p>
+<h2 id="部署云引擎-leanengine">部署云引擎 LeanEngine</h2>
+<p>按照《<a href="https://leancloud.cn/docs/leanengine_quickstart.html">云引擎快速入门</a>》快速部署一个示例Demo。</p>
+<p>部署成功后目录大致如下：
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/101/1.png" target="_blank">
+      <img src="https://sengmitnick.com/blog/101/1.png" alt="LeanEngine目录"/>
+      <figcaption><p>LeanEngine目录</p></figcaption>
+    </a>
+    
+  </figure>
+</p>
+<h2 id="设置云函数获取-access_token">设置云函数获取 <code>access_token</code></h2>
+<p>首先设置自定义环境变量：
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/101/2.png" target="_blank">
+      <img src="https://sengmitnick.com/blog/101/2.png" alt="设置自定义环境变量"/>
+      <figcaption><p>设置自定义环境变量</p></figcaption>
+    </a>
+    
+  </figure>
+
+创建一个Class，名为Global，新建一个数据 <code>AccessToken</code> 。用来存储获取的 <code>access_token</code> ：
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/101/3.png" target="_blank">
+      <img src="https://sengmitnick.com/blog/101/3.png" alt="存储access_token"/>
+      <figcaption><p>存储access_token</p></figcaption>
+    </a>
+    
+  </figure>
+
+创建云函数getAccessToken用来获取 <code>access_token</code> 并把获取的 <code>access_token</code> 存储在 <code>AccessToken</code> 里面;以下是获取 <code>access_token</code> 的云函数代码实现:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">https</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;https&#39;</span>);
+<span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;getAccessToken&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPID</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;secret=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPSECRET</span>;
+
+  <span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>, (<span style="color:#a6e22e">res</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">statusCode</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;content-type&#39;</span>];
+
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">error</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">!==</span> <span style="color:#ae81ff">200</span>) {
+      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;请求失败。\n&#39;</span> <span style="color:#f92672">+</span>
+        <span style="color:#e6db74">&#39;状态码: ${statusCode}&#39;</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#e6db74">/^application\/json/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">contentType</span>)) {
+      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;无效的 content-type.\n&#39;</span> <span style="color:#f92672">+</span>
+        <span style="color:#e6db74">&#39;期望 application/json 但获取的是 ${contentType}&#39;</span>);
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+      <span style="color:#75715e">// 消耗响应数据以释放内存
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">resume</span>();
+      <span style="color:#66d9ef">return</span>;
+    }
+
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setEncoding</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, (<span style="color:#a6e22e">chunk</span>) =&gt; { <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">chunk</span>; });
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, () =&gt; {
+      <span style="color:#66d9ef">try</span> {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parsedData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">rawData</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">parsedData</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
+        <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
+          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#a6e22e">rawData</span>);
+          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">save</span>();
+        }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">e</span>) {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+        });
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+        }
+    });
+  }).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`错误: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+  });
+})
+</code></pre></div><p>PS： 要使该云函数生效请使用命令 <code>lean deploy</code> 进行部署。</p>
+<h2 id="设置定时器定时更新-access_token">设置定时器定时更新 <code>access_token</code></h2>
+<p>我们获取的 <code>access_token</code> 是有时间限制的，所以我们需要设置一个定时器定时更新 <code>access_token</code> (创建定时器可以参考《<a href="https://leancloud.cn/docs/leanengine_cloudfunction_guide-node.html#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1">定时任务</a>》)，成功后如下：</p>
+
+
+
+  <figure>
+    <a href="https://sengmitnick.com/blog/101/4.png" target="_blank">
+      <img src="https://sengmitnick.com/blog/101/4.png" alt="定时器"/>
+      <figcaption><p>定时器</p></figcaption>
+    </a>
+    
+  </figure>
+
+<p>PS: Cron表达式看不懂的直接用(在线Cron表达式生成器)[http://cron.qqe2.com/]进行生成就好，我这个定时器是2个小时获取一次<code>access_token</code></p>
+<h2 id="发送模板消息">发送模板消息</h2>
+<h3 id="创建云函数postnotification">创建云函数postNotification</h3>
+<p>首先创建一个云函数对微信小程序发送过来的数据进行处理然后再发给微信服务器，代码实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">requestjson</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request-json&#39;</span>);
+<span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">params</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">currentUser</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">user</span>) {
+    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;用户未登录&#39;</span>};
+  }
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;authData&#39;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>) {
+    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;当前用户不是小程序用户&#39;</span>};
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">params</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no params&#39;</span>};
+  }<span style="color:#66d9ef">else</span>{
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> {
+      <span style="color:#e6db74">&#34;touser&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>.<span style="color:#a6e22e">openid</span>,  
+      <span style="color:#e6db74">&#34;template_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">template_id</span>,         
+      <span style="color:#e6db74">&#34;form_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">form_id</span>,
+      <span style="color:#e6db74">&#34;page&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">page</span>,
+      <span style="color:#e6db74">&#34;data&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">data</span>,
+      <span style="color:#e6db74">&#34;emphasis_keyword&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">emphasis_keyword</span>
+    };
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">contents</span>)
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
+    <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
+
+      <span style="color:#66d9ef">try</span> {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;value&#39;</span>))
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/cgi-bin/message/wxopen/template/send?access_token=&#34;</span>;
+        <span style="color:#a6e22e">url</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">access_token</span>;
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">requestjson</span>.<span style="color:#a6e22e">createClient</span>(<span style="color:#e6db74">&#39;https://api.weixin.qq.com&#39;</span>);
+
+        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">contents</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">body</span>) {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">statusCode</span>,<span style="color:#a6e22e">body</span>);
+        });
+
+      } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>;
+      }
+
+    }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
+    });
+    };
+
+});
+</code></pre></div><h3 id="在微信小程序上调用云函数postnotification">在微信小程序上调用云函数postNotification</h3>
+<p>按照官方文档做好相应界面后，在表单提交事件formSubmit里做以下处理即可，以下是代码实现：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">formSubmit</span>(<span style="color:#a6e22e">event</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">value</span>
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">formId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">formId</span>
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">that</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paramsJson</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">template_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;9ggg9If6Edsk-xjKw1ek6Nd2XUwMrWKXevYB5QLgRIM&#39;</span>,
+    <span style="color:#a6e22e">form_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">formId</span>,
+    <span style="color:#a6e22e">page</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;keyword1&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//用户名
+</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">globalData</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userInfo</span>.<span style="color:#a6e22e">nickName</span>,
+        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+      },
+      <span style="color:#e6db74">&#34;keyword2&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//手机号
+</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">phone</span>,
+        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+      },
+      <span style="color:#e6db74">&#34;keyword3&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;绑定手机号成功&#34;</span>,
+        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+      },
+      <span style="color:#e6db74">&#34;keyword4&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//绑定时间
+</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleString</span>(),
+        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+      }
+    },
+    <span style="color:#a6e22e">emphasis_keyword</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
+  };
+  <span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">run</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#a6e22e">paramsJson</span>).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
+    <span style="color:#75715e">// 调用成功，得到成功的应答 data
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>)
+  }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>)
+  });
+},
+</code></pre></div><h2 id="后记">后记</h2>
+<p>目前的代码只实现了当你在小程序里点击表单提交按键后，相应微信号立刻收到服务通知，下一篇将会讲述规定时间发送模板消息~</p>
+<h2 id="源码">源码</h2>
+<p><a href="https://github.com/smk17/FightTravel">FightTravel小程序</a></p>
+<p><a href="https://github.com/sengmitnick/FightTravel">FightTravel后端</a></p>
+<h2 id="参考">参考</h2>
+<p><a href="http://yijiebuyi.com/blog/8221eb14c8482e7efd1868946e99ea7c.html">node.js post json格式数据到服务器的几种方法</a></p>
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/leancloud/">leancloud</a></span>
+        <span class="tag"><a href="https://sengmitnick.com/tags/%E6%A8%A1%E6%9D%BF%E6%B6%88%E6%81%AF/">模板消息</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        367字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2017-07-03 00:18
+        
+
+         
+          
+            
+              (最后修改: 2021-02-23 22:57)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/924b4559bd41b42651e087494dca627c95970b9b" target="_blank" rel="noopener">924b455</a>
+          @ 2021-02-23
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f&amp;text=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;caption=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f;description=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f&amp;title=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;summary=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f&amp;resubmit=true&amp;title=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f;title=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af%20https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f&amp;t=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%a8%8b%e5%ba%8f--%e9%80%9a%e8%bf%87leancloud%e5%81%9a%e5%90%8e%e5%8f%b0%e5%8f%91%e9%80%81%e6%a8%a1%e6%9d%bf%e6%b6%88%e6%81%af&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f101%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/107/">
+                <span class="button__icon">←</span>
+                <span class="button__text">程序员的进击</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/102/">
+                <span class="button__text">通过leancloud创建hexo博客并具备后台管理功能</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.host == "smk17.top:8383" || window.location.host ==  "smk17.gitee.io")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'smk17';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

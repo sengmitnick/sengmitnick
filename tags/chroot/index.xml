@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chroot on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/chroot/</link>
+    <description>Recent content in chroot on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 28 May 2014 08:50:30 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/chroot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu引导菜单损坏利用chroot修复</title>
+      <link>https://sengmitnick.com/blog/61/</link>
+      <pubDate>Wed, 28 May 2014 08:50:30 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/61/</guid>
+      <description>&lt;p&gt;用U盘制作Ubuntu LiveCD，U盘启动进入镜像系统。&lt;/p&gt;
+&lt;p&gt;打开Terminal终端，输入以下命令：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

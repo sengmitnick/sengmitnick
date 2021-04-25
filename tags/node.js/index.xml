@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node.js on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/node.js/</link>
+    <description>Recent content in Node.js on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 04 Feb 2015 08:55:42 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在Ubuntu上安装最新版本的Node.js</title>
+      <link>https://sengmitnick.com/blog/69/</link>
+      <pubDate>Wed, 04 Feb 2015 08:55:42 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/69/</guid>
+      <description>&lt;p&gt;转载自http://blog.csdn.net/chszs/article/details/37521463。博客主页：http://blog.csdn.net/chszs&lt;/p&gt;
+&lt;p&gt;Node.js是一个软件平台，通常用于构建大规模的服务器端应用。Node.js使用JavaScript作为其脚本语言，由于其非阻塞I/O设计以及单线程事件循环机制，使得它可以交付超高的性能。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 16 Feb 2021 12:03:26 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu下安装zsh和oh-my-zsh</title>
+      <link>https://sengmitnick.com/blog/305/</link>
+      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/305/</guid>
+      <description>前言 网上教程一堆，为什么我还要写一篇？ 其实按照步骤及其简单，就两句命令行。但是，我之前在新的MacOS安装，并配置了一些插件，以达到我之前的小白下的模式，发现总感觉差了点。逐有了这一篇教程，主要还是备份下在新的系统下安装了什么插件～
+安装 官方安装文档教程：
+ Installing ZSH Install oh-my-zsh now  我在Ubuntu下执行以下命令：
+apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 安装并配置ohmyz插件 安装zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 配置文件.zshrc如下：
+# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34; # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
+    </item>
+    
+    <item>
+      <title>如何在Ubuntu上安装最新版本的Node.js</title>
+      <link>https://sengmitnick.com/blog/69/</link>
+      <pubDate>Wed, 04 Feb 2015 08:55:42 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/69/</guid>
+      <description>&lt;p&gt;转载自http://blog.csdn.net/chszs/article/details/37521463。博客主页：http://blog.csdn.net/chszs&lt;/p&gt;
+&lt;p&gt;Node.js是一个软件平台，通常用于构建大规模的服务器端应用。Node.js使用JavaScript作为其脚本语言，由于其非阻塞I/O设计以及单线程事件循环机制，使得它可以交付超高的性能。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu引导菜单损坏利用chroot修复</title>
+      <link>https://sengmitnick.com/blog/61/</link>
+      <pubDate>Wed, 28 May 2014 08:50:30 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/61/</guid>
+      <description>&lt;p&gt;用U盘制作Ubuntu LiveCD，U盘启动进入镜像系统。&lt;/p&gt;
+&lt;p&gt;打开Terminal终端，输入以下命令：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>对个人在使用不同ubuntu版本过程中所遇到的问题总结</title>
+      <link>https://sengmitnick.com/blog/11/</link>
+      <pubDate>Sat, 08 Mar 2014 10:15:18 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/11/</guid>
+      <description>&lt;h2 id=&#34;无法获得锁-varlibdpkglock-&#34;&gt;无法获得锁 /var/lib/dpkg/lock &amp;hellip;&lt;/h2&gt;
+&lt;p&gt;具体报错如下：&lt;/p&gt;
+&lt;div class=&#34;note danger&#34;&gt;
+    &lt;ul&gt;
+&lt;li&gt;E: 无法获得锁 /var/lib/dpkg/lock - open (11: 资源暂时不可用)&lt;/li&gt;
+&lt;li&gt;E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;产生原因：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当在使用apt－get安装或者其他操作时，还木有操作完成就直接关闭终端，从而导致关闭了终端，apt－get进程却没有结束。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法1：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;终端输入:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps  -aux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;列出进程。找到含有apt-get的进程，直接 &lt;code&gt;sudo kill PID&lt;/code&gt; 。解决。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
