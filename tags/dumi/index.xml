@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dumi on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/dumi/</link>
+    <description>Recent content in dumi on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 25 Mar 2021 15:55:56 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/dumi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dumi build后，demo中引用的组件样式丢失</title>
+      <link>https://sengmitnick.com/blog/316/</link>
+      <pubDate>Thu, 25 Mar 2021 15:55:56 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/316/</guid>
+      <description>最近在基于 dumi 封装组件库 Parallel Line，发布到线上环境后发现样式丢失问题。这里记录一下解决经过与结果~
+ 我的组件库项目是一个 lerna 项目， 和 #225 中描述的问题一致，但是里面说到的方法都解决不了我的问题，最终只能简单粗暴的通过 gulp 处理。
+// gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var del = require(&amp;#39;del&amp;#39;); var less = require(&amp;#39;gulp-less&amp;#39;); var LessNpmImport = require(&amp;#39;less-plugin-npm-import&amp;#39;); gulp.task(&amp;#39;clean&amp;#39;, () =&amp;gt; del([&amp;#39;dist/**/*&amp;#39;])); gulp.task(&amp;#39;less&amp;#39;, () =&amp;gt; gulp .src(&amp;#39;src/components/**/*.less&amp;#39;) .pipe( less({ plugins: [new LessNpmImport({ prefix: &amp;#39;~&amp;#39; })], javascriptEnabled: true, }), ) .pipe(gulp.dest(&amp;#39;dist/&amp;#39;)), ); gulp.task(&amp;#39;default&amp;#39;, gulp.series(&amp;#39;clean&amp;#39;, &amp;#39;less&amp;#39;)); 参考  dumi #225  &amp;mdash;END</description>
+    </item>
+    
+  </channel>
+</rss>
