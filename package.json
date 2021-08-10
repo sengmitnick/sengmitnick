@@ -6,6 +6,7 @@
   "scripts": {
     "new": "hugo new",
     "dev": "hugo server -D --bind 0.0.0.0 --port 8383 --baseURL http://smk17.top:8383",
+    "dev:l": "hugo server -D --bind 0.0.0.0 --port 8383 --baseURL http://localhost:8383",
     "build": "hugo && gh-pages -d public",
     "build:bak": "hugo && rm -rvf /var/www/sengmitnick.com && cp -rvf /root/code/blog/public /var/www/sengmitnick.com"
   },
