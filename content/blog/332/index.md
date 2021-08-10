@@ -4,7 +4,7 @@ title: "umi.theme 参数剖析"
 linktitle: "umi.theme 参数剖析"
 cover: /images/cover/02.jpg
 images: [/images/cover/02.jpg]
-date: 2021-08-08T10:24:07+08:00
+date: 2021-07-08T10:24:07+08:00
 categories: [technology]
 tags: [umi,less,modifyVars]
 comments: true

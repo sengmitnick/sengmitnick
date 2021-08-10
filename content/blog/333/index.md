@@ -182,14 +182,14 @@ const Demo: React.FC<{ a: boolean }> = (props) => {
 
 https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types
 
-## 泛型组件
+### 泛型组件
 
 ```ts
 // <Demo<string> ... />
 const Demo = <T extends {}>(props: DemoProps) => null
 ```
 
-## 泛型函数
+### 泛型函数
 
 ```ts
 function identity<Type>(arg: Type): Type {
