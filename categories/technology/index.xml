@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 25 Apr 2021 16:35:30 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
       <link>https://sengmitnick.com/blog/104/</link>
@@ -17,6 +17,60 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>umi.theme 参数剖析</title>
+      <link>https://sengmitnick.com/blog/332/</link>
+      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/332/</guid>
+      <description>其实就是 less的modifyVars功能
+如果是通过js引入，会转化成less的格式：
+输入：
+module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
+    </item>
+    
+    <item>
+      <title>TypeScript 使用宝典</title>
+      <link>https://sengmitnick.com/blog/333/</link>
+      <pubDate>Fri, 06 Aug 2021 10:27:06 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/333/</guid>
+      <description>jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+ is &amp;amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
+非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
+const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.</description>
+    </item>
+    
+    <item>
+      <title>Prettier 使用宝典</title>
+      <link>https://sengmitnick.com/blog/330/</link>
+      <pubDate>Tue, 25 May 2021 13:47:05 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/330/</guid>
+      <description>VSCODE 安装 Prettier 的官方扩展：https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+配置 resolveGlobalModules ，使 Prettier 使用项目本地依赖项中 Prettier。
+{ &amp;#34;prettier.resolveGlobalModules&amp;#34;: true, &amp;#34;[typescriptreact]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[typescript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; } } NPM 安装 prettier lint-staged pre-commit
+以下是 package.json 配置：
+{ &amp;#34;pre-commit&amp;#34;: [ &amp;#34;lint-staged&amp;#34; ], &amp;#34;lint-staged&amp;#34;: { &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [ &amp;#34;prettier --write&amp;#34; ], &amp;#34;*.ts?(x)&amp;#34;: [ &amp;#34;prettier --parser=typescript --write&amp;#34; ] }, } 参考  https://github.com/prettier/prettier-vscode#prettier-resolution https://prettier.io/docs/en/configuration.html  </description>
+    </item>
+    
+    <item>
+      <title>umi.define 应用问题</title>
+      <link>https://sengmitnick.com/blog/331/</link>
+      <pubDate>Mon, 10 May 2021 14:52:35 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/331/</guid>
+      <description>这是工作中看到同事的错误写法，特意记录下来～
+  错误写法
+   相关使用文档：https://umijs.org/zh-CN/config#define
+ 原理分析
+   原理分析： define 中的变量在生产环境会被压缩掉，如果通过 const {PXX_ENV1, PLATFORM1} = process.env; 方式取值，会先被编译成以上截图代码，导致在生产环境中并没有被压缩掉～</description>
     </item>
     
     <item>
@@ -81,56 +135,6 @@ dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开�
 实质区别 如果我们只是单纯的做项目，那么我们可简单地认为生产环境和开发环境做为一种友善的提示，实质没有什么区别；但是，如果在发布npm包的时候，两种环境安装方式是有很大区别的！！！
 假设有以下两个模块： 模块A
  devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  </description>
-    </item>
-    
-    <item>
-      <title>打造专属自己的CloudIDE</title>
-      <link>https://sengmitnick.com/blog/308/</link>
-      <pubDate>Mon, 22 Feb 2021 21:09:48 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/308/</guid>
-      <description>前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重+充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad+code-server发现效果不是很完美，于是再三选择用google pixel slate+code-server。于是就有了这篇文章。
-安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
-upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &amp;#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&amp;#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1.</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu下安装zsh和oh-my-zsh</title>
-      <link>https://sengmitnick.com/blog/305/</link>
-      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/305/</guid>
-      <description>前言 网上教程一堆，为什么我还要写一篇？ 其实按照步骤及其简单，就两句命令行。但是，我之前在新的MacOS安装，并配置了一些插件，以达到我之前的小白下的模式，发现总感觉差了点。逐有了这一篇教程，主要还是备份下在新的系统下安装了什么插件～
-安装 官方安装文档教程：
- Installing ZSH Install oh-my-zsh now  我在Ubuntu下执行以下命令：
-apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 安装并配置ohmyz插件 安装zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 配置文件.zshrc如下：
-# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34; # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
-    </item>
-    
-    <item>
-      <title>Hugo下添加 Back Top 功能</title>
-      <link>https://sengmitnick.com/blog/304/</link>
-      <pubDate>Wed, 10 Feb 2021 12:28:23 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/304/</guid>
-      <description> 在给文章设置了Hugo默认的TOC功能后，发现如果文章过长，每次返回顶部抵达段落的过程太麻烦，虽然在我的Google Pixel Slate下通过gg即可快速回到顶部，但是我还是觉得有必要给我站点添加 Back Top 的功能
- 在动手之前，也可考虑其必要性，在这里大家有过一定程度的讨论，也是看了这里我才知道还可以通过gg可快速回到顶部:)
-目前功能实现的代码可直接参考：9e6ba0c
-虽然还不是很完美，但也可基本使用了。后续慢慢迭代吧:)
-参考资料  添加一键返回顶部功能 5种回到顶部的写法从实现到增强  </description>
-    </item>
-    
-    <item>
-      <title>根据 swagger 文档生成 typescript 客户端调用代码</title>
-      <link>https://sengmitnick.com/blog/306/</link>
-      <pubDate>Wed, 16 Dec 2020 15:59:47 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/306/</guid>
-      <description>新公司后端API文档基于swagger打造，于是在项目开发过程中萌生了通过nodejs生成typescript接口函数的想法。
- 在GitHub、npm和gitee找了一下，发现nswag-ts基本满足需求。
-安装 yarn add -D nswagger-ts 在 package.json 的 scripts 节点增加 2 个执行命令
-{ &amp;#34;scripts&amp;#34;: { &amp;#34;nswag:init&amp;#34;: &amp;#34;nswag init&amp;#34;, &amp;#34;nswag:run&amp;#34;: &amp;#34;nswag run&amp;#34;, } }  执行：yarn nswag-init 初始化项目 初始化完成后会在项目根目录创建文件夹 nswag,里面放置了配置文件及代码模板  以下是我的配置文件,支持多个模块生成。
-var _ = require(&amp;#39;lodash&amp;#39;); const SwaggerUrlBase = &amp;#39;https://demo.com/api/%s/v2/api-docs&amp;#39;; const Apis = [&amp;#39;contents&amp;#39;, &amp;#39;material&amp;#39;, &amp;#39;customer&amp;#39;, &amp;#39;community&amp;#39;, &amp;#39;push&amp;#39;, &amp;#39;user&amp;#39;, &amp;#39;platform&amp;#39;] .map(tagName =&amp;gt; { return { SwaggerUrl: SwaggerUrlBase.replace(&amp;#39;%s&amp;#39;, tagName), ApiName: tagName.charAt(0).toUpperCase() + tagName.slice(1), }; }) .map(({ SwaggerUrl, ApiName }) =&amp;gt; ({ SwaggerUrl, // 接口文档地址（必填）  ApiBase: &amp;#39;/api&amp;#39;, // 接口根节点（必填）  ApiName, // 接口名称（必填）  // // OutPath: &amp;#39;&amp;#39;, // 输出目录（默认：项目根/src/api/{ApiName}）  // // TplPath: &amp;#39;&amp;#39;, // 模板路径（默认：内部默认模板，也可以copy 到项目中进行修改，然后指定用项目中模板）  // // Mock: false, // 是否启用模拟数据 （默认：false）  // // FormatMock: null, // 接管模拟数据格式化  FormatControllerName: function(name) { // 格式化模块名称（默认：接口名称+Api）  return name .</description>
     </item>
     
   </channel>

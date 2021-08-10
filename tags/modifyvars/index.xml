@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>modifyVars on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/modifyvars/</link>
+    <description>Recent content in modifyVars on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/modifyvars/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>umi.theme 参数剖析</title>
+      <link>https://sengmitnick.com/blog/332/</link>
+      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/332/</guid>
+      <description>其实就是 less的modifyVars功能
+如果是通过js引入，会转化成less的格式：
+输入：
+module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
+    </item>
+    
+  </channel>
+</rss>

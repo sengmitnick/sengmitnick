@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prettier on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/prettier/</link>
+    <description>Recent content in prettier on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 25 May 2021 13:47:05 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/prettier/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prettier 使用宝典</title>
+      <link>https://sengmitnick.com/blog/330/</link>
+      <pubDate>Tue, 25 May 2021 13:47:05 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/330/</guid>
+      <description>VSCODE 安装 Prettier 的官方扩展：https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+配置 resolveGlobalModules ，使 Prettier 使用项目本地依赖项中 Prettier。
+{ &amp;#34;prettier.resolveGlobalModules&amp;#34;: true, &amp;#34;[typescriptreact]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[typescript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; } } NPM 安装 prettier lint-staged pre-commit
+以下是 package.json 配置：
+{ &amp;#34;pre-commit&amp;#34;: [ &amp;#34;lint-staged&amp;#34; ], &amp;#34;lint-staged&amp;#34;: { &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [ &amp;#34;prettier --write&amp;#34; ], &amp;#34;*.ts?(x)&amp;#34;: [ &amp;#34;prettier --parser=typescript --write&amp;#34; ] }, } 参考  https://github.com/prettier/prettier-vscode#prettier-resolution https://prettier.io/docs/en/configuration.html  </description>
+    </item>
+    
+  </channel>
+</rss>

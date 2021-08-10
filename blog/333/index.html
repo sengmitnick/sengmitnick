@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content="jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+ is &amp;amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
+非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
+const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React.useState(initialValue); const up = React." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/333/" />
+
+
+    <title>
+        
+            TypeScript 使用宝典 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="TypeScript 使用宝典">
+<meta itemprop="description" content="jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+ is &amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
+非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
+const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.">
+<meta itemprop="datePublished" content="2021-08-06T10:27:06+08:00" />
+<meta itemprop="dateModified" content="2021-08-10T10:47:52+08:00" />
+<meta itemprop="wordCount" content="551">
+<meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
+
+<meta name="twitter:title" content="TypeScript 使用宝典"/>
+<meta name="twitter:description" content="jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+ is &amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
+非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
+const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.useState(initialValue); const up = React."/>
+
+
+
+
+    <meta property="og:title" content="TypeScript 使用宝典" />
+<meta property="og:description" content="jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+ is &amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
+非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
+const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.useState(initialValue); const up = React." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/333/" />
+<meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
+<meta property="article:published_time" content="2021-08-06T10:27:06+08:00" />
+<meta property="article:modified_time" content="2021-08-10T10:47:52+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2021-08-06 10:27:06 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        3分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/333/">TypeScript 使用宝典</a>
+      </h1>
+
+      
+
+      
+        <figure class="post-cover">
+          <img src="https://sengmitnick.com/images/cover/02.jpg" alt="TypeScript 使用宝典" />
+          
+          
+        </figure>
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">目录</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#jsdoc">jsDoc</a></li>
+    <li><a href="#is--typeof">is &amp; typeof</a></li>
+    <li><a href="#非空断言">非空断言</a></li>
+    <li><a href="#const-断言">const 断言</a></li>
+    <li><a href="#number-下标"><code>[number]</code> 下标</a></li>
+    <li><a href="#record--dictionary">Record &amp; Dictionary</a></li>
+    <li><a href="#required--partial--pick">Required &amp; Partial &amp; Pick</a></li>
+    <li><a href="#omit--union--tuple">Omit &amp; Union &amp; Tuple</a></li>
+    <li><a href="#泛型">泛型</a></li>
+    <li><a href="#泛型组件">泛型组件</a></li>
+    <li><a href="#泛型函数">泛型函数</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      <div class="post-content">
+        <h2 id="jsdoc">jsDoc</h2>
+<p>详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html</p>
+
+
+
+<iframe 
+  src="https://stackblitz.com/edit/node-y66mjg?embed=1&amp;file=jsdoc.ts&amp;hideNavigation=1&amp;view=editor"
+  style="
+    width: 100%;
+    height: 500px;
+    border: 0;
+    border-radius: 4px;
+    overflow: hidden;
+  " 
+  title="jsDoc使用示例"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking">
+</iframe>
+<h2 id="is--typeof">is &amp; typeof</h2>
+<p><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards">https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards</a>
+<a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards">https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards</a></p>
+<h2 id="非空断言">非空断言</h2>
+<p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-TypeScript" data-lang="TypeScript"><span style="color:#75715e">// Compiled with --strictNullChecks
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">validateEntity</span>(<span style="color:#a6e22e">e?</span>: <span style="color:#66d9ef">Entity</span>) {
+  <span style="color:#75715e">// Throw exception if e is null or invalid entity
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processEntity</span>(<span style="color:#a6e22e">e?</span>: <span style="color:#66d9ef">Entity</span>) {
+  <span style="color:#a6e22e">validateEntity</span>(<span style="color:#a6e22e">e</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span><span style="color:#f92672">!</span>.<span style="color:#a6e22e">name</span>; <span style="color:#75715e">// Assert that e is non-null and access name
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h2 id="const-断言">const 断言</h2>
+<p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions</a></p>
+<p>应用场景：自定义 hook 可以用得比较多， <code>React.useState</code> 就是如此</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">useFlag</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">initialValue</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">flag</span>, <span style="color:#a6e22e">setFlag</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">up</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>(() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setFlag</span>(<span style="color:#66d9ef">true</span>), []);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">down</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>(() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setFlag</span>(<span style="color:#66d9ef">false</span>), []);
+  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">flag</span>, <span style="color:#a6e22e">up</span>, <span style="color:#a6e22e">down</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">const</span>;
+};
+
+<span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">modalVisible</span>, <span style="color:#a6e22e">showModal</span>, <span style="color:#a6e22e">hideModal</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useFlag</span>();
+</code></pre></div><h2 id="number-下标"><code>[number]</code> 下标</h2>
+<p>通过 <code>[number]</code> 下标可以完成 Union2Tuple 的骚操作：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DRINK_LIST</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Beer&#39;</span>, <span style="color:#e6db74">&#39;Wine&#39;</span>, <span style="color:#e6db74">&#39;Water&#39;</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">const</span>;
+<span style="color:#75715e">// 相当于: type Drink = &#39;Beer&#39; | &#39;Wine&#39; | &#39;Water&#39;;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Drink</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">DRINK_LIST</span>[<span style="color:#66d9ef">number</span>];
+</code></pre></div><p>获取到的Union类型还可以用到 Record 当中。</p>
+<h2 id="record--dictionary">Record &amp; Dictionary</h2>
+<p>业务中，我们经常会写枚举和对应的映射:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AnimalType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;cat&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;dog&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;frog&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AnimalMap</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">cat</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;猫&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>},
+  <span style="color:#a6e22e">dog</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;狗&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span> },
+  <span style="color:#a6e22e">forg</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;蛙&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span> },
+};
+</code></pre></div><p>注意到上面 forg 拼错了吗？
+Record 可以保证映射完整:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AnimalType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;cat&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;dog&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;frog&#39;</span>;
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">AnimalDescription</span> { <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">icon</span>: <span style="color:#66d9ef">string</span> }
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AnimalMap</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">AnimalType</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">AnimalDescription</span>&gt; <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">cat</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;猫&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>},
+  <span style="color:#a6e22e">dog</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;狗&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span> },
+  <span style="color:#a6e22e">forg</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;蛙&#39;</span>, <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span> }, <span style="color:#75715e">// Hey!
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>建议大家在声明一个 object 时，尽量用 <code>Record&lt;string, any&gt;</code> 。</p>
+<h2 id="required--partial--pick">Required &amp; Partial &amp; Pick</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#a6e22e">op?</span>: <span style="color:#66d9ef">string</span>;
+};
+
+<span style="color:#75715e">// 相当于: type PickUser = { id: number; age: number;name: string;op: string; }
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PartialUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Partial</span>&lt;<span style="color:#f92672">User</span>&gt;
+
+<span style="color:#75715e">// 相当于: type PartialUser = { id?: number; age?: number; name?: string; }
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PartialUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Partial</span>&lt;<span style="color:#f92672">User</span>&gt;
+
+<span style="color:#75715e">// 相当于: type PickUser = { id: number; age: number; }
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PickUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Pick</span>&lt;<span style="color:#f92672">User</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">id</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">age</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+</code></pre></div><p>目前我自己用Partial比较多，主要应用在以下场景：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useSetState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;ahooks&#39;</span>;
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">State</span> {
+  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">demo</span>: <span style="color:#66d9ef">React.FC</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">boolean</span> }<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">setState</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSetState</span>&lt;<span style="color:#f92672">State</span>&gt;({ <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">0</span>, <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">0</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span> });
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>
+      <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newState</span>: <span style="color:#66d9ef">Partial</span>&lt;<span style="color:#f92672">State</span>&gt; <span style="color:#f92672">=</span> {};
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">a</span>) {
+          <span style="color:#a6e22e">newState</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+        }
+        <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newState</span>);
+      }}
+    &gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  );
+};
+</code></pre></div><h2 id="omit--union--tuple">Omit &amp; Union &amp; Tuple</h2>
+<p>Omit 是 never、Exclude和Pick的组合，大致效果如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+};
+
+<span style="color:#75715e">// 相当于: type PickUser = { age: number; name: string; }
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OmitUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Omit</span>&lt;<span style="color:#f92672">User</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">id</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+</code></pre></div><p>使用场景：对某些组件进行二次开发是对其Props的重新定义，一般会搭配_.omit使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">omit</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;lodash-es&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">RcUpload</span>, { <span style="color:#a6e22e">UploadProps</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">RcUploadProps</span>, } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;antd/es/upload&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">omitUploadType</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;type&#39;</span>, <span style="color:#e6db74">&#39;listType&#39;</span>, <span style="color:#e6db74">&#39;onChange&#39;</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">const</span>;
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">OmitUploadType</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">omitUploadType</span>[<span style="color:#66d9ef">number</span>];
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UploadProps</span>&lt;<span style="color:#f92672">T</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#a6e22e">any</span>&gt; <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Omit</span>&lt;<span style="color:#f92672">RcUploadProps</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">OmitUploadType</span>&gt; {
+  <span style="color:#a6e22e">value?</span>: <span style="color:#66d9ef">T</span>;
+  <span style="color:#a6e22e">onChange</span><span style="color:#f92672">?:</span> (<span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">T</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">OCRResponse</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">void</span>;
+  }
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span>: <span style="color:#66d9ef">React.FC</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">boolean</span> }<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rcUploadProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">omit</span>(<span style="color:#a6e22e">props</span>,<span style="color:#a6e22e">omitUploadType</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>
+};
+</code></pre></div><h2 id="泛型">泛型</h2>
+<p><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types">https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types</a></p>
+<h2 id="泛型组件">泛型组件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// &lt;Demo&lt;string&gt; ... /&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> {}&gt;(<span style="color:#a6e22e">props</span>: <span style="color:#66d9ef">DemoProps</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">null</span>
+</code></pre></div><h2 id="泛型函数">泛型函数</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">identity</span>&lt;<span style="color:#f92672">Type</span>&gt;(<span style="color:#a6e22e">arg</span>: <span style="color:#66d9ef">Type</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Type</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
+}
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myIdentity</span>: <span style="color:#66d9ef">identity</span>(<span style="color:#ae81ff">0</span>); <span style="color:#75715e">//ts会根据泛型自动推导出返回类型。
+</span></code></pre></div><p>合理运用泛型写函数、类和组件，会让你的代码更上一层哦～
+小课题：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// 第一个是组件类型，第二个是组件的Props，怎么写可以实现传入一个组件，
+</span><span style="color:#75715e">// 自动推导出properties类型呢？
+</span><span style="color:#75715e">// 提示： 会用到 extends 和 React的内置类型
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">identity</span>&lt;<span style="color:#f92672">C</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">P</span>&gt;(<span style="color:#a6e22e">Component</span>: <span style="color:#66d9ef">any</span>, <span style="color:#a6e22e">properties</span>: <span style="color:#66d9ef">any</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">any</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">API</span> {
+  <span style="color:#e6db74">&#39;/user&#39;</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span> },
+  <span style="color:#e6db74">&#39;/menu&#39;</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">foods</span>: <span style="color:#66d9ef">Food</span>[] },
+}
+<span style="color:#75715e">// 根据传入的 url 返回 对应url的类型，并且url只能是API接口的key
+</span><span style="color:#75715e">// 提示： keyof
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">identity</span>&lt;<span style="color:#f92672">URL</span>&gt;<span style="color:#66d9ef">get</span>(<span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">URL</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">any</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
+}
+</code></pre></div>
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        551字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-08-06 10:27
+        
+
+         
+          
+            
+              (最后修改: 2021-08-10 10:47)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/2c000781fbd473cbfed85ea0d66149e8743146bf" target="_blank" rel="noopener">2c00078</a>
+          @ 2021-08-10
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f&amp;text=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;caption=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f;description=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f&amp;title=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;summary=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f&amp;resubmit=true&amp;title=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f;title=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8%20https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f&amp;t=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=TypeScript%20%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%85%b8&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f333%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/332/">
+                <span class="button__icon">←</span>
+                <span class="button__text">umi.theme 参数剖析</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/330/">
+                <span class="button__text">Prettier 使用宝典</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function () {
+        
+        
+        if (window.location.host == "localhost:8383" || window.location.host == "smk17.top:8383" || window.location.host == "smk17.gitee.io")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'smk17';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

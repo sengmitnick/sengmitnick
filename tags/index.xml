@@ -7,7 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 25 Apr 2021 16:35:30 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>less</title>
+      <link>https://sengmitnick.com/tags/less/</link>
+      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/less/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modifyVars</title>
+      <link>https://sengmitnick.com/tags/modifyvars/</link>
+      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/modifyvars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>umi</title>
+      <link>https://sengmitnick.com/tags/umi/</link>
+      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/umi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prettier</title>
+      <link>https://sengmitnick.com/tags/prettier/</link>
+      <pubDate>Tue, 25 May 2021 13:47:05 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/prettier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>define</title>
+      <link>https://sengmitnick.com/tags/define/</link>
+      <pubDate>Mon, 10 May 2021 14:52:35 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/define/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blog</title>
       <link>https://sengmitnick.com/tags/blog/</link>
@@ -50,51 +95,6 @@
       <pubDate>Thu, 25 Mar 2021 15:55:56 +0800</pubDate>
       
       <guid>https://sengmitnick.com/tags/dumi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>react</title>
-      <link>https://sengmitnick.com/tags/react/</link>
-      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ide</title>
-      <link>https://sengmitnick.com/tags/ide/</link>
-      <pubDate>Mon, 22 Feb 2021 21:09:48 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/ide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vscode</title>
-      <link>https://sengmitnick.com/tags/vscode/</link>
-      <pubDate>Mon, 22 Feb 2021 21:09:48 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/vscode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ubuntu</title>
-      <link>https://sengmitnick.com/tags/ubuntu/</link>
-      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zsh</title>
-      <link>https://sengmitnick.com/tags/zsh/</link>
-      <pubDate>Tue, 16 Feb 2021 12:03:26 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/zsh/</guid>
       <description></description>
     </item>
     

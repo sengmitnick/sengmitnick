@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>define on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/define/</link>
+    <description>Recent content in define on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 10 May 2021 14:52:35 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/define/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>umi.define 应用问题</title>
+      <link>https://sengmitnick.com/blog/331/</link>
+      <pubDate>Mon, 10 May 2021 14:52:35 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/331/</guid>
+      <description>这是工作中看到同事的错误写法，特意记录下来～
+  错误写法
+   相关使用文档：https://umijs.org/zh-CN/config#define
+ 原理分析
+   原理分析： define 中的变量在生产环境会被压缩掉，如果通过 const {PXX_ENV1, PLATFORM1} = process.env; 方式取值，会先被编译成以上截图代码，导致在生产环境中并没有被压缩掉～</description>
+    </item>
+    
+  </channel>
+</rss>
