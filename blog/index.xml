@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate>
         <atom:link href="https://sengmitnick.com/blog/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -353,31 +353,53 @@ git push -u origin master
         </item>
         
         <item>
-            <title>umi.theme 参数剖析</title>
-            <link>https://sengmitnick.com/blog/332/</link>
-            <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+            <title>记录一次样式多次被引入的问题解决过程</title>
+            <link>https://sengmitnick.com/blog/336/</link>
+            <pubDate>Tue, 24 Aug 2021 18:50:04 +0800</pubDate>
             
-            <guid>https://sengmitnick.com/blog/332/</guid>
-            <description>其实就是 less的modifyVars功能
-如果是通过js引入，会转化成less的格式：
-输入：
-module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
-@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
-基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
-            <content type="html"><![CDATA[<p>其实就是 less的modifyVars功能</p>
-<p>如果是通过js引入，会转化成less的格式：</p>
-<p>输入：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">&#39;@hd&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1px&#39;</span>,
-  <span style="color:#e6db74">&#39;@primary-color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#1E78FF&#39;</span>,
-  <span style="color:#e6db74">&#39;@url&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`&#39;https://ant-design.gitee.io/components/upload-cn/&#39;`</span>,
-};
-</code></pre></div><p>输出：</p>
-<pre><code class="language-less" data-lang="less">@hd: 1px;
-@primary-color: #1E78FF;
-@url: 'https://ant-design.gitee.io/components/upload-cn/';
-</code></pre><p>PS: 注意声明链接时必须有引号，不然会报错哦～</p>
-<p>基于modifyVars功能可以实现类似的CSS In JS 功能哦～</p>
+            <guid>https://sengmitnick.com/blog/336/</guid>
+            <description>新写的组件库有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
+ 通过问题分析，发现导致样式多次被引入的问题有以下：
+ 自建组件库全局样式多次被引入； 第三方组件库（Antd）不合理的引入方式引起重复样式覆盖； 打包工具（umi）的按需引入所引起的样式重复引入。  自建组件库全局样式多次被引入 通过删除原有默认引入的模式，改为手动引入。
+https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a
+💡 Tips: 后续可以研究antd的全局样式解决方案。
+第三方组件库不合理的引入方式 通过代码审查，发现组件库和项目中引入antd的样式路径有 antd/es/*、antd/lib/*。导致antd的样式会加载两次。
+项目使用 umi 作为打包工具，其中，通过翻阅 plugin-antd 的源码，发现编译后以antd/es/*为基准。于是修改组件库的 babel-plugin-import 的配置和项目中的引入方式。
+ plugin-antd
+   💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或eslint的方式强行提示。
+打包工具的按需引入所引起的样式重复引入 该问题待解决，还没学到解决办法～
+END……</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>新写的<a href="https://www.npmjs.com/package/@parallel-line/mobile">组件库</a>有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。</p>
+</blockquote>
+<p>通过问题分析，发现导致样式多次被引入的问题有以下：</p>
+<ol>
+<li>自建组件库全局样式多次被引入；</li>
+<li>第三方组件库（<a href="https://ant-design.gitee.io/">Antd</a>）不合理的引入方式引起重复样式覆盖；</li>
+<li>打包工具（<a href="https://umijs.org/zh-CN/config#dynamicimport">umi</a>）的按需引入所引起的样式重复引入。</li>
+</ol>
+<h2 id="自建组件库全局样式多次被引入">自建组件库全局样式多次被引入</h2>
+<p>通过删除原有默认引入的模式，改为手动引入。</p>
+<p><a href="https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a">https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a</a></p>
+<p>💡 Tips: 后续可以研究antd的全局样式解决方案。</p>
+<h2 id="第三方组件库不合理的引入方式">第三方组件库不合理的引入方式</h2>
+<p>通过代码审查，发现组件库和项目中引入antd的样式路径有 <code>antd/es/*</code>、<code>antd/lib/*</code>。导致antd的样式会加载两次。</p>
+<p>项目使用 <a href="https://umijs.org/zh-CN/">umi</a> 作为打包工具，其中，通过翻阅 <a href="https://umijs.org/zh-CN/plugins/plugin-antd">plugin-antd</a> 的源码，发现编译后以<code>antd/es/*</code>为基准。于是修改组件库的  <a href="https://github.com/ant-design/babel-plugin-import">babel-plugin-import</a> 的配置和项目中的引入方式。</p>
+
+
+
+  <figure>
+    <a href="/blog/336/01.png" target="_blank">
+      <img src="/blog/336/01.png" alt="plugin-antd"/>
+      <figcaption><p>plugin-antd</p></figcaption>
+    </a>
+    
+  </figure>
+
+<p>💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或<code>eslint</code>的方式强行提示。</p>
+<h2 id="打包工具的按需引入所引起的样式重复引入">打包工具的按需引入所引起的样式重复引入</h2>
+<p>该问题待解决，还没学到解决办法～</p>
+<p><strong>END……</strong></p>
 ]]></content>
         </item>
         
@@ -527,10 +549,10 @@ Record 可以保证映射完整:</p>
 };
 </code></pre></div><h2 id="泛型">泛型</h2>
 <p><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types">https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types</a></p>
-<h2 id="泛型组件">泛型组件</h2>
+<h3 id="泛型组件">泛型组件</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// &lt;Demo&lt;string&gt; ... /&gt;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> {}&gt;(<span style="color:#a6e22e">props</span>: <span style="color:#66d9ef">DemoProps</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">null</span>
-</code></pre></div><h2 id="泛型函数">泛型函数</h2>
+</code></pre></div><h3 id="泛型函数">泛型函数</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">identity</span>&lt;<span style="color:#f92672">Type</span>&gt;(<span style="color:#a6e22e">arg</span>: <span style="color:#66d9ef">Type</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Type</span> {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
 }
@@ -554,6 +576,35 @@ Record 可以保证映射完整:</p>
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
 }
 </code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>umi.theme 参数剖析</title>
+            <link>https://sengmitnick.com/blog/332/</link>
+            <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/332/</guid>
+            <description>其实就是 less的modifyVars功能
+如果是通过js引入，会转化成less的格式：
+输入：
+module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
+            <content type="html"><![CDATA[<p>其实就是 less的modifyVars功能</p>
+<p>如果是通过js引入，会转化成less的格式：</p>
+<p>输入：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#39;@hd&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1px&#39;</span>,
+  <span style="color:#e6db74">&#39;@primary-color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#1E78FF&#39;</span>,
+  <span style="color:#e6db74">&#39;@url&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`&#39;https://ant-design.gitee.io/components/upload-cn/&#39;`</span>,
+};
+</code></pre></div><p>输出：</p>
+<pre><code class="language-less" data-lang="less">@hd: 1px;
+@primary-color: #1E78FF;
+@url: 'https://ant-design.gitee.io/components/upload-cn/';
+</code></pre><p>PS: 注意声明链接时必须有引号，不然会报错哦～</p>
+<p>基于modifyVars功能可以实现类似的CSS In JS 功能哦～</p>
+]]></content>
         </item>
         
         <item>

@@ -54,7 +54,7 @@ const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React
 应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
 const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.">
 <meta itemprop="datePublished" content="2021-08-06T10:27:06+08:00" />
-<meta itemprop="dateModified" content="2021-08-10T10:47:52+08:00" />
+<meta itemprop="dateModified" content="2021-08-10T11:33:58+08:00" />
 <meta itemprop="wordCount" content="551">
 <meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
 
@@ -87,7 +87,7 @@ const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.use
 <meta property="og:url" content="https://sengmitnick.com/blog/333/" />
 <meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
 <meta property="article:published_time" content="2021-08-06T10:27:06+08:00" />
-<meta property="article:modified_time" content="2021-08-10T10:47:52+08:00" />
+<meta property="article:modified_time" content="2021-08-10T11:33:58+08:00" />
 
 
 
@@ -234,9 +234,12 @@ const useFlag = (initialValue = false) =&gt; { const [flag, setFlag] = React.use
     <li><a href="#record--dictionary">Record &amp; Dictionary</a></li>
     <li><a href="#required--partial--pick">Required &amp; Partial &amp; Pick</a></li>
     <li><a href="#omit--union--tuple">Omit &amp; Union &amp; Tuple</a></li>
-    <li><a href="#泛型">泛型</a></li>
-    <li><a href="#泛型组件">泛型组件</a></li>
-    <li><a href="#泛型函数">泛型函数</a></li>
+    <li><a href="#泛型">泛型</a>
+      <ul>
+        <li><a href="#泛型组件">泛型组件</a></li>
+        <li><a href="#泛型函数">泛型函数</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </aside>
@@ -377,10 +380,10 @@ Record 可以保证映射完整:</p>
 };
 </code></pre></div><h2 id="泛型">泛型</h2>
 <p><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types">https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types</a></p>
-<h2 id="泛型组件">泛型组件</h2>
+<h3 id="泛型组件">泛型组件</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// &lt;Demo&lt;string&gt; ... /&gt;
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> &lt;<span style="color:#f92672">T</span> <span style="color:#a6e22e">extends</span> {}&gt;(<span style="color:#a6e22e">props</span>: <span style="color:#66d9ef">DemoProps</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">null</span>
-</code></pre></div><h2 id="泛型函数">泛型函数</h2>
+</code></pre></div><h3 id="泛型函数">泛型函数</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">identity</span>&lt;<span style="color:#f92672">Type</span>&gt;(<span style="color:#a6e22e">arg</span>: <span style="color:#66d9ef">Type</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Type</span> {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arg</span>;
 }
@@ -447,7 +450,7 @@ Record 可以保证映射完整:</p>
          
           
             
-              (最后修改: 2021-08-10 10:47)
+              (最后修改: 2021-08-10 11:33)
             
           
         
@@ -459,7 +462,7 @@ Record 可以保证映射完整:</p>
             <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
           </svg>
 
-          <a href="https://github.com/sengmitnick/sengmitnick/commit/2c000781fbd473cbfed85ea0d66149e8743146bf" target="_blank" rel="noopener">2c00078</a>
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/8cb00a51d06fca5e7c9ca635bef616a3c7f37905" target="_blank" rel="noopener">8cb00a5</a>
           @ 2021-08-10
         </p>
     </div>
@@ -569,17 +572,17 @@ Record 可以保证映射完整:</p>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="https://sengmitnick.com/blog/332/">
+              <a href="https://sengmitnick.com/blog/336/">
                 <span class="button__icon">←</span>
-                <span class="button__text">umi.theme 参数剖析</span>
+                <span class="button__text">记录一次样式多次被引入的问题解决过程</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="https://sengmitnick.com/blog/330/">
-                <span class="button__text">Prettier 使用宝典</span>
+              <a href="https://sengmitnick.com/blog/332/">
+                <span class="button__text">umi.theme 参数剖析</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

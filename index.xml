@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>时隔三年，我又回来了～</title>
       <link>https://sengmitnick.com/blog/300/</link>
@@ -65,17 +65,22 @@
     </item>
     
     <item>
-      <title>umi.theme 参数剖析</title>
-      <link>https://sengmitnick.com/blog/332/</link>
-      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      <title>记录一次样式多次被引入的问题解决过程</title>
+      <link>https://sengmitnick.com/blog/336/</link>
+      <pubDate>Tue, 24 Aug 2021 18:50:04 +0800</pubDate>
       
-      <guid>https://sengmitnick.com/blog/332/</guid>
-      <description>其实就是 less的modifyVars功能
-如果是通过js引入，会转化成less的格式：
-输入：
-module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
-@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
-基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
+      <guid>https://sengmitnick.com/blog/336/</guid>
+      <description>新写的组件库有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
+ 通过问题分析，发现导致样式多次被引入的问题有以下：
+ 自建组件库全局样式多次被引入； 第三方组件库（Antd）不合理的引入方式引起重复样式覆盖； 打包工具（umi）的按需引入所引起的样式重复引入。  自建组件库全局样式多次被引入 通过删除原有默认引入的模式，改为手动引入。
+https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a
+💡 Tips: 后续可以研究antd的全局样式解决方案。
+第三方组件库不合理的引入方式 通过代码审查，发现组件库和项目中引入antd的样式路径有 antd/es/*、antd/lib/*。导致antd的样式会加载两次。
+项目使用 umi 作为打包工具，其中，通过翻阅 plugin-antd 的源码，发现编译后以antd/es/*为基准。于是修改组件库的 babel-plugin-import 的配置和项目中的引入方式。
+ plugin-antd
+   💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或eslint的方式强行提示。
+打包工具的按需引入所引起的样式重复引入 该问题待解决，还没学到解决办法～
+END……</description>
     </item>
     
     <item>
@@ -90,6 +95,20 @@ module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@prima
 // Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
 应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
 const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.</description>
+    </item>
+    
+    <item>
+      <title>umi.theme 参数剖析</title>
+      <link>https://sengmitnick.com/blog/332/</link>
+      <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/332/</guid>
+      <description>其实就是 less的modifyVars功能
+如果是通过js引入，会转化成less的格式：
+输入：
+module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
     </item>
     
     <item>
@@ -142,16 +161,6 @@ could not find image 就是每次更新站点有点繁琐，需要先同步GitHu
       <description>最近在基于 dumi 封装组件库 Parallel Line，发布到线上环境后发现样式丢失问题。这里记录一下解决经过与结果~
  我的组件库项目是一个 lerna 项目， 和 #225 中描述的问题一致，但是里面说到的方法都解决不了我的问题，最终只能简单粗暴的通过 gulp 处理。
 // gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var del = require(&amp;#39;del&amp;#39;); var less = require(&amp;#39;gulp-less&amp;#39;); var LessNpmImport = require(&amp;#39;less-plugin-npm-import&amp;#39;); gulp.task(&amp;#39;clean&amp;#39;, () =&amp;gt; del([&amp;#39;dist/**/*&amp;#39;])); gulp.task(&amp;#39;less&amp;#39;, () =&amp;gt; gulp .src(&amp;#39;src/components/**/*.less&amp;#39;) .pipe( less({ plugins: [new LessNpmImport({ prefix: &amp;#39;~&amp;#39; })], javascriptEnabled: true, }), ) .pipe(gulp.dest(&amp;#39;dist/&amp;#39;)), ); gulp.task(&amp;#39;default&amp;#39;, gulp.series(&amp;#39;clean&amp;#39;, &amp;#39;less&amp;#39;)); 参考  dumi #225  &amp;mdash;END</description>
-    </item>
-    
-    <item>
-      <title>什么时候使用 useMemo 和 useCallback</title>
-      <link>https://sengmitnick.com/blog/320/</link>
-      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/320/</guid>
-      <description> 前阵子，在帮同事查看一个 Bug 时，发现用的一个组件里面，在调用事件里面使用值一直不生效，最后发现是 改组件渲染部分用了 useMemo 所致。
- 演示  参考  【译】什么时候使用 useMemo 和 useCallback When to useMemo and useCallback  </description>
     </item>
     
   </channel>

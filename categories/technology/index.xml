@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
       <link>https://sengmitnick.com/blog/104/</link>
@@ -20,17 +20,22 @@
     </item>
     
     <item>
-      <title>umi.theme 参数剖析</title>
-      <link>https://sengmitnick.com/blog/332/</link>
-      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      <title>记录一次样式多次被引入的问题解决过程</title>
+      <link>https://sengmitnick.com/blog/336/</link>
+      <pubDate>Tue, 24 Aug 2021 18:50:04 +0800</pubDate>
       
-      <guid>https://sengmitnick.com/blog/332/</guid>
-      <description>其实就是 less的modifyVars功能
-如果是通过js引入，会转化成less的格式：
-输入：
-module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
-@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
-基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
+      <guid>https://sengmitnick.com/blog/336/</guid>
+      <description>新写的组件库有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
+ 通过问题分析，发现导致样式多次被引入的问题有以下：
+ 自建组件库全局样式多次被引入； 第三方组件库（Antd）不合理的引入方式引起重复样式覆盖； 打包工具（umi）的按需引入所引起的样式重复引入。  自建组件库全局样式多次被引入 通过删除原有默认引入的模式，改为手动引入。
+https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a
+💡 Tips: 后续可以研究antd的全局样式解决方案。
+第三方组件库不合理的引入方式 通过代码审查，发现组件库和项目中引入antd的样式路径有 antd/es/*、antd/lib/*。导致antd的样式会加载两次。
+项目使用 umi 作为打包工具，其中，通过翻阅 plugin-antd 的源码，发现编译后以antd/es/*为基准。于是修改组件库的 babel-plugin-import 的配置和项目中的引入方式。
+ plugin-antd
+   💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或eslint的方式强行提示。
+打包工具的按需引入所引起的样式重复引入 该问题待解决，还没学到解决办法～
+END……</description>
     </item>
     
     <item>
@@ -45,6 +50,20 @@ module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@prima
 // Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
 应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
 const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.</description>
+    </item>
+    
+    <item>
+      <title>umi.theme 参数剖析</title>
+      <link>https://sengmitnick.com/blog/332/</link>
+      <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/332/</guid>
+      <description>其实就是 less的modifyVars功能
+如果是通过js引入，会转化成less的格式：
+输入：
+module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
     </item>
     
     <item>
@@ -120,21 +139,6 @@ could not find image 就是每次更新站点有点繁琐，需要先同步GitHu
 使用 WSL 的好处是：
 与在虚拟机下使用 Linux 相比，WSL 更加流畅； WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便； 剪贴板互通，可以直接在 Windows 下其它地方复制文本内容，粘贴到 WSL；
 开启 WSL 在 控制面板&amp;ndash;&amp;gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。</description>
-    </item>
-    
-    <item>
-      <title>dependencies和devDependencies的区别</title>
-      <link>https://sengmitnick.com/blog/312/</link>
-      <pubDate>Wed, 10 Mar 2021 16:28:36 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/312/</guid>
-      <description>当我们项目需要下载一个模块的时候，我们安装npm包（在项目目录下面npm install module_name）的时候，很多时候我们会在后面加上–save-dev 或 –save。这两个参数代表什么呢？
-初识 相信很多人都会回答：
-npm install module-name -save 自动把模块和版本号添加到dependencies部分 npm install module-name -save-dev 自动把模块和版本号添加到devdependencies部分
-dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开发环境。 网上也可以查到很多资料，大概回答意思是，我们搭建一个webpack+react+es6的项目，像webpack babel这种负责打包编译的，我们就应该装在开发环境，像react之类的装在生产环境。 可是为什么呢？ 我们不能告诉我们这样做，我们就只这样做，我们要知之其所以然呀。 恩。我试着吧react放进了dependencies，打包出来的文件依然可以运行，并没有什么问题。 why ？？？难道文档只是建议而已吗？？？
-实质区别 如果我们只是单纯的做项目，那么我们可简单地认为生产环境和开发环境做为一种友善的提示，实质没有什么区别；但是，如果在发布npm包的时候，两种环境安装方式是有很大区别的！！！
-假设有以下两个模块： 模块A
- devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  </description>
     </item>
     
   </channel>

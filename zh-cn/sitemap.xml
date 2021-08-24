@@ -19,12 +19,12 @@
   
   <url>
     <loc>https://sengmitnick.com/blog/</loc>
-    <lastmod>2021-08-10T10:47:52+08:00</lastmod>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://sengmitnick.com/categories/</loc>
-    <lastmod>2021-08-10T10:47:52+08:00</lastmod>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -38,18 +38,8 @@
   </url>
   
   <url>
-    <loc>https://sengmitnick.com/tags/less/</loc>
-    <lastmod>2021-08-10T10:47:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sengmitnick.com/tags/modifyvars/</loc>
-    <lastmod>2021-08-10T10:47:42+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sengmitnick.com/</loc>
-    <lastmod>2021-08-10T10:47:52+08:00</lastmod>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -63,8 +53,13 @@
   </url>
   
   <url>
+    <loc>https://sengmitnick.com/tags/style/</loc>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sengmitnick.com/tags/</loc>
-    <lastmod>2021-08-10T10:47:42+08:00</lastmod>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -79,22 +74,37 @@
   
   <url>
     <loc>https://sengmitnick.com/categories/technology/</loc>
-    <lastmod>2021-08-10T10:47:52+08:00</lastmod>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sengmitnick.com/tags/umi/</loc>
-    <lastmod>2021-08-10T10:47:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sengmitnick.com/blog/332/</loc>
-    <lastmod>2021-08-10T10:47:42+08:00</lastmod>
+    <loc>https://sengmitnick.com/blog/336/</loc>
+    <lastmod>2021-08-24T19:18:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://sengmitnick.com/blog/333/</loc>
-    <lastmod>2021-08-10T10:47:52+08:00</lastmod>
+    <lastmod>2021-08-10T11:33:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sengmitnick.com/tags/less/</loc>
+    <lastmod>2021-08-10T11:33:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sengmitnick.com/tags/modifyvars/</loc>
+    <lastmod>2021-08-10T11:33:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sengmitnick.com/tags/umi/</loc>
+    <lastmod>2021-08-10T11:33:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sengmitnick.com/blog/332/</loc>
+    <lastmod>2021-08-10T11:33:58+08:00</lastmod>
   </url>
   
   <url>

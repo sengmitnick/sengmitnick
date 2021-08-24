@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 08 Aug 2021 10:24:07 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>style</title>
+      <link>https://sengmitnick.com/tags/style/</link>
+      <pubDate>Tue, 24 Aug 2021 18:50:04 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/tags/style/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>less</title>
       <link>https://sengmitnick.com/tags/less/</link>
-      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
       
       <guid>https://sengmitnick.com/tags/less/</guid>
       <description></description>
@@ -20,7 +29,7 @@
     <item>
       <title>modifyVars</title>
       <link>https://sengmitnick.com/tags/modifyvars/</link>
-      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
       
       <guid>https://sengmitnick.com/tags/modifyvars/</guid>
       <description></description>
@@ -29,7 +38,7 @@
     <item>
       <title>umi</title>
       <link>https://sengmitnick.com/tags/umi/</link>
-      <pubDate>Sun, 08 Aug 2021 10:24:07 +0800</pubDate>
+      <pubDate>Thu, 08 Jul 2021 10:24:07 +0800</pubDate>
       
       <guid>https://sengmitnick.com/tags/umi/</guid>
       <description></description>
@@ -86,15 +95,6 @@
       <pubDate>Sun, 25 Apr 2021 16:35:30 +0800</pubDate>
       
       <guid>https://sengmitnick.com/tags/pages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dumi</title>
-      <link>https://sengmitnick.com/tags/dumi/</link>
-      <pubDate>Thu, 25 Mar 2021 15:55:56 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/tags/dumi/</guid>
       <description></description>
     </item>
     

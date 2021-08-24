@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>style on Seng Mitnick</title>
+    <link>https://sengmitnick.com/tags/style/</link>
+    <description>Recent content in style on Seng Mitnick</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/tags/style/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记录一次样式多次被引入的问题解决过程</title>
+      <link>https://sengmitnick.com/blog/336/</link>
+      <pubDate>Tue, 24 Aug 2021 18:50:04 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/336/</guid>
+      <description>新写的组件库有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
+ 通过问题分析，发现导致样式多次被引入的问题有以下：
+ 自建组件库全局样式多次被引入； 第三方组件库（Antd）不合理的引入方式引起重复样式覆盖； 打包工具（umi）的按需引入所引起的样式重复引入。  自建组件库全局样式多次被引入 通过删除原有默认引入的模式，改为手动引入。
+https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c659378a
+💡 Tips: 后续可以研究antd的全局样式解决方案。
+第三方组件库不合理的引入方式 通过代码审查，发现组件库和项目中引入antd的样式路径有 antd/es/*、antd/lib/*。导致antd的样式会加载两次。
+项目使用 umi 作为打包工具，其中，通过翻阅 plugin-antd 的源码，发现编译后以antd/es/*为基准。于是修改组件库的 babel-plugin-import 的配置和项目中的引入方式。
+ plugin-antd
+   💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或eslint的方式强行提示。
+打包工具的按需引入所引起的样式重复引入 该问题待解决，还没学到解决办法～
+END……</description>
+    </item>
+    
+  </channel>
+</rss>
