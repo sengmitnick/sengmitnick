@@ -1,17 +1,11 @@
----
-author: SengMitnick
-title: "记录一次样式多次被引入的问题解决过程"
-linktitle: "记录一次样式多次被引入的问题解决过程"
-cover: /images/cover/01.jpg
-images: [/images/cover/01.jpg]
-date: 2021-08-24T18:50:04+08:00
-categories: [technology]
-tags: [style]
-comments: true
-toc: true
----
+#! https://zhuanlan.zhihu.com/p/410655513
+![Image](https://sengmitnick.com/images/cover/01.jpg)
 
-> 新写的[组件库](https://www.npmjs.com/package/@parallel-line/mobile)有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
+# 记录一次样式多次被引入的问题解决过程
+
+## 前言
+
+新写的[组件库](https://www.npmjs.com/package/@parallel-line/mobile)有全局样式，引起了一次样式多次被引入的问题。遂，进行了一次详细的分析与解决过程。
 
 通过问题分析，发现导致样式多次被引入的问题有以下：
 1. 自建组件库全局样式多次被引入；
@@ -32,7 +26,7 @@ https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c
 
 项目使用 [umi](https://umijs.org/zh-CN/) 作为打包工具，其中，通过翻阅 [plugin-antd](https://umijs.org/zh-CN/plugins/plugin-antd) 的源码，发现编译后以`antd/es/*`为基准。于是修改组件库的  [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的配置和项目中的引入方式。
 
-{{<img name="01.png" alt="plugin-antd" caption="plugin-antd" >}}
+![plugin-antd](https://pic4.zhimg.com/80/v2-27301ea062b19dd029bf836373c9b3a6.png)
 
 💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或`eslint`的方式强行提示。
 
@@ -41,3 +35,5 @@ https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c
 该问题待解决，还没学到解决办法～
 
 **END……**
+
+> 原文链接: [记录一次样式多次被引入的问题解决过程](https://sengmitnick.com/blog/336/)
