@@ -1,5 +1,5 @@
 #! https://zhuanlan.zhihu.com/p/410655513
-![Image](https://sengmitnick.com/images/cover/01.jpg)
+![Image](https://pic4.zhimg.com/80/v2-872930b11cd623f9d65504d32daf106b.jpg)
 
 # 记录一次样式多次被引入的问题解决过程
 
