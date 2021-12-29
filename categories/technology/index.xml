@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Oct 2021 16:21:36 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
       <link>https://sengmitnick.com/blog/104/</link>
@@ -17,6 +17,51 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vant Openharmony 开发经验分享</title>
+      <link>https://sengmitnick.com/blog/352/</link>
+      <pubDate>Sun, 17 Oct 2021 16:21:36 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/352/</guid>
+      <description>前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。</description>
+    </item>
+    
+    <item>
+      <title>YARN--选择性依赖解决方案</title>
+      <link>https://sengmitnick.com/blog/351/</link>
+      <pubDate>Sat, 16 Oct 2021 17:25:05 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/351/</guid>
+      <description>前言 才过了一晚，代码没怎么改过，用 jenkins 打包就报错了，截图如下：
+思考 其实看截图意思还是很明了的，明显是某个依赖包最近更新版本了，然后新版本有Bug。
+直接去npm看看，果不其然。
+解决 但是这个依赖包并不在当前项目 dependencies 里面，很显然是某个子包下的 dependencies 了 (其实熟悉 Antd 的童鞋就知道这个包是在 antd =&amp;gt; rc-field-form =&amp;gt; async-validator)。这种情况我们也不可能去社区让人家改 async-validator 的版本呀！
+那么怎么解决呢？
+如果你使用 yarn 进行 install ，那么你这个时候就可以用 resolutions 了。
+最终通过在 package.json 添加如下配置即可解决啦。
+参考  Selective dependency resolutions  </description>
+    </item>
+    
+    <item>
+      <title>LazyMan的现代化实现</title>
+      <link>https://sengmitnick.com/blog/350/</link>
+      <pubDate>Mon, 11 Oct 2021 15:51:53 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/350/</guid>
+      <description>实现一个LazyMan，可以按照以下方式调用: LazyMan(&amp;quot;Hank&amp;quot;)输出: Hi! This is Hank! LazyMan(&amp;quot;Hank&amp;quot;).sleep(10).eat(&amp;quot;dinner&amp;quot;)输出 Hi! This is Hank! //等待10秒.. Wake up after 10 Eat dinner~ LazyMan(&amp;quot;Hank&amp;quot;).eat(&amp;quot;dinner&amp;quot;).eat(&amp;quot;supper&amp;quot;)输出 Hi This is Hank! Eat dinner~ Eat supper~ LazyMan(&amp;quot;Hank&amp;quot;).sleepFirst(5).eat(&amp;quot;supper&amp;quot;)输出 //等待5秒 Wake up after 5 Hi This is Hank! Eat supper 以此类推。 class LazyManC { constructor(name) { this.name = name; this.tasks = [this.log.bind(this)]; setTimeout(async () =&amp;gt; { for (const fn of this.tasks) { await fn(); } }, 0); } log() { console.log(`Hi! This is ${this.</description>
     </item>
     
     <item>
@@ -105,40 +150,6 @@ could not find image 就是每次更新站点有点繁琐，需要先同步GitHu
 通过阿里的 DCDN 进行全球加速 如果使用的是 GitHub Pages 功能的话，通过其中的自定义域名即可把自己的域名绑定并且可以自动更新HTTPS证书了。但是 Gitee Pages 并没有开放该功能（之前貌似有的，不过好像因为国内政策问题就关掉了），而我的站点评论使用的是 disqus，如果直接用 Gitee 提供的域名的花，评论数据就比较麻烦了。
 所以我在想是否可以通过CDN的方式来曲线实现原有的自定义功能呢？一开始我是使用七牛的CDN进行的，因为一开始我就打算通过七牛的 Kodo + CDN 进行网站的迁移+提升，但是发现Kodo的站点功能有点缺陷，最后才选择了 Gitee Pages 。后面单纯的使用七牛的CDN也不行，一直卡在测试不通过。最后通过了阿里云的全站加速DCDN实现了，至于后面有什么坑再说啦～
 &amp;mdash;END</description>
-    </item>
-    
-    <item>
-      <title>dumi build后，demo中引用的组件样式丢失</title>
-      <link>https://sengmitnick.com/blog/316/</link>
-      <pubDate>Thu, 25 Mar 2021 15:55:56 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/316/</guid>
-      <description>最近在基于 dumi 封装组件库 Parallel Line，发布到线上环境后发现样式丢失问题。这里记录一下解决经过与结果~
- 我的组件库项目是一个 lerna 项目， 和 #225 中描述的问题一致，但是里面说到的方法都解决不了我的问题，最终只能简单粗暴的通过 gulp 处理。
-// gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var del = require(&amp;#39;del&amp;#39;); var less = require(&amp;#39;gulp-less&amp;#39;); var LessNpmImport = require(&amp;#39;less-plugin-npm-import&amp;#39;); gulp.task(&amp;#39;clean&amp;#39;, () =&amp;gt; del([&amp;#39;dist/**/*&amp;#39;])); gulp.task(&amp;#39;less&amp;#39;, () =&amp;gt; gulp .src(&amp;#39;src/components/**/*.less&amp;#39;) .pipe( less({ plugins: [new LessNpmImport({ prefix: &amp;#39;~&amp;#39; })], javascriptEnabled: true, }), ) .pipe(gulp.dest(&amp;#39;dist/&amp;#39;)), ); gulp.task(&amp;#39;default&amp;#39;, gulp.series(&amp;#39;clean&amp;#39;, &amp;#39;less&amp;#39;)); 参考  dumi #225  &amp;mdash;END</description>
-    </item>
-    
-    <item>
-      <title>什么时候使用 useMemo 和 useCallback</title>
-      <link>https://sengmitnick.com/blog/320/</link>
-      <pubDate>Sun, 21 Mar 2021 13:55:43 +0000</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/320/</guid>
-      <description> 前阵子，在帮同事查看一个 Bug 时，发现用的一个组件里面，在调用事件里面使用值一直不生效，最后发现是 改组件渲染部分用了 useMemo 所致。
- 演示  参考  【译】什么时候使用 useMemo 和 useCallback When to useMemo and useCallback  </description>
-    </item>
-    
-    <item>
-      <title>WSL 使用指北</title>
-      <link>https://sengmitnick.com/blog/313/</link>
-      <pubDate>Thu, 11 Mar 2021 11:26:49 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/313/</guid>
-      <description>什么是 WSL  WSL - Windows Subsystem for Linux The Windows Subsystem for Linux lets developers run Linux environments &amp;ndash; including most command-line tools, utilities, and applications &amp;ndash; directly on Windows, unmodified, without the overhead of a virtual machine.
- Linux 的 Windows 子系统让开发人员无需虚拟机就可以直接在 Windows 上运行 Linux 环境，包括大多数命令行工具、程序和应用。
-使用 WSL 的好处是：
-与在虚拟机下使用 Linux 相比，WSL 更加流畅； WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便； 剪贴板互通，可以直接在 Windows 下其它地方复制文本内容，粘贴到 WSL；
-开启 WSL 在 控制面板&amp;ndash;&amp;gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。</description>
     </item>
     
   </channel>

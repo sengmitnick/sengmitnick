@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content="前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/352/" />
+
+
+    <title>
+        
+            Vant Openharmony 开发经验分享 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="Vant Openharmony 开发经验分享">
+<meta itemprop="description" content="前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。">
+<meta itemprop="datePublished" content="2021-10-17T16:21:36+08:00" />
+<meta itemprop="dateModified" content="2021-12-29T17:01:53+08:00" />
+<meta itemprop="wordCount" content="325">
+<meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
+
+<meta name="twitter:title" content="Vant Openharmony 开发经验分享"/>
+<meta name="twitter:description" content="前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。"/>
+
+
+
+
+    <meta property="og:title" content="Vant Openharmony 开发经验分享" />
+<meta property="og:description" content="前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/352/" />
+<meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
+<meta property="article:published_time" content="2021-10-17T16:21:36+08:00" />
+<meta property="article:modified_time" content="2021-12-29T17:01:53+08:00" />
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2021-10-17 16:21:36 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/352/">Vant Openharmony 开发经验分享</a>
+      </h1>
+
+      
+
+      
+        <figure class="post-cover">
+          <img src="https://sengmitnick.com/images/cover/02.jpg" alt="Vant Openharmony 开发经验分享" />
+          
+          
+        </figure>
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">目录</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#过程">过程</a>
+      <ul>
+        <li><a href="#开发环境配置">开发环境配置</a></li>
+        <li><a href="#参赛选型">参赛选型</a></li>
+        <li><a href="#搭建仓储">搭建仓储</a></li>
+        <li><a href="#打包和发布组件库">打包和发布组件库</a></li>
+        <li><a href="#图标库">图标库</a></li>
+        <li><a href="#仿微信小程序component">仿微信小程序Component</a></li>
+      </ul>
+    </li>
+    <li><a href="#遇到的问题">遇到的问题</a>
+      <ul>
+        <li><a href="#hml中的class和style使用限制">hml中的class和style使用限制</a></li>
+        <li><a href="#开发和生产环境下的文档网站差异">开发和生产环境下的文档网站差异</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      <div class="post-content">
+        <h2 id="前言">前言</h2>
+<p>一个朋友给我推了<a href="https://gitee.com/openharmony-2021/#/">链接</a>，就是<a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a>啦。然后按照<a href="https://gitee.com/openharmony-2021/#/">官网</a>的参赛流程，加入了大赛的微信群。</p>
+<h2 id="过程">过程</h2>
+<h3 id="开发环境配置">开发环境配置</h3>
+<p>按照<a href="https://gitee.com/openharmony-2021/#/">官网</a>提供的 <a href="https://gitee.com/isrc_ohos/ultimate-harmony-reference/blob/master/OpenHarmony%20JS%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B.md">OpenHarmony JS项目开发流程</a> 逐步配置。在一个天清气朗的周末，把 <a href="https://gitee.com/isrc_ohos/open-harmony-js-demos">open-harmony-js-demos</a> 仓储运行起来啦。</p>
+<p>PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)</p>
+<h3 id="参赛选型">参赛选型</h3>
+<p>我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 <a href="https://vant-contrib.gitee.io/vant/#/zh-CN/home">Vant</a> 了，而且最近给公司开发手机端的React&amp;Taro组件库也是参考了 <a href="https://vant-contrib.gitee.io/vant/#/zh-CN/home">Vant</a> 的源码的，熟悉程度也算可以了。</p>
+<h3 id="搭建仓储">搭建仓储</h3>
+<p>开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：</p>
+<ul>
+<li><a href="https://github.com/youzan/vant">Vant</a></li>
+<li><a href="https://github.com/youzan/vant-weapp">Vant Weapp</a></li>
+<li><a href="https://github.com/ant-design/ant-design/">Ant Design</a></li>
+</ul>
+<h4 id="创建组织和仓储">创建组织和仓储</h4>
+<p>一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的<a href="https://github.com/">github</a>还是国内的<a href="https://gitee.com/">gitee</a>都提供了创建组织的选项。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-b3790b7cb1ee66552468605fa00b388c.png" alt="创建组织"></p>
+<p>因为是<a href="https://gitee.com/">gitee</a>组织的比赛，所以选择了在<a href="https://gitee.com/">gitee</a>下创建了<a href="https://gitee.com/vant-openharmony">Vant Openharmony</a>组织，然后在该组织下创建相应的仓储。</p>
+<p>我这里创建了两个仓储，一个是组建库的<a href="https://gitee.com/vant-openharmony/vant">源仓储</a>，另一个是基于 <a href="https://gitee.com/isrc_ohos/open-harmony-js-demos">open-harmony-js-demos</a> 的 <a href="https://gitee.com/vant-openharmony/example">example</a> ，主要用来测试和演示组件库的～</p>
+<p><img src="https://pic4.zhimg.com/80/v2-57bd61ef9453fd9e01006d91709b1943.png" alt="创建仓储"></p>
+<h4 id="组织文件结构">组织文件结构</h4>
+<p>既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 <a href="https://github.com/youzan/vant/blob/dev/package.json">Vant</a> 的源码发现官方有一个 Vue 组件库构建工具 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a>。所以在项目初始化可以通过 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 构建我们的项目。</p>
+<p>但是呢，<a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。</p>
+<p>我们把 Openharmony 自定义组件所需要的文件放到 <code>packages</code> 文件夹下，得到以下的文件结构。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-58af8c9f01767715d0364b08405a26e8.png" alt="第一版文件结构"></p>
+<p>但是呢，我自己更喜欢 <code>typescript</code> 和 <code>less</code> ，所以对其捣鼓一番就得到以下的文件结构。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-5195f7745771aa19cc7d8ef7e793a66f.png" alt="第二版文件结构"></p>
+<p>然后为了使用 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 内置的文档功能，还需要加上 相对应地 <code>README.md</code>、<code>index.vue</code> 和 <code>demo</code>文件夹。这里 <code>README.md</code> 就是我们组件的使用文档，<code>index.vue</code>是 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> Vue 组件代码，在这里对我们没用，但是需要存在用来欺骗 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> ，<code>demo</code>文件夹就是呈现到文档的 simulator 区域的网页。大致关系如下截图。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-91ed658c6425aec888631ba5c549ed41.png" alt="关系图"></p>
+<p>这样子最终的组件文件结构就出来啦～</p>
+<p><img src="https://pic4.zhimg.com/80/v2-c502cd64946e9aaef69c4fef94f45e8d.png" alt="最终版文件结构"></p>
+<p>好，我们得到了我们想要的组件文件结构了，但是其中使用了一些 Openharmony 自定义组件不识别的文件格式和需要的文件。按理说，最终使用者用到的文件结构应该是我们最初的，所以这里我们就需要使用前端工程化工具进行打包了，在这里我选择了 <code>gulp</code> 。通过 <code>gulp</code> 我们把 <code>packages/*</code> 的组件打包到 <code>lib/*</code> 下，然后在文档中指出引入路径即可。最后我们得到了整体的项目文件结构。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
+├── build· · · · · · · · 打包脚本文件夹--gulp脚本和shell脚本
+├── docs · · · · · · · · Vant Cli 通用文档和自定义文档组件文件夹
+├── lib· · · · · · · · · 编译后的组件库文件
+├── packages · · · · · · 编译前的组件库源码
+├── site · · · · · · · · Vant Cli 编译后的站点文件
+├── static · · · · · · · 文档站点用到的静态资源，主要是组件运行截图
+├── README.md· · · · · · 展示在仓储首页和npm的介绍文档
+├── babel.config.js· · · babel配置文件
+├── package.json · · · · package.json
+├── postcss.config.js· · postcss配置文件
+├── tsconfig.json· · · · typescript 默认配置文件
+├── tsconfig.lib.json· · gulp针对ts打包的配置文件
+├── vant.config.js · · · Vant Cli 配置文件
+└── webpack.config.js· · 扩展 Vant Cli 内 webpack 功能的配置文件
+</code></pre></div><h3 id="打包和发布组件库">打包和发布组件库</h3>
+<p>在项目中有两部分需要打包和发布：</p>
+<ul>
+<li>组件库</li>
+<li>组件库的使用文档</li>
+</ul>
+<p>通过编写 <code>gulp</code> 脚本，输出最终可在 Openharmony 下使用的文件，然后通过 <code>np</code> 和 <code>npm publish</code> 即可发布组件库到 <a href="https://www.npmjs.com/">npm</a> 了。在 <a href="https://www.npmjs.com/">npm</a> 即可看到组件库的介绍啦，传送门：
+<a href="https://www.npmjs.com/package/oh-vant">https://www.npmjs.com/package/oh-vant</a></p>
+<p>通过 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 打包生成站点，然后通过 <code>gh-pages</code> 推到 文档站点分支，使用 <code>Gitee Pages</code> 即可生成在线官方使用文档站点啦，传送门：<a href="https://vant-openharmony.gitee.io/vant">https://vant-openharmony.gitee.io/vant</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-cd0e019060cc1032a2388779410321b6.png" alt="Gitee Pages"></p>
+<h3 id="图标库">图标库</h3>
+<p>一个优秀的组件库，必然有自己的图标库，即ICON组件，而目前流行的用法就是用 <a href="https://www.iconfont.cn/">iconfont</a> 啦。</p>
+<p>一开始我是参考 <a href="https://github.com/iconfont-cli/taro-iconfont-cli">taro-iconfont-cli</a>，打算弄一个不依赖字体，支持多色彩的图标库的，后面无奈发现做出来的效果不尽人意，只能退求其次。</p>
+<p>通过查看官方文档&ndash;<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-components-common-customizing-font-0000000000628833">自定义字体样式</a>，发现其对自定义字体是支持的，于是就打造了不支持多色彩，依赖字体的图标库生成工具：<a href="https://gitee.com/vant-openharmony/iconfont-cli">openharmony-iconfont-cli</a>。</p>
+<h3 id="仿微信小程序component">仿微信小程序Component</h3>
+<p>一开始，组件的代码都是拷贝 <a href="https://github.com/youzan/vant-weapp">Vant Weapp</a> 的源码，为了尽量贴近其代码，减少js代码的修改，实现了 <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 。其中通过 <a href="https://www.typescriptlang.org/">typescript</a> 的<a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">泛型</a> 和 <a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#thistypetype">ThisType</a> 实现了代码智能感知机制。</p>
+<p>当然了，<a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 还有一解耦一说，我们通过 <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 实现了 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/">微信小程序Component</a> 的一些功能，如果后续官方也实现了类似的功能，我们只要更新  <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 即可，相当于在组件和官方API中间加了一层类似于系统和软件之间的驱动层。</p>
+<h2 id="遇到的问题">遇到的问题</h2>
+<h3 id="hml中的class和style使用限制">hml中的class和style使用限制</h3>
+<p>一开始，我借鉴了 vant 的 createNamespace 功能，给每个组件提供了 bem 方法，用了快速拼接 class ，后面发现并不能在 class 里面写调用，只能用三元判断。还有 style 也不能直接用data的一个变量全部呈现，导致很多功能无法实现或者提高了实现的复杂度。</p>
+<h3 id="开发和生产环境下的文档网站差异">开发和生产环境下的文档网站差异</h3>
+<p>在第一次通过 <code>Gitee Pages</code> 生成站点后，发现站点的静态资源都丢失了，后面发现是 <code>PublicPath</code> 的设置问题，后面设置为 <code>&quot;/vant/&quot;</code> 后发现，生产环境是好了，但是本地开发下静态资源却丢失了。后面通过 <code>webpack</code> 的 <a href="https://webpack.js.org/plugins/define-plugin/">DefinePlugin</a> 完美解决。</p>
+<h2 id="结语">结语</h2>
+<p>在这里大致总结了一下整一个组件库的开发过程，还有一些细节遗忘了，后面想起来再进行补充了。这也是第一次开发非React的组件库了，算是把已有的知识点与经验进行一次梳理了。</p>
+<p>最后，无论是造轮子或者看流行的开源库源码，都有它其中的乐趣所在。在你某个时候就有可能会用到你之前看源码，看书所学到的新知识了。</p>
+<p>同时，也欢迎你去fork这个充满了私货的UI库，提Issues或者Pull Request都是非常欢迎的~</p>
+<p>传送门：<a href="https://gitee.com/vant-openharmony/vant">https://gitee.com/vant-openharmony/vant</a></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/youzan/vant">Vant</a></li>
+<li><a href="https://github.com/youzan/vant-weapp">Vant Weapp</a></li>
+<li><a href="https://github.com/ant-design/ant-design/">Ant Design</a></li>
+<li><a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a></li>
+<li><a href="https://github.com/iconfont-cli/taro-iconfont-cli">taro-iconfont-cli</a></li>
+<li><a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-overview-0000001056361791">harmonyos documentation</a></li>
+<li><a href="https://pxx-design.gitee.io/">Parallel Line</a> 给我目前给公司打造的React组件库打波广告～</li>
+</ul>
+
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        325字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-10-17 16:21
+        
+
+         
+          
+            
+              (最后修改: 2021-12-29 17:01)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/a179864905003a60ff757d4a50bd6addb3d45fcb" target="_blank" rel="noopener">a179864</a>
+          @ 2021-12-29
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f&amp;text=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;caption=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f;description=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f&amp;title=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;summary=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f&amp;resubmit=true&amp;title=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f;title=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab%20https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f&amp;t=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Vant%20Openharmony%20%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c%e5%88%86%e4%ba%ab&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f352%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/104/">
+                <span class="button__icon">←</span>
+                <span class="button__text">基于disqus-php-api在Hexo博客中使用Disqus</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/351/">
+                <span class="button__text">YARN--选择性依赖解决方案</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function () {
+        
+        
+        if (window.location.host == "localhost:8383" || window.location.host == "smk17.top:8383" || window.location.host == "smk17.gitee.io")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'smk17';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-J4P4N74ZN2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

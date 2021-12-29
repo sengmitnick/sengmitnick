@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 24 Aug 2021 18:50:04 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 17 Oct 2021 16:21:36 +0800</lastBuildDate>
         <atom:link href="https://sengmitnick.com/blog/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -350,6 +350,267 @@ git push -u origin master
 </code></pre><p>现在，重新生成发布博客， <code>Disqus</code> 评论插件就出现在文章后面了。
 不过每篇文章你可能需要创建 <code>Thread</code> 。不过如果你可以科学上网的话，<code>mode</code>选择1在加载原生<code>Disqus</code>评论系统就会为你自动创建了。</p>
 <p><strong>&mdash;END</strong></p>]]></content>
+        </item>
+        
+        <item>
+            <title>Vant Openharmony 开发经验分享</title>
+            <link>https://sengmitnick.com/blog/352/</link>
+            <pubDate>Sun, 17 Oct 2021 16:21:36 +0800</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/352/</guid>
+            <description>前言 一个朋友给我推了链接，就是OpenHarmony组件开发大赛啦。然后按照官网的参赛流程，加入了大赛的微信群。
+过程 开发环境配置 按照官网提供的 OpenHarmony JS项目开发流程 逐步配置。在一个天清气朗的周末，把 open-harmony-js-demos 仓储运行起来啦。
+PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
+参赛选型 我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 Vant 了，而且最近给公司开发手机端的React&amp;amp;Taro组件库也是参考了 Vant 的源码的，熟悉程度也算可以了。
+搭建仓储 开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：
+ Vant Vant Weapp Ant Design  创建组织和仓储 一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的github还是国内的gitee都提供了创建组织的选项。
+因为是gitee组织的比赛，所以选择了在gitee下创建了Vant Openharmony组织，然后在该组织下创建相应的仓储。
+我这里创建了两个仓储，一个是组建库的源仓储，另一个是基于 open-harmony-js-demos 的 example ，主要用来测试和演示组件库的～
+组织文件结构 既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 Vant 的源码发现官方有一个 Vue 组件库构建工具 Vant Cli。所以在项目初始化可以通过 Vant Cli 构建我们的项目。
+但是呢，Vant Cli 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。
+我们把 Openharmony 自定义组件所需要的文件放到 packages 文件夹下，得到以下的文件结构。
+但是呢，我自己更喜欢 typescript 和 less ，所以对其捣鼓一番就得到以下的文件结构。</description>
+            <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>一个朋友给我推了<a href="https://gitee.com/openharmony-2021/#/">链接</a>，就是<a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a>啦。然后按照<a href="https://gitee.com/openharmony-2021/#/">官网</a>的参赛流程，加入了大赛的微信群。</p>
+<h2 id="过程">过程</h2>
+<h3 id="开发环境配置">开发环境配置</h3>
+<p>按照<a href="https://gitee.com/openharmony-2021/#/">官网</a>提供的 <a href="https://gitee.com/isrc_ohos/ultimate-harmony-reference/blob/master/OpenHarmony%20JS%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B.md">OpenHarmony JS项目开发流程</a> 逐步配置。在一个天清气朗的周末，把 <a href="https://gitee.com/isrc_ohos/open-harmony-js-demos">open-harmony-js-demos</a> 仓储运行起来啦。</p>
+<p>PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)</p>
+<h3 id="参赛选型">参赛选型</h3>
+<p>我看 Openharmony 组件 定位于手机和手表这一块，而在手机端的组件库全面性和活跃度，无疑是 <a href="https://vant-contrib.gitee.io/vant/#/zh-CN/home">Vant</a> 了，而且最近给公司开发手机端的React&amp;Taro组件库也是参考了 <a href="https://vant-contrib.gitee.io/vant/#/zh-CN/home">Vant</a> 的源码的，熟悉程度也算可以了。</p>
+<h3 id="搭建仓储">搭建仓储</h3>
+<p>开发一个组件库的流程，我们完全可以站在巨人的肩膀上，在这个搭建过程中，我参考了以下仓储的源码与其中思路：</p>
+<ul>
+<li><a href="https://github.com/youzan/vant">Vant</a></li>
+<li><a href="https://github.com/youzan/vant-weapp">Vant Weapp</a></li>
+<li><a href="https://github.com/ant-design/ant-design/">Ant Design</a></li>
+</ul>
+<h4 id="创建组织和仓储">创建组织和仓储</h4>
+<p>一个开源组件库的仓储创建，一定不能在个人的名下，这对于后续社区的参与人员与维护都是极其不便利的，所以无论是国外的<a href="https://github.com/">github</a>还是国内的<a href="https://gitee.com/">gitee</a>都提供了创建组织的选项。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-b3790b7cb1ee66552468605fa00b388c.png" alt="创建组织"></p>
+<p>因为是<a href="https://gitee.com/">gitee</a>组织的比赛，所以选择了在<a href="https://gitee.com/">gitee</a>下创建了<a href="https://gitee.com/vant-openharmony">Vant Openharmony</a>组织，然后在该组织下创建相应的仓储。</p>
+<p>我这里创建了两个仓储，一个是组建库的<a href="https://gitee.com/vant-openharmony/vant">源仓储</a>，另一个是基于 <a href="https://gitee.com/isrc_ohos/open-harmony-js-demos">open-harmony-js-demos</a> 的 <a href="https://gitee.com/vant-openharmony/example">example</a> ，主要用来测试和演示组件库的～</p>
+<p><img src="https://pic4.zhimg.com/80/v2-57bd61ef9453fd9e01006d91709b1943.png" alt="创建仓储"></p>
+<h4 id="组织文件结构">组织文件结构</h4>
+<p>既然做的是 Vant 的 Openharmony 版本，那么在 官方使用文档 这一块还是保持一致的好，通过阅读 <a href="https://github.com/youzan/vant/blob/dev/package.json">Vant</a> 的源码发现官方有一个 Vue 组件库构建工具 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a>。所以在项目初始化可以通过 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 构建我们的项目。</p>
+<p>但是呢，<a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 是 针对 Vue 组件库的构建工具，很明显它自带的文件结构并不符合 Openharmony 组件库的，需要我们对其进行进一步的改造。</p>
+<p>我们把 Openharmony 自定义组件所需要的文件放到 <code>packages</code> 文件夹下，得到以下的文件结构。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-58af8c9f01767715d0364b08405a26e8.png" alt="第一版文件结构"></p>
+<p>但是呢，我自己更喜欢 <code>typescript</code> 和 <code>less</code> ，所以对其捣鼓一番就得到以下的文件结构。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-5195f7745771aa19cc7d8ef7e793a66f.png" alt="第二版文件结构"></p>
+<p>然后为了使用 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 内置的文档功能，还需要加上 相对应地 <code>README.md</code>、<code>index.vue</code> 和 <code>demo</code>文件夹。这里 <code>README.md</code> 就是我们组件的使用文档，<code>index.vue</code>是 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> Vue 组件代码，在这里对我们没用，但是需要存在用来欺骗 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> ，<code>demo</code>文件夹就是呈现到文档的 simulator 区域的网页。大致关系如下截图。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-91ed658c6425aec888631ba5c549ed41.png" alt="关系图"></p>
+<p>这样子最终的组件文件结构就出来啦～</p>
+<p><img src="https://pic4.zhimg.com/80/v2-c502cd64946e9aaef69c4fef94f45e8d.png" alt="最终版文件结构"></p>
+<p>好，我们得到了我们想要的组件文件结构了，但是其中使用了一些 Openharmony 自定义组件不识别的文件格式和需要的文件。按理说，最终使用者用到的文件结构应该是我们最初的，所以这里我们就需要使用前端工程化工具进行打包了，在这里我选择了 <code>gulp</code> 。通过 <code>gulp</code> 我们把 <code>packages/*</code> 的组件打包到 <code>lib/*</code> 下，然后在文档中指出引入路径即可。最后我们得到了整体的项目文件结构。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
+├── build· · · · · · · · 打包脚本文件夹--gulp脚本和shell脚本
+├── docs · · · · · · · · Vant Cli 通用文档和自定义文档组件文件夹
+├── lib· · · · · · · · · 编译后的组件库文件
+├── packages · · · · · · 编译前的组件库源码
+├── site · · · · · · · · Vant Cli 编译后的站点文件
+├── static · · · · · · · 文档站点用到的静态资源，主要是组件运行截图
+├── README.md· · · · · · 展示在仓储首页和npm的介绍文档
+├── babel.config.js· · · babel配置文件
+├── package.json · · · · package.json
+├── postcss.config.js· · postcss配置文件
+├── tsconfig.json· · · · typescript 默认配置文件
+├── tsconfig.lib.json· · gulp针对ts打包的配置文件
+├── vant.config.js · · · Vant Cli 配置文件
+└── webpack.config.js· · 扩展 Vant Cli 内 webpack 功能的配置文件
+</code></pre></div><h3 id="打包和发布组件库">打包和发布组件库</h3>
+<p>在项目中有两部分需要打包和发布：</p>
+<ul>
+<li>组件库</li>
+<li>组件库的使用文档</li>
+</ul>
+<p>通过编写 <code>gulp</code> 脚本，输出最终可在 Openharmony 下使用的文件，然后通过 <code>np</code> 和 <code>npm publish</code> 即可发布组件库到 <a href="https://www.npmjs.com/">npm</a> 了。在 <a href="https://www.npmjs.com/">npm</a> 即可看到组件库的介绍啦，传送门：
+<a href="https://www.npmjs.com/package/oh-vant">https://www.npmjs.com/package/oh-vant</a></p>
+<p>通过 <a href="https://github.com/youzan/vant/blob/dev/packages/vant-cli/README.md">Vant Cli</a> 打包生成站点，然后通过 <code>gh-pages</code> 推到 文档站点分支，使用 <code>Gitee Pages</code> 即可生成在线官方使用文档站点啦，传送门：<a href="https://vant-openharmony.gitee.io/vant">https://vant-openharmony.gitee.io/vant</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-cd0e019060cc1032a2388779410321b6.png" alt="Gitee Pages"></p>
+<h3 id="图标库">图标库</h3>
+<p>一个优秀的组件库，必然有自己的图标库，即ICON组件，而目前流行的用法就是用 <a href="https://www.iconfont.cn/">iconfont</a> 啦。</p>
+<p>一开始我是参考 <a href="https://github.com/iconfont-cli/taro-iconfont-cli">taro-iconfont-cli</a>，打算弄一个不依赖字体，支持多色彩的图标库的，后面无奈发现做出来的效果不尽人意，只能退求其次。</p>
+<p>通过查看官方文档&ndash;<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-components-common-customizing-font-0000000000628833">自定义字体样式</a>，发现其对自定义字体是支持的，于是就打造了不支持多色彩，依赖字体的图标库生成工具：<a href="https://gitee.com/vant-openharmony/iconfont-cli">openharmony-iconfont-cli</a>。</p>
+<h3 id="仿微信小程序component">仿微信小程序Component</h3>
+<p>一开始，组件的代码都是拷贝 <a href="https://github.com/youzan/vant-weapp">Vant Weapp</a> 的源码，为了尽量贴近其代码，减少js代码的修改，实现了 <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 。其中通过 <a href="https://www.typescriptlang.org/">typescript</a> 的<a href="https://www.typescriptlang.org/docs/handbook/2/generics.html">泛型</a> 和 <a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#thistypetype">ThisType</a> 实现了代码智能感知机制。</p>
+<p>当然了，<a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 还有一解耦一说，我们通过 <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 实现了 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/">微信小程序Component</a> 的一些功能，如果后续官方也实现了类似的功能，我们只要更新  <a href="https://gitee.com/vant-openharmony/vant/blob/master/packages/common/component.ts#L16">VantComponent</a> 即可，相当于在组件和官方API中间加了一层类似于系统和软件之间的驱动层。</p>
+<h2 id="遇到的问题">遇到的问题</h2>
+<h3 id="hml中的class和style使用限制">hml中的class和style使用限制</h3>
+<p>一开始，我借鉴了 vant 的 createNamespace 功能，给每个组件提供了 bem 方法，用了快速拼接 class ，后面发现并不能在 class 里面写调用，只能用三元判断。还有 style 也不能直接用data的一个变量全部呈现，导致很多功能无法实现或者提高了实现的复杂度。</p>
+<h3 id="开发和生产环境下的文档网站差异">开发和生产环境下的文档网站差异</h3>
+<p>在第一次通过 <code>Gitee Pages</code> 生成站点后，发现站点的静态资源都丢失了，后面发现是 <code>PublicPath</code> 的设置问题，后面设置为 <code>&quot;/vant/&quot;</code> 后发现，生产环境是好了，但是本地开发下静态资源却丢失了。后面通过 <code>webpack</code> 的 <a href="https://webpack.js.org/plugins/define-plugin/">DefinePlugin</a> 完美解决。</p>
+<h2 id="结语">结语</h2>
+<p>在这里大致总结了一下整一个组件库的开发过程，还有一些细节遗忘了，后面想起来再进行补充了。这也是第一次开发非React的组件库了，算是把已有的知识点与经验进行一次梳理了。</p>
+<p>最后，无论是造轮子或者看流行的开源库源码，都有它其中的乐趣所在。在你某个时候就有可能会用到你之前看源码，看书所学到的新知识了。</p>
+<p>同时，也欢迎你去fork这个充满了私货的UI库，提Issues或者Pull Request都是非常欢迎的~</p>
+<p>传送门：<a href="https://gitee.com/vant-openharmony/vant">https://gitee.com/vant-openharmony/vant</a></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/youzan/vant">Vant</a></li>
+<li><a href="https://github.com/youzan/vant-weapp">Vant Weapp</a></li>
+<li><a href="https://github.com/ant-design/ant-design/">Ant Design</a></li>
+<li><a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a></li>
+<li><a href="https://github.com/iconfont-cli/taro-iconfont-cli">taro-iconfont-cli</a></li>
+<li><a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-overview-0000001056361791">harmonyos documentation</a></li>
+<li><a href="https://pxx-design.gitee.io/">Parallel Line</a> 给我目前给公司打造的React组件库打波广告～</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>YARN--选择性依赖解决方案</title>
+            <link>https://sengmitnick.com/blog/351/</link>
+            <pubDate>Sat, 16 Oct 2021 17:25:05 +0800</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/351/</guid>
+            <description>前言 才过了一晚，代码没怎么改过，用 jenkins 打包就报错了，截图如下：
+思考 其实看截图意思还是很明了的，明显是某个依赖包最近更新版本了，然后新版本有Bug。
+直接去npm看看，果不其然。
+解决 但是这个依赖包并不在当前项目 dependencies 里面，很显然是某个子包下的 dependencies 了 (其实熟悉 Antd 的童鞋就知道这个包是在 antd =&amp;gt; rc-field-form =&amp;gt; async-validator)。这种情况我们也不可能去社区让人家改 async-validator 的版本呀！
+那么怎么解决呢？
+如果你使用 yarn 进行 install ，那么你这个时候就可以用 resolutions 了。
+最终通过在 package.json 添加如下配置即可解决啦。
+参考  Selective dependency resolutions  </description>
+            <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>才过了一晚，代码没怎么改过，用 <code>jenkins</code> 打包就报错了，截图如下：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-ba6e767eaddfbe4306328f382731848a.png" alt="报错截图"></p>
+<h2 id="思考">思考</h2>
+<p>其实看截图意思还是很明了的，明显是某个依赖包最近更新版本了，然后新版本有Bug。</p>
+<p>直接去npm看看，果不其然。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-128505370d18af02a41bc4a7744f876a.png" alt="async-validator"></p>
+<h2 id="解决">解决</h2>
+<p>但是这个依赖包并不在当前项目 <code>dependencies</code> 里面，很显然是某个子包下的 <code>dependencies</code> 了 (其实熟悉 Antd 的童鞋就知道这个包是在 <code>antd</code> =&gt; <code>rc-field-form</code> =&gt; <code>async-validator</code>)。这种情况我们也不可能去社区让人家改 <code>async-validator</code> 的版本呀！</p>
+<p>那么怎么解决呢？</p>
+<p>如果你使用 <code>yarn</code> 进行 <code>install</code> ，那么你这个时候就可以用 <code>resolutions</code> 了。</p>
+<p>最终通过在 <code>package.json</code> 添加如下配置即可解决啦。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-0d3143732392e9c419c438909822c587.png" alt="package.json"></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/">Selective dependency resolutions</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>LazyMan的现代化实现</title>
+            <link>https://sengmitnick.com/blog/350/</link>
+            <pubDate>Mon, 11 Oct 2021 15:51:53 +0800</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/350/</guid>
+            <description>实现一个LazyMan，可以按照以下方式调用: LazyMan(&amp;quot;Hank&amp;quot;)输出: Hi! This is Hank! LazyMan(&amp;quot;Hank&amp;quot;).sleep(10).eat(&amp;quot;dinner&amp;quot;)输出 Hi! This is Hank! //等待10秒.. Wake up after 10 Eat dinner~ LazyMan(&amp;quot;Hank&amp;quot;).eat(&amp;quot;dinner&amp;quot;).eat(&amp;quot;supper&amp;quot;)输出 Hi This is Hank! Eat dinner~ Eat supper~ LazyMan(&amp;quot;Hank&amp;quot;).sleepFirst(5).eat(&amp;quot;supper&amp;quot;)输出 //等待5秒 Wake up after 5 Hi This is Hank! Eat supper 以此类推。 class LazyManC { constructor(name) { this.name = name; this.tasks = [this.log.bind(this)]; setTimeout(async () =&amp;gt; { for (const fn of this.tasks) { await fn(); } }, 0); } log() { console.log(`Hi! This is ${this.</description>
+            <content type="html"><![CDATA[<pre><code>实现一个LazyMan，可以按照以下方式调用:
+LazyMan(&quot;Hank&quot;)输出:
+Hi! This is Hank!
+ 
+LazyMan(&quot;Hank&quot;).sleep(10).eat(&quot;dinner&quot;)输出
+Hi! This is Hank!
+//等待10秒..
+Wake up after 10
+Eat dinner~
+ 
+LazyMan(&quot;Hank&quot;).eat(&quot;dinner&quot;).eat(&quot;supper&quot;)输出
+Hi This is Hank!
+Eat dinner~
+Eat supper~
+ 
+LazyMan(&quot;Hank&quot;).sleepFirst(5).eat(&quot;supper&quot;)输出
+//等待5秒
+Wake up after 5
+Hi This is Hank!
+Eat supper
+ 
+以此类推。
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LazyManC</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tasks</span> <span style="color:#f92672">=</span> [<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>)];
+    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">async</span> () =&gt; {
+      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fn</span> <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tasks</span>) {
+        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fn</span>();
+      }
+    }, <span style="color:#ae81ff">0</span>);
+  }
+
+  <span style="color:#a6e22e">log</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Hi! This is </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>);
+  }
+
+  <span style="color:#a6e22e">sleep</span>(<span style="color:#a6e22e">timeout</span>, <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;push&#34;</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tasks</span>[<span style="color:#a6e22e">key</span>](() =&gt; {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>) =&gt; {
+        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Wake uo after </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">timeout</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+          <span style="color:#a6e22e">resolve</span>();
+        }, <span style="color:#a6e22e">timeout</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>);
+      });
+    });
+
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+  }
+
+  <span style="color:#a6e22e">sleepFirst</span>(<span style="color:#a6e22e">timeout</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">sleep</span>(<span style="color:#a6e22e">timeout</span>, <span style="color:#e6db74">&#34;unshift&#34;</span>);
+  }
+
+  <span style="color:#a6e22e">eat</span>(<span style="color:#a6e22e">str</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tasks</span>.<span style="color:#a6e22e">push</span>(() =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Eat </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">}</span><span style="color:#e6db74">~`</span>);
+    });
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+  }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">LazyMan</span>(<span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">LazyManC</span>(<span style="color:#a6e22e">name</span>);
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LazyManC</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hi! This is &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+    }, <span style="color:#ae81ff">0</span>);
+  }
+
+  <span style="color:#a6e22e">sleep</span>(<span style="color:#a6e22e">seconds</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delay</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">seconds</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> Date.<span style="color:#a6e22e">now</span>();
+    <span style="color:#66d9ef">while</span> (Date.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">delay</span>) {
+      <span style="color:#75715e">// hu lu lu ~~
+</span><span style="color:#75715e"></span>    }
+    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;wake up after &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">seconds</span>);
+    }, <span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+  }
+
+  <span style="color:#a6e22e">eat</span>(<span style="color:#a6e22e">something</span>) {
+    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;eat &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">something</span>);
+    }, <span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+  }
+
+  <span style="color:#a6e22e">sleepFirst</span>(<span style="color:#a6e22e">seconds</span>) {
+    <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>) =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">delay</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">seconds</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>;
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> Date.<span style="color:#a6e22e">now</span>();
+      <span style="color:#66d9ef">while</span> (Date.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">delay</span>) {
+        <span style="color:#75715e">// hu lu lu ~~
+</span><span style="color:#75715e"></span>      }
+      <span style="color:#a6e22e">resolve</span>();
+    }).<span style="color:#a6e22e">then</span>(() =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;wake up after &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">seconds</span>);
+    });
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+  }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">LazyMan</span>(<span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">LazyManC</span>(<span style="color:#a6e22e">name</span>);
+}
+
+</code></pre></div>]]></content>
         </item>
         
         <item>
