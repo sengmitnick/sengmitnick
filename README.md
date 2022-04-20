@@ -13,6 +13,6 @@ Hi, I'm SengMitnick, a front-end developer in 🇨🇳ShenZhen.
 
 - work: Work with `TypeScript`, `JavaScript`, `React`, `Less`, `Webpack`.
 
-[![Hans' github stats](https://github-readme-stats.vercel.app/api?username=MatchaDog&theme=dracula&show_icons=true&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Hans' github stats](https://github-readme-stats.vercel.app/api?username=sengmitnick&theme=dracula&show_icons=true&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
 
-[![Hans' github stats](https://github-readme-stats.vercel.app/api/top-langs/?username=MatchaDog&layout=compact&theme=dracula)](https://github.com/anuraghazra/github-readme-stats)
+[![Hans' github stats](https://github-readme-stats.vercel.app/api/top-langs/?username=sengmitnick&layout=compact&theme=dracula)](https://github.com/anuraghazra/github-readme-stats)
