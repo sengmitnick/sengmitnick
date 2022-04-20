@@ -5,7 +5,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: yarn install
+  - init: yarn run init
     command: 'hugo server --baseUrl $(gp url 1313) --appendPort=false'
 
 ports:
