@@ -17,8 +17,8 @@
       <description>其实就是 less的modifyVars功能
 如果是通过js引入，会转化成less的格式：
 输入：
-module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
-@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+module.exports = {  &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;,  &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;,  &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
 基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
     </item>
     

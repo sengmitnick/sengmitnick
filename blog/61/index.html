@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -45,16 +45,10 @@
 
 <meta itemprop="name" content="Ubuntu引导菜单损坏利用chroot修复">
 <meta itemprop="description" content="用U盘制作Ubuntu LiveCD，U盘启动进入镜像系统。
-打开Terminal终端，输入以下命令：">
-<meta itemprop="datePublished" content="2014-05-28T08:50:30+00:00" />
+打开Terminal终端，输入以下命令："><meta itemprop="datePublished" content="2014-05-28T08:50:30+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="50">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="50"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="Ubuntu,chroot," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -69,10 +63,10 @@
 <meta property="og:description" content="用U盘制作Ubuntu LiveCD，U盘启动进入镜像系统。
 打开Terminal终端，输入以下命令：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/61/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/61/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-05-28T08:50:30+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -204,26 +198,26 @@
       <div class="post-content">
         <p>用U盘制作Ubuntu LiveCD，U盘启动进入镜像系统。</p>
 <p>打开Terminal终端，输入以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#1、提升root权限</span>
-sudo -i
-<span style="color:#75715e">#2、查看磁盘列表</span>
-fdisk -l#（该命令会显示当前磁盘列表，找到Ubuntu根分区，假设为sda2<span style="color:#f92672">)</span>
-<span style="color:#75715e">#3、挂载根分区</span>
-mkdir /mnt/temp
-mount /dev/sda2 /mnt/temp <span style="color:#75715e">#(根分区/dev/sda2需据实际情况确定)</span>
-<span style="color:#75715e">#4、挂载boot分区</span>
-mount /dev/sda3 /mnt/temp/boot <span style="color:#75715e">#（如果有/boot分区，假设为sda3，如果无/boot独立分区则跳过本步骤）</span>
-<span style="color:#75715e">#5、挂载系统目录</span>
-<span style="color:#66d9ef">for</span> i in /dev /dev/pts /proc /sys; <span style="color:#66d9ef">do</span> sudo mount -B $i /mnt/temp$i; <span style="color:#66d9ef">done</span> <span style="color:#75715e">#(挂载系统目录)</span>
-<span style="color:#75715e">#6、进入原系统</span>
-chroot /mnt/temp <span style="color:#75715e">#(Chroot进入原系统)</span>
-<span style="color:#75715e">#7、重装grub到MBR</span>
-grub-install /dev/sda
-update-grub
-<span style="color:#75715e">#8、退出原系统</span>
-exit
-<span style="color:#75715e">#9、重启电脑</span>
-</code></pre></div><p>然后重启就可以了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#1、提升root权限</span>
+</span></span><span style="display:flex;"><span>sudo -i
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#2、查看磁盘列表</span>
+</span></span><span style="display:flex;"><span>fdisk -l#（该命令会显示当前磁盘列表，找到Ubuntu根分区，假设为sda2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#3、挂载根分区</span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/temp
+</span></span><span style="display:flex;"><span>mount /dev/sda2 /mnt/temp <span style="color:#75715e">#(根分区/dev/sda2需据实际情况确定)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#4、挂载boot分区</span>
+</span></span><span style="display:flex;"><span>mount /dev/sda3 /mnt/temp/boot <span style="color:#75715e">#（如果有/boot分区，假设为sda3，如果无/boot独立分区则跳过本步骤）</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#5、挂载系统目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in /dev /dev/pts /proc /sys; <span style="color:#66d9ef">do</span> sudo mount -B $i /mnt/temp$i; <span style="color:#66d9ef">done</span> <span style="color:#75715e">#(挂载系统目录)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#6、进入原系统</span>
+</span></span><span style="display:flex;"><span>chroot /mnt/temp <span style="color:#75715e">#(Chroot进入原系统)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#7、重装grub到MBR</span>
+</span></span><span style="display:flex;"><span>grub-install /dev/sda
+</span></span><span style="display:flex;"><span>update-grub
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#8、退出原系统</span>
+</span></span><span style="display:flex;"><span>exit
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#9、重启电脑</span>
+</span></span></code></pre></div><p>然后重启就可以了。</p>
 <p><strong>END……</strong></p>
       </div>
     </article>
@@ -270,13 +264,13 @@ exit
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-05-28 16:50
+          2014-05-28 08:50
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -455,7 +449,7 @@ exit
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -472,18 +466,16 @@ exit
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

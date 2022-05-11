@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -47,16 +47,10 @@
 <meta itemprop="description" content="
 几十万级数据导出Excel代码，及简单使用
 
-本文示例DEMO已上传到GitHub，点击这里即可访问。">
-<meta itemprop="datePublished" content="2016-10-12T12:16:00+00:00" />
+本文示例DEMO已上传到GitHub，点击这里即可访问。"><meta itemprop="datePublished" content="2016-10-12T12:16:00+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="592">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="592"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="DoNet,Excel," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -75,10 +69,10 @@
 
 本文示例DEMO已上传到GitHub，点击这里即可访问。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/84/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/84/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2016-10-12T12:16:00+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -241,35 +235,35 @@ Worksheet.Cells[row, column] - 就是某行某列的单元格，注意这里的�
 知道了上述基本知识后，利用此类来操作excel就清晰了很多。</li>
 </ul>
 <h2 id="另存为功能代码">&ldquo;另存为&quot;功能代码</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSHARP" data-lang="CSHARP">SaveFileDialog saveFileDialog = <span style="color:#66d9ef">new</span> SaveFileDialog();
-<span style="color:#75715e">//设置文件类型
-</span><span style="color:#75715e"></span>saveFileDialog.Filter = <span style="color:#e6db74">&#34;xlsx files(*.xlsx)|*.xlsx|xls files(*.xls)|*.xls|All files(*.*)|*.*&#34;</span>;
-<span style="color:#75715e">//设置默认文件名（可以不设置）
-</span><span style="color:#75715e"></span>saveFileDialog.FileName = <span style="color:#e6db74">&#34;ExportToExcelText-&#34;</span> + DateTime.Now.ToString(<span style="color:#e6db74">&#34;yyyyMMdd&#34;</span>);
-<span style="color:#75715e">//主设置默认文件extension（可以不设置）
-</span><span style="color:#75715e"></span>saveFileDialog.DefaultExt = <span style="color:#e6db74">&#34;xlsx&#34;</span>;
-<span style="color:#75715e">//获取或设置一个值，该值指示如果用户省略扩展名，文件对话框是否自动在文件名中添加扩展名。（可以不设置）
-</span><span style="color:#75715e"></span>saveFileDialog.AddExtension = <span style="color:#66d9ef">true</span>;
-<span style="color:#75715e">//保存对话框是否记忆上次打开的目录
-</span><span style="color:#75715e"></span>saveFileDialog.RestoreDirectory = <span style="color:#66d9ef">true</span>;
-/ Show save file dialog box
-DialogResult result = saveFileDialog.ShowDialog();
-<span style="color:#75715e">//点了保存按钮进入
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (result == DialogResult.OK)
-{
-    DataTable dt = <span style="color:#66d9ef">new</span> DataTable();
-    dt.Columns.Add(<span style="color:#e6db74">&#34;Name&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>));
-    dt.Columns.Add(<span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>));
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">10</span>; i++)
-    {
-        DataRow dr = dt.NewRow();
-        dr[<span style="color:#e6db74">&#34;Name&#34;</span>] = <span style="color:#e6db74">&#34;spring&#34;</span> + i.ToString();
-        dr[<span style="color:#e6db74">&#34;Age&#34;</span>] = <span style="color:#e6db74">&#34;2&#34;</span> + i.ToString();
-        dt.Rows.Add(dr);
-    }
-    dt.AcceptChanges();
-    ExcelUtil.ExportToExcel(dt, saveFileDialog.FileName.ToString());
-</code></pre></div><p>本文示例导出到Excel的最终效果：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSHARP" data-lang="CSHARP"><span style="display:flex;"><span>SaveFileDialog saveFileDialog = <span style="color:#66d9ef">new</span> SaveFileDialog();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//设置文件类型</span>
+</span></span><span style="display:flex;"><span>saveFileDialog.Filter = <span style="color:#e6db74">&#34;xlsx files(*.xlsx)|*.xlsx|xls files(*.xls)|*.xls|All files(*.*)|*.*&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//设置默认文件名（可以不设置）</span>
+</span></span><span style="display:flex;"><span>saveFileDialog.FileName = <span style="color:#e6db74">&#34;ExportToExcelText-&#34;</span> + DateTime.Now.ToString(<span style="color:#e6db74">&#34;yyyyMMdd&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//主设置默认文件extension（可以不设置）</span>
+</span></span><span style="display:flex;"><span>saveFileDialog.DefaultExt = <span style="color:#e6db74">&#34;xlsx&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//获取或设置一个值，该值指示如果用户省略扩展名，文件对话框是否自动在文件名中添加扩展名。（可以不设置）</span>
+</span></span><span style="display:flex;"><span>saveFileDialog.AddExtension = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//保存对话框是否记忆上次打开的目录</span>
+</span></span><span style="display:flex;"><span>saveFileDialog.RestoreDirectory = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>/ Show save file dialog box
+</span></span><span style="display:flex;"><span>DialogResult result = saveFileDialog.ShowDialog();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//点了保存按钮进入</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (result == DialogResult.OK)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    DataTable dt = <span style="color:#66d9ef">new</span> DataTable();
+</span></span><span style="display:flex;"><span>    dt.Columns.Add(<span style="color:#e6db74">&#34;Name&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>));
+</span></span><span style="display:flex;"><span>    dt.Columns.Add(<span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">10</span>; i++)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        DataRow dr = dt.NewRow();
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;Name&#34;</span>] = <span style="color:#e6db74">&#34;spring&#34;</span> + i.ToString();
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;Age&#34;</span>] = <span style="color:#e6db74">&#34;2&#34;</span> + i.ToString();
+</span></span><span style="display:flex;"><span>        dt.Rows.Add(dr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    dt.AcceptChanges();
+</span></span><span style="display:flex;"><span>    ExcelUtil.ExportToExcel(dt, saveFileDialog.FileName.ToString());
+</span></span></code></pre></div><p>本文示例导出到Excel的最终效果：</p>
 
 
 
@@ -282,210 +276,209 @@ DialogResult result = saveFileDialog.ShowDialog();
   </figure>
 
 <h2 id="导出excel功能代码"><strong>导出Excel</strong>功能代码</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSHARP" data-lang="CSHARP"><span style="color:#66d9ef">using</span> Microsoft.Office.Interop.Excel;
-<span style="color:#66d9ef">using</span> System;
-
-<span style="color:#66d9ef">namespace</span> ExportToExcelText
-{
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExcelUtil</span>
-    {
-        System.Data.DataTable table11 = <span style="color:#66d9ef">new</span> System.Data.DataTable();
-
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> ExportToExcel(System.Data.DataTable table, <span style="color:#66d9ef">string</span> saveFileName)
-        {
-
-            <span style="color:#66d9ef">bool</span> fileSaved = <span style="color:#66d9ef">false</span>;
-
-            <span style="color:#75715e">//ExcelApp xlApp = new ExcelApp();
-</span><span style="color:#75715e"></span>
-            Application xlApp = <span style="color:#66d9ef">new</span> Application();
-
-            <span style="color:#66d9ef">if</span> (xlApp == <span style="color:#66d9ef">null</span>)
-            {
-                <span style="color:#66d9ef">return</span> fileSaved;
-            }
-
-            Workbooks workbooks = xlApp.Workbooks;
-            Workbook workbook = workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            Worksheet worksheet = (Worksheet)workbook.Worksheets[<span style="color:#ae81ff">1</span>];<span style="color:#75715e">//取得sheet1
-</span><span style="color:#75715e"></span>
-            <span style="color:#66d9ef">long</span> rows = table.Rows.Count;
-
-            <span style="color:#75715e">/*下边注释的两行代码当数据行数超过行时，出现异常：异常来自HRESULT:0x800A03EC。因为：Excel 2003每个sheet只支持最大行数据
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">            //Range fchR = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[table.Rows.Count+2, gridview.Columns.View.VisibleColumns.Count+1]];
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">            //fchR.Value2 = datas;*/</span>
-
-            <span style="color:#66d9ef">if</span> (rows &gt; <span style="color:#ae81ff">65535</span>)
-            {
-
-                <span style="color:#66d9ef">long</span> pageRows = <span style="color:#ae81ff">60000</span>;<span style="color:#75715e">//定义每页显示的行数,行数必须小于60000
-</span><span style="color:#75715e"></span>
-                <span style="color:#66d9ef">int</span> scount = (<span style="color:#66d9ef">int</span>)(rows / pageRows);
-
-                <span style="color:#66d9ef">if</span> (scount * pageRows &lt; table.Rows.Count)<span style="color:#75715e">//当总行数不被pageRows整除时，经过四舍五入可能页数不准
-</span><span style="color:#75715e"></span>                {
-                    scount = scount + <span style="color:#ae81ff">1</span>;
-                }
-
-                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> sc = <span style="color:#ae81ff">1</span>; sc &lt;= scount; sc++)
-                {
-                    <span style="color:#66d9ef">if</span> (sc &gt; <span style="color:#ae81ff">1</span>)
-                    {
-
-                        <span style="color:#66d9ef">object</span> missing = System.Reflection.Missing.Value;
-
-                        worksheet = workbook.Worksheets.Add(
-
-                       missing, missing, missing, missing);<span style="color:#75715e">//添加一个sheet
-</span><span style="color:#75715e"></span>
-                    }
-
-                    <span style="color:#66d9ef">else</span>
-                    {
-                        worksheet = (Worksheet)workbook.Worksheets[sc];<span style="color:#75715e">//取得sheet1
-</span><span style="color:#75715e"></span>                    }
-
-                    <span style="color:#66d9ef">string</span>[,] datas = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>[pageRows + <span style="color:#ae81ff">1</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>];
-
-                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++) <span style="color:#75715e">//写入字段
-</span><span style="color:#75715e"></span>                    {
-                        datas[<span style="color:#ae81ff">0</span>, i] = table.Columns[i].Caption;
-                    }
-
-                    Range range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[<span style="color:#ae81ff">1</span>, table.Columns.Count]];
-                    range.Interior.ColorIndex = <span style="color:#ae81ff">15</span>;<span style="color:#75715e">//15代表灰色
-</span><span style="color:#75715e"></span>                    range.Font.Bold = <span style="color:#66d9ef">true</span>;
-                    range.Font.Size = <span style="color:#ae81ff">9</span>;
-
-                    <span style="color:#66d9ef">int</span> init = <span style="color:#66d9ef">int</span>.Parse(((sc - <span style="color:#ae81ff">1</span>) * pageRows).ToString());
-                    <span style="color:#66d9ef">int</span> r = <span style="color:#ae81ff">0</span>;
-                    <span style="color:#66d9ef">int</span> index = <span style="color:#ae81ff">0</span>;
-                    <span style="color:#66d9ef">int</span> result;
-
-                    <span style="color:#66d9ef">if</span> (pageRows * sc &gt;= table.Rows.Count)
-                    {
-                        result = table.Rows.Count;
-                    }
-                    <span style="color:#66d9ef">else</span>
-                    {
-                        result = <span style="color:#66d9ef">int</span>.Parse((pageRows * sc).ToString());
-                    }
-                    <span style="color:#66d9ef">for</span> (r = init; r &lt; result; r++)
-                    {
-                        index = index + <span style="color:#ae81ff">1</span>;
-                        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++)
-                        {
-                            <span style="color:#66d9ef">if</span> (table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(Decimal) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(DateTime))
-                            {
-                                <span style="color:#66d9ef">object</span> obj = table.Rows[r][table.Columns[i].ColumnName];
-                                datas[index, i] = obj == <span style="color:#66d9ef">null</span> ? <span style="color:#e6db74">&#34;&#34;</span> : <span style="color:#e6db74">&#34;&#39;&#34;</span> + obj.ToString().Trim();<span style="color:#75715e">//在obj.ToString()前加单引号是为了防止自动转化格式
-</span><span style="color:#75715e"></span>
-                            }
-
-                        }
-                    }
-
-                    Range fchR = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[index + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>]];
-
-                    fchR.Value2 = datas;
-                    worksheet.Columns.EntireColumn.AutoFit();<span style="color:#75715e">//列宽自适应。
-</span><span style="color:#75715e"></span>
-                    range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[index + <span style="color:#ae81ff">1</span>, table.Columns.Count]];
-
-                    <span style="color:#75715e">//15代表灰色
-</span><span style="color:#75715e"></span>
-                    range.Font.Size = <span style="color:#ae81ff">9</span>;
-                    range.RowHeight = <span style="color:#ae81ff">14.25</span>;
-                    range.Borders.LineStyle = <span style="color:#ae81ff">1</span>;
-                    range.HorizontalAlignment = <span style="color:#ae81ff">1</span>;
-
-                }
-
-            }
-
-            <span style="color:#66d9ef">else</span>
-            {
-
-                <span style="color:#66d9ef">string</span>[,] datas = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>[table.Rows.Count + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>];
-                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++) <span style="color:#75715e">//写入字段         
-</span><span style="color:#75715e"></span>                {
-                    datas[<span style="color:#ae81ff">0</span>, i] = table.Columns[i].Caption;
-                }
-
-                Range range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[<span style="color:#ae81ff">1</span>, table.Columns.Count]];
-                range.Interior.ColorIndex = <span style="color:#ae81ff">15</span>;<span style="color:#75715e">//15代表灰色
-</span><span style="color:#75715e"></span>                range.Font.Bold = <span style="color:#66d9ef">true</span>;
-                range.Font.Size = <span style="color:#ae81ff">9</span>;
-
-                <span style="color:#66d9ef">int</span> r = <span style="color:#ae81ff">0</span>;
-                <span style="color:#66d9ef">for</span> (r = <span style="color:#ae81ff">0</span>; r &lt; table.Rows.Count; r++)
-                {
-                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++)
-                    {
-                        <span style="color:#66d9ef">if</span> (table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(Decimal) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(DateTime))
-                        {
-                            <span style="color:#66d9ef">object</span> obj = table.Rows[r][table.Columns[i].ColumnName];
-                            datas[r + <span style="color:#ae81ff">1</span>, i] = obj == <span style="color:#66d9ef">null</span> ? <span style="color:#e6db74">&#34;&#34;</span> : <span style="color:#e6db74">&#34;&#39;&#34;</span> + obj.ToString().Trim();<span style="color:#75715e">//在obj.ToString()前加单引号是为了防止自动转化格式
-</span><span style="color:#75715e"></span>
-                        }
-
-                    }
-
-                    <span style="color:#75715e">//System.Windows.Forms.Application.DoEvents();
-</span><span style="color:#75715e"></span>
-                }
-
-                Range fchR = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[table.Rows.Count + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>]];
-
-                fchR.Value2 = datas;
-
-                worksheet.Columns.EntireColumn.AutoFit();<span style="color:#75715e">//列宽自适应。
-</span><span style="color:#75715e"></span>
-                range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[table.Rows.Count + <span style="color:#ae81ff">1</span>, table.Columns.Count]];
-
-                <span style="color:#75715e">//15代表灰色
-</span><span style="color:#75715e"></span>
-                range.Font.Size = <span style="color:#ae81ff">9</span>;
-                range.RowHeight = <span style="color:#ae81ff">14.25</span>;
-                range.Borders.LineStyle = <span style="color:#ae81ff">1</span>;
-                range.HorizontalAlignment = <span style="color:#ae81ff">1</span>;
-            }
-
-            <span style="color:#66d9ef">if</span> (saveFileName != <span style="color:#e6db74">&#34;&#34;</span>)
-            {
-                <span style="color:#66d9ef">try</span>
-                {
-                    workbook.Saved = <span style="color:#66d9ef">true</span>;
-                    workbook.SaveCopyAs(saveFileName);
-                    fileSaved = <span style="color:#66d9ef">true</span>;
-
-                }
-
-                <span style="color:#66d9ef">catch</span> (Exception ex)
-                {
-                    fileSaved = <span style="color:#66d9ef">false</span>;
-                }
-
-            }
-
-            <span style="color:#66d9ef">else</span>
-            {
-
-                fileSaved = <span style="color:#66d9ef">false</span>;
-
-            }
-
-            xlApp.Quit();
-
-            GC.Collect();<span style="color:#75715e">//强行销毁 
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> fileSaved;
-        }
-    }
-}
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSHARP" data-lang="CSHARP"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Office.Interop.Excel;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> ExportToExcelText
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExcelUtil</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        System.Data.DataTable table11 = <span style="color:#66d9ef">new</span> System.Data.DataTable();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> ExportToExcel(System.Data.DataTable table, <span style="color:#66d9ef">string</span> saveFileName)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span> fileSaved = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//ExcelApp xlApp = new ExcelApp();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Application xlApp = <span style="color:#66d9ef">new</span> Application();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (xlApp == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> fileSaved;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Workbooks workbooks = xlApp.Workbooks;
+</span></span><span style="display:flex;"><span>            Workbook workbook = workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+</span></span><span style="display:flex;"><span>            Worksheet worksheet = (Worksheet)workbook.Worksheets[<span style="color:#ae81ff">1</span>];<span style="color:#75715e">//取得sheet1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> rows = table.Rows.Count;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/*下边注释的两行代码当数据行数超过行时，出现异常：异常来自HRESULT:0x800A03EC。因为：Excel 2003每个sheet只支持最大行数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            //Range fchR = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[table.Rows.Count+2, gridview.Columns.View.VisibleColumns.Count+1]];
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            //fchR.Value2 = datas;*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (rows &gt; <span style="color:#ae81ff">65535</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">long</span> pageRows = <span style="color:#ae81ff">60000</span>;<span style="color:#75715e">//定义每页显示的行数,行数必须小于60000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> scount = (<span style="color:#66d9ef">int</span>)(rows / pageRows);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (scount * pageRows &lt; table.Rows.Count)<span style="color:#75715e">//当总行数不被pageRows整除时，经过四舍五入可能页数不准</span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    scount = scount + <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> sc = <span style="color:#ae81ff">1</span>; sc &lt;= scount; sc++)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (sc &gt; <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">object</span> missing = System.Reflection.Missing.Value;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        worksheet = workbook.Worksheets.Add(
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                       missing, missing, missing, missing);<span style="color:#75715e">//添加一个sheet</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        worksheet = (Worksheet)workbook.Worksheets[sc];<span style="color:#75715e">//取得sheet1</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">string</span>[,] datas = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>[pageRows + <span style="color:#ae81ff">1</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++) <span style="color:#75715e">//写入字段</span>
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        datas[<span style="color:#ae81ff">0</span>, i] = table.Columns[i].Caption;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    Range range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[<span style="color:#ae81ff">1</span>, table.Columns.Count]];
+</span></span><span style="display:flex;"><span>                    range.Interior.ColorIndex = <span style="color:#ae81ff">15</span>;<span style="color:#75715e">//15代表灰色</span>
+</span></span><span style="display:flex;"><span>                    range.Font.Bold = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                    range.Font.Size = <span style="color:#ae81ff">9</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">init</span> = <span style="color:#66d9ef">int</span>.Parse(((sc - <span style="color:#ae81ff">1</span>) * pageRows).ToString());
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> r = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> index = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> result;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (pageRows * sc &gt;= table.Rows.Count)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        result = table.Rows.Count;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        result = <span style="color:#66d9ef">int</span>.Parse((pageRows * sc).ToString());
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">for</span> (r = <span style="color:#66d9ef">init</span>; r &lt; result; r++)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        index = index + <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++)
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> (table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(Decimal) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(DateTime))
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">object</span> obj = table.Rows[r][table.Columns[i].ColumnName];
+</span></span><span style="display:flex;"><span>                                datas[index, i] = obj == <span style="color:#66d9ef">null</span> ? <span style="color:#e6db74">&#34;&#34;</span> : <span style="color:#e6db74">&#34;&#39;&#34;</span> + obj.ToString().Trim();<span style="color:#75715e">//在obj.ToString()前加单引号是为了防止自动转化格式</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    Range fchR = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[index + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>]];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    fchR.Value2 = datas;
+</span></span><span style="display:flex;"><span>                    worksheet.Columns.EntireColumn.AutoFit();<span style="color:#75715e">//列宽自适应。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[index + <span style="color:#ae81ff">1</span>, table.Columns.Count]];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">//15代表灰色</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    range.Font.Size = <span style="color:#ae81ff">9</span>;
+</span></span><span style="display:flex;"><span>                    range.RowHeight = <span style="color:#ae81ff">14.25</span>;
+</span></span><span style="display:flex;"><span>                    range.Borders.LineStyle = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                    range.HorizontalAlignment = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">string</span>[,] datas = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>[table.Rows.Count + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++) <span style="color:#75715e">//写入字段         </span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    datas[<span style="color:#ae81ff">0</span>, i] = table.Columns[i].Caption;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                Range range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[<span style="color:#ae81ff">1</span>, table.Columns.Count]];
+</span></span><span style="display:flex;"><span>                range.Interior.ColorIndex = <span style="color:#ae81ff">15</span>;<span style="color:#75715e">//15代表灰色</span>
+</span></span><span style="display:flex;"><span>                range.Font.Bold = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                range.Font.Size = <span style="color:#ae81ff">9</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> r = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (r = <span style="color:#ae81ff">0</span>; r &lt; table.Rows.Count; r++)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; table.Columns.Count; i++)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> (table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">string</span>) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(Decimal) || table.Columns[i].DataType == <span style="color:#66d9ef">typeof</span>(DateTime))
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">object</span> obj = table.Rows[r][table.Columns[i].ColumnName];
+</span></span><span style="display:flex;"><span>                            datas[r + <span style="color:#ae81ff">1</span>, i] = obj == <span style="color:#66d9ef">null</span> ? <span style="color:#e6db74">&#34;&#34;</span> : <span style="color:#e6db74">&#34;&#39;&#34;</span> + obj.ToString().Trim();<span style="color:#75715e">//在obj.ToString()前加单引号是为了防止自动转化格式</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">//System.Windows.Forms.Application.DoEvents();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                Range fchR = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[table.Rows.Count + <span style="color:#ae81ff">2</span>, table.Columns.Count + <span style="color:#ae81ff">1</span>]];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                fchR.Value2 = datas;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                worksheet.Columns.EntireColumn.AutoFit();<span style="color:#75715e">//列宽自适应。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                range = worksheet.Range[worksheet.Cells[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>], worksheet.Cells[table.Rows.Count + <span style="color:#ae81ff">1</span>, table.Columns.Count]];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//15代表灰色</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                range.Font.Size = <span style="color:#ae81ff">9</span>;
+</span></span><span style="display:flex;"><span>                range.RowHeight = <span style="color:#ae81ff">14.25</span>;
+</span></span><span style="display:flex;"><span>                range.Borders.LineStyle = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                range.HorizontalAlignment = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (saveFileName != <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    workbook.Saved = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                    workbook.SaveCopyAs(saveFileName);
+</span></span><span style="display:flex;"><span>                    fileSaved = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    fileSaved = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                fileSaved = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            xlApp.Quit();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            GC.Collect();<span style="color:#75715e">//强行销毁 </span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> fileSaved;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
       </div>
     </article>
 
@@ -531,13 +524,13 @@ DialogResult result = saveFileDialog.ShowDialog();
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2016-10-12 20:16
+          2016-10-12 12:16
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -716,7 +709,7 @@ DialogResult result = saveFileDialog.ShowDialog();
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -733,18 +726,16 @@ DialogResult result = saveFileDialog.ShowDialog();
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

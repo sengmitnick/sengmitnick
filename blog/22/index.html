@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -47,16 +47,10 @@
 <meta itemprop="description" content="Access denied for user&hellip;
 用phpmyadmin连接mysql时遇到了以下的提示：
 #1045 - Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: NO)
-解决方法：">
-<meta itemprop="datePublished" content="2014-03-22T10:40:04+00:00" />
+解决方法："><meta itemprop="datePublished" content="2014-03-22T10:40:04+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="55">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="55"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="总结,MySql," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -75,10 +69,10 @@
 #1045 - Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: NO)
 解决方法：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/22/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/22/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-03-22T10:40:04+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -220,14 +214,14 @@
       <div class="post-content">
         <h2 id="access-denied-for-user">Access denied for user&hellip;</h2>
 <p>用phpmyadmin连接mysql时遇到了以下的提示：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#1045 - Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: NO)</span>
-</code></pre></div><p>解决方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#1045 - Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: NO)</span>
+</span></span></code></pre></div><p>解决方法：</p>
 <p>phpMyAdmin 试图连接到 MySQL 服务器，但服务器拒绝连接。您应该检查 config.inc.php 中的主机、用户名和密码，并且确定这些信息与 MySQL 服务器的管理员所给出的信息一致。
 我想应该也是跟phpmyadmin里的配置有关，事实也是如此。
 打开 <code>config.inc.php</code> 里看到里面有两行就是问题的关键：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>;
-$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;password&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
-</code></pre></div><p>这一般是phpmyadmin里的默认设置，用户名为root，密码为空，当本机建立mysql数据库时可以直接连接。所以一般第一次用phpmyadmin连接时都会成功，但后面为什么会提示拒绝连接呢？因为root密码（或者别的用户名）已经修改过了，有可以在是命令行里改的也有可以是在phpmyadmin里改的：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>;
+</span></span><span style="display:flex;"><span>$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;password&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span></code></pre></div><p>这一般是phpmyadmin里的默认设置，用户名为root，密码为空，当本机建立mysql数据库时可以直接连接。所以一般第一次用phpmyadmin连接时都会成功，但后面为什么会提示拒绝连接呢？因为root密码（或者别的用户名）已经修改过了，有可以在是命令行里改的也有可以是在phpmyadmin里改的：
 
 
 
@@ -241,11 +235,11 @@ $cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="colo
 </p>
 <p>如果设置了使用密码的话那么下面的登入密码也需要同时修改，否则只能改配置文件config.inc.php</p>
 <p>我记得默认密码是空的，后来加上就连接拒绝了，现在再看到刚才那两行代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>;
-$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;password&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
-</code></pre></div><p>其实指的就是登入信息里的用户名和密码，如果留空那那么错误提示里就是(using password: NO)，如果随便打几个字上去就那就是(using password: YES)，嗯，如果你把改过的密码敲上去，那么就可以登录成功了。当然这是本地登录时可以设置固定用户登录（使用配置文件），如果想出现提示输入用户名和密码的对话框，那么需要设置另一行代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;auth_type&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;config&#39;</span>; <span style="color:#75715e">//还可以用http或者cookie方式
-</span></code></pre></div><p>当改成http时就会出现对话框，用cookie就是按浏览器进程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>;
+</span></span><span style="display:flex;"><span>$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;password&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span></code></pre></div><p>其实指的就是登入信息里的用户名和密码，如果留空那那么错误提示里就是(using password: NO)，如果随便打几个字上去就那就是(using password: YES)，嗯，如果你把改过的密码敲上去，那么就可以登录成功了。当然这是本地登录时可以设置固定用户登录（使用配置文件），如果想出现提示输入用户名和密码的对话框，那么需要设置另一行代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="color:#e6db74">&#39;auth_type&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;config&#39;</span>; <span style="color:#75715e">//还可以用http或者cookie方式
+</span></span></span></code></pre></div><p>当改成http时就会出现对话框，用cookie就是按浏览器进程。</p>
 <p><strong>END……</strong></p>
       </div>
     </article>
@@ -292,13 +286,13 @@ $cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="colo
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-03-22 18:40
+          2014-03-22 10:40
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -477,7 +471,7 @@ $cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="colo
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -494,18 +488,16 @@ $cfg[<span style="color:#e6db74">&#39;Servers&#39;</span>][$i][<span style="colo
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

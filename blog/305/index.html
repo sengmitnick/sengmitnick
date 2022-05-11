@@ -25,7 +25,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -42,16 +42,10 @@
 
 
 <meta itemprop="name" content="Ubuntu下安装zsh和oh-my-zsh">
-<meta itemprop="description" content="在Ubuntu下安装和配置zsh和oh-my-zsh">
-<meta itemprop="datePublished" content="2021-02-16T12:03:26+08:00" />
+<meta itemprop="description" content="在Ubuntu下安装和配置zsh和oh-my-zsh"><meta itemprop="datePublished" content="2021-02-16T12:03:26+08:00" />
 <meta itemprop="dateModified" content="2021-02-23T18:31:02+08:00" />
-<meta itemprop="wordCount" content="583">
-<meta itemprop="image" content="https://sengmitnick.com/images/cover/01.jpg">
-
-
-
+<meta itemprop="wordCount" content="583"><meta itemprop="image" content="https://sengmitnick.com/images/cover/01.jpg">
 <meta itemprop="keywords" content="ubuntu,zsh," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/images/cover/01.jpg"/>
 
@@ -64,10 +58,10 @@
     <meta property="og:title" content="Ubuntu下安装zsh和oh-my-zsh" />
 <meta property="og:description" content="在Ubuntu下安装和配置zsh和oh-my-zsh" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/305/" />
-<meta property="og:image" content="https://sengmitnick.com/images/cover/01.jpg" />
+<meta property="og:url" content="https://sengmitnick.com/blog/305/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/01.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-02-16T12:03:26+08:00" />
 <meta property="article:modified_time" content="2021-02-23T18:31:02+08:00" />
+
 
 
 
@@ -76,7 +70,7 @@
 
 
 
-    <meta property="article:published_time" content="2021-02-16 12:03:26 &#43;0800 CST" />
+    <meta property="article:published_time" content="2021-02-16 12:03:26 &#43;0800 &#43;0800" />
 
 
 
@@ -235,122 +229,121 @@
 <li><a href="https://ohmyz.sh/#install">Install oh-my-zsh now</a></li>
 </ul>
 <p>我在<code>Ubuntu</code>下执行以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install zsh
-sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div><h2 id="安装并配置ohmyz插件">安装并配置ohmyz插件</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt install zsh
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h2 id="安装并配置ohmyz插件">安装并配置ohmyz插件</h2>
 <h3 id="安装zsh-syntax-highlighting">安装zsh-syntax-highlighting</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting
-</code></pre></div><p>配置文件<code>.zshrc</code>如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># If you come from bash you might have to change your $PATH.</span>
-export PATH<span style="color:#f92672">=</span>$HOME/bin:/usr/local/bin:$PATH
-
-<span style="color:#75715e"># Path to your oh-my-zsh installation.</span>
-export ZSH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.oh-my-zsh&#34;</span>
-
-<span style="color:#75715e"># Set name of the theme to load --- if set to &#34;random&#34;, it will</span>
-<span style="color:#75715e"># load a random theme each time oh-my-zsh is loaded, in which case,</span>
-<span style="color:#75715e"># to know which specific one was loaded, run: echo $RANDOM_THEME</span>
-<span style="color:#75715e"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span>
-ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
-
-<span style="color:#75715e"># Set list of themes to pick from when loading at random</span>
-<span style="color:#75715e"># Setting this variable when ZSH_THEME=random will cause zsh to load</span>
-<span style="color:#75715e"># a theme from this variable instead of looking in $ZSH/themes/</span>
-<span style="color:#75715e"># If set to an empty array, this variable will have no effect.</span>
-<span style="color:#75715e"># ZSH_THEME_RANDOM_CANDIDATES=( &#34;robbyrussell&#34; &#34;agnoster&#34; )</span>
-
-<span style="color:#75715e"># Uncomment the following line to use case-sensitive completion.</span>
-<span style="color:#75715e"># CASE_SENSITIVE=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to use hyphen-insensitive completion.</span>
-<span style="color:#75715e"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
-<span style="color:#75715e"># HYPHEN_INSENSITIVE=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to disable bi-weekly auto-update checks.</span>
-<span style="color:#75715e"># DISABLE_AUTO_UPDATE=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to automatically update without prompting.</span>
-<span style="color:#75715e"># DISABLE_UPDATE_PROMPT=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to change how often to auto-update (in days).</span>
-<span style="color:#75715e"># export UPDATE_ZSH_DAYS=13</span>
-
-<span style="color:#75715e"># Uncomment the following line if pasting URLs and other text is messed up.</span>
-<span style="color:#75715e"># DISABLE_MAGIC_FUNCTIONS=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to disable colors in ls.</span>
-<span style="color:#75715e"># DISABLE_LS_COLORS=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to disable auto-setting terminal title.</span>
-<span style="color:#75715e"># DISABLE_AUTO_TITLE=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to enable command auto-correction.</span>
-<span style="color:#75715e"># ENABLE_CORRECTION=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line to display red dots whilst waiting for completion.</span>
-<span style="color:#75715e"># Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)</span>
-<span style="color:#75715e"># See https://github.com/ohmyzsh/ohmyzsh/issues/5765</span>
-<span style="color:#75715e"># COMPLETION_WAITING_DOTS=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line if you want to disable marking untracked files</span>
-<span style="color:#75715e"># under VCS as dirty. This makes repository status check for large repositories</span>
-<span style="color:#75715e"># much, much faster.</span>
-<span style="color:#75715e"># DISABLE_UNTRACKED_FILES_DIRTY=&#34;true&#34;</span>
-
-<span style="color:#75715e"># Uncomment the following line if you want to change the command execution time</span>
-<span style="color:#75715e"># stamp shown in the history command output.</span>
-<span style="color:#75715e"># You can set one of the optional three formats:</span>
-<span style="color:#75715e"># &#34;mm/dd/yyyy&#34;|&#34;dd.mm.yyyy&#34;|&#34;yyyy-mm-dd&#34;</span>
-<span style="color:#75715e"># or set a custom format using the strftime function format specifications,</span>
-<span style="color:#75715e"># see &#39;man strftime&#39; for details.</span>
-<span style="color:#75715e"># HIST_STAMPS=&#34;mm/dd/yyyy&#34;</span>
-
-<span style="color:#75715e"># Would you like to use another custom folder than $ZSH/custom?</span>
-<span style="color:#75715e"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
-
-<span style="color:#75715e"># Which plugins would you like to load?</span>
-<span style="color:#75715e"># Standard plugins can be found in $ZSH/plugins/</span>
-<span style="color:#75715e"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span>
-<span style="color:#75715e"># Example format: plugins=(rails git textmate ruby lighthouse)</span>
-<span style="color:#75715e"># Add wisely, as too many plugins slow down shell startup.</span>
-plugins<span style="color:#f92672">=(</span>git zsh-syntax-highlighting<span style="color:#f92672">)</span>
-
-source $ZSH/oh-my-zsh.sh
-
-<span style="color:#75715e"># User configuration</span>
-
-<span style="color:#75715e"># export MANPATH=&#34;/usr/local/man:$MANPATH&#34;</span>
-
-<span style="color:#75715e"># You may need to manually set your language environment</span>
-<span style="color:#75715e"># export LANG=en_US.UTF-8</span>
-
-<span style="color:#75715e"># Preferred editor for local and remote sessions</span>
-<span style="color:#75715e"># if [[ -n $SSH_CONNECTION ]]; then</span>
-<span style="color:#75715e">#   export EDITOR=&#39;vim&#39;</span>
-<span style="color:#75715e"># else</span>
-<span style="color:#75715e">#   export EDITOR=&#39;mvim&#39;</span>
-<span style="color:#75715e"># fi</span>
-
-<span style="color:#75715e"># Compilation flags</span>
-<span style="color:#75715e"># export ARCHFLAGS=&#34;-arch x86_64&#34;</span>
-
-
-export PYTHONIOENCODING<span style="color:#f92672">=</span>utf-8
-
-export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
-<span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>  <span style="color:#75715e"># This loads nvm</span>
-<span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span>  <span style="color:#75715e"># This loads nvm bash_completion</span>
-
-<span style="color:#75715e"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
-<span style="color:#75715e"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
-<span style="color:#75715e"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
-<span style="color:#75715e"># For a full list of active aliases, run `alias`.</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># Example aliases</span>
-<span style="color:#75715e"># alias zshconfig=&#34;mate ~/.zshrc&#34;</span>
-<span style="color:#75715e"># alias ohmyzsh=&#34;mate ~/.oh-my-zsh&#34;</span>
-
-</code></pre></div><p><strong>END……</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>~/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/plugins/zsh-syntax-highlighting
+</span></span></code></pre></div><p>配置文件<code>.zshrc</code>如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># If you come from bash you might have to change your $PATH.</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$HOME/bin:/usr/local/bin:$PATH
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path to your oh-my-zsh installation.</span>
+</span></span><span style="display:flex;"><span>export ZSH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.oh-my-zsh&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set name of the theme to load --- if set to &#34;random&#34;, it will</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># load a random theme each time oh-my-zsh is loaded, in which case,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to know which specific one was loaded, run: echo $RANDOM_THEME</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span>
+</span></span><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set list of themes to pick from when loading at random</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Setting this variable when ZSH_THEME=random will cause zsh to load</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># a theme from this variable instead of looking in $ZSH/themes/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If set to an empty array, this variable will have no effect.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ZSH_THEME_RANDOM_CANDIDATES=( &#34;robbyrussell&#34; &#34;agnoster&#34; )</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to use case-sensitive completion.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CASE_SENSITIVE=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to use hyphen-insensitive completion.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HYPHEN_INSENSITIVE=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to disable bi-weekly auto-update checks.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_AUTO_UPDATE=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to automatically update without prompting.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_UPDATE_PROMPT=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to change how often to auto-update (in days).</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># export UPDATE_ZSH_DAYS=13</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line if pasting URLs and other text is messed up.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_MAGIC_FUNCTIONS=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to disable colors in ls.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_LS_COLORS=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to disable auto-setting terminal title.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_AUTO_TITLE=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to enable command auto-correction.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ENABLE_CORRECTION=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See https://github.com/ohmyzsh/ohmyzsh/issues/5765</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># COMPLETION_WAITING_DOTS=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line if you want to disable marking untracked files</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># under VCS as dirty. This makes repository status check for large repositories</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># much, much faster.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DISABLE_UNTRACKED_FILES_DIRTY=&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment the following line if you want to change the command execution time</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># stamp shown in the history command output.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can set one of the optional three formats:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;mm/dd/yyyy&#34;|&#34;dd.mm.yyyy&#34;|&#34;yyyy-mm-dd&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or set a custom format using the strftime function format specifications,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># see &#39;man strftime&#39; for details.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HIST_STAMPS=&#34;mm/dd/yyyy&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Would you like to use another custom folder than $ZSH/custom?</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Which plugins would you like to load?</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Standard plugins can be found in $ZSH/plugins/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example format: plugins=(rails git textmate ruby lighthouse)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add wisely, as too many plugins slow down shell startup.</span>
+</span></span><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>git zsh-syntax-highlighting<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source $ZSH/oh-my-zsh.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># User configuration</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># export MANPATH=&#34;/usr/local/man:$MANPATH&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You may need to manually set your language environment</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># export LANG=en_US.UTF-8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Preferred editor for local and remote sessions</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># if [[ -n $SSH_CONNECTION ]]; then</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   export EDITOR=&#39;vim&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># else</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   export EDITOR=&#39;mvim&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Compilation flags</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># export ARCHFLAGS=&#34;-arch x86_64&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export PYTHONIOENCODING<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>  <span style="color:#75715e"># This loads nvm</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/bash_completion&#34;</span>  <span style="color:#75715e"># This loads nvm bash_completion</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For a full list of active aliases, run `alias`.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example aliases</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># alias zshconfig=&#34;mate ~/.zshrc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># alias ohmyzsh=&#34;mate ~/.oh-my-zsh&#34;</span>
+</span></span></code></pre></div><p><strong>END……</strong></p>
 
       </div>
     </article>
@@ -397,13 +390,13 @@ export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2021-02-16 12:03
+          2021-02-16 04:03
         
 
          
           
             
-              (最后修改: 2021-02-23 18:31)
+              (最后修改: 2021-02-23 10:31)
             
           
         
@@ -582,7 +575,7 @@ export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -599,18 +592,16 @@ export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

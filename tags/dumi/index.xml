@@ -16,7 +16,7 @@
       <guid>https://sengmitnick.com/blog/316/</guid>
       <description>最近在基于 dumi 封装组件库 Parallel Line，发布到线上环境后发现样式丢失问题。这里记录一下解决经过与结果~
  我的组件库项目是一个 lerna 项目， 和 #225 中描述的问题一致，但是里面说到的方法都解决不了我的问题，最终只能简单粗暴的通过 gulp 处理。
-// gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var del = require(&amp;#39;del&amp;#39;); var less = require(&amp;#39;gulp-less&amp;#39;); var LessNpmImport = require(&amp;#39;less-plugin-npm-import&amp;#39;); gulp.task(&amp;#39;clean&amp;#39;, () =&amp;gt; del([&amp;#39;dist/**/*&amp;#39;])); gulp.task(&amp;#39;less&amp;#39;, () =&amp;gt; gulp .src(&amp;#39;src/components/**/*.less&amp;#39;) .pipe( less({ plugins: [new LessNpmImport({ prefix: &amp;#39;~&amp;#39; })], javascriptEnabled: true, }), ) .pipe(gulp.dest(&amp;#39;dist/&amp;#39;)), ); gulp.task(&amp;#39;default&amp;#39;, gulp.series(&amp;#39;clean&amp;#39;, &amp;#39;less&amp;#39;)); 参考  dumi #225  &amp;mdash;END</description>
+// gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var del = require(&amp;#39;del&amp;#39;); var less = require(&amp;#39;gulp-less&amp;#39;); var LessNpmImport = require(&amp;#39;less-plugin-npm-import&amp;#39;);  gulp.task(&amp;#39;clean&amp;#39;, () =&amp;gt; del([&amp;#39;dist/**/*&amp;#39;]));  gulp.task(&amp;#39;less&amp;#39;, () =&amp;gt;  gulp  .src(&amp;#39;src/components/**/*.less&amp;#39;)  .pipe(  less({  plugins: [new LessNpmImport({ prefix: &amp;#39;~&amp;#39; })],  javascriptEnabled: true,  }),  )  .pipe(gulp.dest(&amp;#39;dist/&amp;#39;)), );  gulp.task(&amp;#39;default&amp;#39;, gulp.series(&amp;#39;clean&amp;#39;, &amp;#39;less&amp;#39;)); 参考  dumi #225  &amp;mdash;END</description>
     </item>
     
   </channel>

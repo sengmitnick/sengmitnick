@@ -25,7 +25,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -53,16 +53,10 @@ PC机Qt版本：QMake version 2.01a Using Qt version 4.5.3 Qt Creator 1.2.0 base
 开发板Qt版本：QMake version 2.01a Using Qt version 4.5.3
 
 
-">
-<meta itemprop="datePublished" content="2014-02-15T09:14:23+00:00" />
+"><meta itemprop="datePublished" content="2014-02-15T09:14:23+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="370">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="370"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="嵌入式,龙芯培训,QT,项目," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -97,10 +91,10 @@ PC机Qt版本：QMake version 2.01a Using Qt version 4.5.3 Qt Creator 1.2.0 base
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/5/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/5/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-02-15T09:14:23+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -289,145 +283,144 @@ PC机Qt版本：QMake version 2.01a Using Qt version 4.5.3 Qt Creator 1.2.0 base
 <h3 id="打开并显示一张图片功能">打开并显示一张图片功能</h3>
 <p>在Qt中,Qt提供给了4个图像类：QImage/QPixmap/QBitmap/Qpicture。</p>
 <p>而用Qt程序在嵌入式上显示一幅图片，分别使用QImage/Qpixmap有以下两种方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//dangerous should not beused, cannot display earth.png,
-</span><span style="color:#75715e">//but if we changeearth.png to a smaller image e.g. apple.png, apple.png can be displayed
-</span><span style="color:#75715e"></span>QPixmap pixmap;
-
-pixmap.load(<span style="color:#e6db74">&#34;:/pics/\*.png&#34;</span> );
-
-label<span style="color:#f92672">-&gt;</span>;setPixmap(pixmap );
-</code></pre></div><p>AND</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//dangerous should not beused, cannot display earth.png,  
-</span><span style="color:#75715e">//but if we changeearth.png to a smaller image e.g. apple.png, apple.png can be displayed
-</span><span style="color:#75715e"></span>
-QPixmap pixmap;
-pixmap.load(<span style="color:#e6db74">&#34;:/pics/\*.png&#34;</span> );
-QPainter <span style="color:#a6e22e">painter</span>(<span style="color:#66d9ef">this</span>);
-painter.drawPixmap(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,pixmap);
-</code></pre></div><p>而我则同时使用两个类对显示的图片就行了优化,即采用Qimage优化图片尺寸，Qpixmap缓存绘图的方式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//dangerous should not beused, cannot display earth.png,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//but if we changeearth.png to a smaller image e.g. apple.png, apple.png can be displayed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QPixmap pixmap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pixmap.load(<span style="color:#e6db74">&#34;:/pics/\*.png&#34;</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>label<span style="color:#f92672">-&gt;</span>;setPixmap(pixmap );
+</span></span></code></pre></div><p>AND</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//dangerous should not beused, cannot display earth.png,  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//but if we changeearth.png to a smaller image e.g. apple.png, apple.png can be displayed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>QPixmap pixmap;
+</span></span><span style="display:flex;"><span>pixmap.load(<span style="color:#e6db74">&#34;:/pics/\*.png&#34;</span> );
+</span></span><span style="display:flex;"><span>QPainter <span style="color:#a6e22e">painter</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>painter.drawPixmap(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,pixmap);
+</span></span></code></pre></div><p>而我则同时使用两个类对显示的图片就行了优化,即采用Qimage优化图片尺寸，Qpixmap缓存绘图的方式。</p>
 <p>以下的代码实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Show_img(QString fileName,<span style="color:#66d9ef">int</span> imgW)
-{<span style="color:#75715e">//打开一张图片并显示，&lt;span style=&#34;font-family: Arial, Helvetica, sans-serif;&#34;&gt;;fileName为文件路径，imgW为图片宽度&lt;/span&gt;;
-</span><span style="color:#75715e"></span>
-    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>fileName.isEmpty()) {
-    QImage image;
-    <span style="color:#75715e">//image.scaled(360,176,Qt::KeepAspectRatio);
-</span><span style="color:#75715e"></span>    image.load(fileName);
-    <span style="color:#66d9ef">double</span> showwidth<span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;(imgW);
-    <span style="color:#66d9ef">double</span> showheight<span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;((<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;(image.width())<span style="color:#f92672">*</span>showwidth)<span style="color:#f92672">/</span>image.height());
-    <span style="color:#75715e">//double showwidth= static_cast&lt;double&gt;;(width());
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//double showheight= static_cast&lt;double&gt;;(height());
-</span><span style="color:#75715e"></span>
-        <span style="color:#66d9ef">if</span> (image.isNull()) {
-            QMessageBox<span style="color:#f92672">::</span>information(<span style="color:#66d9ef">this</span>, tr(<span style="color:#e6db74">&#34;Image Viewer&#34;</span>),
-                                      tr(<span style="color:#e6db74">&#34;Cannot load %1.&#34;</span>).arg(fileName));
-    <span style="color:#66d9ef">return</span>;
-}
-    QPixmap _pixmap <span style="color:#f92672">=</span>QPixmap<span style="color:#f92672">::</span>fromImage(image.scaled(showwidth, showheight,Qt<span style="color:#f92672">::</span>KeepAspectRatio));
-    ui<span style="color:#f92672">-&gt;</span>;imglabel<span style="color:#f92672">-&gt;</span>;setPixmap(_pixmap);
-    ui<span style="color:#f92672">-&gt;</span>;imglabel<span style="color:#f92672">-&gt;</span>;adjustSize();
-     }
-}
-</code></pre></div><p>打开一张图片可以用 <strong>QFileDialog</strong> 类来操作，以下是这个功能的代码实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_open_file_triggered()
-{
-    QFileDialog <span style="color:#f92672">*</span>fileDialog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QFileDialog(<span style="color:#66d9ef">this</span>);
-    <span style="color:#75715e">//fileDialog-&gt;;setViewMode(QFileDialog::List);
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//fileDialog-&gt;;setGeometry(10,10,200,150);
-</span><span style="color:#75715e"></span>    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;QFileDialogminimumWidth:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> QString<span style="color:#f92672">::</span>number(fileDialog<span style="color:#f92672">-&gt;</span>;minimumWidth(),<span style="color:#ae81ff">10</span>);
-    QString fileName <span style="color:#f92672">=</span> fileDialog<span style="color:#f92672">-&gt;</span>;getOpenFileName(<span style="color:#66d9ef">this</span>,tr(<span style="color:#e6db74">&#34;Open Image Files&#34;</span>),<span style="color:#e6db74">&#34;/&#34;</span>,tr(<span style="color:#e6db74">&#34;Images (*.gif *.png *.bmp *.jpg)&#34;</span>));    
-    Show_img(fileName,<span style="color:#ae81ff">480</span>);
-    ui<span style="color:#f92672">-&gt;</span>;actionFull_screen<span style="color:#f92672">-&gt;</span>;setEnabled(true);
-
-}
-</code></pre></div><h3 id="播放图片功能">播放图片功能</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Show_img(QString fileName,<span style="color:#66d9ef">int</span> imgW)
+</span></span><span style="display:flex;"><span>{<span style="color:#75715e">//打开一张图片并显示，&lt;span style=&#34;font-family: Arial, Helvetica, sans-serif;&#34;&gt;;fileName为文件路径，imgW为图片宽度&lt;/span&gt;;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>fileName.isEmpty()) {
+</span></span><span style="display:flex;"><span>    QImage image;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//image.scaled(360,176,Qt::KeepAspectRatio);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    image.load(fileName);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> showwidth<span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;(imgW);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> showheight<span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;((<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">double</span><span style="color:#f92672">&gt;</span>;(image.width())<span style="color:#f92672">*</span>showwidth)<span style="color:#f92672">/</span>image.height());
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//double showwidth= static_cast&lt;double&gt;;(width());
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//double showheight= static_cast&lt;double&gt;;(height());
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (image.isNull()) {
+</span></span><span style="display:flex;"><span>            QMessageBox<span style="color:#f92672">::</span>information(<span style="color:#66d9ef">this</span>, tr(<span style="color:#e6db74">&#34;Image Viewer&#34;</span>),
+</span></span><span style="display:flex;"><span>                                      tr(<span style="color:#e6db74">&#34;Cannot load %1.&#34;</span>).arg(fileName));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    QPixmap _pixmap <span style="color:#f92672">=</span>QPixmap<span style="color:#f92672">::</span>fromImage(image.scaled(showwidth, showheight,Qt<span style="color:#f92672">::</span>KeepAspectRatio));
+</span></span><span style="display:flex;"><span>    ui<span style="color:#f92672">-&gt;</span>;imglabel<span style="color:#f92672">-&gt;</span>;setPixmap(_pixmap);
+</span></span><span style="display:flex;"><span>    ui<span style="color:#f92672">-&gt;</span>;imglabel<span style="color:#f92672">-&gt;</span>;adjustSize();
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>打开一张图片可以用 <strong>QFileDialog</strong> 类来操作，以下是这个功能的代码实现：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_open_file_triggered()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    QFileDialog <span style="color:#f92672">*</span>fileDialog <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QFileDialog(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//fileDialog-&gt;;setViewMode(QFileDialog::List);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//fileDialog-&gt;;setGeometry(10,10,200,150);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;QFileDialogminimumWidth:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> QString<span style="color:#f92672">::</span>number(fileDialog<span style="color:#f92672">-&gt;</span>;minimumWidth(),<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    QString fileName <span style="color:#f92672">=</span> fileDialog<span style="color:#f92672">-&gt;</span>;getOpenFileName(<span style="color:#66d9ef">this</span>,tr(<span style="color:#e6db74">&#34;Open Image Files&#34;</span>),<span style="color:#e6db74">&#34;/&#34;</span>,tr(<span style="color:#e6db74">&#34;Images (*.gif *.png *.bmp *.jpg)&#34;</span>));    
+</span></span><span style="display:flex;"><span>    Show_img(fileName,<span style="color:#ae81ff">480</span>);
+</span></span><span style="display:flex;"><span>    ui<span style="color:#f92672">-&gt;</span>;actionFull_screen<span style="color:#f92672">-&gt;</span>;setEnabled(true);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="播放图片功能">播放图片功能</h3>
 <p><strong>播放功能实现原理：</strong> 使用一个定时器，在每次定时器触发后，调用一次显示图片动作，然后等定时器再次触发后，再显示下一次图片处理动作。以下是代码实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// 在头文件声明定时器
-</span><span style="color:#75715e"></span>QTimer <span style="color:#f92672">*</span>Player_Timer;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//在定义cpp里面的构造函数里面创建定时器
-</span><span style="color:#75715e"></span>Digital_photo_frame<span style="color:#f92672">::</span>Digital_photo_frame(QWidget <span style="color:#f92672">*</span>parent)
-    <span style="color:#f92672">:</span> QMainWindow(parent), ui(<span style="color:#66d9ef">new</span> Ui<span style="color:#f92672">::</span>Digital_photo_frame)
-{
-    ui<span style="color:#f92672">-&gt;</span>;setupUi(<span style="color:#66d9ef">this</span>);
-
-    Player_Timer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QTimer(<span style="color:#66d9ef">this</span>);
-    connect( Player_Timer, SIGNAL(timeout()), <span style="color:#66d9ef">this</span>, SLOT(Player_img()) );
-}<span style="color:#f92672">&lt;/</span>pre<span style="color:#f92672">&gt;</span>
-<span style="color:#f92672">&lt;</span>pre <span style="color:#66d9ef">class</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">prettyprint</span> linenums bush:cpp<span style="color:#e6db74">&#34; lang=&#34;</span>cpp<span style="color:#e6db74">&#34;&gt;//与定时器判断的函数</span>
-<span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Player_img()
-{
-    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
-    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
-    {
-        i<span style="color:#f92672">++</span>;
-    }
-    <span style="color:#66d9ef">else</span>
-    {
-        i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-    }
-}
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Player_img(QFileInfoList list,QString path,<span style="color:#66d9ef">int</span> i,<span style="color:#66d9ef">int</span> imgW)
-{    <span style="color:#75715e">//打开并显示一个list中的一张图片，list为文件夹下所有图片的列表，i为列表的第（i+1）张图片，imgW为图片显示宽度
-</span><span style="color:#75715e"></span>    QFileInfo fileInfo <span style="color:#f92672">=</span> list.at(i);
-    path<span style="color:#f92672">=</span>fileInfo.filePath();
-    Show_img(path,imgW);
-}
-</code></pre></div><p>最终的功能函数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_actionPlayer_triggered()
-{
-    on_actionFull_screen_triggered();
-    QDir <span style="color:#a6e22e">picdir</span>(<span style="color:#e6db74">&#34;./tupiang&#34;</span>);
-    QStringList filters;
-    filters <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.bmp&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.jpg&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.png&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.gif&#34;</span>;
-    picdir.setNameFilters(filters);
-    list <span style="color:#f92672">=</span> picdir.entryInfoList();
-    count <span style="color:#f92672">=</span> list.count();qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;path:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> path ;
-    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;picdir:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> picdir  ;
-    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;count:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> count ;
-    Player_Timer<span style="color:#f92672">-&gt;</span>;start(<span style="color:#ae81ff">5000</span>);
-}
-</code></pre></div><h3 id="暂停和继续播放功能">暂停和继续播放功能</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 在头文件声明定时器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QTimer <span style="color:#f92672">*</span>Player_Timer;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//在定义cpp里面的构造函数里面创建定时器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Digital_photo_frame<span style="color:#f92672">::</span>Digital_photo_frame(QWidget <span style="color:#f92672">*</span>parent)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> QMainWindow(parent), ui(<span style="color:#66d9ef">new</span> Ui<span style="color:#f92672">::</span>Digital_photo_frame)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ui<span style="color:#f92672">-&gt;</span>;setupUi(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Player_Timer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QTimer(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    connect( Player_Timer, SIGNAL(timeout()), <span style="color:#66d9ef">this</span>, SLOT(Player_img()) );
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">&lt;/</span>pre<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>pre <span style="color:#66d9ef">class</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">prettyprint</span> linenums bush:cpp<span style="color:#e6db74">&#34; lang=&#34;</span>cpp<span style="color:#e6db74">&#34;&gt;//与定时器判断的函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Player_img()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>Player_img(QFileInfoList list,QString path,<span style="color:#66d9ef">int</span> i,<span style="color:#66d9ef">int</span> imgW)
+</span></span><span style="display:flex;"><span>{    <span style="color:#75715e">//打开并显示一个list中的一张图片，list为文件夹下所有图片的列表，i为列表的第（i+1）张图片，imgW为图片显示宽度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    QFileInfo fileInfo <span style="color:#f92672">=</span> list.at(i);
+</span></span><span style="display:flex;"><span>    path<span style="color:#f92672">=</span>fileInfo.filePath();
+</span></span><span style="display:flex;"><span>    Show_img(path,imgW);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>最终的功能函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_actionPlayer_triggered()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    on_actionFull_screen_triggered();
+</span></span><span style="display:flex;"><span>    QDir <span style="color:#a6e22e">picdir</span>(<span style="color:#e6db74">&#34;./tupiang&#34;</span>);
+</span></span><span style="display:flex;"><span>    QStringList filters;
+</span></span><span style="display:flex;"><span>    filters <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.bmp&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.jpg&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.png&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;*.gif&#34;</span>;
+</span></span><span style="display:flex;"><span>    picdir.setNameFilters(filters);
+</span></span><span style="display:flex;"><span>    list <span style="color:#f92672">=</span> picdir.entryInfoList();
+</span></span><span style="display:flex;"><span>    count <span style="color:#f92672">=</span> list.count();qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;path:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> path ;
+</span></span><span style="display:flex;"><span>    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;picdir:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> picdir  ;
+</span></span><span style="display:flex;"><span>    qDebug() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;count:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> count ;
+</span></span><span style="display:flex;"><span>    Player_Timer<span style="color:#f92672">-&gt;</span>;start(<span style="color:#ae81ff">5000</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="暂停和继续播放功能">暂停和继续播放功能</h3>
 <p>点击屏幕触发鼠标事件，进而实现暂停功能，其实现原理是，当点击屏幕使触发鼠标单击事件，在事件里判断定时器状态进而实现暂停和继续播放功能。以下是代码实现功能：开启鼠标事件得在构造函数里添加以下一句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>;setMouseTracking (true);
-
-</code></pre></div><p>功能实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>mousePressEvent ( QMouseEvent <span style="color:#f92672">*</span> e )<span style="color:#75715e">//鼠标单击事件响应
-</span><span style="color:#75715e"></span>{   
-    <span style="color:#66d9ef">if</span> ( Player_Timer<span style="color:#f92672">-&gt;</span>;isActive() )
-    {
-        Player_Timer<span style="color:#f92672">-&gt;</span>;stop();
-    }
-    <span style="color:#66d9ef">else</span>{Player_Timer<span style="color:#f92672">-&gt;</span>;start(<span style="color:#ae81ff">5000</span>);}
-}<span style="color:#f92672">&lt;</span>
-</code></pre></div><h3 id="手动上下一张功能">手动上下一张功能</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>;setMouseTracking (true);
+</span></span></code></pre></div><p>功能实现：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>mousePressEvent ( QMouseEvent <span style="color:#f92672">*</span> e )<span style="color:#75715e">//鼠标单击事件响应
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{   
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ( Player_Timer<span style="color:#f92672">-&gt;</span>;isActive() )
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Player_Timer<span style="color:#f92672">-&gt;</span>;stop();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{Player_Timer<span style="color:#f92672">-&gt;</span>;start(<span style="color:#ae81ff">5000</span>);}
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">&lt;</span>
+</span></span></code></pre></div><h3 id="手动上下一张功能">手动上下一张功能</h3>
 <p>代码实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_pBtn_next_clicked()<span style="color:#75715e">//下一张
-</span><span style="color:#75715e"></span>{
-    <span style="color:#66d9ef">if</span>(count<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>){
-    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
-    {
-        i<span style="color:#f92672">++</span>;
-    }
-    <span style="color:#66d9ef">else</span>
-    {
-        i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
-    }
-    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
-}
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_pBtn_last_clicked()<span style="color:#75715e">//上一张
-</span><span style="color:#75715e"></span>{
-    <span style="color:#66d9ef">if</span>(count<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>){
-    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;=</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
-    {
-        i<span style="color:#f92672">--</span>;
-    }
-    <span style="color:#66d9ef">else</span>
-    {
-        i<span style="color:#f92672">=</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
-    }
-    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
-}
-</code></pre></div><h2 id="其他">其他</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_pBtn_next_clicked()<span style="color:#75715e">//下一张
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(count<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Digital_photo_frame<span style="color:#f92672">::</span>on_pBtn_last_clicked()<span style="color:#75715e">//上一张
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(count<span style="color:#f92672">&gt;</span>;<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (i<span style="color:#f92672">&gt;</span>;<span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;</span>amp;<span style="color:#f92672">&amp;</span>amp; i<span style="color:#f92672">&lt;=</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">=</span>(count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Player_img(list,path,i,<span style="color:#ae81ff">480</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="其他">其他</h2>
 <p>当程序编译好后放到开发板上播放会发现播放不了jpg、gif等图片格式。
 解决方法：</p>
 <p>利用Qt的plugins机制解决过程：</p>
@@ -446,9 +439,9 @@ painter.drawPixmap(<span style="color:#ae81ff">0</span>,<span style="color:#ae81
 
 <h3 id="设置环境变量">设置环境变量：</h3>
 <p>在PC的终端下执行以下两条命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">xport LD_LIBRARY_PATH<span style="color:#f92672">=</span>$QTDIR/plugins/imageformats:$LD_LIBRARY_PATH
-export QT_PLUGIN_PATH<span style="color:#f92672">=</span>$QTDIR/plugins
-</code></pre></div><h3 id="修改pro文件">修改pro文件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>xport LD_LIBRARY_PATH<span style="color:#f92672">=</span>$QTDIR/plugins/imageformats:$LD_LIBRARY_PATH
+</span></span><span style="display:flex;"><span>export QT_PLUGIN_PATH<span style="color:#f92672">=</span>$QTDIR/plugins
+</span></span></code></pre></div><h3 id="修改pro文件">修改pro文件</h3>
 <p>在Qt项目的pro文件中增加 <code>QTPLUGIN += qjpeg  qgif</code></p>
 <h3 id="在开发板运行">在开发板运行：</h3>
 <p>把PC机上的图片插件库复制到开发板上并如同第二步一样设置开发板的环境变量，然后就可以运行了。</p>
@@ -500,13 +493,13 @@ export QT_PLUGIN_PATH<span style="color:#f92672">=</span>$QTDIR/plugins
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-02-15 17:14
+          2014-02-15 09:14
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -685,7 +678,7 @@ export QT_PLUGIN_PATH<span style="color:#f92672">=</span>$QTDIR/plugins
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -702,18 +695,16 @@ export QT_PLUGIN_PATH<span style="color:#f92672">=</span>$QTDIR/plugins
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

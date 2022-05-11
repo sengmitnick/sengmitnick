@@ -16,14 +16,14 @@
       <guid>https://sengmitnick.com/blog/81/</guid>
       <description>&lt;h2 id=&#34;更新&#34;&gt;更新&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://ruby.taobao.org/&#34;&gt;https://ruby.taobao.org/&lt;/a&gt; 已弃用，请使用 &lt;a href=&#34;https://gems.ruby-china.org/&#34;&gt;https://gems.ruby-china.org/&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
-$ gem sources -l
-*** CURRENT SOURCES ***
-
-https://gems.ruby-china.org
-&lt;span style=&#34;color:#75715e&#34;&gt;# 请确保只有 gems.ruby-china.org&lt;/span&gt;
-$ gem install rails
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;如何下载和安装cocoapods&#34;&gt;如何下载和安装CocoaPods？&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem sources -l
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*** CURRENT SOURCES ***
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://gems.ruby-china.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 请确保只有 gems.ruby-china.org&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install rails
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;如何下载和安装cocoapods&#34;&gt;如何下载和安装CocoaPods？&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     

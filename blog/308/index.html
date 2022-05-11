@@ -7,7 +7,7 @@
 <meta name="author" content="SengMitnick">
 <meta name="description" content="前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重&#43;充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad&#43;code-server发现效果不是很完美，于是再三选择用google pixel slate&#43;code-server。于是就有了这篇文章。
 安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
-upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &amp;#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&amp;#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1." />
+upstream wss_code {  server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server {  listen 80;  server_name 域名;  server_tokens off;  	return 301 https://$server_name$request_uri; } server {  listen 443 ssl;  ssl_certificate 公钥路径; # path to your cacert.pem  ssl_certificate_key 私钥路径; # path to your privkey.pem  server_name 域名;  	#配置共享会话缓存大小  ssl_session_cache shared:SSL:10m;  #配置会话超时时间  ssl_session_timeout 10m;   ssl_protocols TLSv1 TLSv1." />
 <meta name="keywords" content=", vscode, ide" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -27,7 +27,7 @@ upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1;
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -46,23 +46,17 @@ upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1;
 <meta itemprop="name" content="打造专属自己的CloudIDE">
 <meta itemprop="description" content="前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重&#43;充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad&#43;code-server发现效果不是很完美，于是再三选择用google pixel slate&#43;code-server。于是就有了这篇文章。
 安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
-upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1.">
-<meta itemprop="datePublished" content="2021-02-22T21:09:48+08:00" />
+upstream wss_code {  server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server {  listen 80;  server_name 域名;  server_tokens off;  	return 301 https://$server_name$request_uri; } server {  listen 443 ssl;  ssl_certificate 公钥路径; # path to your cacert.pem  ssl_certificate_key 私钥路径; # path to your privkey.pem  server_name 域名;  	#配置共享会话缓存大小  ssl_session_cache shared:SSL:10m;  #配置会话超时时间  ssl_session_timeout 10m;   ssl_protocols TLSv1 TLSv1."><meta itemprop="datePublished" content="2021-02-22T21:09:48+08:00" />
 <meta itemprop="dateModified" content="2021-02-23T22:58:02+08:00" />
-<meta itemprop="wordCount" content="200">
-<meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
-
-
-
+<meta itemprop="wordCount" content="200"><meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
 <meta itemprop="keywords" content="vscode,ide," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
 
 <meta name="twitter:title" content="打造专属自己的CloudIDE"/>
 <meta name="twitter:description" content="前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重&#43;充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad&#43;code-server发现效果不是很完美，于是再三选择用google pixel slate&#43;code-server。于是就有了这篇文章。
 安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
-upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1."/>
+upstream wss_code {  server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server {  listen 80;  server_name 域名;  server_tokens off;  	return 301 https://$server_name$request_uri; } server {  listen 443 ssl;  ssl_certificate 公钥路径; # path to your cacert.pem  ssl_certificate_key 私钥路径; # path to your privkey.pem  server_name 域名;  	#配置共享会话缓存大小  ssl_session_cache shared:SSL:10m;  #配置会话超时时间  ssl_session_timeout 10m;   ssl_protocols TLSv1 TLSv1."/>
 
 
 
@@ -70,12 +64,12 @@ upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1;
     <meta property="og:title" content="打造专属自己的CloudIDE" />
 <meta property="og:description" content="前言 最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重&#43;充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过iPad&#43;code-server发现效果不是很完美，于是再三选择用google pixel slate&#43;code-server。于是就有了这篇文章。
 安装 安装code-server curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run nginx 反向代理 使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。
-upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server { listen 80; server_name 域名; server_tokens off; return 301 https://$server_name$request_uri; } server { listen 443 ssl; ssl_certificate 公钥路径; # path to your cacert.pem ssl_certificate_key 私钥路径; # path to your privkey.pem server_name 域名; #配置共享会话缓存大小 ssl_session_cache shared:SSL:10m; #配置会话超时时间 ssl_session_timeout 10m; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;; server_tokens off; location / { proxy_pass http://wss_code; # 转发 proxy_read_timeout 1200s; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $remote_addr:$remote_port; proxy_http_version 1." />
+upstream wss_code {  server 127.0.0.1:内网穿透/code-server的端口 weight=1; } server {  listen 80;  server_name 域名;  server_tokens off;  	return 301 https://$server_name$request_uri; } server {  listen 443 ssl;  ssl_certificate 公钥路径; # path to your cacert.pem  ssl_certificate_key 私钥路径; # path to your privkey.pem  server_name 域名;  	#配置共享会话缓存大小  ssl_session_cache shared:SSL:10m;  #配置会话超时时间  ssl_session_timeout 10m;   ssl_protocols TLSv1 TLSv1." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/308/" />
-<meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
+<meta property="og:url" content="https://sengmitnick.com/blog/308/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-02-22T21:09:48+08:00" />
 <meta property="article:modified_time" content="2021-02-23T22:58:02+08:00" />
+
 
 
 
@@ -84,7 +78,7 @@ upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1;
 
 
 
-    <meta property="article:published_time" content="2021-02-22 21:09:48 &#43;0800 CST" />
+    <meta property="article:published_time" content="2021-02-22 21:09:48 &#43;0800 &#43;0800" />
 
 
 
@@ -240,92 +234,92 @@ upstream wss_code { server 127.0.0.1:内网穿透/code-server的端口 weight=1;
 <p>最近带着小白到处玩，发现小白太重了，究其原因，是因为小白的本重+充电器。遂想能否有一台较轻并且续航久的笔记本用来外出使用呢？一开始想通过<code>iPad</code>+<code>code-server</code>发现效果不是很完美，于是再三选择用<code>google pixel slate</code>+<code>code-server</code>。于是就有了这篇文章。</p>
 <h2 id="安装">安装</h2>
 <h3 id="安装code-server">安装code-server</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
-</code></pre></div><h3 id="nginx-反向代理">nginx 反向代理</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
+</span></span></code></pre></div><h3 id="nginx-反向代理">nginx 反向代理</h3>
 <p>使用公网ip访问，非常不优雅，而且无法正常使用 https。因此需要使用反向代理的方式，通过指定的域名，让反向代理服务器将对应的请求Request发送到本地对应的端口上去，这样就实现了可以直接使用域名来访问，不必再加上端口号。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">upstream wss_code <span style="color:#f92672">{</span>
-    server 127.0.0.1:内网穿透/code-server的端口 weight<span style="color:#f92672">=</span>1;
-<span style="color:#f92672">}</span>
-server <span style="color:#f92672">{</span>
-    listen       80;
-    server_name 域名;
-    server_tokens off;
-
-	  <span style="color:#66d9ef">return</span>       <span style="color:#ae81ff">301</span> https://$server_name$request_uri;
-<span style="color:#f92672">}</span>
-server <span style="color:#f92672">{</span>
-    listen <span style="color:#ae81ff">443</span> ssl;
-    ssl_certificate  公钥路径;        <span style="color:#75715e"># path to your cacert.pem</span>
-    ssl_certificate_key  私钥路径;   <span style="color:#75715e"># path to your privkey.pem</span>
-    server_name 域名;
-
-		<span style="color:#75715e">#配置共享会话缓存大小</span>
-    ssl_session_cache   shared:SSL:10m;
-    <span style="color:#75715e">#配置会话超时时间</span>
-    ssl_session_timeout 10m;
-
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers <span style="color:#e6db74">&#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>;
-    server_tokens off;
-
-    location / <span style="color:#f92672">{</span>
-        proxy_pass http://wss_code;      <span style="color:#75715e"># 转发</span>
-
-        proxy_read_timeout  1200s;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real_IP $remote_addr;
-        proxy_set_header X-Forwarded-For $remote_addr:$remote_port;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;   <span style="color:#75715e"># 升级协议头</span>
-        proxy_set_header Connection upgrade;
-    <span style="color:#f92672">}</span>
-
-<span style="color:#f92672">}</span>
-</code></pre></div><p>反向代理配置好之后，就可以直接输入域名来访问 code-server 了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>upstream wss_code <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    server 127.0.0.1:内网穿透/code-server的端口 weight<span style="color:#f92672">=</span>1;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    listen       80;
+</span></span><span style="display:flex;"><span>    server_name 域名;
+</span></span><span style="display:flex;"><span>    server_tokens off;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#66d9ef">return</span>       <span style="color:#ae81ff">301</span> https://$server_name$request_uri;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    listen <span style="color:#ae81ff">443</span> ssl;
+</span></span><span style="display:flex;"><span>    ssl_certificate  公钥路径;        <span style="color:#75715e"># path to your cacert.pem</span>
+</span></span><span style="display:flex;"><span>    ssl_certificate_key  私钥路径;   <span style="color:#75715e"># path to your privkey.pem</span>
+</span></span><span style="display:flex;"><span>    server_name 域名;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#配置共享会话缓存大小</span>
+</span></span><span style="display:flex;"><span>    ssl_session_cache   shared:SSL:10m;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#配置会话超时时间</span>
+</span></span><span style="display:flex;"><span>    ssl_session_timeout 10m;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span></span><span style="display:flex;"><span>    ssl_ciphers <span style="color:#e6db74">&#39;ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-CAMELLIA256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-SEED-SHA:DHE-RSA-CAMELLIA128-SHA:HIGH:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS&#39;</span>;
+</span></span><span style="display:flex;"><span>    server_tokens off;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        proxy_pass http://wss_code;      <span style="color:#75715e"># 转发</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        proxy_read_timeout  1200s;
+</span></span><span style="display:flex;"><span>        proxy_set_header Host $host;
+</span></span><span style="display:flex;"><span>        proxy_set_header X-Real_IP $remote_addr;
+</span></span><span style="display:flex;"><span>        proxy_set_header X-Forwarded-For $remote_addr:$remote_port;
+</span></span><span style="display:flex;"><span>        proxy_http_version 1.1;
+</span></span><span style="display:flex;"><span>        proxy_set_header Upgrade $http_upgrade;   <span style="color:#75715e"># 升级协议头</span>
+</span></span><span style="display:flex;"><span>        proxy_set_header Connection upgrade;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>反向代理配置好之后，就可以直接输入域名来访问 code-server 了。</p>
 <p>PS: CDN 配置待续……</p>
 <h3 id="安装zsh和oh-my-zsh">安装zsh和oh-my-zsh</h3>
 <p>参考<a href="https://sengmitnick.com/blog/305/">《 Ubuntu下安装zsh和oh-my-zsh 》</a></p>
 <h2 id="改造">改造</h2>
 <h3 id="获取code-server安装位置">获取code-server安装位置</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which code-server 
-cat /usr/bin/code-server
-</code></pre></div><p>输出以下结果</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env sh
-</span><span style="color:#75715e"></span>
-exec /usr/lib/code-server/bin/code-server <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>可得知<code>code-server</code>安装目录位置在<code>/usr/lib/code-server</code>下;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>which code-server 
+</span></span><span style="display:flex;"><span>cat /usr/bin/code-server
+</span></span></code></pre></div><p>输出以下结果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>exec /usr/lib/code-server/bin/code-server <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>可得知<code>code-server</code>安装目录位置在<code>/usr/lib/code-server</code>下;</p>
 <h3 id="替换code-server默认图标">替换code-server默认图标</h3>
 <blockquote>
 <p><code>code-server</code>默认的图标也太丑了，所以换掉:)</p>
 </blockquote>
 <p>替换 <code>/usr/lib/code-server/src/browser/media</code> 下图标：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ ls /usr/lib/code-server/src/browser/media 
-favicon.ico  favicon.svg  manifest.json  pwa-icon-192.png  pwa-icon-512.png  pwa-icon.png
-</code></pre></div><p>PS: 除<code>manifest.json</code>其他图片都需要替换。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  ~ ls /usr/lib/code-server/src/browser/media 
+</span></span><span style="display:flex;"><span>favicon.ico  favicon.svg  manifest.json  pwa-icon-192.png  pwa-icon-512.png  pwa-icon.png
+</span></span></code></pre></div><p>PS: 除<code>manifest.json</code>其他图片都需要替换。</p>
 <h3 id="支持powerline字体">支持Powerline字体</h3>
 <blockquote>
 <p>因为我的<code>zsh</code>用了<code>agnoster</code>字体，所以需要支持<code>Powerline</code>字体.</p>
 </blockquote>
 <p>创建目录<code>/usr/lib/code-server/src/browser/media/fonts</code>,并添加<code>MesloLGLDZRegular_for_Powerline</code>字体到该目录下;</p>
 <p>编辑<code>/usr/lib/code-server/src/browser/pages/vscode.html</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  <span style="color:#75715e">&lt;!-- Copyright (C) Microsoft Corporation. All rights reserved. --&gt;</span>
-  <span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
-  &lt;<span style="color:#f92672">html</span>&gt;
-    &lt;<span style="color:#f92672">head</span>&gt;
-      <span style="color:#75715e">&lt;!-- more --&gt;</span>
-
-      &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;coder-options&#34;</span> <span style="color:#a6e22e">data-settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{OPTIONS}}&#34;</span> /&gt;
-
-+     &lt;<span style="color:#f92672">style</span>&gt;
-<span style="color:#f92672">+</span>       @<span style="color:#66d9ef">font-face</span> {
-<span style="color:#f92672">+</span>         <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">Meslo</span> <span style="color:#f92672">LG</span> <span style="color:#f92672">L</span> <span style="color:#f92672">DZ</span> <span style="color:#f92672">for</span> <span style="color:#f92672">Powerline</span><span style="color:#f92672">;</span>
-<span style="color:#f92672">+</span>         <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span>{<span style="color:#960050;background-color:#1e0010">{CS_STATIC_BASE</span>}}<span style="color:#f92672">/</span><span style="color:#f92672">src</span><span style="color:#f92672">/</span><span style="color:#f92672">browser</span><span style="color:#f92672">/</span><span style="color:#f92672">media</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">MesloLGLDZRegular_for_Powerline</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">+</span>       <span style="color:#960050;background-color:#1e0010">}</span>
-<span style="color:#f92672">+</span>     &lt;/<span style="color:#f92672">style</span>&gt;
-    &lt;/<span style="color:#f92672">head</span>&gt;
-    <span style="color:#75715e">&lt;!-- more --&gt;</span>
-  &lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><h2 id="参考">参考</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Copyright (C) Microsoft Corporation. All rights reserved. --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- more --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;coder-options&#34;</span> <span style="color:#a6e22e">data-settings</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{OPTIONS}}&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+     &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>       @<span style="color:#66d9ef">font-face</span> {
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>         <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">Meslo</span> <span style="color:#f92672">LG</span> <span style="color:#f92672">L</span> <span style="color:#f92672">DZ</span> <span style="color:#f92672">for</span> <span style="color:#f92672">Powerline</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>         <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span>{<span style="color:#960050;background-color:#1e0010">{CS_STATIC_BASE</span>}}<span style="color:#f92672">/</span><span style="color:#f92672">src</span><span style="color:#f92672">/</span><span style="color:#f92672">browser</span><span style="color:#f92672">/</span><span style="color:#f92672">media</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">MesloLGLDZRegular_for_Powerline</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>       <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>     &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- more --&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://sspai.com/post/60456">为 iPad 部署基于 VS Code 的远程开发环境</a></li>
 <li><a href="https://blog.sumblog.cn/archives/code-server.html">在线代码编写环境——云端的vscode：code-server</a></li>
@@ -377,13 +371,13 @@ favicon.ico  favicon.svg  manifest.json  pwa-icon-192.png  pwa-icon-512.png  pwa
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2021-02-22 21:09
+          2021-02-22 13:09
         
 
          
           
             
-              (最后修改: 2021-02-23 22:58)
+              (最后修改: 2021-02-23 14:58)
             
           
         
@@ -562,7 +556,7 @@ favicon.ico  favicon.svg  manifest.json  pwa-icon-192.png  pwa-icon-512.png  pwa
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -579,18 +573,16 @@ favicon.ico  favicon.svg  manifest.json  pwa-icon-192.png  pwa-icon-512.png  pwa
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

@@ -29,7 +29,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -50,16 +50,10 @@
  Linux 的 Windows 子系统让开发人员无需虚拟机就可以直接在 Windows 上运行 Linux 环境，包括大多数命令行工具、程序和应用。
 使用 WSL 的好处是：
 与在虚拟机下使用 Linux 相比，WSL 更加流畅； WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便； 剪贴板互通，可以直接在 Windows 下其它地方复制文本内容，粘贴到 WSL；
-开启 WSL 在 控制面板&ndash;&gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。">
-<meta itemprop="datePublished" content="2021-03-11T11:26:49+08:00" />
+开启 WSL 在 控制面板&ndash;&gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。"><meta itemprop="datePublished" content="2021-03-11T11:26:49+08:00" />
 <meta itemprop="dateModified" content="2021-03-31T21:01:23+08:00" />
-<meta itemprop="wordCount" content="377">
-<meta itemprop="image" content="https://sengmitnick.com/images/cover/313.jpg">
-
-
-
+<meta itemprop="wordCount" content="377"><meta itemprop="image" content="https://sengmitnick.com/images/cover/313.jpg">
 <meta itemprop="keywords" content="" />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/images/cover/313.jpg"/>
 
@@ -80,10 +74,10 @@
 与在虚拟机下使用 Linux 相比，WSL 更加流畅； WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输更方便； 剪贴板互通，可以直接在 Windows 下其它地方复制文本内容，粘贴到 WSL；
 开启 WSL 在 控制面板&ndash;&gt;程序和功能 页面找到 Windows 功能 ，在 Windows 功能 窗口中勾选 适用于 Linux 的 Windows 子系统 功能，点击确定，并按照提示重启电脑。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/313/" />
-<meta property="og:image" content="https://sengmitnick.com/images/cover/313.jpg" />
+<meta property="og:url" content="https://sengmitnick.com/blog/313/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/313.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-03-11T11:26:49+08:00" />
 <meta property="article:modified_time" content="2021-03-31T21:01:23+08:00" />
+
 
 
 
@@ -92,7 +86,7 @@
 
 
 
-    <meta property="article:published_time" content="2021-03-11 11:26:49 &#43;0800 CST" />
+    <meta property="article:published_time" content="2021-03-11 11:26:49 &#43;0800 &#43;0800" />
 
 
 
@@ -281,19 +275,19 @@ WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输�
 <ol>
 <li>如果之前没有用过 WSL，那么首先需要安装 Windows 10 的 WSL 功能：</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+</span></span></code></pre></div><ol start="2">
 <li>安装 WSL2 功能模块：</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-</code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</span></span></code></pre></div><ol start="3">
 <li>上面的命令执行完毕后，重启电脑完成 WSL2 的安装。</li>
 </ol>
 <h3 id="安装linux内核">安装Linux内核</h3>
 <p>至此为止我们只是开启了 WSL2 的功能，但是还需要安装对应的 Linux 系统内核。 请按照官方文档中的说明下载并安装对应软件包。
 在 PowerShell 中，将 WSL 默认版本设置为2，这样之后安装的 Linux 发行版才会都安装在 WSL2 中。若没有安装上一步中的内核，此时系统会提醒你到对应的网址下载内核并安装。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wsl --set-default-version <span style="color:#ae81ff">2</span>
-</code></pre></div><h2 id="安装喜欢的-wsl-发行版">安装喜欢的 WSL 发行版</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --set-default-version <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><h2 id="安装喜欢的-wsl-发行版">安装喜欢的 WSL 发行版</h2>
 <p>在 Windows 应用商店搜索 WSL ，然后搜索栏会提示“在 Windows 上运行 Linux”，点进去，选择自己喜欢的 Linux 发行版，安装即可。这里我选择的是 Ubuntu，之后的所有内容也是基于 WSL Ubuntu 编写。</p>
 
 
@@ -323,21 +317,21 @@ WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输�
 <p>在输入用户名时，你所输入的用户是打开命令行时默认登陆的用户，建议不要使用 root 作为默认登陆用户。如果使用了 root 作为默认登陆用户也没有什么大碍，可以再创建一个普通管理员用户并设置成 WSL 默认登陆用户，具体步骤会在下文中讲解。</p>
 <h2 id="启用-root-用户">启用 root 用户</h2>
 <p>输入以下命令，为 root 用户设置密码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo passwd root
-</code></pre></div><h2 id="更改-wsl-默认登陆账号">更改 WSL 默认登陆账号</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo passwd root
+</span></span></code></pre></div><h2 id="更改-wsl-默认登陆账号">更改 WSL 默认登陆账号</h2>
 <blockquote>
 <p>此处默认子系统为 Ubuntu 20.04，如果你是其他 Linux 子系统可做参考进行类比~</p>
 </blockquote>
 <p>在开始按钮右键，在弹出菜单中打开 Power shell，执行下面命令，查看已安装的 Linux 子系统：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wslconfig /list
-</code></pre></div><p>Power shell 执行 bash 命令默认运行 Ubuntu：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wslconfig /setdefault Ubuntu-20.04
-</code></pre></div><p>Power shell 设置 WSL Ubuntu 默认登陆用户，下面命令中 username 替换成你需要设为默认登陆的用户：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ubuntu2004.exe config --default-user username
-</code></pre></div><p>PS: 这里我主要设置默认登陆用户为 root 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wslconfig /list
+</span></span></code></pre></div><p>Power shell 执行 bash 命令默认运行 Ubuntu：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wslconfig /setdefault Ubuntu-20.04
+</span></span></code></pre></div><p>Power shell 设置 WSL Ubuntu 默认登陆用户，下面命令中 username 替换成你需要设为默认登陆的用户：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ubuntu2004.exe config --default-user username
+</span></span></code></pre></div><p>PS: 这里我主要设置默认登陆用户为 root 。</p>
 <p>Power shell 执行下面命令，可查看 Ubuntu 命令的帮助信息：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ubuntu2004.exe /?
-</code></pre></div><h2 id="安装-nodejs-开发环境">安装 nodejs 开发环境</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ubuntu2004.exe /?
+</span></span></code></pre></div><h2 id="安装-nodejs-开发环境">安装 nodejs 开发环境</h2>
 <h3 id="设置代理">设置代理</h3>
 <blockquote>
 <p>该设置基于 宿主Windows 使用 V2Ray 进行代理上网。</p>
@@ -365,36 +359,36 @@ WSL 可以对 Windows 文件系统下的文件直接进行读写，文件传输�
 </ol>
 <h4 id="bash">bash</h4>
 <p>编辑<code>.bashrc</code>文件，底部添加以下代码：（参考<a href="https://wiki.imalan.cn/archives/WSL%202%20%E4%B8%AD%E9%85%8D%E7%BD%AE%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%B8%BB%E6%9C%BA%E4%BB%A3%E7%90%86/">WSL 2 中配置终端走主机代理</a>）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export hostip<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf |grep -oP <span style="color:#e6db74">&#39;(?&lt;=nameserver\ ).*&#39;</span><span style="color:#66d9ef">)</span>;
-export https_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:9999&#34;</span>;
-export http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:9999&#34;</span>;
-export all_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks5://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:1081&#34;</span>;
-</code></pre></div><h3 id="配置-git">配置 Git</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global user.name <span style="color:#e6db74">&#34;John Doe&#34;</span>
-git config --global user.email johndoe@example.com
-
-<span style="color:#75715e"># git status shows all files as modified #184</span>
-git config --global core.filemode false
-git config --global core.autocrlf true
-</code></pre></div><p>如果你 <strong>git clone</strong> 代码基于ssh，还需要执行以下命令：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Load key &#34;/root/.ssh/id_rsa&#34;: bad permissions</span>
-cd ~/.ssh
-chmod <span style="color:#ae81ff">600</span> *
-</code></pre></div><h3 id="安装-nvm">安装 NVM</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
-sh ./install.sh
-</code></pre></div><h3 id="配置环境变量">配置环境变量</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export hostip<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf |grep -oP <span style="color:#e6db74">&#39;(?&lt;=nameserver\ ).*&#39;</span><span style="color:#66d9ef">)</span>;
+</span></span><span style="display:flex;"><span>export https_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:9999&#34;</span>;
+</span></span><span style="display:flex;"><span>export http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:9999&#34;</span>;
+</span></span><span style="display:flex;"><span>export all_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks5://</span><span style="color:#e6db74">${</span>hostip<span style="color:#e6db74">}</span><span style="color:#e6db74">:1081&#34;</span>;
+</span></span></code></pre></div><h3 id="配置-git">配置 Git</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;John Doe&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email johndoe@example.com
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># git status shows all files as modified #184</span>
+</span></span><span style="display:flex;"><span>git config --global core.filemode false
+</span></span><span style="display:flex;"><span>git config --global core.autocrlf true
+</span></span></code></pre></div><p>如果你 <strong>git clone</strong> 代码基于ssh，还需要执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Load key &#34;/root/.ssh/id_rsa&#34;: bad permissions</span>
+</span></span><span style="display:flex;"><span>cd ~/.ssh
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> *
+</span></span></code></pre></div><h3 id="安装-nvm">安装 NVM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
+</span></span><span style="display:flex;"><span>sh ./install.sh
+</span></span></code></pre></div><h3 id="配置环境变量">配置环境变量</h3>
 <h4 id="bash-1">bash</h4>
 <p>编辑<code>.bashrc</code>文件，底部添加以下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
-<span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>  <span style="color:#75715e"># This loads nvm</span>
-export PATH<span style="color:#f92672">=</span>$PATH:$NVM_BIN
-</code></pre></div><h3 id="安装-npm-和-yarn">安装 npm 和 yarn</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm install --lts
-npm i -g yarn
-</code></pre></div><h2 id="参考">参考</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export NVM_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.nvm&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -s <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\.</span> <span style="color:#e6db74">&#34;</span>$NVM_DIR<span style="color:#e6db74">/nvm.sh&#34;</span>  <span style="color:#75715e"># This loads nvm</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$PATH:$NVM_BIN
+</span></span></code></pre></div><h3 id="安装-npm-和-yarn">安装 npm 和 yarn</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvm install --lts
+</span></span><span style="display:flex;"><span>npm i -g yarn
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/36482795">WSL 使用指南</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/144583887">WSL2来了！但是能正常使用并不简单</a></li>
@@ -442,13 +436,13 @@ npm i -g yarn
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2021-03-11 11:26
+          2021-03-11 03:26
         
 
          
           
             
-              (最后修改: 2021-03-31 21:01)
+              (最后修改: 2021-03-31 13:01)
             
           
         
@@ -627,7 +621,7 @@ npm i -g yarn
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -644,18 +638,16 @@ npm i -g yarn
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

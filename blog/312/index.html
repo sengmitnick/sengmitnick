@@ -31,7 +31,7 @@ dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开�
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -54,16 +54,10 @@ npm install module-name -save 自动把模块和版本号添加到dependencies�
 dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开发环境。 网上也可以查到很多资料，大概回答意思是，我们搭建一个webpack&#43;react&#43;es6的项目，像webpack babel这种负责打包编译的，我们就应该装在开发环境，像react之类的装在生产环境。 可是为什么呢？ 我们不能告诉我们这样做，我们就只这样做，我们要知之其所以然呀。 恩。我试着吧react放进了dependencies，打包出来的文件依然可以运行，并没有什么问题。 why ？？？难道文档只是建议而已吗？？？
 实质区别 如果我们只是单纯的做项目，那么我们可简单地认为生产环境和开发环境做为一种友善的提示，实质没有什么区别；但是，如果在发布npm包的时候，两种环境安装方式是有很大区别的！！！
 假设有以下两个模块： 模块A
- devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  ">
-<meta itemprop="datePublished" content="2021-03-10T16:28:36+08:00" />
+ devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  "><meta itemprop="datePublished" content="2021-03-10T16:28:36+08:00" />
 <meta itemprop="dateModified" content="2021-03-10T16:35:50+08:00" />
-<meta itemprop="wordCount" content="60">
-<meta itemprop="image" content="https://sengmitnick.com/images/cover/03.jpg">
-
-
-
+<meta itemprop="wordCount" content="60"><meta itemprop="image" content="https://sengmitnick.com/images/cover/03.jpg">
 <meta itemprop="keywords" content="" />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/images/cover/03.jpg"/>
 
@@ -88,10 +82,10 @@ dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开�
 假设有以下两个模块： 模块A
  devDependencies 模块B dependencies 模块C 模块D devDependencies 模块E dependencies 模块A npm install D的时候， 下载的模块为： D A C 当我们下载了模块D的源码，并且在根目录下npm install， 下载的模块为： A C E 所以，在发布npm包的时候，本身dependencies下的模块会作为依赖，一起被下载；devDependencies下面的模块就不会自动下载了；但对于项目而言，npm install 会自动下载devDependencies和dependencies下面的模块。  参考  specifying-dependencies-and-devdependencies-in-a-package-json-file 包应该放在devDependencies还是dependencies  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/312/" />
-<meta property="og:image" content="https://sengmitnick.com/images/cover/03.jpg" />
+<meta property="og:url" content="https://sengmitnick.com/blog/312/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/03.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-03-10T16:28:36+08:00" />
 <meta property="article:modified_time" content="2021-03-10T16:35:50+08:00" />
+
 
 
 
@@ -100,7 +94,7 @@ dependencies是什么呢？ 生产环境。 devdependencies是什么呢？ 开�
 
 
 
-    <meta property="article:published_time" content="2021-03-10 16:28:36 &#43;0800 CST" />
+    <meta property="article:published_time" content="2021-03-10 16:28:36 &#43;0800 &#43;0800" />
 
 
 
@@ -306,13 +300,13 @@ npm install D的时候， 下载的模块为：</li>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2021-03-10 16:28
+          2021-03-10 08:28
         
 
          
           
             
-              (最后修改: 2021-03-10 16:35)
+              (最后修改: 2021-03-10 08:35)
             
           
         
@@ -491,7 +485,7 @@ npm install D的时候， 下载的模块为：</li>
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -508,18 +502,16 @@ npm install D的时候， 下载的模块为：</li>
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

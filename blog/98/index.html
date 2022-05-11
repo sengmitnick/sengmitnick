@@ -28,7 +28,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -60,16 +60,10 @@
       cdm21智能家居
     
     
-  ">
-<meta itemprop="datePublished" content="2017-06-09T17:22:47+00:00" />
+  "><meta itemprop="datePublished" content="2017-06-09T17:22:47+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="277">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="277"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="微信小程序," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -112,10 +106,10 @@
     
   " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/98/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/98/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2017-06-09T17:22:47+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -283,112 +277,112 @@
 <p>该小程序使用的蓝牙模块是<a href="https://item.taobao.com/item.htm?spm=1002.81.5.1.MQqNI0&amp;id=36426439097&amp;item_id=36426439097">汇承HC-08蓝牙模块4.0</a>,配置里除了改了名字其它不变。</p>
 <h2 id="搜索蓝牙设备">搜索蓝牙设备</h2>
 <p>根据<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/bluetooth.html">微信小程序官方API</a>编程，搜索蓝牙设备选择并连接对应设备：（该代码段位于add_device.js的scan函数）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//开始搜寻附近的蓝牙外围设备
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">startBluetoothDevicesDiscovery</span>({
-  <span style="color:#75715e">//services: [&#39;cd21&#39;],
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
-    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">setData</span>({
-      <span style="color:#a6e22e">discovering</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    })
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">errMsg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;startBluetoothDevicesDiscovery:ok&#34;</span>) {
-      <span style="color:#75715e">//监听寻找到新设备的事件
-</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">onBluetoothDeviceFound</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">devices</span>) {
-        <span style="color:#75715e">//console.dir(devices)
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">list</span>
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">deviceList</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getStorageSync</span>(<span style="color:#e6db74">&#39;deviceList&#39;</span>) <span style="color:#f92672">||</span> []
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">search</span>(<span style="color:#e6db74">/CDM21/</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">deviceId</span>)
-          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isnotexist</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-          <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">deviceList</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
-            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">deviceId</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">deviceList</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">deviceId</span>) {
-              <span style="color:#a6e22e">isnotexist</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-              <span style="color:#66d9ef">break</span>;
-            }
-          }
-          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isnotexist</span>)
-            <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">devices</span>)
-        }
-        <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">setData</span>({
-          <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">list</span>
-        })
-      })
-    }
-  }
-})
-</code></pre></div><h2 id="连接设备并通讯">连接设备并通讯</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//开始搜寻附近的蓝牙外围设备
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">startBluetoothDevicesDiscovery</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//services: [&#39;cd21&#39;],
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">setData</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">discovering</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">errMsg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;startBluetoothDevicesDiscovery:ok&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//监听寻找到新设备的事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">onBluetoothDeviceFound</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">devices</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//console.dir(devices)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">list</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">deviceList</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getStorageSync</span>(<span style="color:#e6db74">&#39;deviceList&#39;</span>) <span style="color:#f92672">||</span> []
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">search</span>(<span style="color:#e6db74">/CDM21/</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">deviceId</span>)
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isnotexist</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">deviceList</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">devices</span>.<span style="color:#a6e22e">deviceId</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">deviceList</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">deviceId</span>) {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">isnotexist</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isnotexist</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">devices</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">setData</span>({
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">list</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="连接设备并通讯">连接设备并通讯</h2>
 <p>PS: 在小程序端接受到蓝牙设备的数据类型为ArrayBuffer类型，在小程序IDE打印显示为ArrayBuffer，显示不出具体数据，需要使用以下函数转成字符串(当初还一直以为没有接受到数据呢~~)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/**
-</span><span style="color:#75715e">* 把ArrayBuffer类型的数据转换成字符串
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">buf2string</span> (<span style="color:#a6e22e">buffer</span>) { <span style="color:#75715e">// buffer is an ArrayBuffer
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Uint8Array</span>(<span style="color:#a6e22e">buffer</span>), <span style="color:#a6e22e">x</span> =&gt; <span style="color:#a6e22e">x</span>);
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
-  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
-    <span style="color:#a6e22e">str</span> <span style="color:#f92672">+=</span> String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
-  };
-  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>;
-};
-</code></pre></div><p>蓝牙设备接受数据只需知道通讯特征值并启用通知，然后调用 <code>wx.onBLECharacteristicValueChange</code> 函数启用低功耗蓝牙设备特征值变化时的 <code>notify</code> 功能，当接受到蓝牙设备发送过来的数据就会调用该函数了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 连接对应的蓝牙设备并获取所有service服务和characteristic特征值
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initConnection</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">failcb</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>) {
-  <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">createBLEConnection</span>({
-    <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
-    <span style="color:#a6e22e">fail</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;连接蓝牙sb&#39;</span>, <span style="color:#a6e22e">res</span>);
-      <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">failcb</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;function&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">failcb</span>(<span style="color:#a6e22e">res</span>)
-    },
-    <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;连接蓝牙&#39;</span>, <span style="color:#a6e22e">res</span>);
-      <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getBLEDeviceServices</span>({
-        <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
-        <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">service</span>) {
-          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;获取蓝牙所有service服务&#39;</span>, <span style="color:#a6e22e">service</span>);
-          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">services</span>;
-          <span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) {
-            <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getBLEDeviceCharacteristics</span>({
-              <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
-              <span style="color:#a6e22e">serviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">uuid</span>,
-              <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">characteristics</span>) {
-                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-获取蓝牙characteristic特征值&#39;</span>, <span style="color:#a6e22e">characteristics</span>);
-                <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">characteristics</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">characteristics</span>.<span style="color:#a6e22e">characteristics</span>;
-                <span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">services</span>;
-                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">==</span> (<span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)) {
-                  <span style="color:#a6e22e">select_characteristics</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">services</span>);
-                };
-              },
-            });
-          });
-        },
-      });
-    },
-  });
-};
-
-<span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 寻找需要的通讯特征值并启用通知
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">select_characteristics</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">services</span>) {
-  <span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) {
-    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">characteristics</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">values</span>, <span style="color:#a6e22e">indexs</span>, <span style="color:#a6e22e">arrays</span>) {
-      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">uuid</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">characteristicId</span>) {
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;找到通讯特征值&#39;</span>, <span style="color:#a6e22e">values</span>);
-        <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">notifyBLECharacteristicValueChange</span>({
-          <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
-          <span style="color:#a6e22e">serviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">uuid</span>,
-          <span style="color:#a6e22e">characteristicId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">uuid</span>,
-          <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-          <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;启用notify&#39;</span>, <span style="color:#a6e22e">res</span>);
-          },
-        });
-      };
-    });
-  });
-};
-</code></pre></div><h2 id="总结">总结</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">* 把ArrayBuffer类型的数据转换成字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">buf2string</span> (<span style="color:#a6e22e">buffer</span>) { <span style="color:#75715e">// buffer is an ArrayBuffer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Uint8Array</span>(<span style="color:#a6e22e">buffer</span>), <span style="color:#a6e22e">x</span> =&gt; <span style="color:#a6e22e">x</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">str</span> <span style="color:#f92672">+=</span> String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>蓝牙设备接受数据只需知道通讯特征值并启用通知，然后调用 <code>wx.onBLECharacteristicValueChange</code> 函数启用低功耗蓝牙设备特征值变化时的 <code>notify</code> 功能，当接受到蓝牙设备发送过来的数据就会调用该函数了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 连接对应的蓝牙设备并获取所有service服务和characteristic特征值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initConnection</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">failcb</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">createBLEConnection</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fail</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;连接蓝牙sb&#39;</span>, <span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">failcb</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;function&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">failcb</span>(<span style="color:#a6e22e">res</span>)
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;连接蓝牙&#39;</span>, <span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getBLEDeviceServices</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">service</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;获取蓝牙所有service服务&#39;</span>, <span style="color:#a6e22e">service</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">services</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">getBLEDeviceCharacteristics</span>({
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">serviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">uuid</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">characteristics</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-获取蓝牙characteristic特征值&#39;</span>, <span style="color:#a6e22e">characteristics</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">characteristics</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">characteristics</span>.<span style="color:#a6e22e">characteristics</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">services</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">==</span> (<span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)) {
+</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">select_characteristics</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">services</span>);
+</span></span><span style="display:flex;"><span>                };
+</span></span><span style="display:flex;"><span>              },
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>          });
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 寻找需要的通讯特征值并启用通知
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">select_characteristics</span>(<span style="color:#a6e22e">deviceId</span>, <span style="color:#a6e22e">services</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">characteristics</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">values</span>, <span style="color:#a6e22e">indexs</span>, <span style="color:#a6e22e">arrays</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">uuid</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">characteristicId</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;找到通讯特征值&#39;</span>, <span style="color:#a6e22e">values</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">notifyBLECharacteristicValueChange</span>({
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">deviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deviceId</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">serviceId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">uuid</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">characteristicId</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">values</span>.<span style="color:#a6e22e">uuid</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;启用notify&#39;</span>, <span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="总结">总结</h2>
 <p>微信小程序的蓝牙通讯基本过程就如此了。。。</p>
 <p><strong>END……</strong></p>
       </div>
@@ -435,13 +429,13 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2017-06-10 01:22
+          2017-06-09 17:22
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -620,7 +614,7 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -637,18 +631,16 @@
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

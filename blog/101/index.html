@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -47,16 +47,10 @@
 <meta itemprop="description" content="
 利用通过leancloud做后台，接受微信小程序发送过来的form_id，接受并处理后向微信模板信息API发送让用户获取对应模板消息
 
-首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。">
-<meta itemprop="datePublished" content="2017-07-02T16:18:15+00:00" />
+首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。"><meta itemprop="datePublished" content="2017-07-02T16:18:15+00:00" />
 <meta itemprop="dateModified" content="2021-02-23T22:57:38+08:00" />
-<meta itemprop="wordCount" content="367">
-<meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
-
-
-
+<meta itemprop="wordCount" content="367"><meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
 <meta itemprop="keywords" content="微信小程序,leancloud,模板消息," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
 
@@ -75,10 +69,10 @@
 
 首先，所有操作根据官方文档https://mp.weixin.qq.com/debug/wxadoc/dev/api/notice.html进行，本文章只介绍如何使用leancloud获取 access_token 和通过LeanEngine发送模板消息，而如何创建模板及获取模板id请查看官方文档，这里不进行详述。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/101/" />
-<meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" />
+<meta property="og:url" content="https://sengmitnick.com/blog/101/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2017-07-02T16:18:15+00:00" />
 <meta property="article:modified_time" content="2021-02-23T22:57:38+08:00" />
+
 
 
 
@@ -283,52 +277,52 @@
   </figure>
 
 创建云函数getAccessToken用来获取 <code>access_token</code> 并把获取的 <code>access_token</code> 存储在 <code>AccessToken</code> 里面;以下是获取 <code>access_token</code> 的云函数代码实现:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">https</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;https&#39;</span>);
-<span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;getAccessToken&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPID</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;secret=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPSECRET</span>;
-
-  <span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>, (<span style="color:#a6e22e">res</span>) =&gt; {
-    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">statusCode</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>;
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;content-type&#39;</span>];
-
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">error</span>;
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">!==</span> <span style="color:#ae81ff">200</span>) {
-      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;请求失败。\n&#39;</span> <span style="color:#f92672">+</span>
-        <span style="color:#e6db74">&#39;状态码: ${statusCode}&#39;</span>);
-    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#e6db74">/^application\/json/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">contentType</span>)) {
-      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;无效的 content-type.\n&#39;</span> <span style="color:#f92672">+</span>
-        <span style="color:#e6db74">&#39;期望 application/json 但获取的是 ${contentType}&#39;</span>);
-    }
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
-      <span style="color:#75715e">// 消耗响应数据以释放内存
-</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">resume</span>();
-      <span style="color:#66d9ef">return</span>;
-    }
-
-    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setEncoding</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>);
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
-    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, (<span style="color:#a6e22e">chunk</span>) =&gt; { <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">chunk</span>; });
-    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, () =&gt; {
-      <span style="color:#66d9ef">try</span> {
-        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parsedData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">rawData</span>);
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">parsedData</span>);
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
-        <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
-          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#a6e22e">rawData</span>);
-          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">save</span>();
-        }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">e</span>) {
-          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-        });
-        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
-          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-        }
-    });
-  }).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`错误: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-  });
-})
-</code></pre></div><p>PS： 要使该云函数生效请使用命令 <code>lean deploy</code> 进行部署。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">https</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;https&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;getAccessToken&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPID</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&amp;secret=&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">APPSECRET</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>, (<span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">statusCode</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">headers</span>[<span style="color:#e6db74">&#39;content-type&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">error</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">!==</span> <span style="color:#ae81ff">200</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;请求失败。\n&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;状态码: ${statusCode}&#39;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#e6db74">/^application\/json/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">contentType</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;无效的 content-type.\n&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;期望 application/json 但获取的是 ${contentType}&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 消耗响应数据以释放内存
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">resume</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setEncoding</span>(<span style="color:#e6db74">&#39;utf8&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, (<span style="color:#a6e22e">chunk</span>) =&gt; { <span style="color:#a6e22e">rawData</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">chunk</span>; });
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parsedData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">rawData</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">parsedData</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#a6e22e">rawData</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">save</span>();
+</span></span><span style="display:flex;"><span>        }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`错误: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>PS： 要使该云函数生效请使用命令 <code>lean deploy</code> 进行部署。</p>
 <h2 id="设置定时器定时更新-access_token">设置定时器定时更新 <code>access_token</code></h2>
 <p>我们获取的 <code>access_token</code> 是有时间限制的，所以我们需要设置一个定时器定时更新 <code>access_token</code> (创建定时器可以参考《<a href="https://leancloud.cn/docs/leanengine_cloudfunction_guide-node.html#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1">定时任务</a>》)，成功后如下：</p>
 
@@ -346,92 +340,92 @@
 <h2 id="发送模板消息">发送模板消息</h2>
 <h3 id="创建云函数postnotification">创建云函数postNotification</h3>
 <p>首先创建一个云函数对微信小程序发送过来的数据进行处理然后再发给微信服务器，代码实现如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">requestjson</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request-json&#39;</span>);
-<span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">params</span>
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">currentUser</span>;
-  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">user</span>) {
-    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;用户未登录&#39;</span>};
-  }
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;authData&#39;</span>);
-  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>) {
-    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;当前用户不是小程序用户&#39;</span>};
-  }
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">params</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
-    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no params&#39;</span>};
-  }<span style="color:#66d9ef">else</span>{
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> {
-      <span style="color:#e6db74">&#34;touser&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>.<span style="color:#a6e22e">openid</span>,  
-      <span style="color:#e6db74">&#34;template_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">template_id</span>,         
-      <span style="color:#e6db74">&#34;form_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">form_id</span>,
-      <span style="color:#e6db74">&#34;page&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">page</span>,
-      <span style="color:#e6db74">&#34;data&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">data</span>,
-      <span style="color:#e6db74">&#34;emphasis_keyword&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">emphasis_keyword</span>
-    };
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">contents</span>)
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
-    <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
-
-      <span style="color:#66d9ef">try</span> {
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;value&#39;</span>))
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/cgi-bin/message/wxopen/template/send?access_token=&#34;</span>;
-        <span style="color:#a6e22e">url</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">access_token</span>;
-        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">requestjson</span>.<span style="color:#a6e22e">createClient</span>(<span style="color:#e6db74">&#39;https://api.weixin.qq.com&#39;</span>);
-
-        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">contents</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">body</span>) {
-          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">statusCode</span>,<span style="color:#a6e22e">body</span>);
-        });
-
-      } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>;
-      }
-
-    }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
-      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
-      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
-    });
-    };
-
-});
-</code></pre></div><h3 id="在微信小程序上调用云函数postnotification">在微信小程序上调用云函数postNotification</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">requestjson</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request-json&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">define</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">params</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">currentUser</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">user</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;用户未登录&#39;</span>};
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;authData&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;当前用户不是小程序用户&#39;</span>};
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">params</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;error&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no params&#39;</span>};
+</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;touser&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">authData</span>.<span style="color:#a6e22e">lc_weapp</span>.<span style="color:#a6e22e">openid</span>,  
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;template_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">template_id</span>,         
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;form_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">form_id</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;page&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">page</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;data&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">data</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;emphasis_keyword&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">emphasis_keyword</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">contents</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">AV</span>.Object.<span style="color:#a6e22e">createWithoutData</span>(<span style="color:#e6db74">&#39;Global&#39;</span>, <span style="color:#e6db74">&#39;5957121e128fe100582b6461&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">fetch</span>().<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;value&#39;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/cgi-bin/message/wxopen/template/send?access_token=&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">url</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">access_token</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">requestjson</span>.<span style="color:#a6e22e">createClient</span>(<span style="color:#e6db74">&#39;https://api.weixin.qq.com&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">contents</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">body</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">statusCode</span>,<span style="color:#a6e22e">body</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="在微信小程序上调用云函数postnotification">在微信小程序上调用云函数postNotification</h3>
 <p>按照官方文档做好相应界面后，在表单提交事件formSubmit里做以下处理即可，以下是代码实现：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">formSubmit</span>(<span style="color:#a6e22e">event</span>){
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">value</span>
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">formId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">formId</span>
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">that</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paramsJson</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">template_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;9ggg9If6Edsk-xjKw1ek6Nd2XUwMrWKXevYB5QLgRIM&#39;</span>,
-    <span style="color:#a6e22e">form_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">formId</span>,
-    <span style="color:#a6e22e">page</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
-    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;keyword1&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//用户名
-</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">globalData</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userInfo</span>.<span style="color:#a6e22e">nickName</span>,
-        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
-      },
-      <span style="color:#e6db74">&#34;keyword2&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//手机号
-</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">phone</span>,
-        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
-      },
-      <span style="color:#e6db74">&#34;keyword3&#34;</span><span style="color:#f92672">:</span> {
-        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;绑定手机号成功&#34;</span>,
-        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
-      },
-      <span style="color:#e6db74">&#34;keyword4&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//绑定时间
-</span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleString</span>(),
-        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
-      }
-    },
-    <span style="color:#a6e22e">emphasis_keyword</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
-  };
-  <span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">run</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#a6e22e">paramsJson</span>).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
-    <span style="color:#75715e">// 调用成功，得到成功的应答 data
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>)
-  }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>)
-  });
-},
-</code></pre></div><h2 id="后记">后记</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">formSubmit</span>(<span style="color:#a6e22e">event</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">formId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">detail</span>.<span style="color:#a6e22e">formId</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">that</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">paramsJson</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">template_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;9ggg9If6Edsk-xjKw1ek6Nd2XUwMrWKXevYB5QLgRIM&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">form_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">formId</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">page</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;keyword1&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//用户名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">globalData</span>.<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userInfo</span>.<span style="color:#a6e22e">nickName</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;keyword2&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//手机号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">phone</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;keyword3&#34;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;绑定手机号成功&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;keyword4&#34;</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//绑定时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toLocaleString</span>(),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#173177&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">emphasis_keyword</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">AV</span>.<span style="color:#a6e22e">Cloud</span>.<span style="color:#a6e22e">run</span>(<span style="color:#e6db74">&#39;postNotification&#39;</span>, <span style="color:#a6e22e">paramsJson</span>).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 调用成功，得到成功的应答 data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>  }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="后记">后记</h2>
 <p>目前的代码只实现了当你在小程序里点击表单提交按键后，相应微信号立刻收到服务通知，下一篇将会讲述规定时间发送模板消息~</p>
 <h2 id="源码">源码</h2>
 <p><a href="https://github.com/smk17/FightTravel">FightTravel小程序</a></p>
@@ -484,13 +478,13 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2017-07-03 00:18
+          2017-07-02 16:18
         
 
          
           
             
-              (最后修改: 2021-02-23 22:57)
+              (最后修改: 2021-02-23 14:57)
             
           
         
@@ -669,7 +663,7 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -686,18 +680,16 @@
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

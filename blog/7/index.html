@@ -25,7 +25,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -44,16 +44,10 @@
 <meta itemprop="name" content="Qt下使用QtSql连接sqlite3所遇到的问题">
 <meta itemprop="description" content="
     开发环境：Qt Creator 2.8.1Based on Qt 5.0.2 (GCC 4.8.2, 32 bit)
-">
-<meta itemprop="datePublished" content="2014-02-25T09:33:57+00:00" />
+"><meta itemprop="datePublished" content="2014-02-25T09:33:57+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="90">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="90"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="嵌入式,龙芯培训,QT,sqlite3," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -70,10 +64,10 @@
     开发环境：Qt Creator 2.8.1Based on Qt 5.0.2 (GCC 4.8.2, 32 bit)
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/7/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/7/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-02-25T09:33:57+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -207,28 +201,28 @@
     开发环境：Qt Creator 2.8.1Based on Qt 5.0.2 (GCC 4.8.2, 32 bit)
 </div>
 <p>问题1：编译无错误，在执行时终端出现以下字母：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">QSqlDatabasePrivate::addDatabase: duplicate connection name <span style="color:#e6db74">&#39;qt_sql_default_connection&#39;</span>, old connection removed
-</code></pre></div><p>问题所在代码段：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">QSqlDatabase db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>addDatabase(<span style="color:#e6db74">&#34;QSQLITE&#34;</span>);
-</code></pre></div><p>解决方法：把问题所在代码段改为以下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">QSqlDatabase db;
-<span style="color:#66d9ef">if</span>(QSqlDatabase<span style="color:#f92672">::</span>contains(<span style="color:#e6db74">&#34;GBond&#34;</span>))
-db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>database(<span style="color:#e6db74">&#34;GBond&#34;</span>);
-<span style="color:#66d9ef">else</span>
-db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>addDatabase(<span style="color:#e6db74">&#34;QSQLITE&#34;</span>, <span style="color:#e6db74">&#34;GBond&#34;</span>);
-</code></pre></div><p>这样一来，以上问题就解决了。不过，再次执行时终端出现以下字母：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">QSqlQuery::exec: database not open
-QSqlQuery::exec: database not open
-QSqlQuery::exec: database not open
-</code></pre></div><p>问题所在代码段：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">QSqlQuery query;
-QString sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO contact VALUES(1 , &#39;smk&#39; , 17 , &#39;friend&#39;, &#39;18998416978&#39; );&#34;</span> ;
-query.exec(sql);
-</code></pre></div><p>解决方法：把问题所在代码段改为以下代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">QSqlQuery <span style="color:#a6e22e">query</span>(db);
-QString sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO contact VALUES(1 , &#39;smk&#39; , 17 , &#39;friend&#39;, &#39;18998416978&#39; );&#34;</span> ;
-query.exec(sql);
-</code></pre></div><p><strong>END……</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>QSqlDatabasePrivate::addDatabase: duplicate connection name <span style="color:#e6db74">&#39;qt_sql_default_connection&#39;</span>, old connection removed
+</span></span></code></pre></div><p>问题所在代码段：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>QSqlDatabase db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>addDatabase(<span style="color:#e6db74">&#34;QSQLITE&#34;</span>);
+</span></span></code></pre></div><p>解决方法：把问题所在代码段改为以下代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>QSqlDatabase db;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(QSqlDatabase<span style="color:#f92672">::</span>contains(<span style="color:#e6db74">&#34;GBond&#34;</span>))
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>database(<span style="color:#e6db74">&#34;GBond&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> QSqlDatabase<span style="color:#f92672">::</span>addDatabase(<span style="color:#e6db74">&#34;QSQLITE&#34;</span>, <span style="color:#e6db74">&#34;GBond&#34;</span>);
+</span></span></code></pre></div><p>这样一来，以上问题就解决了。不过，再次执行时终端出现以下字母：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>QSqlQuery::exec: database not open
+</span></span><span style="display:flex;"><span>QSqlQuery::exec: database not open
+</span></span><span style="display:flex;"><span>QSqlQuery::exec: database not open
+</span></span></code></pre></div><p>问题所在代码段：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>QSqlQuery query;
+</span></span><span style="display:flex;"><span>QString sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO contact VALUES(1 , &#39;smk&#39; , 17 , &#39;friend&#39;, &#39;18998416978&#39; );&#34;</span> ;
+</span></span><span style="display:flex;"><span>query.exec(sql);
+</span></span></code></pre></div><p>解决方法：把问题所在代码段改为以下代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>QSqlQuery <span style="color:#a6e22e">query</span>(db);
+</span></span><span style="display:flex;"><span>QString sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO contact VALUES(1 , &#39;smk&#39; , 17 , &#39;friend&#39;, &#39;18998416978&#39; );&#34;</span> ;
+</span></span><span style="display:flex;"><span>query.exec(sql);
+</span></span></code></pre></div><p><strong>END……</strong></p>
       </div>
     </article>
 
@@ -276,13 +270,13 @@ query.exec(sql);
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-02-25 17:33
+          2014-02-25 09:33
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -461,7 +455,7 @@ query.exec(sql);
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -478,18 +472,16 @@ query.exec(sql);
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

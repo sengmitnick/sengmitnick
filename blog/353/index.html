@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="SengMitnick">
+<meta name="description" content="不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～
+ 回顾往昔 时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～
+ 从创业到打工的身份转变。 连续换了两次房子，最后一次租金暴涨。 给公司做了 组件库 🥇 参加了 OpenHarmony组件开发大赛 并获得了一等奖。 🥈 参加了 OpenHarmony有奖征文 并获得了二等奖。 参加了 HDC.Together，并入坑鸿蒙体系，买了一系列装备。 搭建 Taro 多端开发体系，打造了一系列轮子。 初入股市，心态尚可，收益达10%以上。 出游：  凤凰古城 张家界天门山 丽江古城 泸沽湖    业余正业 第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。
+在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 mccree.js。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。
+然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。
+高租金的房子还是有点用的，起码在参加了 OpenHarmony组件开发大赛 后，工作基本是在新房子完成的。
+搬砖主业 新的工作虽然是打工，但是做的也是我想做的，其实 mccree.js 一直拖也有这方面的缘故吧（反正能赖就赖）。
+大半年时间开发了第一个版本的 平行线组件库。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。
+在11月份，和老大多次讨论，开发了第二个版本的 平行线组件库。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的工具。
+目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。
+行万里路 通过 特邀嘉宾 参加了2021年的HDC.Together，涨了一番见识。
+圣诞节🎄参加了 Gitee Day 深圳站，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～
+五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://sengmitnick.com/blog/353/" />
+
+
+    <title>
+        
+            转变，是为了更好的前进｜2021年度总结 :: Seng Mitnick 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sengmitnick.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sengmitnick.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sengmitnick.com/favicon-16x16.png">
+    <link rel="manifest" href="https://sengmitnick.com/site.webmanifest">
+    <link rel="mask-icon" href="https://sengmitnick.com/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://sengmitnick.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+
+<meta itemprop="name" content="转变，是为了更好的前进｜2021年度总结">
+<meta itemprop="description" content="不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～
+ 回顾往昔 时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～
+ 从创业到打工的身份转变。 连续换了两次房子，最后一次租金暴涨。 给公司做了 组件库 🥇 参加了 OpenHarmony组件开发大赛 并获得了一等奖。 🥈 参加了 OpenHarmony有奖征文 并获得了二等奖。 参加了 HDC.Together，并入坑鸿蒙体系，买了一系列装备。 搭建 Taro 多端开发体系，打造了一系列轮子。 初入股市，心态尚可，收益达10%以上。 出游：  凤凰古城 张家界天门山 丽江古城 泸沽湖    业余正业 第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。
+在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 mccree.js。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。
+然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。
+高租金的房子还是有点用的，起码在参加了 OpenHarmony组件开发大赛 后，工作基本是在新房子完成的。
+搬砖主业 新的工作虽然是打工，但是做的也是我想做的，其实 mccree.js 一直拖也有这方面的缘故吧（反正能赖就赖）。
+大半年时间开发了第一个版本的 平行线组件库。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。
+在11月份，和老大多次讨论，开发了第二个版本的 平行线组件库。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的工具。
+目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。
+行万里路 通过 特邀嘉宾 参加了2021年的HDC.Together，涨了一番见识。
+圣诞节🎄参加了 Gitee Day 深圳站，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～
+五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～"><meta itemprop="datePublished" content="2021-12-29T15:24:31+08:00" />
+<meta itemprop="dateModified" content="2022-04-20T21:00:03+08:00" />
+<meta itemprop="wordCount" content="84"><meta itemprop="image" content="https://sengmitnick.com/images/cover/02.jpg">
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sengmitnick.com/images/cover/02.jpg"/>
+
+<meta name="twitter:title" content="转变，是为了更好的前进｜2021年度总结"/>
+<meta name="twitter:description" content="不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～
+ 回顾往昔 时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～
+ 从创业到打工的身份转变。 连续换了两次房子，最后一次租金暴涨。 给公司做了 组件库 🥇 参加了 OpenHarmony组件开发大赛 并获得了一等奖。 🥈 参加了 OpenHarmony有奖征文 并获得了二等奖。 参加了 HDC.Together，并入坑鸿蒙体系，买了一系列装备。 搭建 Taro 多端开发体系，打造了一系列轮子。 初入股市，心态尚可，收益达10%以上。 出游：  凤凰古城 张家界天门山 丽江古城 泸沽湖    业余正业 第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。
+在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 mccree.js。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。
+然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。
+高租金的房子还是有点用的，起码在参加了 OpenHarmony组件开发大赛 后，工作基本是在新房子完成的。
+搬砖主业 新的工作虽然是打工，但是做的也是我想做的，其实 mccree.js 一直拖也有这方面的缘故吧（反正能赖就赖）。
+大半年时间开发了第一个版本的 平行线组件库。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。
+在11月份，和老大多次讨论，开发了第二个版本的 平行线组件库。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的工具。
+目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。
+行万里路 通过 特邀嘉宾 参加了2021年的HDC.Together，涨了一番见识。
+圣诞节🎄参加了 Gitee Day 深圳站，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～
+五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～"/>
+
+
+
+
+    <meta property="og:title" content="转变，是为了更好的前进｜2021年度总结" />
+<meta property="og:description" content="不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～
+ 回顾往昔 时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～
+ 从创业到打工的身份转变。 连续换了两次房子，最后一次租金暴涨。 给公司做了 组件库 🥇 参加了 OpenHarmony组件开发大赛 并获得了一等奖。 🥈 参加了 OpenHarmony有奖征文 并获得了二等奖。 参加了 HDC.Together，并入坑鸿蒙体系，买了一系列装备。 搭建 Taro 多端开发体系，打造了一系列轮子。 初入股市，心态尚可，收益达10%以上。 出游：  凤凰古城 张家界天门山 丽江古城 泸沽湖    业余正业 第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。
+在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 mccree.js。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。
+然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。
+高租金的房子还是有点用的，起码在参加了 OpenHarmony组件开发大赛 后，工作基本是在新房子完成的。
+搬砖主业 新的工作虽然是打工，但是做的也是我想做的，其实 mccree.js 一直拖也有这方面的缘故吧（反正能赖就赖）。
+大半年时间开发了第一个版本的 平行线组件库。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。
+在11月份，和老大多次讨论，开发了第二个版本的 平行线组件库。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的工具。
+目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。
+行万里路 通过 特邀嘉宾 参加了2021年的HDC.Together，涨了一番见识。
+圣诞节🎄参加了 Gitee Day 深圳站，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～
+五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sengmitnick.com/blog/353/" /><meta property="og:image" content="https://sengmitnick.com/images/cover/02.jpg" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-12-29T15:24:31+08:00" />
+<meta property="article:modified_time" content="2022-04-20T21:00:03+08:00" />
+
+
+
+
+
+    <meta property="article:section" content="technology" />
+
+
+
+    <meta property="article:published_time" content="2021-12-29 15:24:31 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://sengmitnick.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        1分钟
+
+        
+      </p>
+    </div>
+
+    
+    <style>
+     
+    #backtop {
+        color: #b3b1b1;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 64px;
+        height: 64px;
+        z-index: 999998;
+
+        cursor: pointer;
+    }
+</style>
+<div id="backtop">
+    <svg t="1612884291298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1410" width="64" height="64">
+        <path
+            d="M395.264 304.128c-70.656 92.16-145.408 194.56-189.44 304.128-5.12 12.288 6.144 23.552 18.432 20.48L358.4 590.848M628.736 304.128c70.656 92.16 145.408 194.56 189.44 304.128 5.12 12.288-6.144 23.552-18.432 20.48L665.6 590.848"
+            fill="#F79839" p-id="1411"></path>
+        <path
+            d="M676.864 711.68H345.088C318.464 624.64 312.32 532.48 331.776 443.392c22.528-101.376 70.656-197.632 140.288-277.504l7.168-8.192c16.384-19.456 46.08-19.456 62.464 0l7.168 8.192c70.656 79.872 117.76 176.128 140.288 277.504 20.48 89.088 14.336 181.248-12.288 268.288z"
+            fill="#004FFF" p-id="1412"></path>
+        <path
+            d="M467.968 675.84c-51.2 0-95.232-37.888-102.4-88.064-8.192-60.416-6.144-120.832 6.144-180.224 21.504-95.232 64.512-185.344 126.976-262.144-8.192 2.048-15.36 6.144-20.48 12.288l-7.168 8.192C402.432 245.76 354.304 340.992 331.776 443.392 312.32 532.48 318.464 624.64 345.088 711.68h331.776c4.096-12.288 7.168-23.552 10.24-35.84H467.968z"
+            fill="#1D6FFF" p-id="1413"></path>
+        <path d="M381.952 721.92h236.544V778.24H381.952z" fill="#004FFF" p-id="1414"></path>
+        <path d="M600.064 786.432H401.408l99.328 94.208z" fill="#FBB03B" p-id="1415"></path>
+        <path d="M430.08 427.008a80.896 79.872 0 1 0 161.792 0 80.896 79.872 0 1 0-161.792 0Z" fill="#E9F3FB"
+            p-id="1416"></path>
+    </svg>
+</div>
+<script>
+    var timer = null;
+    backtop.onclick = function () {
+        cancelAnimationFrame(timer);
+        
+        var startTime = +new Date();
+        
+        var b = document.body.scrollTop || document.documentElement.scrollTop;
+        var d = 500;
+        var c = b;
+        timer = requestAnimationFrame(function func() {
+            var t = d - Math.max(0, startTime - (+new Date()) + d);
+            document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+            timer = requestAnimationFrame(func);
+            if (t == d) {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+
+</script>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://sengmitnick.com/blog/353/">转变，是为了更好的前进｜2021年度总结</a>
+      </h1>
+
+      
+
+      
+        <figure class="post-cover">
+          <img src="https://sengmitnick.com/images/cover/02.jpg" alt="转变，是为了更好的前进｜2021年度总结" />
+          
+          
+        </figure>
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">目录</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#回顾往昔">回顾往昔</a>
+      <ul>
+        <li><a href="#业余正业">业余正业</a></li>
+        <li><a href="#搬砖主业">搬砖主业</a></li>
+        <li><a href="#行万里路">行万里路</a></li>
+        <li><a href="#复盘">复盘</a></li>
+      </ul>
+    </li>
+    <li><a href="#展望未来">展望未来</a></li>
+    <li><a href="#结尾">结尾</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      <div class="post-content">
+        <blockquote>
+<p>不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～</p>
+</blockquote>
+<h2 id="回顾往昔">回顾往昔</h2>
+<p>时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～</p>
+<ul>
+<li>从创业到打工的身份转变。</li>
+<li>连续换了两次房子，最后一次租金暴涨。</li>
+<li>给公司做了 <a href="https://pxx-design.gitee.io/">组件库</a></li>
+<li>🥇 参加了 <a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a> 并获得了一等奖。</li>
+<li>🥈 参加了 <a href="https://gitee.com/gitee-community/OHZW210809">OpenHarmony有奖征文</a> 并获得了二等奖。</li>
+<li>参加了 <a href="https://developer.huawei.com/consumer/cn/hdc/hdc2021/index.html">HDC.Together</a>，并入坑鸿蒙体系，买了一系列装备。</li>
+<li>搭建 Taro 多端开发体系，打造了一系列轮子。</li>
+<li>初入股市，心态尚可，收益达10%以上。</li>
+<li>出游：
+<ul>
+<li>凤凰古城</li>
+<li>张家界天门山</li>
+<li>丽江古城</li>
+<li>泸沽湖</li>
+</ul>
+</li>
+</ul>
+<h3 id="业余正业">业余正业</h3>
+<p>第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。</p>
+<p>在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 <code>mccree.js</code>。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。</p>
+<p>然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。</p>
+<p>高租金的房子还是有点用的，起码在参加了 <a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a> 后，工作基本是在新房子完成的。</p>
+<h3 id="搬砖主业">搬砖主业</h3>
+<p>新的工作虽然是打工，但是做的也是我想做的，其实 <code>mccree.js</code> 一直拖也有这方面的缘故吧（反正能赖就赖）。</p>
+<p>大半年时间开发了第一个版本的 <a href="https://pxx-design.gitee.io/">平行线组件库</a>。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。</p>
+<p>在11月份，和老大多次讨论，开发了第二个版本的 <a href="https://pxx-design.gitee.io/next">平行线组件库</a>。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的<a href="https://pxx-design.gitee.io/next/#/guide/taro_frame">工具</a>。</p>
+<p>目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。</p>
+<h3 id="行万里路">行万里路</h3>
+<p>通过 <code>特邀嘉宾</code> 参加了2021年的<a href="https://developer.huawei.com/consumer/cn/hdc/hdc2021/index.html">HDC.Together</a>，涨了一番见识。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-1f425f5ae9d61978ada4ea7647340f8c.jpg" alt="Image"></p>
+<p>圣诞节🎄参加了 <a href="https://www.oschina.net/event/2324617">Gitee Day 深圳站</a>，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～</p>
+<p><img src="https://pic4.zhimg.com/80/v2-c101ea9373771f4a5748726d7787f69b.jpg" alt="Image"></p>
+<p>五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～</p>
+<h3 id="复盘">复盘</h3>
+<p>从合伙人到打工人，没那么忙碌，也缺乏了锻炼和高质量的团队协作。又把我打回了原型，但是这只是暂时的，短暂的不适，是为了以后更好的前进。就算我只是一介凡人，不够自律，不够聪明，甚至不过尔尔。甚至计划总是被自己的懒惰打断，那又如何。<code>Was mich nicht umbringt, macht mich stärker.</code></p>
+<h2 id="展望未来">展望未来</h2>
+<p>新的一年，不管能不能做到，先把计划定了。</p>
+<ul>
+<li><code>mccree.js</code> 正式启航。</li>
+<li>参赛 <a href="https://developer.huawei.com/consumer/cn/activity/digixActivity/digixdetail/301633681676946535?ha_source=harmony&amp;ha_sourceId=89000017">HarmonyOS开发者创新大赛</a> 。</li>
+<li><a href="https://www.yuque.com/smk17/weekly">小胜周刊</a>，自己的周报。</li>
+<li>每两到三天运动一次，一次半个小时以上。</li>
+<li>每天听一本书。</li>
+</ul>
+<h2 id="结尾">结尾</h2>
+<p>㊗️大家在新的一年万事如意，升职加薪。哇哈哈哈～～～</p>
+<p>2022启航～</p>
+
+      </div>
+    </article>
+
+
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://sengmitnick.com/categories/technology/">technology</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        84字
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-12-29 07:24
+        
+
+         
+          
+            
+              (最后修改: 2022-04-20 13:00)
+            
+          
+        
+      </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/sengmitnick/sengmitnick/commit/4e98c8f68613106033e2bb9707100c659773251d" target="_blank" rel="noopener">4e98c8f</a>
+          @ 2022-04-20
+        </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f&amp;text=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;caption=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;canonicalUrl=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;body=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f&amp;media=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f;description=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f&amp;title=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;summary=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;source=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f&amp;resubmit=true&amp;title=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f;title=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93%20https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f&amp;t=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%e8%bd%ac%e5%8f%98%ef%bc%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%89%8d%e8%bf%9b%ef%bd%9c2021%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fsengmitnick.com%2fblog%2f353%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://sengmitnick.com/blog/355/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Mac 电脑使用 ClashX 作为网关旁路由</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://sengmitnick.com/blog/352/">
+                <span class="button__text">Vant Openharmony 开发经验分享</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function () {
+        
+        
+        if (window.location.host == "localhost:8383" || window.location.host == "smk17.top:8383" || window.location.host == "smk17.gitee.io")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'smk17';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink"></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
+            
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+    </body>
+</html>

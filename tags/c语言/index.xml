@@ -18,15 +18,15 @@
     本文转载自&lt;a href=&#34;http://blog.sina.com.cn/s/blog_636a55070101i6sr.html&#34;&gt;http://blog.sina.com.cn/s/blog_636a55070101i6sr.html&lt;/a&gt;
 &lt;/div&gt;
 &lt;p&gt;首先，printk有8个loglevel,定义在&amp;lt;linux/kernel.h&amp;gt;中，其中数值范围从0到7，数值越小，优先级越高。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_EMERG   &amp;#34;&amp;lt;0&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//系统崩溃
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_ALERT   &amp;#34;&amp;lt;1&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//必须紧急处理
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_CRIT    &amp;#34;&amp;lt;2&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//临界条件，严重的硬软件错误
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_ERR     &amp;#34;&amp;lt;3&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//报告错误
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_WARNING &amp;#34;&amp;lt;4&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//警告
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_NOTICE  &amp;#34;&amp;lt;5&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//普通但还是须注意
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_INFO    &amp;#34;&amp;lt;6&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//信息
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_DEBUG   &amp;#34;&amp;lt;7&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//调试信息
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从这里也可以看出他们的优先级是数值越小，其紧急和严重程度就越高。&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_EMERG   &amp;#34;&amp;lt;0&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//系统崩溃
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_ALERT   &amp;#34;&amp;lt;1&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//必须紧急处理
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_CRIT    &amp;#34;&amp;lt;2&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//临界条件，严重的硬软件错误
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_ERR     &amp;#34;&amp;lt;3&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//报告错误
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_WARNING &amp;#34;&amp;lt;4&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//警告
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_NOTICE  &amp;#34;&amp;lt;5&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//普通但还是须注意
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_INFO    &amp;#34;&amp;lt;6&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//信息
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define    KERN_DEBUG   &amp;#34;&amp;lt;7&amp;gt;&amp;#34;      &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//调试信息
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从这里也可以看出他们的优先级是数值越小，其紧急和严重程度就越高。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -38,8 +38,8 @@
       <description>&lt;p&gt;错误1：error: implicit declaration of function ‘kmalloc’&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决方法：&lt;/strong&gt;
 缺少了一个头文件，添加上就可以了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;linux/slab.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;linux/slab.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

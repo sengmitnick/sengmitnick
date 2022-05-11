@@ -18,7 +18,7 @@
 安装 官方安装文档教程：
  Installing ZSH Install oh-my-zsh now  我在Ubuntu下执行以下命令：
 apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 安装并配置ohmyz插件 安装zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 配置文件.zshrc如下：
-# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34; # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
+# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH  # Path to your oh-my-zsh installation. export ZSH=&amp;#34;/root/.oh-my-zsh&amp;#34;  # Set name of the theme to load --- if set to &amp;#34;random&amp;#34;, it will # load a random theme each time oh-my-zsh is loaded, in which case, # to know which specific one was loaded, run: echo $RANDOM_THEME # See https://github.</description>
     </item>
     
     <item>
@@ -60,8 +60,8 @@ apt install zsh sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyz
 &lt;p&gt;当在使用apt－get安装或者其他操作时，还木有操作完成就直接关闭终端，从而导致关闭了终端，apt－get进程却没有结束。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决办法1：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;终端输入:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps  -aux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;列出进程。找到含有apt-get的进程，直接 &lt;code&gt;sudo kill PID&lt;/code&gt; 。解决。&lt;/p&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ps  -aux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;列出进程。找到含有apt-get的进程，直接 &lt;code&gt;sudo kill PID&lt;/code&gt; 。解决。&lt;/p&gt;</description>
     </item>
     
   </channel>

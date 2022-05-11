@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -45,16 +45,10 @@
 
 <meta itemprop="name" content="UDP服务器接收超时处理事件">
 <meta itemprop="description" content="近段时间，因项目需求，需要在ubuntu下用到UDP服务器接收数据并处理。
-其中，接收到数据的时候处理一个事件，而长时间没接收到数据时有处理另一个事件。">
-<meta itemprop="datePublished" content="2014-11-26T15:53:46+00:00" />
+其中，接收到数据的时候处理一个事件，而长时间没接收到数据时有处理另一个事件。"><meta itemprop="datePublished" content="2014-11-26T15:53:46+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="63">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="63"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="UDP,Linux," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -69,10 +63,10 @@
 <meta property="og:description" content="近段时间，因项目需求，需要在ubuntu下用到UDP服务器接收数据并处理。
 其中，接收到数据的时候处理一个事件，而长时间没接收到数据时有处理另一个事件。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/59/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/59/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-11-26T15:53:46+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -205,40 +199,40 @@
         <p>近段时间，因项目需求，需要在ubuntu下用到UDP服务器接收数据并处理。</p>
 <p>其中，接收到数据的时候处理一个事件，而长时间没接收到数据时有处理另一个事件。</p>
 <p>经过一段时间的尝试，发现最优的办法就是使用alarm函数了。以下是示例代码。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;udp_server.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">//接收超时处理事件
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeout</span>()
-{  
-    printf( <span style="color:#e6db74">&#34;timeout ...... </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> );
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-	<span style="color:#66d9ef">int</span> sock,recv_size;
-	<span style="color:#66d9ef">char</span> msg[<span style="color:#ae81ff">1024</span>];
-	UdpServer <span style="color:#f92672">*</span>server<span style="color:#f92672">=</span>UdpServer_create(<span style="color:#ae81ff">8000</span>);<span style="color:#75715e">// 创建Udp服务器，绑定ip为本机ip，绑定端口8000端口
-</span><span style="color:#75715e"></span>	memset(mybuf,<span style="color:#e6db74">&#39;\0&#39;</span>,strlen(mybuf));
-	signal( SIGALRM, timeout );
-	alarm( <span style="color:#ae81ff">30</span> ); <span style="color:#75715e">//设置超时时间
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
-	{
-		printf(<span style="color:#e6db74">&#34;wait .....</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-
-		recv_size <span style="color:#f92672">=</span> server<span style="color:#f92672">-&gt;</span>recv(server,msg,<span style="color:#ae81ff">1024</span>);  <span style="color:#75715e">//接收信息
-</span><span style="color:#75715e"></span>		printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,msg);
-		<span style="color:#66d9ef">if</span> (recv_size) {			
-			alarm( <span style="color:#ae81ff">30</span> ); 	<span style="color:#75715e">//成功接收到数据重新设置超时时间
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span>(strcmp(msg,<span style="color:#e6db74">&#34;exit&#34;</span>)<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
-			<span style="color:#75715e">//接收数据处理事件
-</span><span style="color:#75715e"></span>			printf(<span style="color:#e6db74">&#34;msg:</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, msg);
-		}       
-		server<span style="color:#f92672">-&gt;</span>send(server,msg);  <span style="color:#75715e">//发送信息
-</span><span style="color:#75715e"></span>    }    
-   server<span style="color:#f92672">-&gt;</span>destory(server);
-}
-</code></pre></div><p><strong>END……</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;udp_server.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//接收超时处理事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeout</span>()
+</span></span><span style="display:flex;"><span>{  
+</span></span><span style="display:flex;"><span>    printf( <span style="color:#e6db74">&#34;timeout ...... </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> sock,recv_size;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> msg[<span style="color:#ae81ff">1024</span>];
+</span></span><span style="display:flex;"><span>	UdpServer <span style="color:#f92672">*</span>server<span style="color:#f92672">=</span>UdpServer_create(<span style="color:#ae81ff">8000</span>);<span style="color:#75715e">// 创建Udp服务器，绑定ip为本机ip，绑定端口8000端口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	memset(mybuf,<span style="color:#e6db74">&#39;\0&#39;</span>,strlen(mybuf));
+</span></span><span style="display:flex;"><span>	signal( SIGALRM, timeout );
+</span></span><span style="display:flex;"><span>	alarm( <span style="color:#ae81ff">30</span> ); <span style="color:#75715e">//设置超时时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;wait .....</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		recv_size <span style="color:#f92672">=</span> server<span style="color:#f92672">-&gt;</span>recv(server,msg,<span style="color:#ae81ff">1024</span>);  <span style="color:#75715e">//接收信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,msg);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (recv_size) {			
+</span></span><span style="display:flex;"><span>			alarm( <span style="color:#ae81ff">30</span> ); 	<span style="color:#75715e">//成功接收到数据重新设置超时时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span>(strcmp(msg,<span style="color:#e6db74">&#34;exit&#34;</span>)<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">//接收数据处理事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			printf(<span style="color:#e6db74">&#34;msg:</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, msg);
+</span></span><span style="display:flex;"><span>		}       
+</span></span><span style="display:flex;"><span>		server<span style="color:#f92672">-&gt;</span>send(server,msg);  <span style="color:#75715e">//发送信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }    
+</span></span><span style="display:flex;"><span>   server<span style="color:#f92672">-&gt;</span>destory(server);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>END……</strong></p>
       </div>
     </article>
 
@@ -284,13 +278,13 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-11-26 23:53
+          2014-11-26 15:53
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -469,7 +463,7 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -486,18 +480,16 @@
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

@@ -28,7 +28,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -49,16 +49,10 @@
 直接拖到Chart控件到你需要显示的地方，然后把控件名字改成chart即可。
 
 本文示例DEMO已上传到GitHub，点击这里即可访问。
-本文示例最终效果：">
-<meta itemprop="datePublished" content="2016-10-12T14:51:29+00:00" />
+本文示例最终效果："><meta itemprop="datePublished" content="2016-10-12T14:51:29+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="653">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="653"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="DoNet,Chart," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -79,10 +73,10 @@
 本文示例DEMO已上传到GitHub，点击这里即可访问。
 本文示例最终效果：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/85/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/85/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2016-10-12T14:51:29+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -252,263 +246,263 @@
 </p>
 <p>直接上代码：</p>
 <h1 id="初始化">初始化</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSHARP" data-lang="CSHARP"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitializeChart()
-{
-    chart.ChartAreas.Clear();
-    chart.Series.Clear();
-
-    <span style="color:#75715e">#region 设置图表的属性  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//图表的背景色  
-</span><span style="color:#75715e"></span>    chart.BackColor = Color.FromArgb(<span style="color:#ae81ff">211</span>, <span style="color:#ae81ff">223</span>, <span style="color:#ae81ff">240</span>);
-    <span style="color:#75715e">//图表背景色的渐变方式  
-</span><span style="color:#75715e"></span>    chart.BackGradientStyle = GradientStyle.TopBottom;
-    <span style="color:#75715e">//图表的边框颜色、  
-</span><span style="color:#75715e"></span>    chart.BorderlineColor = Color.FromArgb(<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">59</span>, <span style="color:#ae81ff">105</span>);
-    <span style="color:#75715e">//图表的边框线条样式  
-</span><span style="color:#75715e"></span>    chart.BorderlineDashStyle = ChartDashStyle.Solid;
-    <span style="color:#75715e">//图表边框线条的宽度  
-</span><span style="color:#75715e"></span>    chart.BorderlineWidth = <span style="color:#ae81ff">2</span>;
-    <span style="color:#75715e">//图表边框的皮肤  
-</span><span style="color:#75715e"></span>    chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
-    <span style="color:#75715e">#endregion
-</span><span style="color:#75715e"></span>
-    <span style="color:#75715e">#region 设置图表的标题  
-</span><span style="color:#75715e"></span>    Title title = <span style="color:#66d9ef">new</span> Title();
-    <span style="color:#75715e">//标题内容  
-</span><span style="color:#75715e"></span>    title.Text = <span style="color:#e6db74">&#34;折线图&#34;</span>;
-    <span style="color:#75715e">//标题的字体  
-</span><span style="color:#75715e"></span>    title.Font = <span style="color:#66d9ef">new</span> System.Drawing.Font(<span style="color:#e6db74">&#34;Microsoft Sans Serif&#34;</span>, <span style="color:#ae81ff">12</span>, FontStyle.Bold);
-    <span style="color:#75715e">//标题字体颜色  
-</span><span style="color:#75715e"></span>    title.ForeColor = Color.FromArgb(<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">59</span>, <span style="color:#ae81ff">105</span>);
-    <span style="color:#75715e">//标题阴影颜色  
-</span><span style="color:#75715e"></span>    title.ShadowColor = Color.FromArgb(<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
-    <span style="color:#75715e">//标题阴影偏移量  
-</span><span style="color:#75715e"></span>    title.ShadowOffset = <span style="color:#ae81ff">3</span>;
-    chart.Titles.Add(title);
-    <span style="color:#75715e">#endregion
-</span><span style="color:#75715e"></span>
-    <span style="color:#75715e">#region 设置图例的属性  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//注意，需要把原来控件自带的图例删除掉  
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.chart.Legends.Clear();
-
-    Legend legend = <span style="color:#66d9ef">new</span> Legend(<span style="color:#e6db74">&#34;Default&#34;</span>);
-    legend.Alignment = StringAlignment.Center;
-    legend.Docking = Docking.Bottom;
-    legend.LegendStyle = LegendStyle.Column;
-    <span style="color:#66d9ef">this</span>.chart.Legends.Add(legend);
-
-    <span style="color:#75715e">// Add header separator of type line  
-</span><span style="color:#75715e"></span>    legend.HeaderSeparator = LegendSeparatorStyle.Line;
-    legend.HeaderSeparatorColor = Color.Gray;
-
-    LegendCellColumn firstColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    firstColumn.ColumnType = LegendCellColumnType.SeriesSymbol;
-    firstColumn.HeaderText = <span style="color:#e6db74">&#34;Color&#34;</span>;
-    firstColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(firstColumn);
-
-    <span style="color:#75715e">// Add Legend Text column  
-</span><span style="color:#75715e"></span>    LegendCellColumn secondColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    secondColumn.ColumnType = LegendCellColumnType.Text;
-    secondColumn.HeaderText = <span style="color:#e6db74">&#34;Name&#34;</span>;
-    secondColumn.Text = <span style="color:#e6db74">&#34;#LEGENDTEXT&#34;</span>;
-    secondColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(secondColumn);
-
-    <span style="color:#75715e">// Add AVG cell column  
-</span><span style="color:#75715e"></span>    LegendCellColumn avgColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    avgColumn.Text = <span style="color:#e6db74">&#34;#AVG{N2}&#34;</span>;
-    avgColumn.HeaderText = <span style="color:#e6db74">&#34;Avg&#34;</span>;
-    avgColumn.Name = <span style="color:#e6db74">&#34;AvgColumn&#34;</span>;
-    avgColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(avgColumn);
-
-    <span style="color:#75715e">// Add Total cell column  
-</span><span style="color:#75715e"></span>    LegendCellColumn totalColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    totalColumn.Text = <span style="color:#e6db74">&#34;#TOTAL{N1}&#34;</span>;
-    totalColumn.HeaderText = <span style="color:#e6db74">&#34;Total&#34;</span>;
-    totalColumn.Name = <span style="color:#e6db74">&#34;TotalColumn&#34;</span>;
-    totalColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(totalColumn);
-
-    <span style="color:#75715e">// Set Min cell column attributes  
-</span><span style="color:#75715e"></span>    LegendCellColumn minColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    minColumn.Text = <span style="color:#e6db74">&#34;#MIN{N1}&#34;</span>;
-    minColumn.HeaderText = <span style="color:#e6db74">&#34;Min&#34;</span>;
-    minColumn.Name = <span style="color:#e6db74">&#34;MinColumn&#34;</span>;
-    minColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(minColumn);
-
-    <span style="color:#75715e">// Set Max cell column attributes  
-</span><span style="color:#75715e"></span>    LegendCellColumn maxColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
-    maxColumn.Text = <span style="color:#e6db74">&#34;#MAX{N1}&#34;</span>;
-    maxColumn.HeaderText = <span style="color:#e6db74">&#34;Max&#34;</span>;
-    maxColumn.Name = <span style="color:#e6db74">&#34;MaxColumn&#34;</span>;
-    maxColumn.HeaderBackColor = Color.WhiteSmoke;
-    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(maxColumn);
-
-    <span style="color:#75715e">#endregion
-</span><span style="color:#75715e"></span>
-    <span style="color:#75715e">#region 设置图表区属性  
-</span><span style="color:#75715e"></span>    ChartArea chartArea = <span style="color:#66d9ef">new</span> ChartArea(<span style="color:#e6db74">&#34;Default&#34;</span>);
-    <span style="color:#75715e">//设置Y轴刻度间隔大小  
-</span><span style="color:#75715e"></span>    chartArea.AxisY.Interval = <span style="color:#ae81ff">5</span>;
-    <span style="color:#75715e">//设置Y轴的数据类型格式  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.LabelStyle.Format = &#34;C&#34;;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//设置背景色  
-</span><span style="color:#75715e"></span>    chartArea.BackColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">165</span>, <span style="color:#ae81ff">191</span>, <span style="color:#ae81ff">228</span>);
-    <span style="color:#75715e">//设置背景渐变方式  
-</span><span style="color:#75715e"></span>    chartArea.BackGradientStyle = GradientStyle.TopBottom;
-    <span style="color:#75715e">//设置渐变和阴影的辅助背景色  
-</span><span style="color:#75715e"></span>    chartArea.BackSecondaryColor = Color.White;
-    <span style="color:#75715e">//设置边框颜色  
-</span><span style="color:#75715e"></span>    chartArea.BorderColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    <span style="color:#75715e">//设置阴影颜色  
-</span><span style="color:#75715e"></span>    chartArea.ShadowColor = Color.Transparent;
-    <span style="color:#75715e">//设置X轴和Y轴线条的颜色  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    chartArea.AxisY.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    <span style="color:#75715e">//开启次要Y轴
-</span><span style="color:#75715e"></span>    chartArea.AxisY2.Enabled = AxisEnabled.True;
-    <span style="color:#75715e">//设置X轴和Y轴线条的宽度  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.LineWidth = <span style="color:#ae81ff">1</span>;
-    chartArea.AxisY.LineWidth = <span style="color:#ae81ff">1</span>;
-    chartArea.AxisY2.LineWidth = <span style="color:#ae81ff">1</span>;
-    <span style="color:#75715e">//设置X轴和Y轴的标题  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.Title = <span style="color:#e6db74">&#34;采集时间&#34;</span>;
-    chartArea.AxisY.Title = <span style="color:#e6db74">&#34;温度值&#34;</span>;
-    chartArea.AxisY2.Title = <span style="color:#e6db74">&#34;湿度值&#34;</span>;
-    <span style="color:#75715e">//设置图表区网格横纵线条的颜色  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
-    <span style="color:#75715e">//设置图表区网格横纵线条的宽度  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
-    chartArea.AxisY.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
-    chartArea.AxisY2.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
-    <span style="color:#75715e">//设置坐标轴刻度线不延长出来  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
-    chartArea.AxisY.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
-    chartArea.AxisY2.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
-    <span style="color:#75715e">//开启下面两句能够隐藏网格线条  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisX.MajorGrid.Enabled = false;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.MajorGrid.Enabled = false;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//设置X轴的显示类型及显示方式  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.Interval = <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//设置为0表示由控件自动分配  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
-    chartArea.AxisX.IntervalType = DateTimeIntervalType.Minutes;
-    chartArea.AxisX.LabelStyle.IsStaggered = <span style="color:#66d9ef">true</span>;
-    <span style="color:#75715e">//chartArea.AxisX.MajorGrid.IntervalType = DateTimeIntervalType.Minutes;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Minutes;  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.LabelStyle.Format = <span style="color:#e6db74">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>;
-    <span style="color:#75715e">//设置文本角度  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisX.LabelStyle.Angle = 45;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//设置文本自适应  
-</span><span style="color:#75715e"></span>    chartArea.AxisX.IsLabelAutoFit = <span style="color:#66d9ef">true</span>;
-    <span style="color:#75715e">//设置X轴允许拖动放大  
-</span><span style="color:#75715e"></span>    chartArea.CursorX.IsUserEnabled = <span style="color:#66d9ef">true</span>;
-    chartArea.CursorX.IsUserSelectionEnabled = <span style="color:#66d9ef">true</span>;
-    chartArea.CursorX.Interval = <span style="color:#ae81ff">0</span>;
-    chartArea.CursorX.IntervalOffset = <span style="color:#ae81ff">0</span>;
-    chartArea.CursorX.IntervalType = DateTimeIntervalType.Minutes;
-    chartArea.AxisX.ScaleView.Zoomable = <span style="color:#66d9ef">true</span>;
-    chartArea.AxisX.ScrollBar.IsPositionedInside = <span style="color:#66d9ef">false</span>;
-
-    <span style="color:#75715e">//设置中短线（还没看到效果）  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.Enabled = true;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.CollapsibleSpaceThreshold = 47;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.BreakLineStyle = BreakLineStyle.Wave;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.Spacing = 2;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.LineColor = Color.Red;  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.LineWidth = 10;  
-</span><span style="color:#75715e"></span>
-    chart.ChartAreas.Add(chartArea);
-    <span style="color:#75715e">#endregion
-</span><span style="color:#75715e"></span>
-    <span style="color:#75715e">//线条2：主要曲线  
-</span><span style="color:#75715e"></span>    Series tempSeries = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;Default&#34;</span>);
-    <span style="color:#75715e">//设置线条类型  
-</span><span style="color:#75715e"></span>    tempSeries.ChartType = SeriesChartType.Spline;
-    <span style="color:#75715e">//线条宽度  
-</span><span style="color:#75715e"></span>    tempSeries.BorderWidth = <span style="color:#ae81ff">1</span>;
-    <span style="color:#75715e">//阴影宽度  
-</span><span style="color:#75715e"></span>    tempSeries.ShadowOffset = <span style="color:#ae81ff">0</span>;
-    <span style="color:#75715e">//是否显示在图例集合Legends  
-</span><span style="color:#75715e"></span>    tempSeries.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
-    <span style="color:#75715e">//线条上数据点上是否有数据显示  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//series.IsValueShownAsLabel = true;
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//线条颜色  
-</span><span style="color:#75715e"></span>    tempSeries.Color = Color.MediumPurple;
-    <span style="color:#75715e">//设置曲线X轴的显示类型  
-</span><span style="color:#75715e"></span>    tempSeries.XValueType = ChartValueType.DateTime;
-    <span style="color:#75715e">//设置数据点的类型  
-</span><span style="color:#75715e"></span>    tempSeries.MarkerStyle = MarkerStyle.Circle;
-    <span style="color:#75715e">//线条数据点的大小  
-</span><span style="color:#75715e"></span>    tempSeries.MarkerSize = <span style="color:#ae81ff">5</span>;
-    <span style="color:#75715e">//绑定到Y主轴
-</span><span style="color:#75715e"></span>    tempSeries.YAxisType = AxisType.Primary;
-    chart.Series.Add(tempSeries);
-
-    <span style="color:#75715e">//手动构造横坐标数据  
-</span><span style="color:#75715e"></span>    DataTable dataTable = <span style="color:#66d9ef">new</span> DataTable();
-    dataTable.Columns.Add(<span style="color:#e6db74">&#34;TheTime&#34;</span>, <span style="color:#66d9ef">typeof</span>(DateTime)); <span style="color:#75715e">//注意typeof  
-</span><span style="color:#75715e"></span>    dataTable.Columns.Add(<span style="color:#e6db74">&#34;TheValue&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">double</span>)); <span style="color:#75715e">//注意typeof  
-</span><span style="color:#75715e"></span>    Random random = <span style="color:#66d9ef">new</span> Random(); <span style="color:#75715e">//随机数  
-</span><span style="color:#75715e"></span>    DateTime dateTime = System.DateTime.Now;
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> n = <span style="color:#ae81ff">0</span>; n &lt; <span style="color:#ae81ff">3</span>; n++)
-    {
-        dateTime = dateTime.AddSeconds(<span style="color:#ae81ff">10</span>);
-        DataRow dr = dataTable.NewRow();
-        dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>] = dateTime;
-        dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>] = random.Next(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">101</span>);
-        dataTable.Rows.Add(dr);
-    }
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> n = <span style="color:#ae81ff">3</span>; n &lt; <span style="color:#ae81ff">1000</span>; n++)
-    {
-        dateTime = dateTime.AddSeconds(<span style="color:#ae81ff">30</span>);
-        DataRow dr = dataTable.NewRow();
-        dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>] = dateTime;
-        dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>] = random.Next(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">101</span>);
-        dataTable.Rows.Add(dr);
-    }
-
-    <span style="color:#75715e">//线条1：下限横线  
-</span><span style="color:#75715e"></span>    Series seriesMin = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;最小值&#34;</span>);
-    seriesMin.ChartType = SeriesChartType.Line;
-    seriesMin.BorderWidth = <span style="color:#ae81ff">1</span>;
-    seriesMin.ShadowOffset = <span style="color:#ae81ff">0</span>;
-    seriesMin.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
-    seriesMin.IsValueShownAsLabel = <span style="color:#66d9ef">false</span>;
-    seriesMin.Color = Color.Red;
-    seriesMin.XValueType = ChartValueType.DateTime;
-    seriesMin.MarkerStyle = MarkerStyle.None;
-    chart.Series.Add(seriesMin);
-
-    <span style="color:#75715e">//线条3：上限横线  
-</span><span style="color:#75715e"></span>    Series seriesMax = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;最大值&#34;</span>);
-    seriesMax.ChartType = SeriesChartType.Line;
-    seriesMax.BorderWidth = <span style="color:#ae81ff">1</span>;
-    seriesMax.ShadowOffset = <span style="color:#ae81ff">0</span>;
-    seriesMax.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
-    seriesMax.IsValueShownAsLabel = <span style="color:#66d9ef">false</span>;
-    seriesMax.Color = Color.Red;
-    seriesMax.XValueType = ChartValueType.DateTime;
-    seriesMax.MarkerStyle = MarkerStyle.None;
-    chart.Series.Add(seriesMax);
-
-    <span style="color:#75715e">//设置X轴的最小值为第一个点的X坐标值  
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//chartArea.AxisX.Minimum = Convert.ToDateTime(dataTable.Rows[0][&#34;TheTime&#34;]).ToOADate();
-</span><span style="color:#75715e"></span>
-    <span style="color:#75715e">//开始画线  
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> (DataRow dr <span style="color:#66d9ef">in</span> dataTable.Rows)
-    {
-        tempSeries.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>]);
-
-        seriesMin.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], <span style="color:#ae81ff">15</span>); <span style="color:#75715e">//设置下线为15  
-</span><span style="color:#75715e"></span>        seriesMax.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], <span style="color:#ae81ff">30</span>); <span style="color:#75715e">//设置上限为30  
-</span><span style="color:#75715e"></span>    }
-}
-</code></pre></div><p><strong>END……</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSHARP" data-lang="CSHARP"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitializeChart()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    chart.ChartAreas.Clear();
+</span></span><span style="display:flex;"><span>    chart.Series.Clear();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#region 设置图表的属性  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表的背景色  </span>
+</span></span><span style="display:flex;"><span>    chart.BackColor = Color.FromArgb(<span style="color:#ae81ff">211</span>, <span style="color:#ae81ff">223</span>, <span style="color:#ae81ff">240</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表背景色的渐变方式  </span>
+</span></span><span style="display:flex;"><span>    chart.BackGradientStyle = GradientStyle.TopBottom;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表的边框颜色、  </span>
+</span></span><span style="display:flex;"><span>    chart.BorderlineColor = Color.FromArgb(<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">59</span>, <span style="color:#ae81ff">105</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表的边框线条样式  </span>
+</span></span><span style="display:flex;"><span>    chart.BorderlineDashStyle = ChartDashStyle.Solid;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表边框线条的宽度  </span>
+</span></span><span style="display:flex;"><span>    chart.BorderlineWidth = <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//图表边框的皮肤  </span>
+</span></span><span style="display:flex;"><span>    chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span>endregion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#region 设置图表的标题  </span>
+</span></span><span style="display:flex;"><span>    Title title = <span style="color:#66d9ef">new</span> Title();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//标题内容  </span>
+</span></span><span style="display:flex;"><span>    title.Text = <span style="color:#e6db74">&#34;折线图&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//标题的字体  </span>
+</span></span><span style="display:flex;"><span>    title.Font = <span style="color:#66d9ef">new</span> System.Drawing.Font(<span style="color:#e6db74">&#34;Microsoft Sans Serif&#34;</span>, <span style="color:#ae81ff">12</span>, FontStyle.Bold);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//标题字体颜色  </span>
+</span></span><span style="display:flex;"><span>    title.ForeColor = Color.FromArgb(<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">59</span>, <span style="color:#ae81ff">105</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//标题阴影颜色  </span>
+</span></span><span style="display:flex;"><span>    title.ShadowColor = Color.FromArgb(<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//标题阴影偏移量  </span>
+</span></span><span style="display:flex;"><span>    title.ShadowOffset = <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    chart.Titles.Add(title);
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span>endregion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#region 设置图例的属性  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//注意，需要把原来控件自带的图例删除掉  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.chart.Legends.Clear();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Legend legend = <span style="color:#66d9ef">new</span> Legend(<span style="color:#e6db74">&#34;Default&#34;</span>);
+</span></span><span style="display:flex;"><span>    legend.Alignment = StringAlignment.Center;
+</span></span><span style="display:flex;"><span>    legend.Docking = Docking.Bottom;
+</span></span><span style="display:flex;"><span>    legend.LegendStyle = LegendStyle.Column;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.chart.Legends.Add(legend);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add header separator of type line  </span>
+</span></span><span style="display:flex;"><span>    legend.HeaderSeparator = LegendSeparatorStyle.Line;
+</span></span><span style="display:flex;"><span>    legend.HeaderSeparatorColor = Color.Gray;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn firstColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    firstColumn.ColumnType = LegendCellColumnType.SeriesSymbol;
+</span></span><span style="display:flex;"><span>    firstColumn.HeaderText = <span style="color:#e6db74">&#34;Color&#34;</span>;
+</span></span><span style="display:flex;"><span>    firstColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(firstColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add Legend Text column  </span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn secondColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    secondColumn.ColumnType = LegendCellColumnType.Text;
+</span></span><span style="display:flex;"><span>    secondColumn.HeaderText = <span style="color:#e6db74">&#34;Name&#34;</span>;
+</span></span><span style="display:flex;"><span>    secondColumn.Text = <span style="color:#e6db74">&#34;#LEGENDTEXT&#34;</span>;
+</span></span><span style="display:flex;"><span>    secondColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(secondColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add AVG cell column  </span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn avgColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    avgColumn.Text = <span style="color:#e6db74">&#34;#AVG{N2}&#34;</span>;
+</span></span><span style="display:flex;"><span>    avgColumn.HeaderText = <span style="color:#e6db74">&#34;Avg&#34;</span>;
+</span></span><span style="display:flex;"><span>    avgColumn.Name = <span style="color:#e6db74">&#34;AvgColumn&#34;</span>;
+</span></span><span style="display:flex;"><span>    avgColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(avgColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add Total cell column  </span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn totalColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    totalColumn.Text = <span style="color:#e6db74">&#34;#TOTAL{N1}&#34;</span>;
+</span></span><span style="display:flex;"><span>    totalColumn.HeaderText = <span style="color:#e6db74">&#34;Total&#34;</span>;
+</span></span><span style="display:flex;"><span>    totalColumn.Name = <span style="color:#e6db74">&#34;TotalColumn&#34;</span>;
+</span></span><span style="display:flex;"><span>    totalColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(totalColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set Min cell column attributes  </span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn minColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    minColumn.Text = <span style="color:#e6db74">&#34;#MIN{N1}&#34;</span>;
+</span></span><span style="display:flex;"><span>    minColumn.HeaderText = <span style="color:#e6db74">&#34;Min&#34;</span>;
+</span></span><span style="display:flex;"><span>    minColumn.Name = <span style="color:#e6db74">&#34;MinColumn&#34;</span>;
+</span></span><span style="display:flex;"><span>    minColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(minColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set Max cell column attributes  </span>
+</span></span><span style="display:flex;"><span>    LegendCellColumn maxColumn = <span style="color:#66d9ef">new</span> LegendCellColumn();
+</span></span><span style="display:flex;"><span>    maxColumn.Text = <span style="color:#e6db74">&#34;#MAX{N1}&#34;</span>;
+</span></span><span style="display:flex;"><span>    maxColumn.HeaderText = <span style="color:#e6db74">&#34;Max&#34;</span>;
+</span></span><span style="display:flex;"><span>    maxColumn.Name = <span style="color:#e6db74">&#34;MaxColumn&#34;</span>;
+</span></span><span style="display:flex;"><span>    maxColumn.HeaderBackColor = Color.WhiteSmoke;
+</span></span><span style="display:flex;"><span>    chart.Legends[<span style="color:#e6db74">&#34;Default&#34;</span>].CellColumns.Add(maxColumn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span>endregion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#region 设置图表区属性  </span>
+</span></span><span style="display:flex;"><span>    ChartArea chartArea = <span style="color:#66d9ef">new</span> ChartArea(<span style="color:#e6db74">&#34;Default&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置Y轴刻度间隔大小  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.Interval = <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置Y轴的数据类型格式  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.LabelStyle.Format = &#34;C&#34;;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置背景色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.BackColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">165</span>, <span style="color:#ae81ff">191</span>, <span style="color:#ae81ff">228</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置背景渐变方式  </span>
+</span></span><span style="display:flex;"><span>    chartArea.BackGradientStyle = GradientStyle.TopBottom;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置渐变和阴影的辅助背景色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.BackSecondaryColor = Color.White;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置边框颜色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.BorderColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置阴影颜色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.ShadowColor = Color.Transparent;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴和Y轴线条的颜色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//开启次要Y轴</span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.Enabled = AxisEnabled.True;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴和Y轴线条的宽度  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴和Y轴的标题  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.Title = <span style="color:#e6db74">&#34;采集时间&#34;</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.Title = <span style="color:#e6db74">&#34;温度值&#34;</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.Title = <span style="color:#e6db74">&#34;湿度值&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置图表区网格横纵线条的颜色  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.MajorGrid.LineColor = Color.FromArgb(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置图表区网格横纵线条的宽度  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.MajorGrid.LineWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置坐标轴刻度线不延长出来  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisY2.MajorTickMark.Enabled = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//开启下面两句能够隐藏网格线条  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisX.MajorGrid.Enabled = false;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.MajorGrid.Enabled = false;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴的显示类型及显示方式  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.Interval = <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//设置为0表示由控件自动分配  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.LabelStyle.IsStaggered = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisX.MajorGrid.IntervalType = DateTimeIntervalType.Minutes;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Minutes;  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.LabelStyle.Format = <span style="color:#e6db74">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置文本角度  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisX.LabelStyle.Angle = 45;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置文本自适应  </span>
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.IsLabelAutoFit = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴允许拖动放大  </span>
+</span></span><span style="display:flex;"><span>    chartArea.CursorX.IsUserEnabled = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    chartArea.CursorX.IsUserSelectionEnabled = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    chartArea.CursorX.Interval = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    chartArea.CursorX.IntervalOffset = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    chartArea.CursorX.IntervalType = DateTimeIntervalType.Minutes;
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.ScaleView.Zoomable = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    chartArea.AxisX.ScrollBar.IsPositionedInside = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置中短线（还没看到效果）  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.Enabled = true;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.CollapsibleSpaceThreshold = 47;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.BreakLineStyle = BreakLineStyle.Wave;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.Spacing = 2;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.LineColor = Color.Red;  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisY.ScaleBreakStyle.LineWidth = 10;  </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    chart.ChartAreas.Add(chartArea);
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span>endregion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条2：主要曲线  </span>
+</span></span><span style="display:flex;"><span>    Series tempSeries = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;Default&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置线条类型  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.ChartType = SeriesChartType.Spline;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条宽度  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.BorderWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//阴影宽度  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.ShadowOffset = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//是否显示在图例集合Legends  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条上数据点上是否有数据显示  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//series.IsValueShownAsLabel = true;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条颜色  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.Color = Color.MediumPurple;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置曲线X轴的显示类型  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.XValueType = ChartValueType.DateTime;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置数据点的类型  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.MarkerStyle = MarkerStyle.Circle;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条数据点的大小  </span>
+</span></span><span style="display:flex;"><span>    tempSeries.MarkerSize = <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//绑定到Y主轴</span>
+</span></span><span style="display:flex;"><span>    tempSeries.YAxisType = AxisType.Primary;
+</span></span><span style="display:flex;"><span>    chart.Series.Add(tempSeries);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//手动构造横坐标数据  </span>
+</span></span><span style="display:flex;"><span>    DataTable dataTable = <span style="color:#66d9ef">new</span> DataTable();
+</span></span><span style="display:flex;"><span>    dataTable.Columns.Add(<span style="color:#e6db74">&#34;TheTime&#34;</span>, <span style="color:#66d9ef">typeof</span>(DateTime)); <span style="color:#75715e">//注意typeof  </span>
+</span></span><span style="display:flex;"><span>    dataTable.Columns.Add(<span style="color:#e6db74">&#34;TheValue&#34;</span>, <span style="color:#66d9ef">typeof</span>(<span style="color:#66d9ef">double</span>)); <span style="color:#75715e">//注意typeof  </span>
+</span></span><span style="display:flex;"><span>    Random random = <span style="color:#66d9ef">new</span> Random(); <span style="color:#75715e">//随机数  </span>
+</span></span><span style="display:flex;"><span>    DateTime dateTime = System.DateTime.Now;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> n = <span style="color:#ae81ff">0</span>; n &lt; <span style="color:#ae81ff">3</span>; n++)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        dateTime = dateTime.AddSeconds(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>        DataRow dr = dataTable.NewRow();
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>] = dateTime;
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>] = random.Next(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">101</span>);
+</span></span><span style="display:flex;"><span>        dataTable.Rows.Add(dr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> n = <span style="color:#ae81ff">3</span>; n &lt; <span style="color:#ae81ff">1000</span>; n++)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        dateTime = dateTime.AddSeconds(<span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>        DataRow dr = dataTable.NewRow();
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>] = dateTime;
+</span></span><span style="display:flex;"><span>        dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>] = random.Next(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">101</span>);
+</span></span><span style="display:flex;"><span>        dataTable.Rows.Add(dr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条1：下限横线  </span>
+</span></span><span style="display:flex;"><span>    Series seriesMin = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;最小值&#34;</span>);
+</span></span><span style="display:flex;"><span>    seriesMin.ChartType = SeriesChartType.Line;
+</span></span><span style="display:flex;"><span>    seriesMin.BorderWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    seriesMin.ShadowOffset = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    seriesMin.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    seriesMin.IsValueShownAsLabel = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    seriesMin.Color = Color.Red;
+</span></span><span style="display:flex;"><span>    seriesMin.XValueType = ChartValueType.DateTime;
+</span></span><span style="display:flex;"><span>    seriesMin.MarkerStyle = MarkerStyle.None;
+</span></span><span style="display:flex;"><span>    chart.Series.Add(seriesMin);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//线条3：上限横线  </span>
+</span></span><span style="display:flex;"><span>    Series seriesMax = <span style="color:#66d9ef">new</span> Series(<span style="color:#e6db74">&#34;最大值&#34;</span>);
+</span></span><span style="display:flex;"><span>    seriesMax.ChartType = SeriesChartType.Line;
+</span></span><span style="display:flex;"><span>    seriesMax.BorderWidth = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    seriesMax.ShadowOffset = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    seriesMax.IsVisibleInLegend = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    seriesMax.IsValueShownAsLabel = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    seriesMax.Color = Color.Red;
+</span></span><span style="display:flex;"><span>    seriesMax.XValueType = ChartValueType.DateTime;
+</span></span><span style="display:flex;"><span>    seriesMax.MarkerStyle = MarkerStyle.None;
+</span></span><span style="display:flex;"><span>    chart.Series.Add(seriesMax);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//设置X轴的最小值为第一个点的X坐标值  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//chartArea.AxisX.Minimum = Convert.ToDateTime(dataTable.Rows[0][&#34;TheTime&#34;]).ToOADate();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//开始画线  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> (DataRow dr <span style="color:#66d9ef">in</span> dataTable.Rows)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        tempSeries.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], dr[<span style="color:#e6db74">&#34;TheValue&#34;</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        seriesMin.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], <span style="color:#ae81ff">15</span>); <span style="color:#75715e">//设置下线为15  </span>
+</span></span><span style="display:flex;"><span>        seriesMax.Points.AddXY(dr[<span style="color:#e6db74">&#34;TheTime&#34;</span>], <span style="color:#ae81ff">30</span>); <span style="color:#75715e">//设置上限为30  </span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>END……</strong></p>
       </div>
     </article>
 
@@ -554,13 +548,13 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2016-10-12 22:51
+          2016-10-12 14:51
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -739,7 +733,7 @@
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -756,18 +750,16 @@
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

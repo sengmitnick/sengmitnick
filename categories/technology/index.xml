@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 17 Oct 2021 16:21:36 +0800</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 03:31:55 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
       <link>https://sengmitnick.com/blog/104/</link>
@@ -17,6 +17,44 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mac 电脑使用 ClashX 作为网关旁路由</title>
+      <link>https://sengmitnick.com/blog/355/</link>
+      <pubDate>Wed, 11 May 2022 03:31:55 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/355/</guid>
+      <description>前言 最近入手了 Pixelbook，初始化连接网络就需要访问 google。那就需要Wi-Fi具备科学上网功能了，但是也不想为此特意去购置新的路由器，于是想着是否可以通过现在的MAC电脑作为网关旁路由。
+教程 安装 ClashX  ClashX Pro  准备 ClashX 的配置文件 一般你订阅的服务应该会给 Clash 的订阅链接，如果没有也没关系，你可以通过第三方 订阅转换 生成（推荐用这个，分流会丰富合理很多）:
+ 订阅链接填上你的 v2ray、ss 、trojan 的订阅（非 SSR 的订阅） 客户端选择 Clash 选择生成订阅链接就好了  自建Trojan节点 Trojan单节点示例 trojan://密码@服务器地址:443?peer=#节点别名1
+添加配置 打开有 ClashX Pro 后，右上角会有一只小猫咪🐱的图标。右键选择 Config 配置 — Remote 托管配置 — Manage 管理。
+ 添加配置
+   然后选择 Add 添加，URL 填上你上一步生成的 Clash 订阅地址，Config name 可以给它取一个名字备注，然后选择 OK 确定。
+打开系统代理和增强模式 再次右键打开小猫咪选项，应该就能看到你的配置文件规则（你可以通过节点选择来配置默认的上网节点）。
+我们还需打开
+ Set as system proxy 设置为系统代理 Enhanced Mode 增强模式（正是这个起到了网关路由器的作用）   打开系统代理和增强模式</description>
+    </item>
+    
+    <item>
+      <title>转变，是为了更好的前进｜2021年度总结</title>
+      <link>https://sengmitnick.com/blog/353/</link>
+      <pubDate>Wed, 29 Dec 2021 15:24:31 +0800</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/353/</guid>
+      <description>不知不觉已是秋，忙忙碌碌又一年。一年到头，收获还过得去，就在此对这一年多做个回顾和复盘吧。望明年更好～
+ 回顾往昔 时间过得真快，又一年了，看了一下，上一年定的目标大体都没完成。不过也算有个好收获了。先回顾总结一下吧～
+ 从创业到打工的身份转变。 连续换了两次房子，最后一次租金暴涨。 给公司做了 组件库 🥇 参加了 OpenHarmony组件开发大赛 并获得了一等奖。 🥈 参加了 OpenHarmony有奖征文 并获得了二等奖。 参加了 HDC.Together，并入坑鸿蒙体系，买了一系列装备。 搭建 Taro 多端开发体系，打造了一系列轮子。 初入股市，心态尚可，收益达10%以上。 出游：  凤凰古城 张家界天门山 丽江古城 泸沽湖    业余正业 第二次创业以主动退伙而告终。而第三次创业还没开始就夭折了，最后无奈回深重新成为一个打工人。
+在退出忙碌的创业路后，认真规划了还没要搞的LCDP，并且起名为 mccree.js。可惜我高看自己了，一年到头，颓废懒惰战胜了自律勤劳的我，竟一句代码都没写。
+然后分析了一堆，觉得现在的房子太窄，光线不足等外在环境也有一定的影响（其实也只是自欺欺人罢了）。然后我就毅然决然换了个高租金的房子。
+高租金的房子还是有点用的，起码在参加了 OpenHarmony组件开发大赛 后，工作基本是在新房子完成的。
+搬砖主业 新的工作虽然是打工，但是做的也是我想做的，其实 mccree.js 一直拖也有这方面的缘故吧（反正能赖就赖）。
+大半年时间开发了第一个版本的 平行线组件库。也应用到了公司的业务中，一次次的迭代，也慢慢的成熟了。不过目前和公司的业务耦合度太高了，而且 H5 端一开始并没有考虑到小程序。所以实用性并不高。
+在11月份，和老大多次讨论，开发了第二个版本的 平行线组件库。这一次前期的重点就在 小程序 和 H5 的融合上，框架选择了 Taro，但是里面并不是完全适用。针对公司业务和自己的一下设计，做了一系列的适配的工具。
+目前只是完成了一部分，其他的将是下一年的工作重点了。如果到时候离职了，可能会换一个名字，继续基于现有的框架打磨下去，逐步完善，做一个 Taro React 组件库。
+行万里路 通过 特邀嘉宾 参加了2021年的HDC.Together，涨了一番见识。
+圣诞节🎄参加了 Gitee Day 深圳站，虽然目前还没用到 DevOps。不过还是受益匪浅的啦～
+五月中旬去了张家界，国庆去了云南，这一年的出游目标也是破例完成了。而且我出游也不是去到一个地方什么都去，而是看时间随便逛逛就好。不过呢，我真坐实出游雨神的称号了，每次出游都是下雨，虽然在凤凰古城雨中漫步感觉也不错。当遭不住呀～</description>
     </item>
     
     <item>
@@ -61,7 +99,7 @@ PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
       <pubDate>Mon, 11 Oct 2021 15:51:53 +0800</pubDate>
       
       <guid>https://sengmitnick.com/blog/350/</guid>
-      <description>实现一个LazyMan，可以按照以下方式调用: LazyMan(&amp;quot;Hank&amp;quot;)输出: Hi! This is Hank! LazyMan(&amp;quot;Hank&amp;quot;).sleep(10).eat(&amp;quot;dinner&amp;quot;)输出 Hi! This is Hank! //等待10秒.. Wake up after 10 Eat dinner~ LazyMan(&amp;quot;Hank&amp;quot;).eat(&amp;quot;dinner&amp;quot;).eat(&amp;quot;supper&amp;quot;)输出 Hi This is Hank! Eat dinner~ Eat supper~ LazyMan(&amp;quot;Hank&amp;quot;).sleepFirst(5).eat(&amp;quot;supper&amp;quot;)输出 //等待5秒 Wake up after 5 Hi This is Hank! Eat supper 以此类推。 class LazyManC { constructor(name) { this.name = name; this.tasks = [this.log.bind(this)]; setTimeout(async () =&amp;gt; { for (const fn of this.tasks) { await fn(); } }, 0); } log() { console.log(`Hi! This is ${this.</description>
+      <description>实现一个LazyMan，可以按照以下方式调用: LazyMan(&amp;#34;Hank&amp;#34;)输出: Hi! This is Hank! LazyMan(&amp;#34;Hank&amp;#34;).sleep(10).eat(&amp;#34;dinner&amp;#34;)输出 Hi! This is Hank! //等待10秒.. Wake up after 10 Eat dinner~ LazyMan(&amp;#34;Hank&amp;#34;).eat(&amp;#34;dinner&amp;#34;).eat(&amp;#34;supper&amp;#34;)输出 Hi This is Hank! Eat dinner~ Eat supper~ LazyMan(&amp;#34;Hank&amp;#34;).sleepFirst(5).eat(&amp;#34;supper&amp;#34;)输出 //等待5秒 Wake up after 5 Hi This is Hank! Eat supper 以此类推。 class LazyManC {  constructor(name) {  this.name = name;  this.tasks = [this.log.bind(this)];  setTimeout(async () =&amp;gt; {  for (const fn of this.tasks) {  await fn();  }  }, 0);  }   log() {  console.</description>
     </item>
     
     <item>
@@ -92,9 +130,9 @@ END……</description>
       <description>jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
  is &amp;amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
 非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
-// Compiled with --strictNullChecks function validateEntity(e?: Entity) { // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) { validateEntity(e); let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+// Compiled with --strictNullChecks function validateEntity(e?: Entity) {  // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) {  validateEntity(e);  let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
 应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
-const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React.useState(initialValue); const up = React.</description>
+const useFlag = (initialValue = false) =&amp;gt; {  const [flag, setFlag] = React.</description>
     </item>
     
     <item>
@@ -106,8 +144,8 @@ const useFlag = (initialValue = false) =&amp;gt; { const [flag, setFlag] = React
       <description>其实就是 less的modifyVars功能
 如果是通过js引入，会转化成less的格式：
 输入：
-module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;, &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
-@hd: 1px; @primary-color: #1E78FF; @url: &#39;https://ant-design.gitee.io/components/upload-cn/&#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
+module.exports = {  &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;,  &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;,  &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
+@hd: 1px; @primary-color: #1E78FF; @url: &amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
 基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
     </item>
     
@@ -119,37 +157,9 @@ module.exports = { &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;, &amp;#39;@prima
       <guid>https://sengmitnick.com/blog/330/</guid>
       <description>VSCODE 安装 Prettier 的官方扩展：https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 配置 resolveGlobalModules ，使 Prettier 使用项目本地依赖项中 Prettier。
-{ &amp;#34;prettier.resolveGlobalModules&amp;#34;: true, &amp;#34;[typescriptreact]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[typescript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; } } NPM 安装 prettier lint-staged pre-commit
+{ 	&amp;#34;prettier.resolveGlobalModules&amp;#34;: true,  &amp;#34;[typescriptreact]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  },  &amp;#34;[typescript]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  } } NPM 安装 prettier lint-staged pre-commit
 以下是 package.json 配置：
-{ &amp;#34;pre-commit&amp;#34;: [ &amp;#34;lint-staged&amp;#34; ], &amp;#34;lint-staged&amp;#34;: { &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [ &amp;#34;prettier --write&amp;#34; ], &amp;#34;*.ts?(x)&amp;#34;: [ &amp;#34;prettier --parser=typescript --write&amp;#34; ] }, } 参考  https://github.com/prettier/prettier-vscode#prettier-resolution https://prettier.io/docs/en/configuration.html  </description>
-    </item>
-    
-    <item>
-      <title>umi.define 应用问题</title>
-      <link>https://sengmitnick.com/blog/331/</link>
-      <pubDate>Mon, 10 May 2021 14:52:35 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/331/</guid>
-      <description>这是工作中看到同事的错误写法，特意记录下来～
-  错误写法
-   相关使用文档：https://umijs.org/zh-CN/config#define
- 原理分析
-   原理分析： define 中的变量在生产环境会被压缩掉，如果通过 const {PXX_ENV1, PLATFORM1} = process.env; 方式取值，会先被编译成以上截图代码，导致在生产环境中并没有被压缩掉～</description>
-    </item>
-    
-    <item>
-      <title>利用 gitee pages 提速自己的个人网站</title>
-      <link>https://sengmitnick.com/blog/317/</link>
-      <pubDate>Sun, 25 Apr 2021 16:35:30 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/317/</guid>
-      <description>前言 前阵子我在服务器上搭建的 v2Ray 挂了，无奈之下启动B计划，搭建了 Trojan 服务器，但是搭建成功后，虽然可以继续愉快的科学上网，却导致之前基于 Nginx 搭建的站点都挂掉了。不过还好，我的Nginx上面只配置了两个站点，一个就是目前的博客，还有就是我的 Cloud IED 了。
-Cloud IED 可以通过修改 Trojan 服务器-伪装站点的 root 位置继续使用。而本来的博客站点，则可以考虑通过 GiteePages + dcnd 进行解决。
-开启 Gitee Pages 服务 之前我的源码是放在GitHub上面，通过 Gitee 的导入仓库功能就可以导入我的源码到其上了。然后就是通过 gh-pages 进行作业啦～
-could not find image 就是每次更新站点有点繁琐，需要先同步GitHub，然后到 Gitee Pages 的页面进行更新。
-通过阿里的 DCDN 进行全球加速 如果使用的是 GitHub Pages 功能的话，通过其中的自定义域名即可把自己的域名绑定并且可以自动更新HTTPS证书了。但是 Gitee Pages 并没有开放该功能（之前貌似有的，不过好像因为国内政策问题就关掉了），而我的站点评论使用的是 disqus，如果直接用 Gitee 提供的域名的花，评论数据就比较麻烦了。
-所以我在想是否可以通过CDN的方式来曲线实现原有的自定义功能呢？一开始我是使用七牛的CDN进行的，因为一开始我就打算通过七牛的 Kodo + CDN 进行网站的迁移+提升，但是发现Kodo的站点功能有点缺陷，最后才选择了 Gitee Pages 。后面单纯的使用七牛的CDN也不行，一直卡在测试不通过。最后通过了阿里云的全站加速DCDN实现了，至于后面有什么坑再说啦～
-&amp;mdash;END</description>
+{  &amp;#34;pre-commit&amp;#34;: [  &amp;#34;lint-staged&amp;#34;  ],  &amp;#34;lint-staged&amp;#34;: {  &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [  &amp;#34;prettier --write&amp;#34;  ],  &amp;#34;*.ts?(x)&amp;#34;: [  &amp;#34;prettier --parser=typescript --write&amp;#34;  ]  }, } 参考  https://github.</description>
     </item>
     
   </channel>

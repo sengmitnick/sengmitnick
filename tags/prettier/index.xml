@@ -16,9 +16,9 @@
       <guid>https://sengmitnick.com/blog/330/</guid>
       <description>VSCODE 安装 Prettier 的官方扩展：https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 配置 resolveGlobalModules ，使 Prettier 使用项目本地依赖项中 Prettier。
-{ &amp;#34;prettier.resolveGlobalModules&amp;#34;: true, &amp;#34;[typescriptreact]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; }, &amp;#34;[typescript]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34; } } NPM 安装 prettier lint-staged pre-commit
+{ 	&amp;#34;prettier.resolveGlobalModules&amp;#34;: true,  &amp;#34;[typescriptreact]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  },  &amp;#34;[typescript]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  } } NPM 安装 prettier lint-staged pre-commit
 以下是 package.json 配置：
-{ &amp;#34;pre-commit&amp;#34;: [ &amp;#34;lint-staged&amp;#34; ], &amp;#34;lint-staged&amp;#34;: { &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [ &amp;#34;prettier --write&amp;#34; ], &amp;#34;*.ts?(x)&amp;#34;: [ &amp;#34;prettier --parser=typescript --write&amp;#34; ] }, } 参考  https://github.com/prettier/prettier-vscode#prettier-resolution https://prettier.io/docs/en/configuration.html  </description>
+{  &amp;#34;pre-commit&amp;#34;: [  &amp;#34;lint-staged&amp;#34;  ],  &amp;#34;lint-staged&amp;#34;: {  &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [  &amp;#34;prettier --write&amp;#34;  ],  &amp;#34;*.ts?(x)&amp;#34;: [  &amp;#34;prettier --parser=typescript --write&amp;#34;  ]  }, } 参考  https://github.</description>
     </item>
     
   </channel>

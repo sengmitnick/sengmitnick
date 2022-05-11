@@ -31,7 +31,7 @@ ps -aux 列出进程。找到含有apt-get的进程，直接 sudo kill PID 。�
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -62,16 +62,10 @@ E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它�
 解决办法1：
 终端输入:
 ps  -aux
-列出进程。找到含有apt-get的进程，直接 sudo kill PID 。解决。">
-<meta itemprop="datePublished" content="2014-03-08T10:15:18+00:00" />
+列出进程。找到含有apt-get的进程，直接 sudo kill PID 。解决。"><meta itemprop="datePublished" content="2014-03-08T10:15:18+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="126">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="126"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="总结,Ubuntu," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -112,10 +106,10 @@ E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它�
 ps  -aux
 列出进程。找到含有apt-get的进程，直接 sudo kill PID 。解决。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/11/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/11/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-03-08T10:15:18+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -272,17 +266,17 @@ ps  -aux
 <p>当在使用apt－get安装或者其他操作时，还木有操作完成就直接关闭终端，从而导致关闭了终端，apt－get进程却没有结束。</p>
 <p><strong>解决办法1：</strong></p>
 <p>终端输入:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ps  -aux
-</code></pre></div><p>列出进程。找到含有apt-get的进程，直接 <code>sudo kill PID</code> 。解决。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ps  -aux
+</span></span></code></pre></div><p>列出进程。找到含有apt-get的进程，直接 <code>sudo kill PID</code> 。解决。</p>
 <p><strong>解决办法2：</strong> 强制解锁；命令如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock
-</code></pre></div><h2 id="ubuntu-1204-文本编辑器gedit显示乱码">ubuntu 12.04 文本编辑器（gedit）显示乱码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rm /var/cache/apt/archives/lock
+</span></span><span style="display:flex;"><span>sudo rm /var/lib/dpkg/lock
+</span></span></code></pre></div><h2 id="ubuntu-1204-文本编辑器gedit显示乱码">ubuntu 12.04 文本编辑器（gedit）显示乱码</h2>
 <p><strong>原因分析：</strong> 这种情况是因为 设置当中没有包括汉字常见的各种编码形式</p>
 <p><strong>解决方案：</strong> 终端输入：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gsettings set org.gnome.gedit.preferences.encodings auto-detected “<span style="color:#f92672">[</span>‘GB18030’, ‘GB2312’, ‘GBK’, ‘UTF-8’, ‘BIG5’, ‘CURRENT’, ‘UTF-16’<span style="color:#f92672">]</span>”
-gsettings set org.gnome.gedit.preferences.encodings shown-in-menu “<span style="color:#f92672">[</span>‘GB18030’, ‘GB2312’, ‘GBK’, ‘UTF-8’, ‘BIG5’, ‘CURRENT’, ‘UTF-16’<span style="color:#f92672">]</span>
-</code></pre></div><h2 id="ubuntu-1204下音乐乱码">ubuntu 12.04下音乐乱码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gsettings set org.gnome.gedit.preferences.encodings auto-detected “<span style="color:#f92672">[</span>‘GB18030’, ‘GB2312’, ‘GBK’, ‘UTF-8’, ‘BIG5’, ‘CURRENT’, ‘UTF-16’<span style="color:#f92672">]</span>”
+</span></span><span style="display:flex;"><span>gsettings set org.gnome.gedit.preferences.encodings shown-in-menu “<span style="color:#f92672">[</span>‘GB18030’, ‘GB2312’, ‘GBK’, ‘UTF-8’, ‘BIG5’, ‘CURRENT’, ‘UTF-16’<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h2 id="ubuntu-1204下音乐乱码">ubuntu 12.04下音乐乱码</h2>
 <p><strong>原因分析：</strong>
 这个问题出现在mp3文件里，由于大陆大多数MP3文件都是用GBK/GB18030编码写入标签信息的，而大多数的linux播放器默认以utf-8编码读取，这就产生了乱码。</p>
 <p><strong>解决方法：</strong></p>
@@ -291,20 +285,20 @@ gsettings set org.gnome.gedit.preferences.encodings shown-in-menu “<span style
 <li>安装Mutagen:
 ubuntu下终端运行</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install python-mutagen
-</code></pre></div><p>然后，在终端执行：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mid3iconv -e gbk *.mp3
-</code></pre></div><p>如果想转换当前目录下的所有 mp3 (包括子目录)：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd yourdir  <span style="color:#75715e">#yourdir为你的目录</span>
-find . -iname “*.mp3” -execdir mid3iconv -e gbk <span style="color:#f92672">{}</span>  <span style="color:#ae81ff">\;</span>
-</code></pre></div><h2 id="ubuntu-1204下令其能够开机自动挂载设备">ubuntu 12.04下令其能够开机自动挂载设备</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install python-mutagen
+</span></span></code></pre></div><p>然后，在终端执行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mid3iconv -e gbk *.mp3
+</span></span></code></pre></div><p>如果想转换当前目录下的所有 mp3 (包括子目录)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd yourdir  <span style="color:#75715e">#yourdir为你的目录</span>
+</span></span><span style="display:flex;"><span>find . -iname “*.mp3” -execdir mid3iconv -e gbk <span style="color:#f92672">{}</span>  <span style="color:#ae81ff">\;</span>
+</span></span></code></pre></div><h2 id="ubuntu-1204下令其能够开机自动挂载设备">ubuntu 12.04下令其能够开机自动挂载设备</h2>
 <p>设置方法：在root权限下终端输入：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">##     fs_spec　 fs_file　  fs_type　fs_options　 fs_dump　 fs_pass</span>
-echo “/dev/sda1 /mnt/win_c ntfs     defaults     <span style="color:#ae81ff">0</span>         0” &gt;&gt; /etc/fstab
-</code></pre></div><h2 id="ubuntu下如何使用命令搜索某文件下的某字符串">ubuntu下如何使用命令搜索某文件下的某字符串</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">##     fs_spec　 fs_file　  fs_type　fs_options　 fs_dump　 fs_pass</span>
+</span></span><span style="display:flex;"><span>echo “/dev/sda1 /mnt/win_c ntfs     defaults     <span style="color:#ae81ff">0</span>         0” &gt;&gt; /etc/fstab
+</span></span></code></pre></div><h2 id="ubuntu下如何使用命令搜索某文件下的某字符串">ubuntu下如何使用命令搜索某文件下的某字符串</h2>
 <p><strong>解决方法：</strong> 举个例子,例如我要搜索当前目录下C类型文件内有包含字符串“timer”的文件，在终端输入：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find . -name “*.c” | xargs grep “timer”
-</code></pre></div><p><strong>END……</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find . -name “*.c” | xargs grep “timer”
+</span></span></code></pre></div><p><strong>END……</strong></p>
       </div>
     </article>
 
@@ -350,13 +344,13 @@ echo “/dev/sda1 /mnt/win_c ntfs     defaults     <span style="color:#ae81ff">0
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-03-08 18:15
+          2014-03-08 10:15
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -535,7 +529,7 @@ echo “/dev/sda1 /mnt/win_c ntfs     defaults     <span style="color:#ae81ff">0
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -552,18 +546,16 @@ echo “/dev/sda1 /mnt/win_c ntfs     defaults     <span style="color:#ae81ff">0
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -48,16 +48,10 @@
 花了些许功夫成功用上Hexo做博客了，就寻思着把之前在typecho博客的文章迁移过来。
 
 前言
-在github上面找到了这个兄弟写得Typecho2Hexo Python版小工具,把他Fork到我的GitHub，修改成可以在我系统上用的版本。新版本在这里。">
-<meta itemprop="datePublished" content="2016-10-15T10:46:25+00:00" />
+在github上面找到了这个兄弟写得Typecho2Hexo Python版小工具,把他Fork到我的GitHub，修改成可以在我系统上用的版本。新版本在这里。"><meta itemprop="datePublished" content="2016-10-15T10:46:25+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="216">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="216"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="Hexo,typecho," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -78,10 +72,10 @@
 前言
 在github上面找到了这个兄弟写得Typecho2Hexo Python版小工具,把他Fork到我的GitHub，修改成可以在我系统上用的版本。新版本在这里。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/86/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/86/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2016-10-15T10:46:25+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -230,70 +224,70 @@
 <p>在github上面找到了这个兄弟写得<a href="https://github.com/zhourongyu/Typecho2Hexo" title="Typecho2Hexo">Typecho2Hexo Python版小工具</a>,把他Fork到我的GitHub，修改成可以在我系统上用的版本。新版本在<a href="https://github.com/sengmitnick/Typecho2Hexo">这里</a>。</p>
 <h2 id="实现">实现</h2>
 <p>代码如下：（不行访问Github的直接在这里cp）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#75715e">## -*- coding: utf-8 -*-</span>
-__author__ <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Zhou Rongyu&#39;</span>
-
-<span style="color:#f92672">import</span> codecs
-<span style="color:#f92672">import</span> os
-<span style="color:#f92672">import</span> torndb
-<span style="color:#f92672">import</span> arrow
-<span style="color:#f92672">import</span> sys
-reload(sys)
-sys<span style="color:#f92672">.</span>setdefaultencoding(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
-
-<span style="color:#75715e"># 把数据库相关信息改成自己的，默认localhost（和数据库同机的话不需要修改）</span>
-db <span style="color:#f92672">=</span> torndb<span style="color:#f92672">.</span>Connection(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;localhost&#34;</span>, database<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;数据库&#34;</span>, user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>, password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;密码&#34;</span>)
-<span style="color:#75715e"># 创建分类和标签</span>
-categories <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;select type, slug, name from typecho_metas&#34;</span>)
-<span style="color:#66d9ef">for</span> cate <span style="color:#f92672">in</span> categories:
-    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> cate<span style="color:#f92672">.</span>slug
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(path):
-        os<span style="color:#f92672">.</span>makedirs(path)
-    f <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/index.md&#39;</span> <span style="color:#f92672">%</span> path, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#34;utf-8&#34;</span>)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;title: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> cate<span style="color:#f92672">.</span>slug)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;date: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> arrow<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;YYYY-MM-DD HH:mm:ss&#39;</span>))
-    <span style="color:#75715e"># 区分分类和标签</span>
-    <span style="color:#66d9ef">if</span> cate<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;category&#39;</span>:
-        f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;type: &#34;categories&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
-    <span style="color:#66d9ef">elif</span> cate<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;tags&#39;</span>:
-        f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;type: &#34;tags&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
-    <span style="color:#75715e"># 禁止评论</span>
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;comments: false</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-    f<span style="color:#f92672">.</span>close()
-
-<span style="color:#75715e"># 创建文章</span>
-entries <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;select cid, title, slug, text, created from typecho_contents where type=&#39;post&#39;&#34;</span>)
-<span style="color:#66d9ef">for</span> e <span style="color:#f92672">in</span> entries:
-    title <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>title<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
-    cid <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>cid
-    content <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>text
-    <span style="color:#66d9ef">if</span> content <span style="color:#f92672">is</span> None:
-        content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-    content <span style="color:#f92672">=</span> str(content<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;!--markdown--&gt;&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)
-    tags <span style="color:#f92672">=</span> []
-    category <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-    <span style="color:#75715e"># 找出文章的tag及category</span>
-    metas <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(
-        <span style="color:#e6db74">&#34;select type, name, slug from `typecho_relationships` ts, typecho_metas tm where tm.mid = ts.mid and ts.cid = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span>,
-        e<span style="color:#f92672">.</span>cid)
-    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> metas:
-        <span style="color:#66d9ef">if</span> m<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;tag&#39;</span>:
-            tags<span style="color:#f92672">.</span>append(m<span style="color:#f92672">.</span>name)
-        <span style="color:#66d9ef">if</span> m<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;category&#39;</span>:
-            category <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span>slug
-    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/_posts/&#39;</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(path):
-        os<span style="color:#f92672">.</span>makedirs(path)
-    f <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s%s</span><span style="color:#e6db74">.md&#39;</span> <span style="color:#f92672">%</span> (path, cid), <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#34;utf-8&#34;</span>)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;title: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> title)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;date: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> arrow<span style="color:#f92672">.</span>get(e<span style="color:#f92672">.</span>created)<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;YYYY-MM-DD HH:mm:ss&#39;</span>))
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;categories: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> category)
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;tags: [</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">.</span>join(tags))
-    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-    f<span style="color:#f92672">.</span>write(content)
-    f<span style="color:#f92672">.</span>close()
-</code></pre></div><h2 id="问题汇总">问题汇总</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e">## -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>__author__ <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Zhou Rongyu&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> codecs
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torndb
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> arrow
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>reload(sys)
+</span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>setdefaultencoding(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 把数据库相关信息改成自己的，默认localhost（和数据库同机的话不需要修改）</span>
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> torndb<span style="color:#f92672">.</span>Connection(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;localhost&#34;</span>, database<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;数据库&#34;</span>, user<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>, password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;密码&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建分类和标签</span>
+</span></span><span style="display:flex;"><span>categories <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;select type, slug, name from typecho_metas&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> cate <span style="color:#f92672">in</span> categories:
+</span></span><span style="display:flex;"><span>    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> cate<span style="color:#f92672">.</span>slug
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(path):
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>makedirs(path)
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/index.md&#39;</span> <span style="color:#f92672">%</span> path, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#34;utf-8&#34;</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;title: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> cate<span style="color:#f92672">.</span>slug)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;date: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> arrow<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;YYYY-MM-DD HH:mm:ss&#39;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 区分分类和标签</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> cate<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;category&#39;</span>:
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;type: &#34;categories&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> cate<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;tags&#39;</span>:
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;type: &#34;tags&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 禁止评论</span>
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;comments: false</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建文章</span>
+</span></span><span style="display:flex;"><span>entries <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;select cid, title, slug, text, created from typecho_contents where type=&#39;post&#39;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> e <span style="color:#f92672">in</span> entries:
+</span></span><span style="display:flex;"><span>    title <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>title<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
+</span></span><span style="display:flex;"><span>    cid <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>cid
+</span></span><span style="display:flex;"><span>    content <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span>text
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> content <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    content <span style="color:#f92672">=</span> str(content<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;!--markdown--&gt;&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>    tags <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    category <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 找出文章的tag及category</span>
+</span></span><span style="display:flex;"><span>    metas <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>query(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;select type, name, slug from `typecho_relationships` ts, typecho_metas tm where tm.mid = ts.mid and ts.cid = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>        e<span style="color:#f92672">.</span>cid)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> metas:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> m<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;tag&#39;</span>:
+</span></span><span style="display:flex;"><span>            tags<span style="color:#f92672">.</span>append(m<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> m<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;category&#39;</span>:
+</span></span><span style="display:flex;"><span>            category <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span>slug
+</span></span><span style="display:flex;"><span>    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/_posts/&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(path):
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>makedirs(path)
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s%s</span><span style="color:#e6db74">.md&#39;</span> <span style="color:#f92672">%</span> (path, cid), <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#34;utf-8&#34;</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;title: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> title)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;date: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> arrow<span style="color:#f92672">.</span>get(e<span style="color:#f92672">.</span>created)<span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#39;YYYY-MM-DD HH:mm:ss&#39;</span>))
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;categories: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> category)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;tags: [</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">.</span>join(tags))
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>write(content)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h2 id="问题汇总">问题汇总</h2>
 <p>为什么要大改？是因为我使用过程中，发现源版本生成的文件名是标题，觉得用id做名字好一点，网站链接也短，还有，原版本不知道是什么回事，使用一直提示我连接数据库出错，说密码错误，可是我命令行直接登陆完全没问题，我只好乱改一通了，最后莫名其妙就可以了。</p>
 <p>后面我还想添加在文章生成md文件过程中添加<code>&lt;!--more--&gt;</code>标签的，后面也实现了，可惜发现我的文章好多html字符，添加了会出错，最后只能我自己手动添加。</p>
 <p><strong>END……</strong></p>
@@ -342,13 +336,13 @@ entries <span style="color:#f92672">=</span> db<span style="color:#f92672">.</sp
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2016-10-15 18:46
+          2016-10-15 10:46
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -527,7 +521,7 @@ entries <span style="color:#f92672">=</span> db<span style="color:#f92672">.</sp
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -544,18 +538,16 @@ entries <span style="color:#f92672">=</span> db<span style="color:#f92672">.</sp
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 

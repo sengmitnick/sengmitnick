@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="https://sengmitnick.com/main.bcc9216ccce4ade9dc437131cf37b7e331b3786c0773172c10563be493ae99c1.css">
+<link rel="stylesheet" href="https://sengmitnick.com/main.ca5e984d1e97cf6c55a0401de9c87f318e63fb7e0eb674d7b73768f24b117b0d.css">
 
 
 
@@ -68,16 +68,10 @@
     
     
   
-">
-<meta itemprop="datePublished" content="2014-05-28T07:28:52+00:00" />
+"><meta itemprop="datePublished" content="2014-05-28T07:28:52+00:00" />
 <meta itemprop="dateModified" content="2021-02-16T15:54:08+08:00" />
-<meta itemprop="wordCount" content="162">
-<meta itemprop="image" content="https://sengmitnick.com/"/>
-
-
-
+<meta itemprop="wordCount" content="162"><meta itemprop="image" content="https://sengmitnick.com/"/>
 <meta itemprop="keywords" content="windows,配置,PHP,IIS," />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://sengmitnick.com/"/>
 
@@ -138,10 +132,10 @@
   
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sengmitnick.com/blog/47/" />
-<meta property="og:image" content="https://sengmitnick.com/"/>
+<meta property="og:url" content="https://sengmitnick.com/blog/47/" /><meta property="og:image" content="https://sengmitnick.com/"/><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2014-05-28T07:28:52+00:00" />
 <meta property="article:modified_time" content="2021-02-16T15:54:08+08:00" />
+
 
 
 
@@ -407,7 +401,7 @@
 <blockquote>
 <p>PS: [Types]是文件原来就有的，在[Types]后面加上下面的语句就可以，要全部哦不然会报错的.</p>
 </blockquote>
-<pre><code>[Types]
+<pre tabindex="0"><code>[Types]
 php=PHP
 
 [PHP]
@@ -421,14 +415,14 @@ RequestTimeout=3600
 </code></pre><h3 id="添加phpini">添加PHP.ini</h3>
 <p>PHP.ini的修改PHP5.3.8安装目录下是没有PHP.ini这个文件的，只有php.ini-development和php.ini-production，我们把php.ini-development改为php.ini(当然如果你怕有错可以先备份一下)。
 注明：首先建一个文件夹命名为TMP，位置随意，我这里放在E:\PHP\tmp。 (upload_tmp_dir会用到，upload_tmp_dir是用来定义上传文件存放的临时路径，这里可以修改并给它定义一个绝对路径，同时需要有读、写权限)。用搜索(快捷键：Ctrl+F)的方式把下面的关键字改成现在的值：</p>
-<pre><code>short_open_tag = Off (这个它本来默认就是这样我们就不要改了。)
+<pre tabindex="0"><code>short_open_tag = Off (这个它本来默认就是这样我们就不要改了。)
 把;upload_tmp_dir =改为upload_tmp_dir=”E:\PHP\tmp”
 把;cgi.force_redirect = 1改为cgi.force_redirect=0
 把;fastcgi.impersonate = 1;改为 fastcgi.impersonate=1;
 把; extension_dir = “ext”改为extension_dir=”E:\PHP\ext”
 把;date.timezone =改为date.timezone =PRC(如果不修改date.timezone，打开网页的时候蛮有可能提示500错误。也有人把值改为Asia/Shanghai，我没试过你们可以试试。)
 </code></pre><p>在Windows Extensions中去除扩展前面的分号(;):</p>
-<pre><code>; extension=php_curl.dll
+<pre tabindex="0"><code>; extension=php_curl.dll
 ; extension=php_gd2.dll
 ; extension=php_ldap.dll
 ; extension=php_mbstring.dll
@@ -490,13 +484,13 @@ RequestTimeout=3600
 <p>这里全部配置好了，一定要把IIS服务重启一下。</p>
 <h2 id="测试">测试</h2>
 <p>用文本写一段测试代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-<span style="color:#a6e22e">phpinfo</span>();
-<span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>保存为index.php，名字随便取，只要后缀是.php就可以。把index.php放到根目录下，我这里是C:\Inetpub\wwwroot，然后在浏览器中输入<a href="http://localhost/index.php">http://localhost/index.php</a> 就可以得到返回的信息了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">phpinfo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>保存为index.php，名字随便取，只要后缀是.php就可以。把index.php放到根目录下，我这里是C:\Inetpub\wwwroot，然后在浏览器中输入<a href="http://localhost/index.php">http://localhost/index.php</a> 就可以得到返回的信息了。</p>
 <h2 id="问题汇总">问题汇总</h2>
 <p>若出现如同下面的错误，说明你的电脑没有安装VC9运行库 即VISUAL C++ 2008</p>
-<pre><code>Microsoft Visual C++ 2008 Redistributable Package (x86)
+<pre tabindex="0"><code>Microsoft Visual C++ 2008 Redistributable Package (x86)
 FastCGI Error
 The FastCGI Handler was unable to process the request.
 ——————————————————————————————————————————————————————
@@ -555,13 +549,13 @@ Internet Information Services (IIS)
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2014-05-28 15:28
+          2014-05-28 07:28
         
 
          
           
             
-              (最后修改: 2021-02-16 15:54)
+              (最后修改: 2021-02-16 07:54)
             
           
         
@@ -740,7 +734,7 @@ Internet Information Services (IIS)
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2021</span>
+            <span>&copy; 2022</span>
             <span><a href="https://sengmitnick.com/about/">Seng Mitnick</a></span>
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
             <span><a href="http://beian.miit.gov.cn/">粤ICP备15007727号-1</a></span>
@@ -757,18 +751,16 @@ Internet Information Services (IIS)
 
 
 
-<script type="text/javascript" src="https://sengmitnick.com/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+<script type="text/javascript" src="https://sengmitnick.com/bundle.min.cda150a33aab014c3d97eebcfb0d9dcae406440814df7a1f443f3eadb803b28f51d3400ae137f200d88ffd393ad3245a5e23bdfba3db8de713b6cdc00a2e5229.js" integrity="sha512-zaFQozqrAUw9l&#43;68&#43;w2dyuQGRAgU33ofRD8&#43;rbgDso9R00AK4TfyANiP/Tk60yRaXiO9&#43;6PbjecTts3ACi5SKQ=="></script>
     
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4P4N74ZN2"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'G-J4P4N74ZN2', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-J4P4N74ZN2', { 'anonymize_ip': false });
 }
 </script>
 
