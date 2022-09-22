@@ -8,7 +8,6 @@ date: 2021-04-25T16:35:30+08:00
 categories: [technology]
 tags: [gitee, pages, blog, CDN]
 comments: true
-draft: true
 toc: true
 ---
 

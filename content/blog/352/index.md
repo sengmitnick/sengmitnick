@@ -136,6 +136,12 @@ PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
 
 传送门：[https://gitee.com/vant-openharmony/vant](https://gitee.com/vant-openharmony/vant)
 
+## 后续
+
+哈哈哈，最后获得🥇第一名并且该文章在后续的有奖征文活动中获得二等奖，结果还算不错。
+
+[获奖名单公布](https://gitee.com/gitee-community/openharmony_components/blob/master/%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95%E5%85%AC%E5%B8%83.md#%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95)
+
 ## 参考
 
 - [Vant](https://github.com/youzan/vant)
@@ -144,4 +150,3 @@ PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
 - [OpenHarmony组件开发大赛](https://gitee.com/gitee-community/openharmony_components)
 - [taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli)
 - [harmonyos documentation](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-overview-0000001056361791)
-- [Parallel Line](https://pxx-design.gitee.io/) 给我目前给公司打造的React组件库打波广告～
