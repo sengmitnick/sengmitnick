@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 03:31:55 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jun 2022 07:15:16 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于disqus-php-api在Hexo博客中使用Disqus</title>
       <link>https://sengmitnick.com/blog/104/</link>
@@ -17,6 +17,17 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>小米平板1刷 LineageOS 16.0 教程</title>
+      <link>https://sengmitnick.com/blog/356/</link>
+      <pubDate>Tue, 07 Jun 2022 07:15:16 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/356/</guid>
+      <description> 本文只针对于小米平板1升级 lineageOS 16.0，其他版本可参考：https://www.jianshu.com/p/71aa0f22b466
+ 刷机文件下载 下载地址： 百度网盘：链接: https://pan.baidu.com/s/19jRRlYPdHOBsDp9wFoC9YA 提取码: ukcw
+文件说明：  lineage-16.0-20200419-UNOFFICIAL-mocha.zip: lineageOS 系统文件，原版下载地址：lineage-16.0-20200419-UNOFFICIAL-mocha.zip mocha_repartition_1_2GB_RahulTheVirus.zip: 分区合并工具(这个文件很关键，很多合并分区文件都是旧版本，会导致刷机失败)，原版下载地址：mocha_repartition_1_2GB_RahulTheVirus.zip recovery-03.11.2018.zip：recovery镜像，原版下载地址：recovery-03.11.2018.zip tos.zip：底层镜像，原版下载地址：TosForPSCI-0.1.zip twrp-3.4.0-0-mocha.zip： TWRP recovery 文件，原版下载地址： twrp-3.4.0-0-mocha.zip LRbox.zip：线刷工具，内置 adb 和 fastboot 工具  </description>
     </item>
     
     <item>
@@ -147,19 +158,6 @@ const useFlag = (initialValue = false) =&amp;gt; {  const [flag, setFlag] = Reac
 module.exports = {  &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;,  &amp;#39;@primary-color&amp;#39;: &amp;#39;#1E78FF&amp;#39;,  &amp;#39;@url&amp;#39;: `&amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;`, }; 输出：
 @hd: 1px; @primary-color: #1E78FF; @url: &amp;#39;https://ant-design.gitee.io/components/upload-cn/&amp;#39;; PS: 注意声明链接时必须有引号，不然会报错哦～
 基于modifyVars功能可以实现类似的CSS In JS 功能哦～</description>
-    </item>
-    
-    <item>
-      <title>Prettier 使用宝典</title>
-      <link>https://sengmitnick.com/blog/330/</link>
-      <pubDate>Tue, 25 May 2021 13:47:05 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/330/</guid>
-      <description>VSCODE 安装 Prettier 的官方扩展：https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-配置 resolveGlobalModules ，使 Prettier 使用项目本地依赖项中 Prettier。
-{ 	&amp;#34;prettier.resolveGlobalModules&amp;#34;: true,  &amp;#34;[typescriptreact]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  },  &amp;#34;[typescript]&amp;#34;: {  &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;esbenp.prettier-vscode&amp;#34;  } } NPM 安装 prettier lint-staged pre-commit
-以下是 package.json 配置：
-{  &amp;#34;pre-commit&amp;#34;: [  &amp;#34;lint-staged&amp;#34;  ],  &amp;#34;lint-staged&amp;#34;: {  &amp;#34;*.{js,jsx,less,md,json}&amp;#34;: [  &amp;#34;prettier --write&amp;#34;  ],  &amp;#34;*.ts?(x)&amp;#34;: [  &amp;#34;prettier --parser=typescript --write&amp;#34;  ]  }, } 参考  https://github.</description>
     </item>
     
   </channel>

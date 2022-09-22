@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 11 May 2022 03:31:55 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 07 Jun 2022 07:15:16 +0000</lastBuildDate>
         <atom:link href="https://sengmitnick.com/blog/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -353,6 +353,33 @@
         </item>
         
         <item>
+            <title>小米平板1刷 LineageOS 16.0 教程</title>
+            <link>https://sengmitnick.com/blog/356/</link>
+            <pubDate>Tue, 07 Jun 2022 07:15:16 +0000</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/356/</guid>
+            <description> 本文只针对于小米平板1升级 lineageOS 16.0，其他版本可参考：https://www.jianshu.com/p/71aa0f22b466
+ 刷机文件下载 下载地址： 百度网盘：链接: https://pan.baidu.com/s/19jRRlYPdHOBsDp9wFoC9YA 提取码: ukcw
+文件说明：  lineage-16.0-20200419-UNOFFICIAL-mocha.zip: lineageOS 系统文件，原版下载地址：lineage-16.0-20200419-UNOFFICIAL-mocha.zip mocha_repartition_1_2GB_RahulTheVirus.zip: 分区合并工具(这个文件很关键，很多合并分区文件都是旧版本，会导致刷机失败)，原版下载地址：mocha_repartition_1_2GB_RahulTheVirus.zip recovery-03.11.2018.zip：recovery镜像，原版下载地址：recovery-03.11.2018.zip tos.zip：底层镜像，原版下载地址：TosForPSCI-0.1.zip twrp-3.4.0-0-mocha.zip： TWRP recovery 文件，原版下载地址： twrp-3.4.0-0-mocha.zip LRbox.zip：线刷工具，内置 adb 和 fastboot 工具  </description>
+            <content type="html"><![CDATA[<blockquote>
+<p>本文只针对于小米平板1升级 lineageOS 16.0，其他版本可参考：https://www.jianshu.com/p/71aa0f22b466</p>
+</blockquote>
+<h2 id="刷机文件下载">刷机文件下载</h2>
+<h3 id="下载地址">下载地址：</h3>
+<p>百度网盘：链接: <a href="https://pan.baidu.com/s/19jRRlYPdHOBsDp9wFoC9YA">https://pan.baidu.com/s/19jRRlYPdHOBsDp9wFoC9YA</a> 提取码: <code>ukcw</code></p>
+<h3 id="文件说明">文件说明：</h3>
+<ul>
+<li><code>lineage-16.0-20200419-UNOFFICIAL-mocha.zip</code>: lineageOS 系统文件，原版下载地址：<a href="https://androidfilehost.com/?fid=4349826312261776333">lineage-16.0-20200419-UNOFFICIAL-mocha.zip</a></li>
+<li><code>mocha_repartition_1_2GB_RahulTheVirus.zip</code>: 分区合并工具(这个文件很关键，很多合并分区文件都是旧版本，会导致刷机失败)，原版下载地址：<a href="https://androidfilehost.com/?fid=817906626617957830">mocha_repartition_1_2GB_RahulTheVirus.zip</a></li>
+<li><code>recovery-03.11.2018.zip</code>：recovery镜像，原版下载地址：<a href="https://androidfilehost.com/?fid=11410932744536994233">recovery-03.11.2018.zip</a></li>
+<li><code>tos.zip</code>：底层镜像，原版下载地址：<a href="https://androidfilehost.com/?fid=11410932744536994618">TosForPSCI-0.1.zip</a></li>
+<li><code>twrp-3.4.0-0-mocha.zip</code>： TWRP recovery 文件，原版下载地址： <a href="https://dl.twrp.me/mocha/twrp-3.4.0-0-mocha.img.html">twrp-3.4.0-0-mocha.zip</a></li>
+<li><code>LRbox.zip</code>：线刷工具，内置 <code>adb</code> 和 <code>fastboot</code> 工具</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
             <title>Mac 电脑使用 ClashX 作为网关旁路由</title>
             <link>https://sengmitnick.com/blog/355/</link>
             <pubDate>Wed, 11 May 2022 03:31:55 +0000</pubDate>
@@ -635,6 +662,9 @@ PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
 <p>最后，无论是造轮子或者看流行的开源库源码，都有它其中的乐趣所在。在你某个时候就有可能会用到你之前看源码，看书所学到的新知识了。</p>
 <p>同时，也欢迎你去fork这个充满了私货的UI库，提Issues或者Pull Request都是非常欢迎的~</p>
 <p>传送门：<a href="https://gitee.com/vant-openharmony/vant">https://gitee.com/vant-openharmony/vant</a></p>
+<h2 id="后续">后续</h2>
+<p>哈哈哈，最后获得🥇第一名并且该文章在后续的有奖征文活动中获得二等奖，结果还算不错。</p>
+<p><a href="https://gitee.com/gitee-community/openharmony_components/blob/master/%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95%E5%85%AC%E5%B8%83.md#%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95">获奖名单公布</a></p>
 <h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://github.com/youzan/vant">Vant</a></li>
@@ -643,7 +673,6 @@ PS: 还好途中没遇到奇奇怪怪的问题，哈哈:)
 <li><a href="https://gitee.com/gitee-community/openharmony_components">OpenHarmony组件开发大赛</a></li>
 <li><a href="https://github.com/iconfont-cli/taro-iconfont-cli">taro-iconfont-cli</a></li>
 <li><a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-overview-0000001056361791">harmonyos documentation</a></li>
-<li><a href="https://pxx-design.gitee.io/">Parallel Line</a> 给我目前给公司打造的React组件库打波广告～</li>
 </ul>
 ]]></content>
         </item>
@@ -1142,6 +1171,37 @@ module.exports = {  &amp;#39;@hd&amp;#39;: &amp;#39;1px&amp;#39;,  &amp;#39;@pri
   </figure>
 
 <p>原理分析： <code>define</code> 中的变量在生产环境会被压缩掉，如果通过 <code>const {PXX_ENV1, PLATFORM1} = process.env;</code> 方式取值，会先被编译成以上截图代码，导致在生产环境中并没有被压缩掉～</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>利用 gitee pages 提速自己的个人网站</title>
+            <link>https://sengmitnick.com/blog/317/</link>
+            <pubDate>Sun, 25 Apr 2021 16:35:30 +0800</pubDate>
+            
+            <guid>https://sengmitnick.com/blog/317/</guid>
+            <description>前言 前阵子我在服务器上搭建的 v2Ray 挂了，无奈之下启动B计划，搭建了 Trojan 服务器，但是搭建成功后，虽然可以继续愉快的科学上网，却导致之前基于 Nginx 搭建的站点都挂掉了。不过还好，我的Nginx上面只配置了两个站点，一个就是目前的博客，还有就是我的 Cloud IED 了。
+Cloud IED 可以通过修改 Trojan 服务器-伪装站点的 root 位置继续使用。而本来的博客站点，则可以考虑通过 GiteePages + dcnd 进行解决。
+开启 Gitee Pages 服务 之前我的源码是放在GitHub上面，通过 Gitee 的导入仓库功能就可以导入我的源码到其上了。然后就是通过 gh-pages 进行作业啦～
+could not find image 就是每次更新站点有点繁琐，需要先同步GitHub，然后到 Gitee Pages 的页面进行更新。
+通过阿里的 DCDN 进行全球加速 如果使用的是 GitHub Pages 功能的话，通过其中的自定义域名即可把自己的域名绑定并且可以自动更新HTTPS证书了。但是 Gitee Pages 并没有开放该功能（之前貌似有的，不过好像因为国内政策问题就关掉了），而我的站点评论使用的是 disqus，如果直接用 Gitee 提供的域名的话，评论数据就比较麻烦了。
+所以我在想是否可以通过CDN的方式来曲线实现原有的自定义功能呢？一开始我是使用七牛的CDN进行的，因为一开始我就打算通过七牛的 Kodo + CDN 进行网站的迁移+提升，但是发现Kodo的站点功能有点缺陷，最后才选择了 Gitee Pages 。后面单纯的使用七牛的CDN也不行，一直卡在测试不通过。最后通过了阿里云的全站加速DCDN实现了，至于后面有什么坑再说啦～
+&amp;mdash;END</description>
+            <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>前阵子我在服务器上搭建的 <strong>v2Ray</strong> 挂了，无奈之下启动B计划，搭建了 <strong>Trojan</strong> 服务器，但是搭建成功后，虽然可以继续愉快的科学上网，却导致之前基于 <strong>Nginx</strong> 搭建的站点都挂掉了。不过还好，我的Nginx上面只配置了两个站点，一个就是目前的博客，还有就是我的 <strong>Cloud IED</strong> 了。</p>
+<p><strong>Cloud IED</strong> 可以通过修改 <strong>Trojan</strong> 服务器-伪装站点的 <strong>root</strong> 位置继续使用。而本来的博客站点，则可以考虑通过 GiteePages + dcnd 进行解决。</p>
+<h2 id="开启-gitee-pages-服务">开启 Gitee Pages 服务</h2>
+<p>之前我的源码是放在<strong>GitHub</strong>上面，通过 <strong>Gitee</strong> 的导入仓库功能就可以导入我的源码到其上了。然后就是通过 <strong>gh-pages</strong> 进行作业啦～</p>
+
+
+
+  could not find image
+
+<p>就是每次更新站点有点繁琐，需要先同步GitHub，然后到 <strong>Gitee Pages</strong> 的页面进行更新。</p>
+<h2 id="通过阿里的-dcdn-进行全球加速">通过阿里的 DCDN 进行全球加速</h2>
+<p>如果使用的是 GitHub Pages 功能的话，通过其中的自定义域名即可把自己的域名绑定并且可以自动更新<strong>HTTPS证书</strong>了。但是 <strong>Gitee Pages</strong> 并没有开放该功能（之前貌似有的，不过好像因为国内政策问题就关掉了），而我的站点评论使用的是 <strong>disqus</strong>，如果直接用 <strong>Gitee</strong> 提供的域名的话，评论数据就比较麻烦了。</p>
+<p>所以我在想是否可以通过CDN的方式来曲线实现原有的自定义功能呢？一开始我是使用<strong>七牛</strong>的CDN进行的，因为一开始我就打算通过<strong>七牛</strong>的 <strong>Kodo</strong> + <strong>CDN</strong> 进行网站的迁移+提升，但是发现<strong>Kodo</strong>的站点功能有点缺陷，最后才选择了 <strong>Gitee Pages</strong> 。后面单纯的使用<strong>七牛</strong>的CDN也不行，一直卡在测试不通过。最后通过了阿里云的全站加速<strong>DCDN</strong>实现了，至于后面有什么坑再说啦～</p>
+<p><strong>&mdash;END</strong></p>
 ]]></content>
         </item>
         

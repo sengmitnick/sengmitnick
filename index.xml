@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 May 2022 03:31:55 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jun 2022 07:15:16 +0000</lastBuildDate><atom:link href="https://sengmitnick.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>时隔三年，我又回来了～</title>
       <link>https://sengmitnick.com/blog/300/</link>
@@ -62,6 +62,17 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;废话少说，这里基于 &lt;a href=&#34;https://fooleap.org&#34;&gt;fooleap&lt;/a&gt; 的 &lt;a href=&#34;https://github.com/fooleap/disqus-php-api&#34;&gt;disqus-php-api&lt;/a&gt; 对Hexo中的NexT主题进行兼容。&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>小米平板1刷 LineageOS 16.0 教程</title>
+      <link>https://sengmitnick.com/blog/356/</link>
+      <pubDate>Tue, 07 Jun 2022 07:15:16 +0000</pubDate>
+      
+      <guid>https://sengmitnick.com/blog/356/</guid>
+      <description> 本文只针对于小米平板1升级 lineageOS 16.0，其他版本可参考：https://www.jianshu.com/p/71aa0f22b466
+ 刷机文件下载 下载地址： 百度网盘：链接: https://pan.baidu.com/s/19jRRlYPdHOBsDp9wFoC9YA 提取码: ukcw
+文件说明：  lineage-16.0-20200419-UNOFFICIAL-mocha.zip: lineageOS 系统文件，原版下载地址：lineage-16.0-20200419-UNOFFICIAL-mocha.zip mocha_repartition_1_2GB_RahulTheVirus.zip: 分区合并工具(这个文件很关键，很多合并分区文件都是旧版本，会导致刷机失败)，原版下载地址：mocha_repartition_1_2GB_RahulTheVirus.zip recovery-03.11.2018.zip：recovery镜像，原版下载地址：recovery-03.11.2018.zip tos.zip：底层镜像，原版下载地址：TosForPSCI-0.1.zip twrp-3.4.0-0-mocha.zip： TWRP recovery 文件，原版下载地址： twrp-3.4.0-0-mocha.zip LRbox.zip：线刷工具，内置 adb 和 fastboot 工具  </description>
     </item>
     
     <item>
@@ -164,20 +175,6 @@ https://gitee.com/pxx-design/pxx-design/commit/2cbf741560cab34ac4724af2fecb1934c
    💡 Tips: 目前只是在文档里规范了开发人员的规则，后续研究通过编译或eslint的方式强行提示。
 打包工具的按需引入所引起的样式重复引入 该问题待解决，还没学到解决办法～
 END……</description>
-    </item>
-    
-    <item>
-      <title>TypeScript 使用宝典</title>
-      <link>https://sengmitnick.com/blog/333/</link>
-      <pubDate>Fri, 06 Aug 2021 10:27:06 +0800</pubDate>
-      
-      <guid>https://sengmitnick.com/blog/333/</guid>
-      <description>jsDoc 详细资料：https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
- is &amp;amp; typeof https://www.typescriptlang.org/docs/handbook/advanced-types.html#typeof-type-guards https://www.typescriptlang.org/docs/handbook/advanced-types.html#instanceof-type-guards
-非空断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
-// Compiled with --strictNullChecks function validateEntity(e?: Entity) {  // Throw exception if e is null or invalid entity } function processEntity(e?: Entity) {  validateEntity(e);  let s = e!.name; // Assert that e is non-null and access name } const 断言 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
-应用场景：自定义 hook 可以用得比较多， React.useState 就是如此
-const useFlag = (initialValue = false) =&amp;gt; {  const [flag, setFlag] = React.</description>
     </item>
     
   </channel>
