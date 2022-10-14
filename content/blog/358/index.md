@@ -19,9 +19,9 @@ toc: true
 
 ## 安装 Nginx
 
-[1024Code](https://1024code.com/) 安装软件通过 [NixOS](https://nixos.org/) 进行安装，所以第一步最简单就是通过 `pkgs.nginx` 安装了，但是成功安装后，却发现 nginx 的安装路径在 /nix/store/ 下，而当前用户无法修改里面的文件，导致无法修改 nginx 的配置。
+[1024Code](https://1024code.com/) 安装软件通过 [NixOS](https://nixos.org/) 进行安装，所以第一步最简单就是通过 `pkgs.nginx` 安装了，但是成功安装后，却发现 `nginx` 的安装路径在 `/nix/store/` 下，而当前用户无法修改里面的文件，导致无法修改 `nginx` 的配置。
 
-于是想到通过源码安装 nginx 。首先需要安装依赖环境，通过修改 app目录 下的 .1024nix 然后 nix-shell .1024nix 即可。以下是 .1024nix 文件部分内容。
+于是想到通过源码安装 `nginx` 。首先需要安装依赖环境，通过修改 `app目录` 下的 `.1024nix` 然后 `nix-shell .1024nix` 即可。以下是 `.1024nix` 文件部分内容。
 
 ```py
 { pkgs ? import <nixpkgs> {} }:
@@ -44,7 +44,7 @@ pkgs.mkShell {
 }
 ```
 
-为什么要源码安装 nginx 呢？因为我们可以通过 configure 指定 nginx 的安装路径呀，以下是安装过程的shell命令～
+为什么要源码安装 `nginx` 呢？因为我们可以通过 `configure` 指定 `nginx` 的安装路径呀，以下是安装过程的shell命令～
 
 ```sh
 nix-shell .1024nix
@@ -67,7 +67,7 @@ cd nginx-1.23.1
 make && make install
 ```
 
-安装完成后，即可以通过命令行启动 niginx 啦～
+安装完成后，即可以通过命令行启动 `niginx` 啦～
 
 ```sh
 #启动
@@ -80,7 +80,7 @@ make && make install
 
 ## 安装 FastCGI 环境
 
-需要我们基于C++写的CGI程序实例可以运行，并通过 niginx 访问，还需要搭建 FastCGI ，这里需要 spawn_fcgi 和 fcgiwrap，都可以通过nix安装啦～
+需要我们基于C++写的CGI程序实例可以运行，并通过 `niginx` 访问，还需要搭建 `FastCGI` ，这里需要 `spawn_fcgi` 和 `fcgiwrap`，都可以通过nix安装啦～
 
 ```py
 { pkgs ? import <nixpkgs> {} }:
@@ -106,7 +106,7 @@ pkgs.mkShell {
 }
 ```
 
-2.然后修改 nginx.conf ，添加对 cgi 的 解析：
+2.然后修改 `nginx.conf` ，添加对 `cgi` 的解析：
 
 ```sh
 # ...
@@ -125,7 +125,7 @@ http {
 }
 ```
 
-3.启动 fcgiwrap 即可啦～
+3.启动 `fcgiwrap` 即可啦～
 
 ```sh
 spawn-fcgi -f fcgiwrap -p 9000
@@ -154,17 +154,17 @@ int main(void)
 }
 ```
 
-2.然后通过g++编译成可执行文件发到html下即可。
+2.然后通过`g++`编译成可执行文件发到`html`下即可。
 
 ```sh
 g++ demo.cpp -o /home/runner/app/nginx/html/demo.cgi -lfcgi
 ```
 
-3.访问 <host>/demo.cgi 即可看到我们写的内容啦～
+3.访问 `<host>/demo.cgi` 即可看到我们写的内容啦～
 
 ## 优化启动命令
 
-1.目前 fcgiwrap 只有启动命令，如果重启还需要通过 ps 参考对应进程号，在通过 kill 干掉。那么我们是否可以通过shell，弄一个类似 nginx 的这种模式呢？以下是我的实现：
+1.目前 `fcgiwrap` 只有启动命令，如果重启还需要通过 `ps` 参考对应进程号，在通过 `kill` 干掉。那么我们是否可以通过shell，弄一个类似 `nginx` 的这种模式呢？以下是我的实现：
 
 ```sh
 # fcgi.sh
@@ -213,7 +213,7 @@ esac
 exit 0
 ```
 
-2.现在即可通过命令行启动停止 fcgiwrap 啦～
+2.现在即可通过命令行启动停止 `fcgiwrap` 啦～
 
 ```sh
 #启动
@@ -224,7 +224,7 @@ sh /home/runner/app/fcgi.sh stop
 sh /home/runner/app/fcgi.sh restart
 ```
 
-3.基于pid文件是否存在来判断 fcgiwrap 和 nginx 是否运行，就可以做一个启动命令，绑定到 运行 按钮下
+3.基于pid文件是否存在来判断 `fcgiwrap` 和 `nginx` 是否运行，就可以做一个启动命令，绑定到 运行 按钮下
 
 ```sh
 # main.sh
