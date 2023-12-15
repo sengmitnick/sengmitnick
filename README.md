@@ -5,6 +5,8 @@
 [![Responsibility](https://forthebadge.com/images/badges/powered-by-responsibility.svg)](https://forthebadge.com)
 [![You](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
 
+
+![Profile Views](https://komarev.com/ghpvc/?username=sengmitnick)
 ---
 
 [![个人博客](https://img.shields.io/badge/-Seng%20Mitnick-9cf?logoColor=white&label=%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2)](https://sengmitnick.com/)
