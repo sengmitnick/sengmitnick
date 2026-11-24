@@ -1,21 +1,32 @@
-### Seng Mitnick
+# Hi, I'm Seng / 张润胜 👋
 
-[![1993](https://forthebadge.com/images/badges/ages-18.svg)](https://forthebadge.com)
-[![Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![Responsibility](https://forthebadge.com/images/badges/powered-by-responsibility.svg)](https://forthebadge.com)
-[![You](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
+I build AI-native products at the intersection of **agents, wearable interfaces, and reliable software delivery**.
 
+我在做 AI Agent、Rokid AI 眼镜与桌面工具，把想法推进到可验证、可交付的产品。
 
-![Profile Views](https://komarev.com/ghpvc/?username=sengmitnick)
----
+## What I build
 
-[![个人博客](https://img.shields.io/badge/-Seng%20Mitnick-9cf?logoColor=white&label=%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2)](https://sengmitnick.com/)
-[![Wechat](https://img.shields.io/badge/-%E5%A4%A7%E8%83%9C%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-07c160?logo=wechat&logoColor=white&label=%E5%85%AC%E4%BC%97%E5%8F%B7)](https://open.weixin.qq.com/qr/code?username=smk17_shop)
-[![知乎](https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-%E6%88%91%E6%98%AF%E5%B0%8F%E8%83%9C%E5%91%80-1e80ff?logo=bytedance)](https://www.zhihu.com/people/smk17)
-[![](https://img.shields.io/github/stars/sengmitnick?affiliations=OWNER%2CCOLLABORATOR%2CORGANIZATION_MEMBER&style=social)]()
-[![](https://img.shields.io/github/followers/sengmitnick?style=social)]()
+- **Wearable AI** — AIUI experiences for Rokid Glasses, including IMU interaction, voice, Bluetooth LE, and glanceable spatial interfaces.
+- **Agent workflows** — Codex skills and automation that turn repeatable product work into reusable systems.
+- **Delivery engineering** — full-stack products, cross-platform packaging, signing, notarization, and release verification.
 
-Hi, I'm SengMitnick, a front-end developer in 🇨🇳ShenZhen.
-- 🔭 I’m currently working on [1024Code](https://1024code.com/)
-- 🌱 I’m currently learning Next.js
-- 📫 How to reach me: `echo "c2VuZ21pdG5pY2tAMTYzLmNvbQo=" | base64 -d`
+## Selected projects
+
+| Project | What it does |
+| --- | --- |
+| [Rhythm Go!](https://github.com/sengmitnick/rhythm-jump) | A full-body rhythm game for Rokid AI glasses, combining head-mounted IMU inference with a Lingzhu-backed shared leaderboard. |
+| [Codex Pet Link](https://github.com/sengmitnick/codex-pet-link) | A local Bluetooth LE bridge that turns Codex task activity into a wearable cyber-pet status display. |
+| [Rokid Lingzhu Backend](https://github.com/sengmitnick/rokid-lingzhu-backend) | A Codex skill for wiring and debugging Lingzhu workflows, streaming responses, and cross-account leaderboards. |
+| [SengClaw Builder](https://github.com/sengmitnick/sengclaw-builder) | Public release infrastructure for macOS and Windows desktop apps, including signing, notarization, and artifact verification. |
+
+I care about reproducible tests, explicit validation boundaries, and release pipelines that can be audited.
+
+## Tools I work with
+
+`JavaScript / TypeScript` · `Python` · `Swift` · `Node.js` · `Rokid AIUI` · `Codex` · `GitHub Actions`
+
+## Connect
+
+[知乎](https://www.zhihu.com/people/smk17) · [微信公众号：大胜和他的朋友们](https://open.weixin.qq.com/qr/code?username=smk17_shop)
+
+Email: `echo "c2VuZ21pdG5pY2tAMTYzLmNvbQo=" | base64 -d`
